@@ -11,6 +11,9 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body class="antialiased bg-zinc-900 text-white">
         <nav class="border-b border-zinc-800">
