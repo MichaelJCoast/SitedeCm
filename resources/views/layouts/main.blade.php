@@ -35,12 +35,12 @@
                     <div class="ml-4">
                     @if (Route::has('login'))
                     @auth
-                        <a href="{{ url('/dashboard') }}" class="text-gray-200">{{ Auth::user()->name }}</a>
+                        <a href="{{ url('/dashboard') }}" class="text-gray-200 hover:text-red-300">{{ Auth::user()->name }}</a>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-500">Log in</a>
+                        <a href="{{ route('login') }}" class="text-sm text-gray-500 hover:text-red-300">Log in</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-500">Register</a>
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-500 hover:text-red-300">Register</a>
                         @endif
                     @endauth
             @endif
