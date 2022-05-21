@@ -33,9 +33,17 @@
                 </ul>
                 <div class="flex items-center">
                     <div class="ml-4">
-                        <a href="#">
-                        <svg class="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
-                        </a>
+                    @if (Route::has('login'))
+                    @auth
+                        <a href="{{ url('/dashboard') }}" class="text-gray-200">{{ Auth::user()->name }}</a>
+                    @else
+                        <a href="{{ route('login') }}" class="text-sm text-gray-500">Log in</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-500">Register</a>
+                        @endif
+                    @endauth
+            @endif
                     </div>
                 </div>
             </div>
