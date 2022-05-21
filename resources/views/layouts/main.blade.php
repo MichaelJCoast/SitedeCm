@@ -20,12 +20,12 @@
             <div class="container mx-auto flex items-center justify-between px-4 py-6">
                 <ul class="flex items-center">
                     <li>
-                        <a href="#">
+                        <a href="/laravel">
                             Logo
                         </a>
                     </li>
                     <li class="ml-16">
-                        <a href="#" class="hover:text-red-300">Equipa</a>
+                        <a href="/laravel/equipa" class="hover:text-red-300">Equipa</a>
                     </li>
                     <li class="ml-16">
                         <a href="#" class="hover:text-red-300">Merch</a>
