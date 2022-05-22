@@ -39,13 +39,10 @@ class MemberCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-       
-        CRUD::column('image');
         CRUD::column('name');
         CRUD::column('department');
         CRUD::column('role');
-        CRUD::column('created_at');
-        CRUD::column('updated_at');
+        CRUD::column('image');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -64,12 +61,10 @@ class MemberCrudController extends CrudController
     {
         CRUD::setValidation(MemberRequest::class);
         
-        CRUD::field('image');
         CRUD::field('name');
         CRUD::field('department');
         CRUD::field('role');
-        CRUD::field('created_at');
-        CRUD::field('updated_at');
+        CRUD::field('image');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
