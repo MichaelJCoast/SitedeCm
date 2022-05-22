@@ -1,4 +1,4 @@
-<div x-data="carousel()" class="carousel-call-to-action pb-12 w-max">
+<div x-data="carousel()" class="carousel-call-to-action pb-12">
         <div id="default-carousel" class="relative" data-carousel="slide">
     <!-- Carousel wrapper -->
     <div class="overflow-hidden relative h-56 sm:h-64 xl:h-80 2xl:h-96">
