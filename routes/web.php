@@ -15,7 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 /* Main Page */
 Route::get('/', function () {
-    $post = DB::table('posts')->get();
+    $post = DB::table('posts')
+    ->orderBy('published_at', 'desc')
+    ->take(5)
+    ->get();
     return view('index', ['post' => $post]);
 });
 
