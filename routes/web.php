@@ -20,7 +20,8 @@ Route::get('/', function () {
 
 /* Equipa */
 Route::get('/equipa', function () {
-    return view('member');
+    $team = DB::table('members')->get();
+    return view('member',['team' => $team]);
 });
 
 Route::get('/dashboard', function () {
