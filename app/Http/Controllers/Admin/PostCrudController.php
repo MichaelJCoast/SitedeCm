@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\ArticleRequest;
+use App\Http\Requests\PostRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class ArticleCrudController
+ * Class PostCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class ArticleCrudController extends CrudController
+class PostCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -26,9 +26,9 @@ class ArticleCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Article::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/article');
-        CRUD::setEntityNameStrings('article', 'articles');
+        CRUD::setModel(\App\Models\Post::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/post');
+        CRUD::setEntityNameStrings('post', 'posts');
     }
 
     /**
@@ -39,15 +39,12 @@ class ArticleCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        
-        CRUD::column('id');
-        CRUD::column('name');
+        CRUD::column('title');
         CRUD::column('body');
         CRUD::column('slug');
-        CRUD::column('image');
         CRUD::column('category');
-        CRUD::column('created_at');
-        CRUD::column('updated_at');
+        CRUD::column('published_at');
+        CRUD::column('image');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -64,16 +61,14 @@ class ArticleCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(ArticleRequest::class);
+        CRUD::setValidation(PostRequest::class);
 
-        CRUD::column('id');
-        CRUD::column('name');
-        CRUD::column('body')->type('summernote');
-        CRUD::column('slug');
-        CRUD::column('image');
-        CRUD::column('category');
-        CRUD::column('created_at');
-        CRUD::column('updated_at');
+        CRUD::field('title');
+        CRUD::field('body')->type('summernote');
+        CRUD::field('slug');
+        CRUD::field('category');
+        CRUD::field('published_at');
+        CRUD::field('image');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

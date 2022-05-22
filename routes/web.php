@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 /* Main Page */
 Route::get('/', function () {
-    return view('index');
+    $post = DB::table('posts')->get();
+    return view('index', ['post' => $post]);
 });
 
 /* Equipa */
@@ -34,6 +35,6 @@ Route::get('/merch', function () {
     return view('merch');
     });
 
-    Route::get('/links', function () {
-        return view('links');
-        });
+Route::get('/links', function () {
+    return view('links');
+    });
