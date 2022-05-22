@@ -1223,6 +1223,10 @@ select {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
 }
+.py-24 {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
 .pt-8 {
   padding-top: 2rem;
 }
@@ -1273,6 +1277,15 @@ select {
 }
 .pb-16 {
   padding-bottom: 4rem;
+}
+.pb-12 {
+  padding-bottom: 3rem;
+}
+.pr-0 {
+  padding-right: 0px;
+}
+.pl-1 {
+  padding-left: 0.25rem;
 }
 .text-center {
   text-align: center;
@@ -1863,6 +1876,11 @@ select {
   .sm\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+
+  .sm\:py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   .sm\:pt-0 {

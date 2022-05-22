@@ -39,9 +39,13 @@ class ArticleCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        
         CRUD::column('id');
         CRUD::column('name');
+        CRUD::column('body');
         CRUD::column('slug');
+        CRUD::column('image');
+        CRUD::column('category');
         CRUD::column('created_at');
         CRUD::column('updated_at');
 
@@ -62,11 +66,14 @@ class ArticleCrudController extends CrudController
     {
         CRUD::setValidation(ArticleRequest::class);
 
-        CRUD::field('id');
-        CRUD::field('name');
-        CRUD::field('slug');
-        CRUD::field('created_at');
-        CRUD::field('updated_at');
+        CRUD::column('id');
+        CRUD::column('name');
+        CRUD::column('body');
+        CRUD::column('slug');
+        CRUD::column('image');
+        CRUD::column('category');
+        CRUD::column('created_at');
+        CRUD::column('updated_at');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
