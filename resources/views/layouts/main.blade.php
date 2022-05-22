@@ -31,7 +31,7 @@
                         <a href="/laravel/merch" class="font-semibold transition ease-in-out hover:text-red-300">Merch</a>
                     </li>
                     <li class="ml-16">
-                        <a href="#" class="font-semibold transition ease-in-out hover:text-red-300">Links</a>
+                        <a href="/laravel/links" class="font-semibold transition ease-in-out hover:text-red-300">Links</a>
                     </li>
                 </ul>
                 <div class="flex items-center">

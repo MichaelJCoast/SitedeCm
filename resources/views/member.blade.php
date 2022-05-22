@@ -6,6 +6,5 @@
 hELLO
 
 
-
 @include('layouts.footer')
 @endsection
