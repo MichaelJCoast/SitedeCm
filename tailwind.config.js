@@ -8,7 +8,7 @@ module.exports = {
         './resources/views/*.blade.php',
     ],
     
-    darkMode: false,
+    media: false,
 
     theme: {
         extend: {
