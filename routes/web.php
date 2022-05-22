@@ -33,3 +33,7 @@ require __DIR__.'/auth.php';
 Route::get('/merch', function () {
     return view('merch');
     });
+
+    Route::get('/links', function () {
+        return view('links');
+        });
