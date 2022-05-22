@@ -2,6 +2,7 @@
 @section('content')
 
 
+@section('content')
 hELLO
 
 
