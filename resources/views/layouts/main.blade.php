@@ -28,7 +28,7 @@
                         <a href="/laravel/equipa" class="hover:text-red-300">Equipa</a>
                     </li>
                     <li class="ml-16">
-                        <a href="#" class="hover:text-red-300">Merch</a>
+                        <a href="/laravel/merch" class="hover:text-red-300">Merch</a>
                     </li>
                     <li class="ml-16">
                         <a href="#" class="hover:text-red-300">Links</a>
