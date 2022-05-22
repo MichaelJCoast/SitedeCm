@@ -68,7 +68,7 @@ class ArticleCrudController extends CrudController
 
         CRUD::column('id');
         CRUD::column('name');
-        CRUD::column('body');
+        CRUD::column('body')->type('summernote');
         CRUD::column('slug');
         CRUD::column('image');
         CRUD::column('category');
