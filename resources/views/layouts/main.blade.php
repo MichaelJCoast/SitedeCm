@@ -11,6 +11,7 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}">
+        <link rel="icon" href="{{ url('css/cm-icon.svg') }}">
 
         <!-- Scripts -->
         <script src="{{ asset(mix('js/app.js')) }}" defer></script>
