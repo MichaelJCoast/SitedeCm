@@ -30,6 +30,14 @@ Route::get('/equipa', function () {
     return view('member',['team' => $team]);
 });
 
+/* Links */
+Route::get('/links', function () {
+    $link = DB::table('links')
+    ->latest()
+    ->get();
+    return view('links', ['link' => $link]);
+    });
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
@@ -38,8 +46,4 @@ require __DIR__.'/auth.php';
 
 Route::get('/merch', function () {
     return view('merch');
-    });
-
-Route::get('/links', function () {
-    return view('links');
     });
