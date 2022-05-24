@@ -24,7 +24,9 @@ Route::get('/', function () {
 
 /* Equipa */
 Route::get('/equipa', function () {
-    $team = DB::table('members')->get();
+    $team = DB::table('members')
+    ->orderBy('department', 'desc')
+    ->get();
     return view('member',['team' => $team]);
 });
 
