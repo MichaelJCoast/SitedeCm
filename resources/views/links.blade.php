@@ -1,26 +1,9 @@
 @extends('layouts.main')
 @section('content')
-
-
-
-<div class="pt-10 px-20 flex justify-center items-center w-screen">
-<button class="bg-white hover:bg-gray-500 text-gray-800 font-semibold py-4 w-full border border-gray-400 rounded-3xl shadow">
-  Instagram
+<div class="container mx-auto flex items-center justify-between px-96 py-6">
+<button type="button" class="py-2 px-4 bg-black border border-white hover:bg-red-700 text-white w-full h-12 transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg ">
+    Inscrições - Jantar de Curso 2022
 </button>
 </div>
-
-<div class="pt-10 px-20 flex justify-center items-center w-screen">
-<button class="bg-white hover:bg-gray-500 text-gray-800 font-semibold py-4 w-full border border-gray-400 rounded-3xl shadow">
-  Twitter
-</button>
-</div>
-
-<div class="pt-10 px-20 flex justify-center items-center w-screen">
-<button class="bg-white hover:bg-gray-500 text-gray-800 font-semibold py-4 w-full border border-gray-400 rounded-3xl shadow">
-  Youtube
-</button>
-</div>
-
-
 @include('layouts.footer')
 @endsection
