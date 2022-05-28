@@ -62,37 +62,8 @@ class MemberCrudController extends CrudController
         CRUD::setValidation(MemberRequest::class);
         
         CRUD::field('name');
-        CRUD::addField([   
-            'name'      => 'department',
-            'label'     => 'Department',
-            'type'        => 'select_from_array',
-            'options'     => [
-        // the key will be stored in the db, the value will be shown as label;
-         "Presidência" => "Presidência" ,
-        "Mesa de Assembleia" => "Mesa de Assembleia",
-        "Dep. Tecnologia" => "Dep. Tecnologia",
-         "Dep. Comunicação e Imagem" => "Dep. Comunicação e Imagem",
-         "Dep. Recreativo e Cultural" => "Dep. Recreativo e Cultural",
-         "Dep. Marketing" => "Dep. Marketing"
-
-    ],
-    ]);
-    CRUD::addField([   
-        'name'      => 'role',
-        'label'     => 'Role',
-        'type'        => 'select_from_array',
-        'options'     => [
-    // the key will be stored in the db, the value will be shown as label;
-     "Presidente" => "Presidente" ,
-    "Vice-Presidente" => "Vice-Presidente",
-   
-
-],
-]);
-      
-
-
-      //CRUD::field('role');
+        CRUD::field('department');
+        CRUD::field('role');
         CRUD::field('image');
 
         /**
