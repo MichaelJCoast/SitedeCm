@@ -7,4 +7,4 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('merch') }}'><i class='nav-icon la la-tshirt'></i> Merch</a></li>
 <li class='nav-title'>Blog</li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('post') }}'><i class='nav-icon la la-blog'></i> Posts</a></li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('link') }}'><i class='nav-icon la la-question'></i> Links</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('link') }}'><i class='nav-icon la la-link'></i> Links</a></li>
