@@ -41,8 +41,7 @@ class DepartmentCrudController extends CrudController
     {
         
         CRUD::column('name');
-        CRUD::column('created_at');
-        CRUD::column('updated_at');
+      
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -63,8 +62,7 @@ class DepartmentCrudController extends CrudController
 
         
         CRUD::field('name');
-        CRUD::field('created_at');
-        CRUD::field('updated_at');
+     
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

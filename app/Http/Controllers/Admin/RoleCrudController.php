@@ -41,8 +41,7 @@ class RoleCrudController extends CrudController
     {
         
         CRUD::column('type');
-        CRUD::column('created_at');
-        CRUD::column('updated_at');
+     
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -63,8 +62,7 @@ class RoleCrudController extends CrudController
 
         
         CRUD::field('type');
-        CRUD::field('created_at');
-        CRUD::field('updated_at');
+       
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
