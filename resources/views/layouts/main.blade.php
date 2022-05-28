@@ -18,14 +18,14 @@
 </head>
 
 <body class="antialiased bg-zinc-900 text-white">
-    <nav x-data="{isOpen: false}" class="border-b border-zinc-700">
+    <nav x-data="{isOpen: false}" class="bg-black border-b border-zinc-700">
         <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
             <div class="relative flex items-center justify-between">
                 <div class="flex items-center">
                     <a href="/laravel" aria-label="Logo" title="Logo" class="mr-8">
                     <p>logo</p>
                     </a>
-                    <ul class="flex items-center space-x-8 lg:flex">
+                    <ul class="hidden items-center space-x-8 lg:flex">
                         <li><a href="equipa" aria-label="A nossa equipa" title="A nossa equipa"
                                 class="font-semibold transition ease-in-out hover:text-red-300">Equipa</a>
                         </li>
@@ -37,15 +37,20 @@
                         </li>
                     </ul>
                 </div>
-                <ul class="flex items-center space-x-8 lg:flex">
+                <ul class="hidden items-center space-x-8 lg:flex">
                 @if (Route::has('login'))
                     @auth
+                    <li>
                         <a href="{{ url('/dashboard') }}" class="tracking-wide text-gray-200 hover:text-red-300">{{ Auth::user()->name }}</a>
+                    </li>
                     @else
-                        <a href="{{ route('login') }}" class="tracking-wide text-sm text-gray-500 hover:text-red-300">Log in</a>
-
+                        <li>
+                            <a href="{{ route('login') }}" class="tracking-wide text-sm text-gray-500 hover:text-red-300">Log in</a>
+                        </li>
                         @if (Route::has('register'))
+                        <li>
                             <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-500 hover:text-red-300">Register</a>
+                        </li>
                         @endif
                     @endauth
             @endif
@@ -63,22 +68,16 @@
                                 d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"></path>
                         </svg>
                     </button>
-        <div class="absolute top-0 left-0 w-full" x-show="isOpen" @click.away=" isOpen = false">
+        <div class="absolute top-0 left-0 w-full" x-show="isOpen" @click.away="isOpen = false">
           <div class="p-5 bg-zinc-900 border rounded shadow-sm">
             <div class="flex items-center justify-between mb-4">
               <div>
-                <a href="/" aria-label="Company" title="Company" class="inline-flex items-center">
-                  <svg class="w-8 text-deep-purple-accent-400" viewBox="0 0 24 24" stroke-linejoin="round" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" stroke="currentColor" fill="none">
-                    <rect x="3" y="1" width="7" height="12"></rect>
-                    <rect x="3" y="17" width="7" height="6"></rect>
-                    <rect x="14" y="1" width="7" height="6"></rect>
-                    <rect x="14" y="11" width="7" height="12"></rect>
-                  </svg>
-                  <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">Company</span>
+                <a href="/laravel" aria-label="NECM" title="NECM" class="inline-flex items-center">
+                  <span class="text-xl font-bold tracking-wide uppercase">NECM</span>
                 </a>
               </div>
               <div>
-                <button aria-label="Close Menu" title="Close Menu" class="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                <button type="submit" @click="isOpen = !isOpen" aria-label="Close Menu" title="Close Menu" class="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                   <svg class="w-5 text-gray-600" viewBox="0 0 24 24">
                     <path
                       fill="currentColor"
@@ -90,21 +89,25 @@
             </div>
             <nav>
               <ul class="space-y-4">
-                <li><a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Product</a></li>
-                <li><a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Features</a></li>
-                <li><a href="/" aria-label="Product pricing" title="Product pricing" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Pricing</a></li>
-                <li><a href="/" aria-label="About us" title="About us" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">About us</a></li>
-                <li><a href="/" aria-label="Sign in" title="Sign in" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Sign in</a></li>
-                <li>
-                  <a
-                    href="/"
-                    class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                    aria-label="Sign up"
-                    title="Sign up"
-                  >
-                    Sign up
-                  </a>
-                </li>
+                <li><a href="equipa" class="font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400">Equipa</a></li>
+                <li><a href="merch" class="font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400">Merch</a></li>
+                <li><a href="links" class="font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400">Links</a></li>
+                @if (Route::has('login'))
+                    @auth
+                    <li>
+                        <a href="{{ url('/dashboard') }}" class="tracking-wide text-gray-200 hover:text-red-300">{{ Auth::user()->name }}</a>
+                    </li>
+                    @else
+                        <li>
+                            <a href="{{ route('login') }}" class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-sm text-gray-500 hover:text-red-300">Log in</a>
+                        </li>
+                        @if (Route::has('register'))
+                        <li>
+                            <a href="{{ route('register') }}" class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-sm text-gray-500 hover:text-red-300">Register</a>
+                        </li>
+                        @endif
+                    @endauth
+            @endif
               </ul>
             </nav>
           </div>
