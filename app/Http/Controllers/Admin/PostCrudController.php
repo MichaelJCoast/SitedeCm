@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\PostRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use App\Models\Post;
 
 /**
  * Class PostCrudController
@@ -86,5 +87,12 @@ class PostCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    protected function show(Post $post)
+    {
+        return view('blog', [
+            'post' => $post
+        ]);
     }
 }

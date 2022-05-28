@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\PostCrudController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,9 @@ Route::get('/merch/product', function () {
     ->get();
     return view('product', ['merch' => $merch]);
     });
+
+/* Post */
+Route::get('blog/{post:slug}', [PostCrudController::class, 'show']);
 
 /* Links */
 Route::get('/links', function () {
