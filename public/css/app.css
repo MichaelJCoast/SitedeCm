@@ -1179,13 +1179,29 @@ select {
 .stroke-2 {
   stroke-width: 2;
 }
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.object-fill {
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+.object-scale-down {
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+}
 .object-center {
   -o-object-position: center;
      object-position: center;
+}
+.object-top {
+  -o-object-position: top;
+     object-position: top;
 }
 .p-6 {
   padding: 1.5rem;
@@ -1204,6 +1220,12 @@ select {
 }
 .p-1\.5 {
   padding: 0.375rem;
+}
+.p-9 {
+  padding: 2.25rem;
+}
+.p-8 {
+  padding: 2rem;
 }
 .px-4 {
   padding-left: 1rem;
@@ -1327,6 +1349,15 @@ select {
 }
 .pb-8 {
   padding-bottom: 2rem;
+}
+.pb-\[58\%\] {
+  padding-bottom: 58%;
+}
+.pb-\[72\%\] {
+  padding-bottom: 72%;
+}
+.pb-\[100\%\] {
+  padding-bottom: 100%;
 }
 .text-left {
   text-align: left;
