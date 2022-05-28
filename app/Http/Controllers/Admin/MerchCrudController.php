@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\PostRequest;
+use App\Http\Requests\MerchRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-use App\Models\Post;
 
 /**
- * Class PostCrudController
+ * Class MerchCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class PostCrudController extends CrudController
+class MerchCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -27,9 +26,9 @@ class PostCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Post::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/post');
-        CRUD::setEntityNameStrings('post', 'posts');
+        CRUD::setModel(\App\Models\Merch::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/merch');
+        CRUD::setEntityNameStrings('merch', 'merches');
     }
 
     /**
@@ -40,12 +39,13 @@ class PostCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('title');
-        CRUD::column('body');
-        CRUD::column('slug');
-        CRUD::column('category');
-        CRUD::column('published_at');
-        CRUD::column('image');
+        CRUD::column('name');
+        CRUD::column('photo');
+        CRUD::column('price');
+        CRUD::column('size');
+        CRUD::column('quantity');
+
+
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -62,14 +62,13 @@ class PostCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(PostRequest::class);
+        CRUD::field('name');
+        CRUD::field('photo');
+        CRUD::field('price');
+        CRUD::field('size');
+        CRUD::field('quantity');
 
-        CRUD::field('title');
-        CRUD::field('body')->type('summernote');
-        CRUD::field('slug');
-        CRUD::field('category');
-        CRUD::field('published_at');
-        CRUD::field('image');
+        
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
@@ -87,12 +86,5 @@ class PostCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
-    }
-
-    protected function show(Post $post)
-    {
-        return view('blog', [
-            'post' => $post
-        ]);
     }
 }
