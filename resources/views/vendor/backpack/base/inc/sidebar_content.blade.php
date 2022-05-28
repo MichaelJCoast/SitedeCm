@@ -8,3 +8,8 @@
 <li class='nav-title'>Blog</li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('post') }}'><i class='nav-icon la la-blog'></i> Posts</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('link') }}'><i class='nav-icon la la-question'></i> Links</a></li>
+
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('department') }}'><i class='nav-icon la la-question'></i> Departments</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('role') }}'><i class='nav-icon la la-question'></i> Roles</a></li>
+
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('equipa') }}'><i class='nav-icon la la-question'></i> Equipas</a></li>

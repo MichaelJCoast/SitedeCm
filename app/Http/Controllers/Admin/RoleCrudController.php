@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\MemberRequest;
+use App\Http\Requests\RoleRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class MemberCrudController
+ * Class RoleCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class MemberCrudController extends CrudController
+class RoleCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -26,9 +26,9 @@ class MemberCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Member::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/member');
-        CRUD::setEntityNameStrings('NECM Member', 'NECM Members');
+        CRUD::setModel(\App\Models\Role::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/role');
+        CRUD::setEntityNameStrings('role', 'roles');
     }
 
     /**
@@ -39,10 +39,10 @@ class MemberCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('name');
-        CRUD::column('department');
-        CRUD::column('role');
-        CRUD::column('image');
+        
+        CRUD::column('type');
+        CRUD::column('created_at');
+        CRUD::column('updated_at');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -57,44 +57,14 @@ class MemberCrudController extends CrudController
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
-    
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(MemberRequest::class);
+        CRUD::setValidation(RoleRequest::class);
+
         
-        CRUD::field('name');
-        CRUD::addField([   
-            'name'      => 'department',
-            'label'     => 'Department',
-            'type'        => 'select_from_array',
-            'options'     => [
-        // the key will be stored in the db, the value will be shown as label;
-         "Presidência" => "Presidência" ,
-        "Mesa de Assembleia" => "Mesa de Assembleia",
-        "Dep. Tecnologia" => "Dep. Tecnologia",
-         "Dep. Comunicação e Imagem" => "Dep. Comunicação e Imagem",
-         "Dep. Recreativo e Cultural" => "Dep. Recreativo e Cultural",
-         "Dep. Marketing" => "Dep. Marketing"
-
-    ],
-    ]);
-    CRUD::addField([   
-        'name'      => 'role',
-        'label'     => 'Role',
-        'type'        => 'select_from_array',
-        'options'     => [
-    // the key will be stored in the db, the value will be shown as label;
-     "Presidente" => "Presidente" ,
-    "Vice-Presidente" => "Vice-Presidente",
-   
-
-],
-]);
-      
-
-
-      //CRUD::field('role');
-        CRUD::field('image');
+        CRUD::field('type');
+        CRUD::field('created_at');
+        CRUD::field('updated_at');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
