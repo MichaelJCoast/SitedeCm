@@ -24,10 +24,13 @@ Route::get('/', function () {
 
 /* Equipa */
 Route::get('/equipa', function () {
-    $team = DB::table('members')
-    ->orderBy('department', 'desc')
+    $team = DB::table('equipa')
+    ->orderBy('dep_id', 'ASC')
     ->get();
-    return view('member',['team' => $team]);
+    $dep = DB::table('departments')
+    ->orderBy('id', 'ASC')
+    ->get();
+    return view('member',compact(['team' ,'dep']));
 });
 
 /* Merch */

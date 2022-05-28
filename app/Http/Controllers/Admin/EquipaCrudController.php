@@ -18,7 +18,7 @@ class EquipaCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
-
+  
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      * 
@@ -47,8 +47,8 @@ class EquipaCrudController extends CrudController
     {
         CRUD::column('nome');
         CRUD::column('image');
-        CRUD::column('Department');
         CRUD::column('Role');
+        CRUD::column('Department');
      
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -71,27 +71,22 @@ class EquipaCrudController extends CrudController
             'label' => "Nome"
         ]);
 
-        CRUD::addField([
-            'name' => 'image',
-            'type' => 'text',
-            'label' => "Image"
-        ]);
-
-      
-        CRUD::addField([    // SELECT2
-            'name'          => 'dep_id',
-            'label'         => 'Department',
-            'type'          => 'select',
-            'placeholder'   => 'Select a Dep',
-            'entity'        => 'department',
-            'attribute'     => 'name',
-        
-           
+        CRUD::addField([   
+            'name'      => 'image',
+            'label'     => 'Image',
+            'type'      => 'upload',
+            'upload'    => true,
+            'disk'      => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
+            // optional:
+            'temporary' => 10 ,
             
+        
         ]);
+        
+
         CRUD::addField([    // SELECT2
             'name'          => 'role_id',
-            'label'         => 'Roles',
+            'label'         => 'Role',
             'type'          => 'select',
             'placeholder'   => 'Select a role',
             'entity'        => 'role',
@@ -99,6 +94,17 @@ class EquipaCrudController extends CrudController
            
             
         ]);
+        
+        CRUD::addField([    // SELECT2
+            'name'          => 'dep_id',
+            'label'         => 'Department',
+            'type'          => 'select',
+            'placeholder'   => 'Select a Dep',
+            'entity'        => 'department',
+            'attribute'     => 'name',
+            'model'     =>  'App\Models\Department',
+        ]);
+     
 
 
         /*

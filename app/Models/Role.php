@@ -22,7 +22,9 @@ class Role extends Model
     protected $fillable = ['type'];
     // protected $hidden = [];
     // protected $dates = [];
-
+    public function roles() {
+        return $this->belongsToMany('App\Models\Role')->withPivot('notes', 'some_other_field'); // `notes` and `some_other_field` are aditional fields in the pivot table that you plan to show in the form.
+    }
     /*
     |--------------------------------------------------------------------------
     | FUNCTIONS
@@ -39,6 +41,7 @@ class Role extends Model
     }
     
     /*
+    
     |--------------------------------------------------------------------------
     | RELATIONS
     |--------------------------------------------------------------------------
