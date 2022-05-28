@@ -9,11 +9,6 @@ if(!isset($_GET['id'])){}else{}
 
 @foreach($merch as $key => $data)
 
-<head>
-<script src="https://cdn.tailwindcss.com"></script>
-</head>
-
-
 <div class="flex text-base text-left transform transition w-full">
   <div class="w-full relative flex items-center px-4 pt-14 pb-8 overflow-hidden shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
       <div class="w-full grid grid-cols-1 gap-y-8 gap-x-6 items-start sm:grid-cols-12 lg:gap-x-8">   

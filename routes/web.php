@@ -30,16 +30,33 @@ Route::get('/equipa', function () {
     return view('member',['team' => $team]);
 });
 
+/* Merch */
+Route::get('/merch', function () {
+    $merch = DB::table('merch')
+    ->get();
+    return view('merch', ['merch' => $merch]);
+    });
+
+/* Product */
+Route::get('/merch/product', function () {
+    $merch = DB::table('merch')
+    ->whereIn('id', [$_GET['id']])
+    ->get();
+    return view('product', ['merch' => $merch]);
+    });
+
+/* Links */
+Route::get('/links', function () {
+    $link = DB::table('links')
+    ->latest()
+    ->get();
+    return view('links', ['link' => $link]);
+    });
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+
+
 require __DIR__.'/auth.php';
-
-Route::get('/merch', function () {
-    return view('merch');
-    });
-
-Route::get('/links', function () {
-    return view('links');
-    });
