@@ -17,7 +17,7 @@
         <script src="{{ asset(mix('js/app.js')) }}" defer></script>
     </head>
     <body class="antialiased bg-zinc-900 text-white">
-        <nav class="border-b border-zinc-700">
+        <nav class="bg-black border-b border-zinc-700">
             <div class="container mx-auto flex items-center justify-between px-4 py-6">
                 <ul class="flex items-center">
                     <li>
