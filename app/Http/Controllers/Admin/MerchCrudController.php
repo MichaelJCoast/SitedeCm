@@ -62,11 +62,11 @@ class MerchCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::column('name');
-        CRUD::column('photo');
-        CRUD::column('price');
-        CRUD::column('size');
-        CRUD::column('quantity');
+        CRUD::field('name');
+        CRUD::field('photo');
+        CRUD::field('price');
+        CRUD::field('size');
+        CRUD::field('quantity');
 
         
 

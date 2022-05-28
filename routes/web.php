@@ -37,6 +37,14 @@ Route::get('/merch', function () {
     return view('merch', ['merch' => $merch]);
     });
 
+/* Product */
+Route::get('/merch/product', function () {
+    $merch = DB::table('merch')
+    ->whereIn('id', [$_GET['id']])
+    ->get();
+    return view('product', ['merch' => $merch]);
+    });
+
 /* Links */
 Route::get('/links', function () {
     $link = DB::table('links')
@@ -48,5 +56,7 @@ Route::get('/links', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+
 
 require __DIR__.'/auth.php';
