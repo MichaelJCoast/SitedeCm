@@ -23,7 +23,7 @@
             <div class="relative flex items-center justify-between">
                 <div class="flex items-center">
                     <a href="/laravel" aria-label="Logo" title="Logo" class="mr-8">
-                    <p>logo</p>
+                    <x-application-logo class="block h-10 w-auto fill-current" />
                     </a>
                     <ul class="hidden items-center space-x-8 lg:flex">
                         <li><a href="equipa" aria-label="A nossa equipa" title="A nossa equipa"
