@@ -29,7 +29,7 @@ Route::get('/equipa', function () {
     ->orderBy('dep_id', 'ASC')
     ->get();
     $dep = DB::table('departments')
-    ->orderBy('id', 'DESC')
+    ->orderBy('id', 'ASC')
     ->get();
     $role = DB::table('cargos')
     ->orderBy('id', 'ASC')
