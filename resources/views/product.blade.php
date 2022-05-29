@@ -50,7 +50,7 @@ if(!isset($_GET['id'])){}else{}
                 </div>
               </section>
 
-                <form method="get" action="product">
+                <form method="get" action="/laravel/order">
                 <input type="hidden" id="userId" name="id" value="{{$data->id}}">
                   <!-- Sizes -->
                   <div class="mt-10">
@@ -105,8 +105,7 @@ if(!isset($_GET['id'])){}else{}
 
                         <label class="group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-200 focus:outline-none sm:flex-1 bg-white shadow-sm text-gray-900 cursor-pointer">
                           <input type="radio" name="size" value="XXL" class="sr-only" aria-labelledby="size-6-label">
-
-                          <span class="absolute -inset-px rounded-md pointer-events-none" aria-hidden="true"></span>
+                          <span id="size-5-label"> XXL </span>
                         </label>
 
                         <label class="group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-200 focus:outline-none sm:flex-1 bg-gray-50 text-gray-200 cursor-not-allowed">

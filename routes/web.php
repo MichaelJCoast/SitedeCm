@@ -45,6 +45,14 @@ Route::get('/merch/product', function () {
     return view('product', ['merch' => $merch]);
     });
 
+    /* Order */
+Route::get('/order', function () {
+    $merch = DB::table('merch')
+    ->whereIn('id', [$_GET['id']])
+    ->get();
+    return view('order', ['merch' => $merch]);
+    });
+
 /* Links */
 Route::get('/links', function () {
     $link = DB::table('links')

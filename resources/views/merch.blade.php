@@ -11,25 +11,15 @@
     @foreach($merch as $key => $data)
     <form method="get" action="merch/product">
 
-    <div class="group relative">
-    <div class="w-full min-h-50 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75  transform transition duration-500 group-hover:scale-110  lg:h-80 lg:aspect-none">
-
-      <input type="hidden" id="userId" name="id" value="{{$data->id}}">
-      <input type="image" style="width:100%" name="id" src=" {{$data->photo}}">
-      
-      </form> 
-
-
-  <div>
-    <h3 class="text-sm text-gray-900">
-      <span aria-hidden="true" class="absolute inset-0"></span>
-      {{$data->name}} ->  {{$data->price}} $
-    </h3>
-
-</div>
-
-      <h1>ola</h1>
-
+      <div class="w-full min-h-50 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75  transform transition duration-500 group-hover:scale-110  lg:h-80 lg:aspect-none">
+        <input type="hidden" id="userId" name="id" value="{{$data->id}}">
+        <input type="image" style="width:100%" name="id" src=" {{$data->photo}}">
+            <div class="group relative">
+              <h3 class="text-sm text-white">
+                <span aria-hidden="true" class="absolute inset-0"></span>
+                {{$data->name}}  ->  {{$data->price}} $
+              </h3>
+    </form> 
 
         </div>
       </div>
