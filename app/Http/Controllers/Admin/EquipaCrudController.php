@@ -77,10 +77,6 @@ class EquipaCrudController extends CrudController
             'type'      => 'upload',
             'upload'    => true,
             'disk'      => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
-            // optional:
-            'temporary' => 10 ,
-            
-        
         ]);
         
 
