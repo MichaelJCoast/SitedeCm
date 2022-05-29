@@ -28,9 +28,12 @@ Route::get('/equipa', function () {
     ->orderBy('dep_id', 'ASC')
     ->get();
     $dep = DB::table('departments')
+    ->orderBy('id', 'DESC')
+    ->get();
+    $role = DB::table('roles')
     ->orderBy('id', 'ASC')
     ->get();
-    return view('member',compact(['team' ,'dep']));
+    return view('member',compact(['team' ,'dep','role']));
 });
 
 /* Merch */
