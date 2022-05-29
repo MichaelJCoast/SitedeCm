@@ -10,7 +10,7 @@
             </h2>
             <p class="mb-6 font-semibold">{{$post->category}}</p>
             <p class="mb-6">
-                {{Carbon\Carbon::parse($post->published_at)->format('F j, Y')}}
+                {{Carbon\Carbon::parse($post->created_at)->format('F j, Y')}}
             </p>
             <p>
                 {!! $post->body !!}

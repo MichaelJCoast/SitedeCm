@@ -25,7 +25,7 @@
                                     <!-- Category & Date -->
                                     <header class="flex flex-row items-center space-x-4 pb-2">
                                         <span class="text-lg text-white font-semibold">{{$data->category}}</span>
-                                        <span class="text-gray-500 font-semibold">{{Carbon\Carbon::parse($data->published_at)->format('F j, Y')}}</span>
+                                        <span class="text-gray-500 font-semibold">{{Carbon\Carbon::parse($data->created_at)->format('F j, Y')}}</span>
                                     </header>
                                     <!-- Title -->
                                     <div class="mb-3">

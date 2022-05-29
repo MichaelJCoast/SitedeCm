@@ -44,7 +44,7 @@ class PostCrudController extends CrudController
         CRUD::column('body');
         CRUD::column('slug');
         CRUD::column('category');
-        CRUD::column('published_at');
+        CRUD::column('created_at');
         CRUD::column('image');
 
         /**
@@ -68,7 +68,6 @@ class PostCrudController extends CrudController
         CRUD::field('body')->type('summernote');
         CRUD::field('slug');
         CRUD::field('category');
-        CRUD::field('published_at');
         CRUD::addField([   
             'name'      => 'image',
             'label'     => 'Image',
@@ -95,7 +94,7 @@ class PostCrudController extends CrudController
         $this->setupCreateOperation();
     }
 
-    protected function show(Post $post)
+    protected function showPosts(Post $post)
     {
         return view('blog', [
             'post' => $post

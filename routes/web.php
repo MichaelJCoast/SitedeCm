@@ -17,7 +17,7 @@ use App\Http\Controllers\Admin\PostCrudController;
 /* Main Page */
 Route::get('/', function () {
     $post = DB::table('posts')
-    ->orderBy('published_at', 'desc')
+    ->orderBy('created_at', 'desc')
     ->take(5)
     ->get();
     return view('index', ['post' => $post]);
@@ -50,7 +50,7 @@ Route::get('/merch/product', function () {
     });
 
 /* Post */
-Route::get('blog/{post:slug}', [PostCrudController::class, 'show']);
+Route::get('blog/{post:slug}', [PostCrudController::class, 'showPosts']);
 
 /* Links */
 Route::get('/links', function () {
