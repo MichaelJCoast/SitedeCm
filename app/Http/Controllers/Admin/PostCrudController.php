@@ -65,10 +65,24 @@ class PostCrudController extends CrudController
         CRUD::setValidation(PostRequest::class);
 
         CRUD::field('title');
-        CRUD::field('body')->type('summernote');
+        CRUD::addField([
+            'name'          => 'body',
+            'label'         => 'Text',
+            'type'          => 'summernote',
+            'options'       => [
+                'toolbar'   => [
+                ['style', ['bold', 'underline', 'italic']],
+                ['font', ['color', 'clear']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['codeview', 'fullscreen']],
+                ['height', ['height']]
+                ]
+            ],
+        ]);
         CRUD::field('slug');
         CRUD::field('category');
-        CRUD::addField([   
+        CRUD::addField([
             'name'      => 'image',
             'label'     => 'Image',
             'type'      => 'upload',
