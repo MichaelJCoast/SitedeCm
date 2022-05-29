@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\RoleRequest;
+use App\Http\Requests\CargoRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -11,7 +11,7 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class RoleCrudController extends CrudController
+class CargoCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -26,9 +26,9 @@ class RoleCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Role::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/role');
-        CRUD::setEntityNameStrings('role', 'roles');
+        CRUD::setModel(\App\Models\Cargo::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/cargo');
+        CRUD::setEntityNameStrings('cargo', 'cargos');
     }
 
     /**
@@ -58,7 +58,7 @@ class RoleCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(RoleRequest::class);
+        CRUD::setValidation(CargoRequest::class);
 
         
         CRUD::field('type');

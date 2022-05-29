@@ -31,7 +31,7 @@ Route::get('/equipa', function () {
     $dep = DB::table('departments')
     ->orderBy('id', 'DESC')
     ->get();
-    $role = DB::table('roles')
+    $role = DB::table('cargos')
     ->orderBy('id', 'ASC')
     ->get();
     return view('member',compact(['team' ,'dep','role']));

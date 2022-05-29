@@ -78,7 +78,7 @@ class Equipa extends Model
     }
 
     public function role(){
-        return $this->belongsTo('App\Models\Role');
+        return $this->belongsTo('App\Models\Cargo');
     }
     /*
     |--------------------------------------------------------------------------

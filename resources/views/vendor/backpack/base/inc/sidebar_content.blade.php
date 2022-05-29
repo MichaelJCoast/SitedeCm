@@ -14,7 +14,7 @@
                     class='nav-icon la la-tshirt'></i> <span>Merch</span></a></li>
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('department') }}'><i
                     class='nav-icon la la-home'></i> <span>Departamentos</span></a></li>
-        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('role') }}'><i
+        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('cargo') }}'><i
                     class='nav-icon la la-scroll'></i> <span>Funções</span></a></li>
     </ul>
 </li>
