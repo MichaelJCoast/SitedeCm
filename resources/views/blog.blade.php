@@ -4,7 +4,7 @@
 <div class="container px-4 mb-20 mx-auto">
     <div class="py-10 2xl:py-10 overflow-hidden">
         <div class="max-w-2xl mx-auto">
-            <img class="rounded-lg" src="{{$post->image}}" alt="">
+            <img class="rounded-lg" src="../../laravel/{{$post->image}}" alt="post image">
             <h2 class="mt-7 text-5xl text-white font-bold">
                 {{$post->title}}
             </h2>

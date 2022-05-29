@@ -28,6 +28,16 @@ class Post extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function setImageAttribute($value)
+    {
+        $attribute_name = "image";
+        $disk = "public";
+        $destination_path ="uploads";
+
+        $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
+
+    // return $this->attributes[{$attribute_name}]; // uncomment if this is a translatable field
+    }
 
     /*
     |--------------------------------------------------------------------------
