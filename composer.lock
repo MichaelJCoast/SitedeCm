@@ -64,16 +64,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "5.0.19",
+            "version": "5.0.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "a71715d51a0bd2827d535deb407761ee9252d044"
+                "reference": "a6b183978fc7c206ce9cd437e5c9b96f8fb6823f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/a71715d51a0bd2827d535deb407761ee9252d044",
-                "reference": "a71715d51a0bd2827d535deb407761ee9252d044",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/a6b183978fc7c206ce9cd437e5c9b96f8fb6823f",
+                "reference": "a6b183978fc7c206ce9cd437e5c9b96f8fb6823f",
                 "shasum": ""
             },
             "require": {
@@ -152,9 +152,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/5.0.19"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/5.0.20"
             },
-            "time": "2022-05-26T12:03:44+00:00"
+            "time": "2022-05-30T14:57:44+00:00"
         },
         {
             "name": "backpack/permissionmanager",

@@ -785,11 +785,14 @@ select {
 .mt-48 {
   margin-top: 12rem;
 }
-.mt-1 {
-  margin-top: 0.25rem;
+.mb-24 {
+  margin-bottom: 6rem;
 }
 .mt-6 {
   margin-top: 1.5rem;
+}
+.mt-1 {
+  margin-top: 0.25rem;
 }
 .mb-4 {
   margin-bottom: 1rem;
@@ -823,15 +826,6 @@ select {
 }
 .mr-10 {
   margin-right: 2.5rem;
-}
-.mb-8 {
-  margin-bottom: 2rem;
-}
-.mb-14 {
-  margin-bottom: 3.5rem;
-}
-.mb-24 {
-  margin-bottom: 6rem;
 }
 .block {
   display: block;
@@ -994,12 +988,6 @@ select {
 }
 .grid-cols-8 {
   grid-template-columns: repeat(8, minmax(0, 1fr));
-}
-.grid-cols-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-.grid-cols-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 .grid-cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1764,24 +1752,9 @@ select {
     background-color: rgb(17 24 39 / var(--tw-bg-opacity));
   }
 
-  .dark\:bg-gray-800 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(31 41 55 / var(--tw-bg-opacity));
-  }
-
   .dark\:text-white {
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
-  }
-
-  .dark\:text-gray-200 {
-    --tw-text-opacity: 1;
-    color: rgb(229 231 235 / var(--tw-text-opacity));
-  }
-
-  .dark\:text-gray-300 {
-    --tw-text-opacity: 1;
-    color: rgb(209 213 219 / var(--tw-text-opacity));
   }
 }
 @media (min-width: 640px) {
@@ -1989,18 +1962,6 @@ select {
   }
 }
 @media (min-width: 1280px) {
-
-  .xl\:grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .xl\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .xl\:grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
 
   .xl\:gap-x-8 {
     -moz-column-gap: 2rem;

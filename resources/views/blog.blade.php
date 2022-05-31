@@ -1,6 +1,4 @@
-@extends('layouts.main')
-
-@section('content')
+<x-main>
 <div class="container px-4 mb-20 mx-auto">
     <div class="py-10 2xl:py-10 overflow-hidden">
         <div class="max-w-2xl mx-auto">
@@ -18,7 +16,4 @@
         </div>
     </div>
 </div>
-
-
-@include('layouts.footer')
-@endsection
+</x-main>

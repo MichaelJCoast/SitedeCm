@@ -1,8 +1,4 @@
-@extends('layouts.main')
-
-@section('content')
-
-
+<x-main>
 <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
     <h2 class="text-2xl font-extrabold tracking-tight dark:text-white" id="produtos" >Merch CM</h2>
 
@@ -37,11 +33,4 @@
 
       </div>
     </div>
-        
-
-
-
-
-
-@include('layouts.footer')
-@endsection
+  </x-main>

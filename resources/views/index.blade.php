@@ -1,45 +1,17 @@
-@extends('layouts.main')
-
-@section('content')
-<x-carousel />
-<div class="container mx-auto px-4 pb-16 mb-12" >
-    <div class="latest-news">
-        <h2 class="sm:mt-0 mt-48 text-3xl font-semibold py-6">Últimas Notícias</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
-            @foreach($post as $key => $data)
-            <!-- Snippet -->
-                    <!-- Card -->
-                        <div class="flex flex-col h-full bg-black border border-zinc-700 rounded-lg overflow-hidden">
-                            <!-- Image -->
-                            <a class="block focus:outline-none focus-visible:ring-2" href=blog/{{$data->slug}}>
-                                <figure class="relative h-0 pb-[100%] overflow-hidden">
-                                    <img class="absolute inset-0 w-full h-full object-cover transform"
-                                        src="../laravel/{{$data->image}}"
-                                        width="320" height="180" alt="image">
-                                </figure>
-                            </a>
-                            <!-- Card Content -->
-                            <div class="flex-grow flex flex-col p-8">
-                                <!-- Card body -->
-                                <div class="flex-grow">
-                                    <!-- Category & Date -->
-                                    <header class="flex flex-row items-center space-x-4 pb-2">
-                                        <span class="text-lg text-white font-semibold">{{$data->category}}</span>
-                                        <span class="text-gray-500 font-semibold">{{Carbon\Carbon::parse($data->created_at)->format('F j, Y')}}</span>
-                                    </header>
-                                    <!-- Title -->
-                                    <div class="mb-3">
-                                        <a class="block focus:outline-none focus-visible:ring-2" href="blog/{{$data->slug}}">
-                                            <h3 class="mb-2 text-3xl font-bold tracking-tight text-white">{{$data->title}}</h3>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-            @endforeach
+<x-main>
+    <x-carousel />
+    <div class="container mx-auto px-4 pb-16 mb-12">
+        <div class="latest-news">
+            <h2 class="sm:mt-0 mt-48 text-3xl font-semibold py-6">Últimas Notícias</h2>
+            @if(!$posts->isEmpty())
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+                    @foreach($posts as $post)
+                        <x-post-card :post="$post"></x-post-card>
+                    @endforeach
+                </div>
+            @else
+                <p class="text-center">No posts yet.</p>
+            @endif
         </div>
     </div>
-</div>
-
-@include('layouts.footer')
-@endsection
+</x-main>

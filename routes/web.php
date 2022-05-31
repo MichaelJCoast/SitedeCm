@@ -20,7 +20,8 @@ Route::get('/', function () {
     ->orderBy('created_at', 'desc')
     ->take(5)
     ->get();
-    return view('index', ['post' => $post]);
+    return view('index', [
+        'posts' => $post]);
 });
 
 /* Equipa */
@@ -60,7 +61,7 @@ Route::get('/links', function () {
     $link = DB::table('links')
     ->latest()
     ->get();
-    return view('links', ['link' => $link]);
+    return view('links', ['links' => $link]);
     });
 
 Route::get('/dashboard', function () {
