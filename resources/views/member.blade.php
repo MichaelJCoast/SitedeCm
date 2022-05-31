@@ -4,7 +4,7 @@
     <h2 class="text-xl font-medium text-center capitalize md:text-2xl mt-6">{{$datadep->name}}</h2>
 
     <div class="flex items-center justify-center">
-        <div class="grid gap-8 mt-8 grid-cols-3">
+        <div class="grid gap-8 mt-8 grid-cols-2 sm:grid-cols-3">
         @foreach($team as $key => $data)
         @if($datadep->id ==$data->dep_id)
             <div class="w-full max-w-xs text-center">

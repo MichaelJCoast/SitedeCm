@@ -6,3 +6,4 @@
             {{$link->name}}
         </a>
 </div>
+</div>

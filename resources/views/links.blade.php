@@ -1,12 +1,10 @@
 <x-main>
-    <div class="items-center mt-6">
+    <div class="container px-6 sm:px-4 mt-4 mx-auto">
         <h1 class="font-bold text-center text-5xl">Links</h1>
-    </div>
-    <div class="py-6 flex items-center justify-center">
-        <div class="grid grid-cols-1 gap-8 min-w-max">
+        <div class="mt-4 grid grid-cols-1 gap-6">
             @foreach($links as $link)
                 <x-link :link="$link"></x-link>
+            @endforeach
         </div>
-        @endforeach
     </div>
 </x-main>

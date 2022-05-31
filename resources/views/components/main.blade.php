@@ -18,12 +18,12 @@
 </head>
 
 <body class="antialiased bg-neutral-900 text-white">
-    <nav x-data="{isOpen: false}" class="bg-black border-b border-zinc-700">
+    <nav x-data="{isOpen: false}" class="bg-black border-b border-neutral-800">
         <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
             <div class="relative flex items-center justify-between">
                 <div class="flex items-center">
                     <a href="/laravel" aria-label="Logo" title="Logo" class="mr-8">
-                    <x-application-logo class="block h-10 w-auto fill-current" />
+                    <x-application-logo class="block h-10 sm:h-10 w-auto fill-current" />
                     </a>
                     <ul class="hidden items-center space-x-8 lg:flex">
                         <li><a href="equipa" aria-label="A nossa equipa" title="A nossa equipa"
@@ -59,7 +59,7 @@
                 <div class="lg:hidden">
                     <button type="submit" @click="isOpen = !isOpen" aria-label="Open Menu" title="Open Menu"
                         class="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline">
-                        <svg class="w-5 text-gray-600" viewBox="0 0 24 24">
+                        <svg class="w-6 text-white" viewBox="0 0 24 24">
                             <path fill="currentColor"
                                 d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"></path>
                             <path fill="currentColor"
@@ -122,7 +122,7 @@
     <footer class="bg-black fixed inset-x-0 bottom-0">
       <div class="max-w-screen px-4 mx-auto py-8 sm:px-6 lg:px-8">
     
-        <p class="mt-2 text-base text-white font-semibold">
+        <p class="mt-2 text-xs sm:text-base text-white font-semibold">
           &copy; <?php echo date("Y"); ?> NECM
         </p>
     </div>
