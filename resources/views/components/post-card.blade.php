@@ -1,7 +1,7 @@
 @props(['post'])
 
 <!-- Card -->
-<div class="flex flex-col h-full bg-black border border-zinc-700 rounded-lg overflow-hidden">
+<div class="flex flex-col h-full w-full xl:w-96 2xl:w-auto bg-black border border-zinc-700 rounded-lg overflow-hidden">
     <!-- Image -->
     <a class="block focus:outline-none focus-visible:ring-2" href="blog/{{$post->slug}}">
         <figure class="relative h-0 pb-[70%] sm:pb-[100%] overflow-hidden">
@@ -17,7 +17,7 @@
             <!-- Category & Date -->
             <header class="flex sm:flex-row items-center space-x-4 pb-2">
                 <span class="text-xs sm:text-lg text-white font-semibold">{{$post->category}}</span>
-                <time class="text-xs sm:text-lg text-gray-500 font-semibold">{{ Carbon\Carbon::parse($post->created_at)->format('F j, Y') }}</time>
+                <time class="text-xs sm:text-lg md:text-base text-gray-500 font-semibold">{{ Carbon\Carbon::parse($post->created_at)->format('F j, Y') }}</time>
             </header>
             <!-- Title -->
             <div class="mb-3">

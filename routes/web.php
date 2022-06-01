@@ -32,10 +32,10 @@ Route::get('/equipa', function () {
     $dep = DB::table('departments')
     ->orderBy('id', 'ASC')
     ->get();
-    $role = DB::table('cargos')
+    $roles = DB::table('cargos')
     ->orderBy('id', 'ASC')
     ->get();
-    return view('member',compact(['team' ,'dep','role']));
+    return view('member',compact(['team' ,'dep','roles']));
 });
 
 /* Merch */

@@ -19,7 +19,7 @@
 
 <body class="antialiased bg-neutral-900 text-white">
     <nav x-data="{isOpen: false}" class="bg-black border-b border-neutral-800">
-        <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+        <div class="py-5 container mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl xl:max-w-full px-6">
             <div class="relative flex items-center justify-between">
                 <div class="flex items-center">
                     <a href="/laravel" aria-label="Logo" title="Logo" class="mr-8">
