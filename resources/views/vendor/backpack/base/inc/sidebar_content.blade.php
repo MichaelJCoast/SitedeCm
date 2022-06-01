@@ -4,5 +4,7 @@
 <li class='nav-item'><a class='nav-link' href="{{ backpack_url('user') }}"><i class='nav-icon la la-user'></i> Users</a></li>
 <li class='nav-title'>NECM</li>
 <li class='nav-item'><a class='nav-link' href="{{ backpack_url('member') }}"><i class='nav-icon la la-users'></i> Equipa</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('merch') }}'><i class='nav-icon la la-tshirt'></i> Merch</a></li>
 <li class='nav-title'>Blog</li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('post') }}'><i class='nav-icon la la-blog'></i> Posts</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('link') }}'><i class='nav-icon la la-question'></i> Links</a></li>
