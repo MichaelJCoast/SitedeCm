@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\MemberRequest;
+use App\Http\Requests\CargoRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class MemberCrudController
+ * Class RoleCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class MemberCrudController extends CrudController
+class CargoCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -26,9 +26,9 @@ class MemberCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Member::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/member');
-        CRUD::setEntityNameStrings('NECM Member', 'NECM Members');
+        CRUD::setModel(\App\Models\Cargo::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/cargo');
+        CRUD::setEntityNameStrings('cargo', 'cargos');
     }
 
     /**
@@ -39,10 +39,9 @@ class MemberCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('name');
-        CRUD::column('department');
-        CRUD::column('role');
-        CRUD::column('image');
+        
+        CRUD::column('type');
+     
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -59,12 +58,11 @@ class MemberCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(MemberRequest::class);
+        CRUD::setValidation(CargoRequest::class);
+
         
-        CRUD::field('name');
-        CRUD::field('department');
-        CRUD::field('role');
-        CRUD::field('image');
+        CRUD::field('type');
+       
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

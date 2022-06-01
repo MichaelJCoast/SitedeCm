@@ -5,7 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Cargo extends Model
 {
     use CrudTrait;
 
@@ -15,31 +15,33 @@ class Post extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'posts';
-    // protected $primaryKey = 'id';
+    protected $table = 'cargos';
+    protected $primaryKey = 'id';
     // public $timestamps = false;
-    protected $guarded = ['id'];
-    // protected $fillable = [];
+    // protected $guarded = ['id'];
+    protected $fillable = ['type'];
     // protected $hidden = [];
     // protected $dates = [];
-
+    public function roles() {
+        return $this->belongsToMany('App\Models\Cargo')->withPivot('notes', 'some_other_field'); // `notes` and `some_other_field` are aditional fields in the pivot table that you plan to show in the form.
+    }
     /*
     |--------------------------------------------------------------------------
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function setImageAttribute($value)
-    {
-        $attribute_name = "image";
-        $disk = "public";
-        $destination_path ="uploads";
-
-        $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
-
-    // return $this->attributes[{$attribute_name}]; // uncomment if this is a translatable field
+/*
+    public function role(){
+        return $this->belongsTo('App\Models\Role');
     }
-
+    */
     /*
+    public function roles(){
+        return $this->hasMany('App\Models\Role');
+    }
+    
+    /*
+    
     |--------------------------------------------------------------------------
     | RELATIONS
     |--------------------------------------------------------------------------

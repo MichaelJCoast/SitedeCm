@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\PostCrudController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,18 +17,25 @@ use Illuminate\Support\Facades\Route;
 /* Main Page */
 Route::get('/', function () {
     $post = DB::table('posts')
-    ->orderBy('published_at', 'desc')
+    ->orderBy('created_at', 'desc')
     ->take(5)
     ->get();
-    return view('index', ['post' => $post]);
+    return view('index', [
+        'posts' => $post]);
 });
 
 /* Equipa */
 Route::get('/equipa', function () {
-    $team = DB::table('members')
-    ->orderBy('department', 'desc')
+    $team = DB::table('equipa')
+    ->orderBy('dep_id', 'ASC')
     ->get();
-    return view('member',['team' => $team]);
+    $dep = DB::table('departments')
+    ->orderBy('id', 'ASC')
+    ->get();
+    $role = DB::table('cargos')
+    ->orderBy('id', 'ASC')
+    ->get();
+    return view('member',compact(['team' ,'dep','role']));
 });
 
 /* Merch */
@@ -52,13 +60,15 @@ Route::get('/order', function () {
     ->get();
     return view('order', ['merch' => $merch]);
     });
+/* Post */
+Route::get('blog/{post:slug}', [PostCrudController::class, 'showPosts']);
 
 /* Links */
 Route::get('/links', function () {
     $link = DB::table('links')
     ->latest()
     ->get();
-    return view('links', ['link' => $link]);
+    return view('links', ['links' => $link]);
     });
 
 Route::get('/dashboard', function () {

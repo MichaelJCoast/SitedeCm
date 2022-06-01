@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\PostRequest;
+use App\Http\Requests\DepartmentRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-use App\Models\Post;
 
 /**
- * Class PostCrudController
+ * Class DepartmentCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class PostCrudController extends CrudController
+class DepartmentCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -27,9 +26,9 @@ class PostCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Post::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/post');
-        CRUD::setEntityNameStrings('post', 'posts');
+        CRUD::setModel(\App\Models\Department::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/department');
+        CRUD::setEntityNameStrings('department', 'departments');
     }
 
     /**
@@ -40,12 +39,9 @@ class PostCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('title');
-        CRUD::column('body');
-        CRUD::column('slug');
-        CRUD::column('category');
-        CRUD::column('created_at');
-        CRUD::column('image');
+        
+        CRUD::column('name');
+      
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -62,33 +58,13 @@ class PostCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(PostRequest::class);
+        CRUD::setValidation(DepartmentRequest::class);
 
-        CRUD::field('title');
-        CRUD::addField([
-            'name'          => 'body',
-            'label'         => 'Text',
-            'type'          => 'summernote',
-            'options'       => [
-                'toolbar'   => [
-                ['style', ['bold', 'underline', 'italic']],
-                ['font', ['color', 'clear']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['insert', ['link', 'picture', 'video']],
-                ['view', ['codeview', 'fullscreen']],
-                ['height', ['height']]
-                ]
-            ],
-        ]);
-        CRUD::field('slug');
-        CRUD::field('category');
-        CRUD::addField([
-            'name'      => 'image',
-            'label'     => 'Image',
-            'type'      => 'upload',
-            'upload'    => true,
-            'disk'      => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
-        ]);
+        
+        CRUD::field('name');
+        CRUD::field('department');
+        CRUD::field('role');
+        CRUD::field('image');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
@@ -106,12 +82,5 @@ class PostCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
-    }
-
-    protected function showPosts(Post $post)
-    {
-        return view('blog', [
-            'post' => $post
-        ]);
     }
 }
