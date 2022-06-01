@@ -9,13 +9,13 @@
         @if($department->id == $team_member->dep_id)
             <div class="w-full max-w-xs text-center">
 
-                <img class="object-cover object-center w-full h-48 mx-auto rounded-lg" src="../laravel/{{$$team_member->image}}"
+                <img class="object-cover object-center w-full h-48 mx-auto rounded-lg" src="../laravel/{{$team_member->image}}"
                     alt="avatar" />
 
                 <div class="mt-2">
-                    <h3 class="text-lg font-medium">{{$$team_member->nome}}</h3>
+                    <h3 class="text-lg font-medium">{{$team_member->nome}}</h3>
                     @foreach($roles as $role)
-                    @if($role->id == $role->role_id)
+                    @if($role->id == $team_member->role_id)
                     <span class="mt-1 font-medium">{{$role->type}}</span>
                     @endif
                     @endforeach
