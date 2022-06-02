@@ -26,14 +26,14 @@
                     <x-application-logo class="block h-10 sm:h-10 w-auto fill-current" />
                     </a>
                     <ul class="hidden items-center space-x-8 lg:flex">
-                        <li><a href="equipa" aria-label="A nossa equipa" title="A nossa equipa"
-                                class="font-semibold transition ease-in-out">Equipa</a>
+                        <li>
+                            <x-nav-link href="equipa">Equipa</x-nav-link>
                         </li>
-                        <li><a href="merch" aria-label="Merch" title="Merch"
-                                class="font-semibold transition ease-in-out">Merch</a>
+                        <li>
+                            <x-nav-link href="merch">Merch</x-nav-link>
                         </li>
-                        <li><a href="links" aria-label="Links" title="Links"
-                                class="font-semibold transition ease-in-out">Links</a>
+                        <li>
+                            <x-nav-link href="links">Links</x-nav-link>
                         </li>
                     </ul>
                 </div>
