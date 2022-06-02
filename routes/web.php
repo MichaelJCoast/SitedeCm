@@ -36,14 +36,14 @@ Route::get('/equipa', function () {
     ->orderBy('id', 'ASC')
     ->get();
     return view('member',compact(['team' ,'dep','roles']));
-});
+})->name('equipa');
 
 /* Merch */
 Route::get('/merch', function () {
     $merch = DB::table('merch')
     ->get();
     return view('merch', ['merch' => $merch]);
-    });
+    })->name('merch');;
 
 /* Product */
 Route::get('/merch/product', function () {
@@ -62,7 +62,7 @@ Route::get('/links', function () {
     ->latest()
     ->get();
     return view('links', ['links' => $link]);
-    });
+    })->name('links');;
 
 Route::get('/dashboard', function () {
     $user = DB::table('users')

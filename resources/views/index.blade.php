@@ -1,6 +1,6 @@
 <x-main>
     <x-carousel />
-    <div class="container mx-auto px-8 sm:px-8 md:px-14 mb-28">
+    <div class="container mx-auto px-8 sm:px-8 md:px-14 mb-10">
         <div class="latest-news">
             <h2 class="sm:mt-0 text-2xl font-semibold py-6">Notícias</h2>
             @if(!$posts->isEmpty())
