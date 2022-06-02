@@ -1,3 +1,4 @@
+
 <nav x-data="{ open: false }" class="bg-black border-b border-zinc-700">
     <!-- Primary Navigation Menu -->
     <div class="container mx-auto px-14">
@@ -11,8 +12,16 @@
                 </div>
 
                 <!-- Navigation Links -->
+                
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    @if(!Route::current()->getName() == 'dashboard')
+                @if(Route::current()->getName() == 'dashboard')
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                            {{ __('Perfil') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                            {{ __('Pedidos') }}
+                        </x-nav-link>
+                    @else
                         <x-nav-link :href="route('equipa')" :active="request()->routeIs('equipa')">
                             {{ __('Equipa') }}
                         </x-nav-link>
@@ -22,20 +31,15 @@
                         <x-nav-link :href="route('links')" :active="request()->routeIs('links')">
                             {{ __('Links') }}
                         </x-nav-link>
-                    @else
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                            {{ __('Perfil') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                            {{ __('Pedidos') }}
-                        </x-nav-link>
-                    @endif
+                        @endif
 
                 </div>
             </div>
-
+           
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
+            @if (Route::has('login'))
+                    @auth
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
@@ -85,7 +89,7 @@
                     </x-slot>
                 </x-dropdown>
             </div>
-
+           
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">
                 <button @click="open = ! open"
@@ -138,7 +142,16 @@
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>
+                
             </div>
+            @else
+                            <a href="{{ route('login') }}" class="tracking-wide text-sm text-gray-500">Log in</a>
+                 @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-500">Register</a>
+                      
+                 @endif
+             @endauth
+         @endif
         </div>
     </div>
 </nav>
