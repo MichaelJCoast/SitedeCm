@@ -20,8 +20,8 @@ Route::get('/', function () {
     ->orderBy('created_at', 'desc')
     ->take(5)
     ->get();
-    return view('index', [
-        'posts' => $post]);
+    
+    return view('index', ['posts' => $post]);
 });
 
 /* Equipa */
@@ -65,7 +65,9 @@ Route::get('/links', function () {
     });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $user = DB::table('users')
+    ->get();
+    return view('dashboard',['user' => $user]);
 })->middleware(['auth'])->name('dashboard');
 
 

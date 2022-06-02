@@ -57,14 +57,25 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <!-- Authentication -->
+                     @if(Auth::user()->hasRole('admin'))
+                        <!-- Authentication --> <form method="GET" action="{{ backpack_url() }}">
+                            @csrf
+
+                            <x-dropdown-link :href="backpack_url()"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Backoffice') }}
+                            </x-dropdown-link>
+                            
+                        </form>
+                     @endif
                         <form method="GET" action="{{ route('dashboard') }}">
                             @csrf
 
                             <x-dropdown-link :href="route('dashboard')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Dashboard') }}
+                                {{ __('Profile') }}
                             </x-dropdown-link>
                             
                         </form>
