@@ -1,8 +1,8 @@
 <x-app-layout>
     <x-carousel />
-    <div class="container mx-auto px-8 sm:px-8 md:px-14 mb-10">
+    <div class="container mx-auto px-8 md:px-14 mb-10">
         <div class="latest-news">
-            <h2 class="sm:mt-0 text-2xl font-semibold py-6">Notícias</h2>
+            <h2 class="sm:mt-0 text-2xl 2xl:text-4xl font-semibold py-6">Notícias</h2>
             @if(!$posts->isEmpty())
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     @foreach($posts as $post)
