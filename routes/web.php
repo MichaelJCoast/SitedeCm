@@ -18,7 +18,7 @@ use App\Http\Controllers\Admin\PostCrudController;
 Route::get('/', function () {
     $post = DB::table('posts')
     ->orderBy('created_at', 'desc')
-    ->take(5)
+    ->take(6)
     ->get();
     
     return view('index', ['posts' => $post]);

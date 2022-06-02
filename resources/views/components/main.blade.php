@@ -17,7 +17,7 @@
     <script src="{{ asset(mix('js/app.js')) }}" defer></script>
 </head>
 
-<body class="antialiased bg-neutral-900 text-white">
+<body class="antialiased bg-neutral-900 text-white flex-col flex min-h-screen">
     <nav x-data="{isOpen: false}" class="bg-black border-b border-neutral-800">
         <div class="py-2 container mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl xl:max-w-full md:px-14">
             <div class="relative flex items-center justify-between">
@@ -165,12 +165,11 @@
             </div>
         </div>
 </nav>
-
-  {{ $slot }}
-
-    <footer class="bg-black fixed inset-x-0 bottom-0">
+<div class="flex-1">
+    {{ $slot }}
+</div>
+    <footer class="bg-black">
       <div class="max-w-screen px-4 mx-auto py-8 sm:px-6 lg:px-8">
-    
         <p class="mt-2 text-xs sm:text-base text-white font-semibold">
           &copy; <?php echo date("Y"); ?> NECM
         </p>

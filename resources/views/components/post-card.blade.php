@@ -16,8 +16,8 @@
         <div class="flex-grow">
             <!-- Category & Date -->
             <header class="flex sm:flex-row items-center space-x-4 pb-2">
-                <span class="text-sm text-white font-semibold">{{$post->category}}</span>
-                <time class="text-sm text-gray-400 font-semibold">{{ Carbon\Carbon::parse($post->created_at)->format('F j, Y') }}</time>
+                <span class="text-sm lg:text-base text-white font-semibold">{{$post->category}}</span>
+                <time class="text-sm lg:text-base text-gray-400 font-semibold">{{ Carbon\Carbon::parse($post->created_at)->format('F j, Y') }}</time>
             </header>
             <!-- Title -->
             <div class="mb-3">
