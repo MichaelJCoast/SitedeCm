@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\MerchRequest;
+use App\Http\Requests\OrderRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-use App\Models\Post;
 
 /**
- * Class MerchCrudController
+ * Class OrderCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class MerchCrudController extends CrudController
+class OrderCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -27,9 +26,9 @@ class MerchCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Merch::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/merch');
-        CRUD::setEntityNameStrings('merch', 'merches');
+        CRUD::setModel(\App\Models\Order::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/order');
+        CRUD::setEntityNameStrings('order', 'orders');
     }
 
     /**
@@ -40,15 +39,12 @@ class MerchCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-
-        CRUD::column('name');
-        CRUD::column('photo');
-        CRUD::column('price');
+        CRUD::column('user');
+        CRUD::column('product');
         CRUD::column('size');
         CRUD::column('quantity');
-
-
-
+        CRUD::column('status');
+        
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -65,38 +61,13 @@ class MerchCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::addField([
-            'name' => 'name',
-            'type' => 'text',
-            'label' => "Nome"
-        ]);
+        CRUD::field('user');
+        CRUD::field('product');
+        CRUD::field('size');
+        CRUD::field('quantity');
+        CRUD::field('status');
 
-        CRUD::addField([   
-            'name'      => 'photo',
-            'label'     => 'Image',
-            'type'      => 'upload',
-            'upload'    => true,
-            'disk'      => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
-        ]);
         
-        CRUD::addField([  
-            'name'          => 'price',
-            'label'         => 'Price',
-            'type'          => 'text',
-            'placeholder'   => '19,99',
-        ]);
-
-        CRUD::addField([  
-            'name'          => 'size',
-            'label'         => 'Size',
-            'type'          => 'text',
-        ]);
-        
-        CRUD::addField([ 
-            'name'          => 'quantity',
-            'label'         => 'quantidade',
-            'type'          => 'text',
-        ]);
 
         
 
@@ -117,13 +88,4 @@ class MerchCrudController extends CrudController
     {
         $this->setupCreateOperation();
     }
-
-
-protected function showMerch(Merch $merch)
-    {
-        return view('merch', [
-            'merch' => $merch
-        ]);
-    }
-
 }

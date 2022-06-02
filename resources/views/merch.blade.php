@@ -1,26 +1,27 @@
 <x-main>
-<div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-    <h2 class="text-2xl font-extrabold tracking-tight dark:text-white" id="produtos" >Merch CM</h2>
+
+<div class="max-w-2xl mx-auto py-20 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+    <h2 class="text-2xl font-extrabold tracking-tight dark:text-white" id="produtos" >Merch CM </h2>
 
     <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
 
     @foreach($merch as $key => $data)
     <form method="get" action="merch/product">
 
-      <div class="w-full min-h-50 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75  transform transition duration-500 group-hover:scale-110  lg:h-80 lg:aspect-none">
+      <div class="group relative w-full min-h-50 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75  transform transition duration-500 group-hover:scale-110  lg:h-80 lg:aspect-none">
         <input type="hidden" id="userId" name="id" value="{{$data->id}}">
-        <input type="image" style="width:100%" name="id" src=" {{$data->photo}}">
-            <div class="group relative">
+        <div class="group relative">
               <h3 class="text-sm text-white">
-                <span aria-hidden="true" class="absolute inset-0"></span>
-                {{$data->name}}  ->  {{$data->price}} $
+                {{$data->name}}  ->  {{$data->price}}
               </h3>
+            </div>
+        <input type="image" name="id" style="object-position: center;object-fit: cover; height:100%;" src="../laravel/{{$data->photo}}">
     </form> 
 
-        </div>
       </div>
         @endforeach
 
       </div>
     </div>
+    <h3>ola</h3>    <h3>ola</h3>    <h3>ola</h3>    <h3>ola</h3>    <h3>ola</h3>
   </x-main>

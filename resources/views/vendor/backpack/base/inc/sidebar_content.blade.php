@@ -19,6 +19,8 @@
                     class='nav-icon la la-users'></i> <span>Equipa</span></a></li>
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('merch') }}'><i
                     class='nav-icon la la-tshirt'></i> <span>Merch</span></a></li>
+        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('order') }}'><i
+                    class='nav-icon la la-shopping-cart'></i> Order</a></li>
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('department') }}'><i
                     class='nav-icon la la-home'></i> <span>Departamentos</span></a></li>
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('cargo') }}'><i
@@ -31,4 +33,3 @@
 </li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('link') }}'><i class='nav-icon la la-link'></i> Links</a>
 </li>
-

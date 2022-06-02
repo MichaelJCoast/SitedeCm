@@ -55,11 +55,15 @@ Route::get('/merch/product', function () {
 
     /* Order */
 Route::get('/order', function () {
+    $order = DB::table('order')
+    ->whereIn('user',  [Auth::id()] )
+    ->get();
     $merch = DB::table('merch')
     ->whereIn('id', [$_GET['id']])
     ->get();
-    return view('order', ['merch' => $merch]);
+    return view('order',['merch' => $merch],['order' => $order]  );
     });
+    
 /* Post */
 Route::get('blog/{post:slug}', [PostCrudController::class, 'showPosts']);
 
