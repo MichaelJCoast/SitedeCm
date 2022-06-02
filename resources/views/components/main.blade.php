@@ -19,10 +19,10 @@
 
 <body class="antialiased bg-neutral-900 text-white">
     <nav x-data="{isOpen: false}" class="bg-black border-b border-neutral-800">
-        <div class="py-5 container mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl xl:max-w-full px-6">
+        <div class="py-2 container mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl xl:max-w-full md:px-14">
             <div class="relative flex items-center justify-between">
                 <div class="flex items-center">
-                    <a href="/laravel" aria-label="Logo" title="Logo" class="mr-8">
+                    <a href="/laravel" aria-label="Logo" title="CM Logo" class="mr-8">
                     <x-application-logo class="block h-10 sm:h-10 w-auto fill-current" />
                     </a>
                     <ul class="hidden items-center space-x-8 lg:flex">

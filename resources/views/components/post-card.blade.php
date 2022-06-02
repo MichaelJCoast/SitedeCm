@@ -16,13 +16,13 @@
         <div class="flex-grow">
             <!-- Category & Date -->
             <header class="flex sm:flex-row items-center space-x-4 pb-2">
-                <span class="text-xs sm:text-lg text-white font-semibold">{{$post->category}}</span>
-                <time class="text-xs sm:text-lg md:text-base text-gray-500 font-semibold">{{ Carbon\Carbon::parse($post->created_at)->format('F j, Y') }}</time>
+                <span class="text-sm text-white font-semibold">{{$post->category}}</span>
+                <time class="text-sm text-gray-400 font-semibold">{{ Carbon\Carbon::parse($post->created_at)->format('F j, Y') }}</time>
             </header>
             <!-- Title -->
             <div class="mb-3">
                 <a class="block focus:outline-none focus-visible:ring-2" href="blog/{{$post->slug}}">
-                    <h3 class="mb-2 text-2xl sm:text-3xl font-bold tracking-tight text-white">{{$post->title}}</h3>
+                    <h3 class="mb-2 text-xl md:text-2xl font-bold tracking-tight text-white">{{$post->title}}</h3>
                 </a>
             </div>
         </div>
