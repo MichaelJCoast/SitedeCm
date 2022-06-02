@@ -1,4 +1,4 @@
-<x-main>
+<x-app-layout>
     <x-carousel />
     <div class="container mx-auto px-8 sm:px-8 md:px-14 mb-10">
         <div class="latest-news">
@@ -14,4 +14,4 @@
             @endif
         </div>
     </div>
-</x-main>
+</x-app-layout>

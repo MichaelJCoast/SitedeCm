@@ -1,4 +1,4 @@
-<x-main>
+<x-app-layout>
 <section class="container p-6 mx-auto mb-24">
     @foreach($dep as $department)
     <h2 class="text-xl font-medium text-center capitalize md:text-2xl mt-6">{{$department->name}}</h2>
@@ -27,4 +27,4 @@
     </div>
     @endforeach
 </section>
-</x-main>
+</x-app-layout>

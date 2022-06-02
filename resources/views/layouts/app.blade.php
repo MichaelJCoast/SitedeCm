@@ -16,20 +16,22 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-zinc-900">
+    <body class="font-sans antialiased text-white flex-col flex">
+        <div class="min-h-screen bg-neutral-900">
             @include('layouts.navigation')
-
-            <!-- Page Heading -->
-
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl font-semibold py-6">{{ $header }}</h2>
-                </div>
 
             <!-- Page Content -->
             <main>
                 {{ $slot }}
             </main>
         </div>
+
+        <footer class="bg-black">
+            <div class="max-w-screen px-4 mx-auto py-8 sm:px-6 lg:px-8">
+              <p class="mt-2 text-xs sm:text-base text-white font-semibold">
+                &copy; <?php echo date("Y"); ?> NECM
+              </p>
+          </div>
+          </footer>
     </body>
 </html>
