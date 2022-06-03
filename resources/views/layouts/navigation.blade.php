@@ -145,10 +145,21 @@
                 
             </div>
             @else
-                            <a href="{{ route('login') }}" class="tracking-wide text-sm text-gray-500">Log in</a>
+            <form method="GET" action="{{ route('login') }}">
+                @csrf
+                <x-responsive-nav-link :href="route('login')" onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                        {{ __('Login') }}
+                    </x-responsive-nav-link>
+                </form>
                  @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-500">Register</a>
-                      
+                 <form method="GET" action="{{ route('register') }}">
+                    @csrf
+                 <x-responsive-nav-link :href="route('register')" onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                        {{ __('Register') }}
+                    </x-responsive-nav-link> 
+                </form>
                  @endif
              @endauth
          @endif
