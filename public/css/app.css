@@ -1791,6 +1791,14 @@ select {
     font-weight: 600;
   }
 
+  .sm\:leading-loose {
+    line-height: 2;
+  }
+
+  .sm\:leading-normal {
+    line-height: 1.5;
+  }
+
   .sm\:first-line\:leading-loose::first-line {
     line-height: 2;
   }
