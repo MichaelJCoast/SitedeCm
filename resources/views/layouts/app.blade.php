@@ -8,7 +8,7 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -16,20 +16,22 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-zinc-900">
+    <body class="font-sans antialiased flex-col flex">
+        <div class="min-h-screen bg-neutral-900">
             @include('layouts.navigation')
 
-            <!-- Page Heading -->
-
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl font-semibold py-6">{{ $header }}</h2>
-                </div>
-
             <!-- Page Content -->
-            <main>
+            <main class="lg:px-0">
                 {{ $slot }}
             </main>
         </div>
+
+        <footer class="bg-black">
+            <div class="max-w-screen px-4 mx-auto py-8 sm:px-6 lg:px-8">
+              <p class="mt-2 text-xs sm:text-base text-white font-semibold">
+                &copy; <?php echo date("Y"); ?> NECM
+              </p>
+          </div>
+          </footer>
     </body>
 </html>

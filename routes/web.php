@@ -18,10 +18,10 @@ use App\Http\Controllers\Admin\PostCrudController;
 Route::get('/', function () {
     $post = DB::table('posts')
     ->orderBy('created_at', 'desc')
-    ->take(5)
+    ->take(6)
     ->get();
-    return view('index', [
-        'posts' => $post]);
+    
+    return view('index', ['posts' => $post]);
 });
 
 /* Equipa */
@@ -32,18 +32,18 @@ Route::get('/equipa', function () {
     $dep = DB::table('departments')
     ->orderBy('id', 'ASC')
     ->get();
-    $role = DB::table('cargos')
+    $roles = DB::table('cargos')
     ->orderBy('id', 'ASC')
     ->get();
-    return view('member',compact(['team' ,'dep','role']));
-});
+    return view('team',compact(['team' ,'dep','roles']));
+})->name('equipa');
 
 /* Merch */
 Route::get('/merch', function () {
     $merch = DB::table('merch')
     ->get();
     return view('merch', ['merch' => $merch]);
-    });
+    })->name('merch');;
 
 /* Product */
 Route::get('/merch/product', function () {
@@ -62,12 +62,19 @@ Route::get('/links', function () {
     ->latest()
     ->get();
     return view('links', ['links' => $link]);
-    });
+    })->name('links');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/dashboard', function () {
+        $user = DB::table('users')
+        ->get();
+        return view('dashboard',['user' => $user]);
+    })->name('dashboard');
 
+    Route::put('dashboard', [\App\Http\Controllers\ProfileController::class, 'update'])
+    ->name('dashboard.update');
 
+    Route::view('pedidos', 'orders.index')->name('orders');
+});
 
 require __DIR__.'/auth.php';

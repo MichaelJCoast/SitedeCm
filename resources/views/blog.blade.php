@@ -1,19 +1,17 @@
-<x-main>
-<div class="container px-6 sm:px-4 mb-20 mx-auto">
-    <div class="py-10 2xl:py-10 overflow-hidden">
-        <div class="max-w-xl mx-auto">
-            <img class="rounded-2xl sm:rounded-lg" src="../../laravel/{{$post->image}}" alt="post image">
-            <p class="mt-6 text-sm sm:text-base font-semibold text-gray-300">{{$post->category}}</p>
-            <h2 class="mt-6 text-4xl sm:text-5xl text-white font-bold">
-                {{$post->title}}
-            </h2>
-            <p class="mt-6 mb-6 text-xs sm:text-sm font-normal sm:font-semibold">
-                {{Carbon\Carbon::parse($post->created_at)->format('F j, Y')}}
-            </p>
-            <p>
-                {!! $post->body !!}
-            </p>
-        </div>
-    </div>
+<x-app-layout>
+<div class="container lg:mx-auto text-white">
+            <img class="lg:w-[95%] xl:w-[75%] 2xl:w-[65%] lg:mx-auto" src="../../laravel/{{$post->image}}" alt="post image">
+            <div class="px-14 pb-14 lg:px-52 xl:px-80">
+                <p class="mt-6 text-sm sm:text-base font-semibold text-gray-300">{{$post->category}}</p>
+                <h2 class="mt-6 text-4xl sm:text-3xl md:text-5xl lg:text-4xl text-white font-bold sm:leading-normal">
+                    {{$post->title}}
+                </h2>
+                <p class="mt-6 mb-6 text-xs md:text-sm font-normal text-gray-400 sm:font-semibold">
+                    {{Carbon\Carbon::parse($post->created_at)->format('F j, Y')}}
+                </p>
+                <p>
+                    {!! $post->body !!}
+                </p>
+            </div> 
 </div>
-</x-main>
+</x-app-layout>
