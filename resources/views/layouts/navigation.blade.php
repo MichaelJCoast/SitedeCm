@@ -1,7 +1,7 @@
 
 <nav x-data="{ open: false }" class="bg-black border-b border-zinc-700">
     <!-- Primary Navigation Menu -->
-    <div class="container mx-auto px-14">
+    <div class="container mx-auto px-8 sm:px-8 md:px-14">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
@@ -12,7 +12,6 @@
                 </div>
 
                 <!-- Navigation Links -->
-                
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                 @if(Route::current()->getName() == 'dashboard')
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
