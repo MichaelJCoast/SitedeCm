@@ -94,7 +94,7 @@
             </div>
            
             <!-- Hamburger -->
-            <div class="-mr-2 flex items-center sm:hidden">
+            <div class="-mr-2 flex items-center sm:hidden text-white">
                 <button @click="open = ! open"
                     class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition duration-150 ease-in-out">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
