@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\DepartmentRequest;
+use App\Http\Requests\OrderRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
+
+
+
 /**
- * Class DepartmentCrudController
+ * Class OrderCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class DepartmentCrudController extends CrudController
+class OrderCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -24,12 +27,15 @@ class DepartmentCrudController extends CrudController
      * 
      * @return void
      */
+
+
     public function setup()
     {
-        CRUD::setModel(\App\Models\Department::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/department');
-        CRUD::setEntityNameStrings('department', 'departments');
+        CRUD::setModel(\App\Models\Order::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/order');
+        CRUD::setEntityNameStrings('order', 'orders');
     }
+    
 
     /**
      * Define what happens when the List operation is loaded.
@@ -39,9 +45,12 @@ class DepartmentCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        CRUD::column('user');
+        CRUD::column('product');
+        CRUD::column('size');
+        CRUD::column('quantity');
+        CRUD::column('status');
         
-        CRUD::column('name');
-      
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -58,13 +67,15 @@ class DepartmentCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(DepartmentRequest::class);
+        CRUD::field('user');
+        CRUD::field('product');
+        CRUD::field('size');
+        CRUD::field('quantity');
+        CRUD::field('status');
 
         
-        CRUD::field('name');
-        CRUD::field('department');
-        CRUD::field('role');
-        CRUD::field('image');
+
+        
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
