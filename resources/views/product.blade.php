@@ -10,8 +10,8 @@ if(!isset($_GET['id'])){}else{}
 <div class="flex text-base text-left transform transition w-full">
   <div class="w-full relative flex items-center px-4 pt-14 pb-8 overflow-hidden shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
       <div class="w-full grid grid-cols-1 gap-y-8 gap-x-6 items-start sm:grid-cols-12 lg:gap-x-8">   
-        <div class="aspect-w-2 aspect-h-3 rounded-lg bg-gray-100 overflow-hidden sm:col-span-4 lg:col-span-5">
-          <img src="../../laravel/{{$data->photo}}" class="object-center object-cover w-full">
+        <div class="rounded-2xl w-3/4 bg-red-500 sm:col-span-4 lg:col-span-5">
+          <img src="../../laravel/{{$data->photo}}" class="object-center object-cover w-3/4">
         </div>
         <div class="sm:col-span-8 lg:col-span-7">
           <h2 class="text-5xl font-extrabold text-white sm:pr-12">{{$data->name}}</h2>
@@ -142,5 +142,6 @@ if(!isset($_GET['id'])){}else{}
 
 
 @endforeach
+
 
 </x-main>

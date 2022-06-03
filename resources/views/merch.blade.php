@@ -23,5 +23,4 @@
 
       </div>
     </div>
-    <h3>ola</h3>    <h3>ola</h3>    <h3>ola</h3>    <h3>ola</h3>    <h3>ola</h3>
   </x-main>

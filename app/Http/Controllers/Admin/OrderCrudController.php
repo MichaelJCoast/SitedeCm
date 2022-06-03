@@ -6,6 +6,9 @@ use App\Http\Requests\OrderRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
+
+
+
 /**
  * Class OrderCrudController
  * @package App\Http\Controllers\Admin
@@ -24,12 +27,15 @@ class OrderCrudController extends CrudController
      * 
      * @return void
      */
+
+
     public function setup()
     {
         CRUD::setModel(\App\Models\Order::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/order');
         CRUD::setEntityNameStrings('order', 'orders');
     }
+    
 
     /**
      * Define what happens when the List operation is loaded.

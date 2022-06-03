@@ -45,23 +45,34 @@ Route::get('/merch', function () {
     return view('merch', ['merch' => $merch]);
     });
 
+
 /* Product */
 Route::get('/merch/product', function () {
     $merch = DB::table('merch')
     ->whereIn('id', [$_GET['id']])
     ->get();
+
     return view('product', ['merch' => $merch]);
     });
 
+
+
     /* Order */
 Route::get('/order', function () {
+    if(!isset($_GET['id'])){
+        echo"";
+    }
+    else{
+    DB::table('order')->insert(array('user'=> Auth::id(),'product'=> $_GET['id'],'size'=> $_GET['size'],'quantity'=>'1','status'=>'0',));
+    }
+
+
+
+    DB::table('order')->update(array('quantity'=>'1'));
     $order = DB::table('order')
     ->whereIn('user',  [Auth::id()] )
     ->get();
-    $merch = DB::table('merch')
-    ->whereIn('id', [$_GET['id']])
-    ->get();
-    return view('order',['merch' => $merch],['order' => $order]  );
+    return view('order',['order' => $order]  );
     });
     
 /* Post */
