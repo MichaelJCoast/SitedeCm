@@ -74,7 +74,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::put('dashboard', [\App\Http\Controllers\ProfileController::class, 'update'])
     ->name('dashboard.update');
 
-    Route::view('pedidos', 'orders')->name('orders');
+    Route::view('pedidos', 'orders.index')->name('orders');
 });
 
 require __DIR__.'/auth.php';
