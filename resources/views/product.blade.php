@@ -1,4 +1,4 @@
-<x-main>
+<x-app-layout>
 
 @php
 if(!isset($_GET['id'])){}else{}
@@ -144,4 +144,4 @@ if(!isset($_GET['id'])){}else{}
 @endforeach
 
 
-</x-main>
+</x-app-layout>
