@@ -62,14 +62,17 @@ Route::get('/links', function () {
     ->latest()
     ->get();
     return view('links', ['links' => $link]);
-    })->name('links');;
+    })->name('links');
 
-Route::get('/dashboard', function () {
-    $user = DB::table('users')
-    ->get();
-    return view('dashboard',['user' => $user]);
-})->middleware(['auth'])->name('dashboard');
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/dashboard', function () {
+        $user = DB::table('users')
+        ->get();
+        return view('dashboard',['user' => $user]);
+    })->name('dashboard');
 
-
+    Route::put('dashboard', [\App\Http\Controllers\ProfileController::class, 'update'])
+    ->name('dashboard.update');
+});
 
 require __DIR__.'/auth.php';

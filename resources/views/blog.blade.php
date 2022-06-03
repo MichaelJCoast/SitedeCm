@@ -1,5 +1,5 @@
 <x-app-layout>
-<div class="container lg:mx-auto">
+<div class="container lg:mx-auto text-white">
             <img class="lg:w-[95%] xl:w-[75%] 2xl:w-[65%] lg:mx-auto" src="../../laravel/{{$post->image}}" alt="post image">
             <div class="px-14 pb-14 lg:px-52 xl:px-80">
                 <p class="mt-6 text-sm sm:text-base font-semibold text-gray-300">{{$post->category}}</p>
