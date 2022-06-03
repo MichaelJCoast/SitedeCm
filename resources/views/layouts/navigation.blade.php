@@ -13,11 +13,15 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                @if(Route::current()->getName() == 'dashboard')
+                @php
+                    $profileViews = Route::current()->getName() == 'dashboard' || Route::current()->getName() == 'orders'
+                @endphp
+                
+                @if($profileViews)
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                             {{ __('Perfil') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        <x-nav-link :href="route('orders')" :active="request()->routeIs('orders')">
                             {{ __('Pedidos') }}
                         </x-nav-link>
                     @else
