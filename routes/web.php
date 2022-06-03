@@ -35,7 +35,7 @@ Route::get('/equipa', function () {
     $roles = DB::table('cargos')
     ->orderBy('id', 'ASC')
     ->get();
-    return view('member',compact(['team' ,'dep','roles']));
+    return view('team',compact(['team' ,'dep','roles']));
 })->name('equipa');
 
 /* Merch */
