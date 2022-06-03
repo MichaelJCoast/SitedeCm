@@ -28,16 +28,6 @@ class Department extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-/*
-    public function role(){
-        return $this->belongsTo('App\Models\Role');
-    }
-    */
-    /*
-    public function roles(){
-        return $this->hasMany('App\Models\Role');
-    }
-    
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

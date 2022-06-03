@@ -1,6 +1,4 @@
-@extends('layouts.main')
-
-@section('content')
+<x-main>
 
 @php
 if(!isset($_GET['id'])){}else{}
@@ -12,8 +10,8 @@ if(!isset($_GET['id'])){}else{}
 <div class="flex text-base text-left transform transition w-full">
   <div class="w-full relative flex items-center px-4 pt-14 pb-8 overflow-hidden shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
       <div class="w-full grid grid-cols-1 gap-y-8 gap-x-6 items-start sm:grid-cols-12 lg:gap-x-8">   
-        <div class="aspect-w-2 aspect-h-3 rounded-lg bg-gray-100 overflow-hidden sm:col-span-4 lg:col-span-5">
-          <img src="{{$data->photo}}" alt="Two each of gray, white, and black shirts arranged on table." class="object-center object-cover">
+        <div class="rounded-2xl w-3/4 bg-red-500 sm:col-span-4 lg:col-span-5">
+          <img src="../../laravel/{{$data->photo}}" class="object-center object-cover w-3/4">
         </div>
         <div class="sm:col-span-8 lg:col-span-7">
           <h2 class="text-5xl font-extrabold text-white sm:pr-12">{{$data->name}}</h2>
@@ -50,7 +48,7 @@ if(!isset($_GET['id'])){}else{}
                 </div>
               </section>
 
-                <form method="get" action="product">
+                <form method="get" action="/laravel/order">
                 <input type="hidden" id="userId" name="id" value="{{$data->id}}">
                   <!-- Sizes -->
                   <div class="mt-10">
@@ -105,8 +103,7 @@ if(!isset($_GET['id'])){}else{}
 
                         <label class="group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-200 focus:outline-none sm:flex-1 bg-white shadow-sm text-gray-900 cursor-pointer">
                           <input type="radio" name="size" value="XXL" class="sr-only" aria-labelledby="size-6-label">
-
-                          <span class="absolute -inset-px rounded-md pointer-events-none" aria-hidden="true"></span>
+                          <span id="size-5-label"> XXL </span>
                         </label>
 
                         <label class="group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-200 focus:outline-none sm:flex-1 bg-gray-50 text-gray-200 cursor-not-allowed">
@@ -146,5 +143,5 @@ if(!isset($_GET['id'])){}else{}
 
 @endforeach
 
-@include('layouts.footer')
-@endsection
+
+</x-main>

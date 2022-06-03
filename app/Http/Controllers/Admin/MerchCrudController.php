@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\MerchRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use App\Models\Post;
 
 /**
  * Class MerchCrudController
@@ -39,11 +40,13 @@ class MerchCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+
         CRUD::column('name');
         CRUD::column('photo');
         CRUD::column('price');
         CRUD::column('size');
         CRUD::column('quantity');
+
 
 
 
@@ -62,11 +65,38 @@ class MerchCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::field('name');
-        CRUD::field('photo');
-        CRUD::field('price');
-        CRUD::field('size');
-        CRUD::field('quantity');
+        CRUD::addField([
+            'name' => 'name',
+            'type' => 'text',
+            'label' => "Nome"
+        ]);
+
+        CRUD::addField([   
+            'name'      => 'photo',
+            'label'     => 'Image',
+            'type'      => 'upload',
+            'upload'    => true,
+            'disk'      => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
+        ]);
+        
+        CRUD::addField([  
+            'name'          => 'price',
+            'label'         => 'Price',
+            'type'          => 'text',
+            'placeholder'   => '19,99',
+        ]);
+
+        CRUD::addField([  
+            'name'          => 'size',
+            'label'         => 'Size',
+            'type'          => 'text',
+        ]);
+        
+        CRUD::addField([ 
+            'name'          => 'quantity',
+            'label'         => 'quantidade',
+            'type'          => 'text',
+        ]);
 
         
 
@@ -87,4 +117,13 @@ class MerchCrudController extends CrudController
     {
         $this->setupCreateOperation();
     }
+
+
+protected function showMerch(Merch $merch)
+    {
+        return view('merch', [
+            'merch' => $merch
+        ]);
+    }
+
 }

@@ -5,7 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Merch extends Model
+class Order extends Model
 {
     use CrudTrait;
 
@@ -15,7 +15,7 @@ class Merch extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'merch';
+    protected $table = 'order';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
@@ -28,15 +28,7 @@ class Merch extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function setPhotoAttribute($value)
-    {
-        $attribute_name = "photo";
-        $disk = "public";
-        $destination_path ="uploads";
 
-        $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
-
-    }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
@@ -60,4 +52,4 @@ class Merch extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
-    }
+}
