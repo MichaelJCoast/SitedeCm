@@ -45,8 +45,18 @@ class OrderCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('user');
-        CRUD::column('product');
+        $this->crud->denyAccess('create');
+        $this->crud->addColumns( [
+          
+            [
+                'label' => 'User',
+                'name' => 'users.name',
+            ],
+            [
+                'label' => 'Product',
+                'name' => 'merch.name', // relation.column_name
+            ],
+        ] );
         CRUD::column('size');
         CRUD::column('quantity');
         CRUD::column('status');
