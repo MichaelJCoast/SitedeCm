@@ -62,9 +62,7 @@ class DepartmentCrudController extends CrudController
 
         
         CRUD::field('name');
-        CRUD::field('department');
-        CRUD::field('role');
-        CRUD::field('image');
+    
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
