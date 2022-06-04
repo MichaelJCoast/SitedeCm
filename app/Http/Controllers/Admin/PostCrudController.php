@@ -75,8 +75,7 @@ class PostCrudController extends CrudController
                 ['font', ['color', 'clear']],
                 ['para', ['ul', 'ol', 'paragraph']],
                 ['insert', ['link', 'picture', 'video']],
-                ['view', ['codeview', 'fullscreen']],
-                ['height', ['height']]
+                ['view', ['fullscreen']],
                 ]
             ],
         ]);
