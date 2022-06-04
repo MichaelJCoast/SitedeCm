@@ -68,15 +68,17 @@ Route::get('/order', function () {
 
 
 
-    DB::table('order')->update(array('quantity'=>'1'));
+DB::table('order')->update(array('quantity'=>'1'));
     $order = DB::table('order')
     ->whereIn('user',  [Auth::id()] )
     ->get();
     return view('order',['order' => $order]  );
-    });
+    });  
     
 /* Post */
 Route::get('blog/{post:slug}', [PostCrudController::class, 'showPosts']);
+
+Route::get('/blog', [PostCrudController::class, 'blogPostIndex']);
 
 /* Links */
 Route::get('/links', function () {

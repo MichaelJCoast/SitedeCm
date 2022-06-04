@@ -1,4 +1,4 @@
-<div class="grid xl:grid-flow-col xl:auto-cols-auto bg-black">
+<div class="grid xl:grid-flow-col xl:auto-cols-fr bg-black">
     <div class="">
         <img src="https://necm.utad.pt/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-28-at-20.08.07-e1640816963642.jpeg" alt="">
     </div>
