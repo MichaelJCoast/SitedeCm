@@ -78,7 +78,7 @@ DB::table('order')->update(array('quantity'=>'1'));
 /* Post */
 Route::get('blog/{post:slug}', [PostCrudController::class, 'showPosts']);
 
-Route::get('/blog', [PostCrudController::class, 'blogPostIndex']);
+Route::get('/blog', [PostCrudController::class, 'blogPostIndex'])->name('blog');
 
 /* Links */
 Route::get('/links', function () {
