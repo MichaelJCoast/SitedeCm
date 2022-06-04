@@ -48,9 +48,11 @@ Route::get('/merch', function () {
 
 /* Product */
 Route::get('/merch/product', function () {
+    if(!isset($_GET['id'])){ 
+    return redirect()->route('merch'); } else{ 
     $merch = DB::table('merch')
     ->whereIn('id', [$_GET['id']])
-    ->get();
+    ->get();  }
 
     return view('product', ['merch' => $merch]);
     });
@@ -58,23 +60,27 @@ Route::get('/merch/product', function () {
 
 
     /* Order */
-Route::get('/order', function () {
-    if(!isset($_GET['id'])){
-        echo"";
-    }
-    else{
-    DB::table('order')->insert(array('user'=> Auth::id(),'product'=> $_GET['id'],'size'=> $_GET['size'],'quantity'=>'1','status'=>'0',));
-    }
-
-
-
-    DB::table('order')->update(array('quantity'=>'1'));
-    $order = DB::table('order')
-    ->whereIn('user',  [Auth::id()] )
-    ->get();
-    return view('order',['order' => $order]  );
-    });
+    Route::get('/order', function () {
+        if(!isset($_GET['id'])){
+            echo"";
+        }
+        else{
+        DB::table('order')->insert(array('user'=> Auth::id(),'product'=> $_GET['id'],'size'=> $_GET['size'],'quantity'=>'1','status'=>'0',));
+        }
     
+        if(!isset($_GET['delete'])){ }
+        elseif(($_GET['delete'])==1){
+            DB::table('order')->where('id', ($_GET['iddelete']))->delete(); 
+        }
+    
+        DB::table('order')->update(array('quantity'=>'1'));
+        $order = DB::table('order')
+        ->whereIn('user',  [Auth::id()] )
+        ->get();
+        return view('order',['order' => $order]  );
+        });
+    
+
 /* Post */
 Route::get('blog/{post:slug}', [PostCrudController::class, 'showPosts']);
 

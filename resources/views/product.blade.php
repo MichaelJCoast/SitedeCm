@@ -1,8 +1,11 @@
 <x-main>
 
-@php
-if(!isset($_GET['id'])){}else{}
-@endphp
+<?php
+if(!isset($_GET['id'])){ 
+     die('tens de escolher primeiro BRO'); }
+  else{ }  
+  ?>
+
 
 
 @foreach($merch as $key => $data)
@@ -121,15 +124,16 @@ if(!isset($_GET['id'])){}else{}
 
 
                   <div class="mt-6 inline-flex">
-                    <button type="submit" class="mt-6 mr-10 bg-red-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-xl font-bold text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <button type="submit" name="gotoorder" value="0" class="mt-6 mr-10 bg-red-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-xl font-bold text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                       Adicionar ao carrinho de compras
                     </button>
-                    <button type="submit" class="mt-6 text-red-600 bg-white border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-xl font-bold hover:bg-red-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                    <button type="submit" name="gotoorder" value="1" class="mt-6 text-red-600 bg-white border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-xl font-bold hover:bg-red-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                       Reservar já
                     </button>
                   </div>
 
                 </form>
+
               </section>
             </div>
           </div>
@@ -144,4 +148,5 @@ if(!isset($_GET['id'])){}else{}
 @endforeach
 
 
-</x-main>
+
+</x-app-layout>

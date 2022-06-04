@@ -12,7 +12,7 @@
                 <table class="w-full leading-normal">
                     <thead>
                         <tr>
-                            <th scope="col" class="px-5 py-3  border-ba border-gray-200 text-white  text-left text-sm uppercase font-normal">
+                            <th scope="col" class="px-5 py-3  border-b border-gray-200 text-white  text-left text-sm uppercase font-normal">
                                 Produto
                             </th>
                             <th scope="col" class="px-5 py-3  border-b border-gray-200 text-white  text-left text-sm uppercase font-normal">
@@ -70,7 +70,7 @@
                                 </p>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 text-sm">
-                                <span class="relative inline-block px-3 py-1 font-semibold text-black leading-tight">
+                                <span class="relative inline-block px-3 py-1 font-semibold text-white leading-tight">
 
                                     <span class="relative">
                                         <?php 
@@ -93,9 +93,12 @@
                             </td>
 
                             <td class="border-b border-gray-200 text-sm">
-                                <button class="block text-white  hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center " type="button" data-modal-toggle="popup-modal">
-                                    <i class="las la-2x la-trash-alt"></i>
-                                </button>
+                            <form action="order" method="get">
+                            <input type="hidden" id="userId" name="iddelete" value="{{$dataorder->id}}">
+                                <x-delete-order />
+                                    <button class="block text-white  hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center " type="button" data-modal-toggle="popup-modal">
+                                        <i class="las la-2x la-trash-alt"></i>
+                                    </button>
                             </td>
                         </tr>
                     </tbody>
@@ -131,8 +134,6 @@
     </div>
 </div>
 
-<x-delete-order>
-</x-delete-order>
 
 
 </x-main>
