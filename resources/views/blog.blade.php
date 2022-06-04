@@ -9,9 +9,9 @@
                 <p class="mt-6 mb-6 text-xs md:text-sm font-normal text-gray-400 sm:font-semibold">
                     {{Carbon\Carbon::parse($post->created_at)->format('F j, Y')}}
                 </p>
-                <p>
+                <div class="text-justify">
                     {!! $post->body !!}
-                </p>
+                </div>    
             </div> 
 </div>
 </x-app-layout>
