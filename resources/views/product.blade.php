@@ -1,4 +1,4 @@
-<x-main>
+<x-app-layout>
 
 <?php
 if(!isset($_GET['id'])){ 

@@ -74,12 +74,22 @@ Route::get('/merch/product', function () {
         }
     
         DB::table('order')->update(array('quantity'=>'1'));
+
         $order = DB::table('order')
         ->whereIn('user',  [Auth::id()] )
         ->get();
         return view('order',['order' => $order]  );
         });
     
+    /* MAIL */
+        Route::get('/send-mail', function () {    
+            $order = DB::table('order')
+                ->whereIn('user',  [Auth::id()] )
+                ->get();
+
+            \Mail::to( auth()->user()->email )->send(new \App\Mail\MyTestMail($order));
+            return redirect()->route('merch');
+        });
 
 /* Post */
 Route::get('blog/{post:slug}', [PostCrudController::class, 'showPosts']);
@@ -104,5 +114,11 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::view('pedidos', 'orders.index')->name('orders');
 });
+
+
+
+
+
+
 
 require __DIR__.'/auth.php';

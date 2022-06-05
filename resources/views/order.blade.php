@@ -1,4 +1,4 @@
-<x-main>
+<x-app-layout>
 <head>
 <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css" />
@@ -122,8 +122,12 @@
                                 </p>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 text-sm">
-                            <button type="button" class="inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Reservar Já</button>
-                            </td>
+
+                            <form action="send-email" method="get">
+                                <input type="hidden" name="price" value="<?php $total ?>">
+                                <button type="submit" class="inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Reservar Já</button>
+                           
+                        </td>
                         </tr>
                     </tbody>
 
@@ -135,5 +139,4 @@
 </div>
 
 
-
-</x-main>
+</x-app-layout>
