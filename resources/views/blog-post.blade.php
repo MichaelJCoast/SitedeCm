@@ -2,7 +2,7 @@
 <div class="container mx-auto text-white">
             <img class="lg:w-[95%] xl:w-[75%] 2xl:w-[65%] mx-auto" src="../../laravel/{{$post->image}}" alt="post image">
             <div class="px-8 pb-14 lg:px-52 xl:px-80">
-                <p class="mt-6 text-sm uppercase text-white">{{$post->category}}</p>
+                <p class="mt-6 text-sm uppercase tracking-[.2em] text-red-600">{{$post->category}}</p>
                 <h2 class="text-4xl sm:text-3xl md:text-5xl lg:text-4xl text-white font-bold sm:leading-normal">
                     {{$post->title}}
                 </h2>
