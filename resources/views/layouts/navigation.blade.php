@@ -47,7 +47,7 @@
                     <x-slot name="trigger">
                         <button
                             class="flex items-center text-white text-lg font-semibold hover:text-red-600 hover:border-gray-300 focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
-                            <div>{{ Auth::user()->name }}</div>
+                            <div>{{ Auth::user()->firstname }}</div>
 
                             <div class="ml-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
@@ -130,7 +130,10 @@
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-zinc-700">
             <div class="px-4">
-                <div class="font-medium text-base text-white">{{ Auth::user()->name }}</div>
+                <div class="flex flex-wrap space-x-1">
+                    <div class="font-medium text-base text-white">{{ Auth::user()->firstname }}</div>
+                    <div class="font-medium text-base text-white">{{ Auth::user()->lastname }}</div>
+                </div>
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
             </div>
 
