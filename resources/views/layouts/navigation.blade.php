@@ -130,9 +130,8 @@
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-zinc-700">
             <div class="px-4">
+            <div class="font-medium text-base text-white">{{ Auth::user()->name }}</div>
                 <div class="flex flex-wrap space-x-1">
-                    <div class="font-medium text-base text-white">{{ Auth::user()->firstname }}</div>
-                    <div class="font-medium text-base text-white">{{ Auth::user()->lastname }}</div>
                 </div>
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
             </div>
