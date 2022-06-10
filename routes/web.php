@@ -105,16 +105,7 @@ Route::get('/merch/product', function () {
 
             \Mail::to( auth()->user()->email )->send(new \App\Mail\MyTestMail($order));
             return redirect()->route('merch');
-           
         });
-
-/* Order */
-DB::table('order')->update(array('quantity'=>'1'));
-    $order = DB::table('order')
-    ->whereIn('user',  [Auth::id()] )
-    ->get();
-    return view('order',['order' => $order]  );
-    });  
 
 /* Post */
 Route::get('blog/{post:slug}', [PostCrudController::class, 'showPosts']);
@@ -140,15 +131,6 @@ Route::group(['middleware' => 'auth'], function() {
     ->name('dashboard.update');
 
     Route::view('pedidos', 'orders.index')->name('orders');
-
-
-    
 });
-
-
-
-
-
-
 
 require __DIR__.'/auth.php';
