@@ -47,7 +47,7 @@
                     <x-slot name="trigger">
                         <button
                             class="flex items-center text-white text-lg font-semibold hover:text-red-600 hover:border-gray-300 focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
-                            <div>{{ Auth::user()->firstname }}</div>
+                            <div>{{ Auth::user()->name }}</div>
 
                             <div class="ml-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@
                                 {{ __('Perfil') }}
                             </x-dropdown-link>
                         </form>
-                        @if(Auth::user()->hasRole('admin'))
+                        @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('mod') )
                             <!-- Authentication -->
                             <form method="GET" action="{{ backpack_url() }}">
                                 @csrf

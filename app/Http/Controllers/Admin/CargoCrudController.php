@@ -29,6 +29,11 @@ class CargoCrudController extends CrudController
         CRUD::setModel(\App\Models\Cargo::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/cargo');
         CRUD::setEntityNameStrings('cargo', 'cargos');
+        if (!backpack_user()->hasRole('admin')) {
+            CRUD::denyAccess('create');
+            CRUD::denyAccess('update');
+            CRUD::denyAccess('delete');
+        }
     }
 
     /**

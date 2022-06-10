@@ -34,6 +34,11 @@ class EquipaCrudController extends CrudController
         $this->crud->setModel('App\Models\Equipa');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/equipa');
         $this->crud->setEntityNameStrings('membro', 'equipa');
+        if (!backpack_user()->hasRole('admin')) {
+            CRUD::denyAccess('create');
+            CRUD::denyAccess('update');
+            CRUD::denyAccess('delete');
+        }
       
     }
 

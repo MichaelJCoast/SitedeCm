@@ -30,6 +30,11 @@ class MerchCrudController extends CrudController
         CRUD::setModel(\App\Models\Merch::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/merch');
         CRUD::setEntityNameStrings('merch', 'merches');
+        if (!backpack_user()->hasRole('admin')) {
+            CRUD::denyAccess('create');
+            CRUD::denyAccess('update');
+            CRUD::denyAccess('delete');
+        }
     }
 
     /**
