@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
-
-class Order extends Model
+use Illuminate\Database\Eloquent\Relations\Pivot;
+class Order extends Pivot
 {
     use CrudTrait;
 
@@ -34,7 +34,13 @@ class Order extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function merch(){
+        return $this->hasOne('App\Models\Merch', 'id', 'product');
+    }
 
+    public function users(){
+        return $this->hasOne('App\Models\UsersOrder', 'id', 'user');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

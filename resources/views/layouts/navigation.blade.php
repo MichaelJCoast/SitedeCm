@@ -1,7 +1,7 @@
 
 <nav x-data="{ open: false }" class="bg-black border-b border-zinc-700">
     <!-- Primary Navigation Menu -->
-    <div class="container mx-auto px-8 sm:px-8 md:px-14">
+    <div class="container mx-auto px-8 md:px-14">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
@@ -46,7 +46,7 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
-                            class="flex items-center text-white hover:text-red-300 hover:border-gray-300 focus:outline-none focus:text-red-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                            class="flex items-center text-white text-lg font-semibold hover:text-red-600 hover:border-gray-300 focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ml-1">
@@ -68,7 +68,7 @@
                                 {{ __('Perfil') }}
                             </x-dropdown-link>
                         </form>
-                        @if(Auth::user()->hasRole('admin'))
+                        @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('mod') )
                             <!-- Authentication -->
                             <form method="GET" action="{{ backpack_url() }}">
                                 @csrf
@@ -94,7 +94,7 @@
             </div>
            
             <!-- Hamburger -->
-            <div class="-mr-2 flex items-center sm:hidden">
+            <div class="-mr-2 flex items-center sm:hidden text-white">
                 <button @click="open = ! open"
                     class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition duration-150 ease-in-out">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -111,32 +111,44 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
+        <div class="pt-2 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Perfil') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('equipa')" :active="request()->routeIs('equipa')">
+                {{ __('Equipa') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('merch')" :active="request()->routeIs('merch')">
+                {{ __('Merch') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('links')" :active="request()->routeIs('links')">
+                {{ __('Links') }}
+            </x-responsive-nav-link>
         </div>
+
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-zinc-700">
             <div class="px-4">
-                <div class="font-medium text-base text-white">{{ Auth::user()->name }}</div>
+            <div class="font-medium text-base text-white">{{ Auth::user()->name }}</div>
+                <div class="flex flex-wrap space-x-1">
+                </div>
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
             </div>
 
-            <div class="mt-3 space-y-1">
+            <div class="space-y-1">
                 <!-- Authentication -->
                 @if(Auth::user()->hasRole('admin'))
                             <!-- Authentication -->
                             <form method="GET" action="{{ backpack_url() }}">
                                 @csrf
-                                <x-responsive-nav-link :href="backpack_url()" onclick="event.preventDefault();
+                        <x-responsive-nav-link :href="backpack_url()" onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Backoffice') }}
                     </x-responsive-nav-link>
 
                             </form>
-                        @endif
+                @endif
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 

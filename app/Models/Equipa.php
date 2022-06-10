@@ -80,6 +80,12 @@ class Equipa extends Model
     public function role(){
         return $this->belongsTo('App\Models\Cargo');
     }
+
+    public function departments(){
+        return $this->hasOne('App\Models\Department', 'id', 'dep_id');
+    }
+
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

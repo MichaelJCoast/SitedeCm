@@ -27,9 +27,15 @@ class PostCrudController extends CrudController
      */
     public function setup()
     {
+        
         CRUD::setModel(\App\Models\Post::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/post');
         CRUD::setEntityNameStrings('post', 'posts');
+        if (!backpack_user()->can('edit posts') && !backpack_user()->hasRole('admin') ) {
+            CRUD::denyAccess('create');
+            CRUD::denyAccess('update');
+            CRUD::denyAccess('delete');
+        }
     }
 
     /**
@@ -40,6 +46,7 @@ class PostCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        
         CRUD::column('title');
         CRUD::column('body');
         CRUD::column('slug');
@@ -75,8 +82,7 @@ class PostCrudController extends CrudController
                 ['font', ['color', 'clear']],
                 ['para', ['ul', 'ol', 'paragraph']],
                 ['insert', ['link', 'picture', 'video']],
-                ['view', ['codeview', 'fullscreen']],
-                ['height', ['height']]
+                ['view', ['fullscreen']],
                 ]
             ],
         ]);
@@ -110,8 +116,15 @@ class PostCrudController extends CrudController
 
     protected function showPosts(Post $post)
     {
-        return view('blog', [
+        return view('blog-post', [
             'post' => $post
+        ]);
+    }
+
+    protected function blogPostIndex(Post $post) 
+    {
+        return view('blog', [
+            'posts' => $post::orderBy('created_at', 'DESC')->paginate(18)
         ]);
     }
 }

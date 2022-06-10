@@ -56,7 +56,7 @@ Route::get('/merch/product', function () {
     ->get();  }
 
     return view('product', ['merch' => $merch]);
-    });
+    })->middleware('auth');
 
 
 
@@ -108,8 +108,18 @@ Route::get('/merch/product', function () {
            
         });
 
+/* Order */
+DB::table('order')->update(array('quantity'=>'1'));
+    $order = DB::table('order')
+    ->whereIn('user',  [Auth::id()] )
+    ->get();
+    return view('order',['order' => $order]  );
+    });  
+
 /* Post */
 Route::get('blog/{post:slug}', [PostCrudController::class, 'showPosts']);
+
+Route::get('/blog', [PostCrudController::class, 'blogPostIndex'])->name('blog');
 
 /* Links */
 Route::get('/links', function () {
