@@ -31,24 +31,24 @@
                     </thead>
 
                             <?php $total=0; ?>
-                        @foreach($order as $key => $dataorder )
+                        @foreach($order as $dataorder )
                             <?php   $idmerch=$dataorder->product;
-                                    $teste = DB::table('merch')
+                                    $merch = DB::table('merch')
                                     ->whereIn('id', [$idmerch] )
                                     ->get(); ?>
-                            @foreach($teste as $key => $datateste )
+                            @foreach($merch as $key => $datamerch )
                         <tbody>
                         <tr>
                             <td class="px-5 py-5 border-b border-gray-200  text-sm">
                                 <div class="flex items-center">
                                     <div class="flex-shrink-0">
                                         <a href="#" class="block relative">
-                                            <img alt="profil" src="../../laravel/{{$datateste->photo}}" class="mx-auto object-cover rounded-full h-10 w-10 "/>
+                                            <img alt="profil" src="../../laravel/{{$datamerch->photo}}" class="mx-auto object-cover rounded-full h-10 w-10 "/>
                                         </a>
                                     </div>
                                     <div class="ml-3">
                                         <p class="text-white whitespace-no-wrap">
-                                            {{$datateste->name}}
+                                            {{$datamerch->name}}
                                         </p>
                                     </div>
                                 </div>
@@ -65,8 +65,8 @@
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 text-sm">
                                 <p class="text-white whitespace-no-wrap">
-                                {{$datateste->price}}€
-                                <?php $total=$total+$datateste->price?>
+                                {{$datamerch->price}}€
+                                <?php $total=$total+$datamerch->price?>
                                 </p>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 text-sm">
@@ -91,14 +91,15 @@
                                     </span>
                                 </span>
                             </td>
-
                             <td class="border-b border-gray-200 text-sm">
                             <form action="order" method="get">
-                            <input type="hidden" id="userId" name="iddelete" value="{{$dataorder->id}}">
-                                <x-delete-order />
-                                    <button class="block text-white  hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center " type="button" data-modal-toggle="popup-modal">
-                                        <i class="las la-2x la-trash-alt"></i>
-                                    </button>
+                            <input type="hidden" id="iddelete" name="iddelete" value="{{$dataorder->id}}">
+                            
+                            <button class="block text-white  hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="submit" data-modal-toggle="popup-modal">
+                                <i class="las la-2x la-trash-alt"></i>
+                            </button>
+                            
+                            </form>
                             </td>
                         </tr>
                     </tbody>
@@ -123,14 +124,12 @@
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 text-sm">
 
-                            <form action="send-email" method="get">
-                                <input type="hidden" name="price" value="<?php $total ?>">
+                            <form action="send-mail" method="get">
                                 <button type="submit" class="inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Reservar Já</button>
-                           
+                            </form>
                         </td>
                         </tr>
                     </tbody>
-
 
                 </table>
             </div>

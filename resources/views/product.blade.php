@@ -1,13 +1,5 @@
 <x-app-layout>
 
-<?php
-if(!isset($_GET['id'])){ 
-     die('tens de escolher primeiro BRO'); }
-  else{ }  
-  ?>
-
-
-
 @foreach($merch as $key => $data)
 
 <div class="flex text-base text-left transform transition w-full">
@@ -118,21 +110,19 @@ if(!isset($_GET['id'])){
                               <line x1="0" y1="100" x2="100" y2="0" vector-effect="non-scaling-stroke" />
                             </svg>
                           </span>
-                        </label>
+                        </label> 
                       </div>
                     </fieldset>
 
 
                   <div class="mt-6 inline-flex">
-                    <button type="submit" name="gotoorder" value="0" class="mt-6 mr-10 bg-red-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-xl font-bold text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                      Adicionar ao carrinho de compras
-                    </button>
-                    <button type="submit" name="gotoorder" value="1" class="mt-6 text-red-600 bg-white border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-xl font-bold hover:bg-red-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                    <button type="submit" class="mt-6 text-red-600 bg-white border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-xl font-bold hover:bg-red-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                       Reservar já
                     </button>
                   </div>
+                
+              </form>
 
-                </form>
 
               </section>
             </div>
@@ -146,6 +136,9 @@ if(!isset($_GET['id'])){
 
 
 @endforeach
+
+
+
 
 
 

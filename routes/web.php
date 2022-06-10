@@ -47,6 +47,7 @@ Route::get('/merch', function () {
 
 
 /* Product */
+
 Route::get('/merch/product', function () {
     if(!isset($_GET['id'])){ 
     return redirect()->route('merch'); } else{ 
@@ -60,35 +61,51 @@ Route::get('/merch/product', function () {
 
 
     /* Order */
+
     Route::get('/order', function () {
-        if(!isset($_GET['id'])){
-            echo"";
-        }
+
+        if(!isset($_GET['iddelete'])){ }
         else{
-        DB::table('order')->insert(array('user'=> Auth::id(),'product'=> $_GET['id'],'size'=> $_GET['size'],'quantity'=>'1','status'=>'0',));
-        }
-    
-        if(!isset($_GET['delete'])){ }
-        elseif(($_GET['delete'])==1){
             DB::table('order')->where('id', ($_GET['iddelete']))->delete(); 
         }
-    
-        DB::table('order')->update(array('quantity'=>'1'));
 
-        $order = DB::table('order')
-        ->whereIn('user',  [Auth::id()] )
-        ->get();
-        return view('order',['order' => $order]  );
-        });
-    
+        $user = Auth::user();
+
+            if(!isset($user->id)){
+                return redirect()->route('merch');
+            };
+        
+            if(!isset($_GET['id'])){
+                echo"";
+            }
+            else{
+            DB::table('order')->insert(array('user'=> Auth::id(),'product'=> $_GET['id'],'size'=> $_GET['size'],'quantity'=>'1','status'=>'0',));
+            }
+        
+
+            $order = DB::table('order')
+            ->whereIn('user',  [Auth::id()] )
+            ->where('status','==', 0)
+            ->get();
+            return view('order',['order' => $order] );
+            });
+
+
     /* MAIL */
         Route::get('/send-mail', function () {    
             $order = DB::table('order')
-                ->whereIn('user',  [Auth::id()] )
+                ->whereIn('user', [Auth::id()] )
+                ->where('status','==', 0)
                 ->get();
+
+                 DB::table('order')
+                ->where('user',[Auth::id()])
+                ->where('status', '0')
+                ->update(['status'=>'1']);
 
             \Mail::to( auth()->user()->email )->send(new \App\Mail\MyTestMail($order));
             return redirect()->route('merch');
+           
         });
 
 /* Post */
@@ -113,6 +130,9 @@ Route::group(['middleware' => 'auth'], function() {
     ->name('dashboard.update');
 
     Route::view('pedidos', 'orders.index')->name('orders');
+
+
+    
 });
 
 

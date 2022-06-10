@@ -15,7 +15,7 @@
                                     <table class="min-w-full divide-y divide-gray-200">
                                         <thead class="bg-gray-50">
                                         <tr>
-                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
                                                 Pedido #
                                             </th>
                                             <th scope="col" class="relative px-6 py-3">
@@ -24,13 +24,41 @@
                                         </tr>
                                         </thead>
                                         <tbody class="bg-white divide-y divide-gray-200">
-                                        {{-- @foreach ($pedidos as $pedido)
+
+                                        <?php    $pedidos = DB::table('order')
+                                                ->whereIn('user',  [Auth::id()] )
+                                                ->where('status','!=', 0)
+                                                ->get();?>
+
+                                        @foreach ($pedidos as $key => $pedido)
+
+                                        <?php   $idmerch=$pedido->product;
+                                                $merch = DB::table('merch')
+                                                ->whereIn('id', [$idmerch] )
+                                                ->get(); ?>
+                                            @foreach($merch as $key => $merch )
+
                                         <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            PEDIDO #{{$pedido->id}} -> {{$merch->name}}
+                                            </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                {{ $pedido->name }}
+                                            {{$merch->price}}€ ->   
+                                    <?php 
+                                        if (($pedido->status)==1){
+                                            echo "precisa pagar";
+                                        }
+                                        elseif (($pedido->status)==2){
+                                            echo "precisa levantar";
+                                        }
+                                        else{
+                                            echo "encomenda efetuada";
+                                        }
+                                        ?>
                                             </td>
                                         </tr>
-                                        @endforeach --}}
+                                        @endforeach
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>
