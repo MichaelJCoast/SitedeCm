@@ -43,7 +43,14 @@
                 </div>
               </section>
 
-                <form method="get" action="/laravel/order">
+              <form method="get" action="/laravel/order">
+              <input type="hidden" id="userId" name="id" value="{{$data->id}}">
+
+<?php if ($data->size == 0) {
+    ?><input type="hidden" id="size" name="size" value="0">"<?php
+ }
+      else{ ?>
+
                 <input type="hidden" id="userId" name="id" value="{{$data->id}}">
                   <!-- Sizes -->
                   <div class="mt-10">
@@ -114,6 +121,7 @@
                       </div>
                     </fieldset>
 
+                    <?php }; ?>
 
                   <div class="mt-6 inline-flex">
                     <button type="submit" class="mt-6 text-red-600 bg-white border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-xl font-bold hover:bg-red-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
