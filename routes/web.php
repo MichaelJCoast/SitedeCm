@@ -53,7 +53,7 @@ Route::get('/merch/product', function () {
     ->get();
 
     return view('product', ['merch' => $merch]);
-    });
+    })->middleware('auth');
 
 
 
