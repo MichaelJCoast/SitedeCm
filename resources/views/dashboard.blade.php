@@ -18,12 +18,8 @@
                         <div class="grid grid-cols-2 gap-6">
                             <div class="grid grid-rows-2 gap-6">
                                 <div>
-                                    <x-label for="name" :value="__('Name')" />
+                                    <x-label for="name" :value="__('Nome')" />
                                     <x-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ auth()->user()->name }}" autofocus />
-                                </div>
-                                <div>
-                                    <x-label for="email" :value="__('Email')" />
-                                    <x-input id="email" class="block mt-1 w-full" type="email" name="email" value="{{ auth()->user()->email }}" autofocus />
                                 </div>
                             </div>
                             <div class="grid grid-rows-2 gap-6">

@@ -56,34 +56,26 @@ Route::get('/merch/product', function () {
     ->get();  }
 
     return view('product', ['merch' => $merch]);
-    });
+    })->middleware('auth');
 
 
 
     /* Order */
-
     Route::get('/order', function () {
-
         if(!isset($_GET['iddelete'])){ }
         else{
-            DB::table('order')->where('id', ($_GET['iddelete']))->delete(); 
-        }
+            DB::table('order')->where('id', ($_GET['iddelete']))->delete(); }
 
         $user = Auth::user();
-
             if(!isset($user->id)){
-                return redirect()->route('merch');
-            };
-        
-            if(!isset($_GET['id'])){
-                echo"";
-            }
-            else{
-            DB::table('order')->insert(array('user'=> Auth::id(),'product'=> $_GET['id'],'size'=> $_GET['size'],'quantity'=>'1','status'=>'0',));
-            }
-        
+                return redirect()->route('merch'); };
 
-            $order = DB::table('order')
+            if(!isset($_GET['id'])){ }
+
+            else{
+            DB::table('order')->insert(array('user'=> Auth::id(),'product'=> $_GET['id'],'size'=> $_GET['size'],'quantity'=>'1','status'=>'0',)); }
+        
+        $order = DB::table('order')
             ->whereIn('user',  [Auth::id()] )
             ->where('status','==', 0)
             ->get();
@@ -91,25 +83,20 @@ Route::get('/merch/product', function () {
             });
 
 
-    /* MAIL */
-        Route::get('/send-mail', function () {    
-            $order = DB::table('order')
-                ->whereIn('user', [Auth::id()] )
-                ->where('status','==', 0)
-                ->get();
+    /* FATURA */
+        Route::get('/fatura', function () {    
 
-                 DB::table('order')
-                ->where('user',[Auth::id()])
-                ->where('status', '0')
-                ->update(['status'=>'1']);
-
-            \Mail::to( auth()->user()->email )->send(new \App\Mail\MyTestMail($order));
+                 DB::table('mail')
+                    ->where('name', 'promocao' )
+                    ->get();
+            \Mail::to( auth()->user()->email )->send(new \App\Mail\fatura($order, $layout));
             return redirect()->route('merch');
-           
         });
 
 /* Post */
 Route::get('blog/{post:slug}', [PostCrudController::class, 'showPosts']);
+
+Route::get('/blog', [PostCrudController::class, 'blogPostIndex'])->name('blog');
 
 /* Links */
 Route::get('/links', function () {
@@ -130,14 +117,37 @@ Route::group(['middleware' => 'auth'], function() {
     ->name('dashboard.update');
 
     Route::view('pedidos', 'orders.index')->name('orders');
-
-
-    
 });
 
 
 
+    /* FATURA */
+    Route::get('/mail', function () {    
+        $count=0;
+        $mail=DB::table('mail')
+        ->get();
 
+        if(!isset($_GET['id'])){        
+            $main=DB::table('mail')
+                    ->get(); } 
+        else{ 
+
+        $main=DB::table('mail')
+        ->where('id', $_GET['id'] )
+           ->get();
+
+           $user = DB::table('users')
+           ->get();
+
+           foreach($user as $user){
+        \Mail::to( $user->email )->send(new \App\Mail\main($main)); 
+        $count+=1;
+    }
+    dd("Email Enviado para $count pessoas");
+    }
+
+  return view('mail', ['mail' => $mail]);
+})->middleware('auth');
 
 
 

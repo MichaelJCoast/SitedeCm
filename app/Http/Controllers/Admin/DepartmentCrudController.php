@@ -29,6 +29,11 @@ class DepartmentCrudController extends CrudController
         CRUD::setModel(\App\Models\Department::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/department');
         CRUD::setEntityNameStrings('department', 'departments');
+        if (!backpack_user()->hasRole('admin')) {
+            CRUD::denyAccess('create');
+            CRUD::denyAccess('update');
+            CRUD::denyAccess('delete');
+        }
     }
 
     /**
@@ -62,9 +67,7 @@ class DepartmentCrudController extends CrudController
 
         
         CRUD::field('name');
-        CRUD::field('department');
-        CRUD::field('role');
-        CRUD::field('image');
+    
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

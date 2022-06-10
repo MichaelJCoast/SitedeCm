@@ -1,28 +1,14 @@
 <x-app-layout>
-
-<a href="order"> <h1 class="text-white text-right pr-10">carrinho</h1> </a>
-            
-<div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-    <h2 class="text-2xl font-extrabold tracking-tight dark:text-white" id="produtos" >Merch CM</h2>
-
-    <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-
-    @foreach($merch as $key => $data)
-    <form method="get" action="merch/product">
-
-      <div class="group relative w-full min-h-50 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75  transform transition duration-500 group-hover:scale-110  lg:h-80 lg:aspect-none">
-        <input type="hidden" id="userId" name="id" value="{{$data->id}}">
-        <div class="group relative">
-              <h3 class="text-sm text-white">
-                {{$data->name}}  ->  {{$data->price}}
-              </h3>
+  <div class="container mx-auto px-8 md:px-14 mb-10 text-white">
+        <h2 class="sm:mt-0 text-2xl 2xl:text-3xl font-semibold py-6">Merch</h2>
+        @if(!$merch->isEmpty())
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+                @foreach($merch as $item)
+                    <x-merch-card :merch="$item"></x-merch-card>
+                @endforeach
             </div>
-        <input type="image" name="id" style="object-position: center;object-fit: cover; height:100%;" src="../laravel/{{$data->photo}}">
-    </form> 
-
-      </div>
-        @endforeach
-
-      </div>
-    </div>
-  </x-app-layout>
+        @else
+            <p class="text-center">No merch yet.</p>
+        @endif
+</div>
+</x-app-layout>

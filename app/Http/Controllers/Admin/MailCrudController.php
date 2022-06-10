@@ -2,19 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\OrderRequest;
+use App\Http\Requests\MailRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
-
-
-
 /**
- * Class OrderCrudController
+ * Class MailCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class OrderCrudController extends CrudController
+class MailCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -27,16 +24,12 @@ class OrderCrudController extends CrudController
      * 
      * @return void
      */
-
-
     public function setup()
     {
-        CRUD::setModel(\App\Models\Order::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/order');
-        CRUD::setEntityNameStrings('order', 'orders');
-      
+        CRUD::setModel(\App\Models\Mail::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/mail');
+        CRUD::setEntityNameStrings('mail', 'mails');
     }
-    
 
     /**
      * Define what happens when the List operation is loaded.
@@ -46,28 +39,11 @@ class OrderCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        $this->crud->denyAccess('create');
-        $this->crud->addColumns( [
-          
-            [
-                'label' => 'User',
-                'name' => 'users.name',
-            ],
-
-            [
-                'label' => 'User Email',
-                'name' => 'users.email',
-            ],
-            [
-                'label' => 'Product',
-                'name' => 'merch.name', // relation.column_name
-            ],
-        ] );
-        CRUD::column('size');
-        CRUD::column('quantity');
-        CRUD::column('status');
-        
-
+        CRUD::column('name');
+        CRUD::column('title');
+        CRUD::column('body');
+        CRUD::column('msg');
+        CRUD::column('footer');
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
@@ -83,20 +59,12 @@ class OrderCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-       
-        CRUD::addField( [   // select_from_array
-            'name'        => 'status',
-            'label'       => "Status",
-            'type'        => 'select_from_array',
-            'options'     => ['1' => 'Precisa Pagar', '2' => 'Precisa Levantar', '3' => 'Encomenda Finalizada'],
-            'allows_null' => false,
-            'default'     => '0',
-            // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
-        ],);
-       
-
-        
-
+        CRUD::setValidation(MailRequest::class);
+        CRUD::field('name');
+        CRUD::field('title');
+        CRUD::field('body');
+        CRUD::field('msg');
+        CRUD::field('footer');
         
 
         /**
@@ -115,5 +83,11 @@ class OrderCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+    protected function showPosts(Post $post)
+    {
+        return view('blog', [
+            'post' => $post
+        ]);
     }
 }

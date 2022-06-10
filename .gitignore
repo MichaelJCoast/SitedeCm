@@ -1,6 +1,7 @@
 /node_modules
 /public/hot
 /public/storage
+/public/css
 /storage/debugbar
 /storage/*.key
 /vendor
@@ -15,3 +16,5 @@ yarn-error.log
 /.idea
 /.vscode
 /storage/debugbar
+public/css/app.css
+public/css/app.css

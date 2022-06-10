@@ -27,9 +27,11 @@ class PostCrudController extends CrudController
      */
     public function setup()
     {
+        
         CRUD::setModel(\App\Models\Post::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/post');
         CRUD::setEntityNameStrings('post', 'posts');
+       
     }
 
     /**
@@ -40,6 +42,7 @@ class PostCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        
         CRUD::column('title');
         CRUD::column('body');
         CRUD::column('slug');
@@ -75,8 +78,7 @@ class PostCrudController extends CrudController
                 ['font', ['color', 'clear']],
                 ['para', ['ul', 'ol', 'paragraph']],
                 ['insert', ['link', 'picture', 'video']],
-                ['view', ['codeview', 'fullscreen']],
-                ['height', ['height']]
+                ['view', ['fullscreen']],
                 ]
             ],
         ]);
@@ -108,10 +110,4 @@ class PostCrudController extends CrudController
         $this->setupCreateOperation();
     }
 
-    protected function showPosts(Post $post)
-    {
-        return view('blog', [
-            'post' => $post
-        ]);
-    }
 }

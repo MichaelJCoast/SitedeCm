@@ -124,7 +124,7 @@
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 text-sm">
 
-                            <form action="send-mail" method="get">
+                            <form action="fatura" method="get">
                                 <button type="submit" class="inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Reservar Já</button>
                             </form>
                         </td>
