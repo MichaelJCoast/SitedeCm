@@ -1,5 +1,4 @@
 <x-app-layout>
-
     @php
         if(!isset($_GET['id'])){}else{}
     @endphp
@@ -21,9 +20,7 @@
                 Reservar já
             </button>
         </div>
-
         </form> --}}
-
         @foreach($merch as $product)
 
             <div class="container mx-auto mb-6 lg:mt-6">
@@ -51,9 +48,5 @@
                 </form>
                     {{-- FAQ --}}
               </div>
-
-
         @endforeach
-
-
 </x-app-layout>

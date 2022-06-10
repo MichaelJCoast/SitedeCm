@@ -34,6 +34,7 @@ class OrderCrudController extends CrudController
         CRUD::setModel(\App\Models\Order::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/order');
         CRUD::setEntityNameStrings('order', 'orders');
+      
     }
     
 
@@ -51,6 +52,11 @@ class OrderCrudController extends CrudController
             [
                 'label' => 'User',
                 'name' => 'users.name',
+            ],
+
+            [
+                'label' => 'User Email',
+                'name' => 'users.email',
             ],
             [
                 'label' => 'Product',
@@ -77,11 +83,17 @@ class OrderCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::field('user');
-        CRUD::field('product');
-        CRUD::field('size');
-        CRUD::field('quantity');
-        CRUD::field('status');
+       
+        CRUD::addField( [   // select_from_array
+            'name'        => 'status',
+            'label'       => "Status",
+            'type'        => 'select_from_array',
+            'options'     => ['1' => 'Precisa Pagar', '2' => 'Precisa Levantar', '3' => 'Encomenda Finalizada'],
+            'allows_null' => false,
+            'default'     => '0',
+            // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
+        ],);
+       
 
         
 

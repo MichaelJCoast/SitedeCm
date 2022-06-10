@@ -27,9 +27,15 @@ class PostCrudController extends CrudController
      */
     public function setup()
     {
+        
         CRUD::setModel(\App\Models\Post::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/post');
         CRUD::setEntityNameStrings('post', 'posts');
+        if (!backpack_user()->can('edit posts') && !backpack_user()->hasRole('admin') ) {
+            CRUD::denyAccess('create');
+            CRUD::denyAccess('update');
+            CRUD::denyAccess('delete');
+        }
     }
 
     /**
@@ -40,6 +46,7 @@ class PostCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        
         CRUD::column('title');
         CRUD::column('body');
         CRUD::column('slug');
