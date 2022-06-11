@@ -76,13 +76,13 @@
                                         <?php 
                                         if(($dataorder->status)==0){
                                             
-                                            echo "precisa reservar";
+                                            echo "Reserva Pendente";
                                         }
                                         elseif (($dataorder->status)==1){
-                                            echo "precisa pagar";
+                                            echo "Pagamento Pendente";
                                         }
                                         elseif (($dataorder->status)==2){
-                                            echo "precisa levantar";
+                                            echo "Levantamento Pendente";
                                         }
                                         else{
                                             echo "encomenda efetuada";
