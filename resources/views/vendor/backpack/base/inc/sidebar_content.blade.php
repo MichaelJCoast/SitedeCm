@@ -39,3 +39,7 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('link') }}'><i class='nav-icon la la-link'></i> Links</a>
 </li>
 @endif
+@if (backpack_user()->can('edit mail')|| backpack_user()->hasRole('admin'))
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('mail') }}'><i
+ class='nav-icon la la-envelope'></i> Mails</a></li>
+ @endif
