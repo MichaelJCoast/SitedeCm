@@ -33,6 +33,7 @@
                         <h2 class="font-semibold text-xl">{{ $product->name }}</h2>
                         <p class="text-gray-400">Lorem ipsum descrição!</p>
                         <p class="font-semibold text-lg">€{{ $product->price }}</p>
+                        <?php if($product->size==1){ ?>
                         <div class="grid grid-cols-5 gap-0">
                             <x-product-size>XS</x-product-size>
                             <x-product-size>S</x-product-size>
@@ -40,6 +41,7 @@
                             <x-product-size>L</x-product-size>
                             <x-product-size>XL</x-product-size>
                         </div>
+                        <?php }; ?>
                         <button type="submit" class="p-4 rounded-md uppercase bg-red-700 hover:brightness-125">
                             <p class="font-bold text-gray-100">Reservar já</p>
                         </button>

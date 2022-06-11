@@ -82,11 +82,9 @@ class PostCrudController extends CrudController
                 ]
             ],
         ]);
-
         Post::creating(function($entry) {
             $entry->slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $entry->title), '-'));
         });
-
         CRUD::field('category');
         CRUD::addField([
             'name'      => 'image',
