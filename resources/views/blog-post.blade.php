@@ -7,7 +7,7 @@
                     {{$post->title}}
                 </h2>
                 <p class="mt-6 mb-6 text-xs md:text-sm font-normal text-gray-400 sm:font-semibold">
-                    {{Carbon\Carbon::parse($post->created_at)->format('F j, Y')}}
+                    {{Carbon\Carbon::parse($post->created_at)->translatedFormat('j F, Y')}}
                 </p>
                 <div class="text-justify md:text-lg 2xl:text-xl leading-relaxed text-gray-200">
                     {!! $post->body !!}

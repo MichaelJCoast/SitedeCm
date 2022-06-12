@@ -1,3 +1,7 @@
+@php
+    Carbon\Carbon::setlocale(config('app.locale'));
+@endphp
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 

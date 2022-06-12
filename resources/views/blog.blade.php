@@ -9,7 +9,7 @@
                 <!-- Category & Date -->
                 <header class="flex sm:flex-row items-center space-x-4 pb-2">
                     <span class="text-sm lg:text-base text-white font-semibold">{{$posts->first()->category}}</span>
-                    <time class="text-sm lg:text-base text-gray-400 font-semibold">{{ Carbon\Carbon::parse($posts->first()->created_at)->format('F j, Y') }}</time>
+                    <time class="text-sm lg:text-base text-gray-400 font-semibold">{{ Carbon\Carbon::parse($posts->first()->created_at)->translatedFormat('j F, Y') }}</time>
                 </header>
                 <!-- Title -->
                 <div class="mb-3">

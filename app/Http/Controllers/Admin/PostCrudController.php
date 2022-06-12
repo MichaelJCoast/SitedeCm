@@ -112,4 +112,17 @@ class PostCrudController extends CrudController
         $this->setupCreateOperation();
     }
 
+    protected function showPosts(Post $post)
+    {
+        return view('blog-post', [
+            'post' => $post
+        ]);
+    }
+
+    protected function blogPostIndex(Post $post) 
+    {
+        return view('blog', [
+            'posts' => $post::orderBy('created_at', 'DESC')->paginate(18)
+        ]);
+    }
 }
