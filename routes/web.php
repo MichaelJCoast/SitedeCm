@@ -43,7 +43,7 @@ Route::get('/merch', function () {
     $merch = DB::table('merch')
     ->get();
     return view('merch', ['merch' => $merch]);
-    })->name('merch');;
+    })->name('merch');
 
 
 /* Product */
@@ -62,26 +62,26 @@ Route::get('/merch/product', function () {
 
 /* Order */
 Route::get('/order', function () {
+    /* se o tamanho for nulo o valor fica como 0 */
     if(!isset($_GET['size'])){ $_GET['size']=0; } else { }
+    /* se o valor de iddelete existir, faz delete*/
     if(!isset($_GET['iddelete'])){ } else{
-        DB::table('order')
+    DB::table('order')
         ->where('id', ($_GET['iddelete']))
-        ->delete(); }
-    $user = Auth::user();
-        if(!isset($user->id)){
-        return redirect()->route('merch'); };
-
-        if(!isset($_GET['id'])){ }
+        ->delete(); 
+        return redirect('/order');}
+    /* se o valor de iddelete existir, faz delete*/
+        if(!isset($_GET['id'])){}
         else{
     DB::table('order')
-        ->insert(array('user'=> Auth::id(),'product'=> $_GET['id'],'size'=> $_GET['size'],'quantity'=>'1','status'=>'0',)); }
-        
+        ->insert(array('user'=> Auth::id(),'product'=> $_GET['id'],'size'=> $_GET['size'],'quantity'=>'1','status'=>'0',));
+        return redirect('/order'); }
     $order = DB::table('order')
         ->whereIn('user',  [Auth::id()] )
         ->where('status','==', 0)
         ->get();
         return view('order',['order' => $order] );
-        });
+        })->middleware(['auth', 'verified']);
 
 
 /* FATURA */
@@ -141,6 +141,7 @@ Route::get('/links', function () {
     return view('links', ['links' => $link]);
     })->name('links');
 
+    
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/dashboard', function () {
         $user = DB::table('users')

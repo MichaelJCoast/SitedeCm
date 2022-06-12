@@ -5,9 +5,9 @@
     <!-- Image -->
     <form method="get" action="merch/product">
     <input type="hidden" id="userId" name="id" value="{{$merch->id}}">
-    <a class="block focus:outline-none focus-visible:ring-2">
+    <a class="block focus:outline-none focus-visible:ring-2" href="merch/product?id={{$merch->id}}">
         <figure class="relative h-0 pb-[70%] sm:pb-[100%] overflow-hidden">
-            <input type="image" class="absolute inset-0 w-full h-full object-cover"
+            <img class="absolute inset-0 w-full h-full object-cover"
                 src="../laravel/{{$merch->photo}}"
                 width="320" height="180" alt="image">
         </figure>
@@ -27,3 +27,11 @@
         </div>
     </div>
 </div>
+
+
+<script>
+document.getElementById("id").submit = function() {
+    location = "merch/product" + encodeURIComponent( document.getElementById("id").value );
+    return false;
+};
+</script>

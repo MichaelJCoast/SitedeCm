@@ -1,8 +1,4 @@
 <x-app-layout>
-    @php
-        if(!isset($_GET['id'])){}else{}
-    @endphp
-
     {{-- <form method="get" action="/laravel/order">
   <input type="hidden" id="userId" name="id" value="{{ $product->id }}">
     <!-- Sizes -->
