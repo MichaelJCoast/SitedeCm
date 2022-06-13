@@ -5,7 +5,7 @@
     <form  class="text-white pt-5" action="mail" method="get">
 
         @foreach($mail as $key => $mail )
-        @if ($mail->id == '1') @continue; @endif
+        @if ($mail->name == 'fatura') @continue; @endif
     
         <input type="checkbox" name="id" value="{{$mail->id}}">{{$mail->title}}</input><br>
         @endforeach
