@@ -46,6 +46,11 @@ class UserCrudController extends CrudController
     {
         CRUD::column('name');
         CRUD::column('email');
+        User::creating(function($entry) {
+            $email[0]=explode('@', $entry->email);
+            $mail=$email;
+            $entry->username = preg_replace("/[^0-9]/","", $mail);
+        });
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
