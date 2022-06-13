@@ -48,13 +48,10 @@ class MerchCrudController extends CrudController
     {
 
         CRUD::column('name');
+        CRUD::column('description');
         CRUD::column('photo');
         CRUD::column('price');
         CRUD::column('size');
-        CRUD::column('quantity');
-
-
-
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -77,6 +74,12 @@ class MerchCrudController extends CrudController
             'label' => "Nome"
         ]);
 
+        CRUD::addField([
+            'name' => 'description',
+            'type' => 'text',
+            'label' => "Descrição"
+        ]);
+
         CRUD::addField([   
             'name'      => 'photo',
             'label'     => 'Image',
@@ -95,13 +98,7 @@ class MerchCrudController extends CrudController
         CRUD::addField([  
             'name'          => 'size',
             'label'         => 'Size',
-            'type'          => 'text',
-        ]);
-        
-        CRUD::addField([ 
-            'name'          => 'quantity',
-            'label'         => 'quantidade',
-            'type'          => 'text',
+            'type'          => 'text'
         ]);
 
         
