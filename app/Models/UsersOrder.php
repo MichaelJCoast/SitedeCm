@@ -6,9 +6,6 @@ use App\Models\User;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 
-
-
-
 class UsersOrder extends User
 {
 

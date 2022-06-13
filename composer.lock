@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1d712e9ac9cb80473bf1febfa6ce806",
+    "content-hash": "e398c96910463c05b956217fa3eb38a6",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -232,6 +232,76 @@
                 "source": "https://github.com/Laravel-Backpack/PermissionManager/tree/6.0.15"
             },
             "time": "2022-04-18T13:32:50+00:00"
+        },
+        {
+            "name": "backpack/revise-operation",
+            "version": "1.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Laravel-Backpack/revise-operation.git",
+                "reference": "eb0401021fc784e35a948d5a56040279b82c4d68"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Backpack/revise-operation/zipball/eb0401021fc784e35a948d5a56040279b82c4d68",
+                "reference": "eb0401021fc784e35a948d5a56040279b82c4d68",
+                "shasum": ""
+            },
+            "require": {
+                "backpack/crud": "^4.0|^5.0",
+                "venturecraft/revisionable": "1.*"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.1",
+                "orchestra/testbench": "~3|~4",
+                "phpunit/phpunit": "^8.0",
+                "sempro/phpunit-pretty-print": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Backpack\\ReviseOperation\\ReviseOperationServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Backpack\\ReviseOperation\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cristian Tabacitu",
+                    "email": "tabacitu@backpackforlaravel.com",
+                    "homepage": "https://backpackforlaravel.com"
+                }
+            ],
+            "description": "Backpack interface for venturecraft/revisionable",
+            "homepage": "https://github.com/laravel-backpack/revise-operation",
+            "keywords": [
+                "Admin Interface",
+                "Audit Log",
+                "Backpack Add-On",
+                "Backpack Operation",
+                "Backpack for Laravel",
+                "ReviseOperation",
+                "Revision History",
+                "Revisions",
+                "admin panel",
+                "backpack",
+                "laravel",
+                "revisionable"
+            ],
+            "support": {
+                "issues": "https://github.com/Laravel-Backpack/revise-operation/issues",
+                "source": "https://github.com/Laravel-Backpack/revise-operation/tree/1.0.10"
+            },
+            "time": "2022-02-15T10:28:11+00:00"
         },
         {
             "name": "blade-ui-kit/blade-icons",
@@ -6248,6 +6318,70 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.4"
             },
             "time": "2021-12-08T09:12:39+00:00"
+        },
+        {
+            "name": "venturecraft/revisionable",
+            "version": "1.39.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/VentureCraft/revisionable.git",
+                "reference": "24ef304dfe7fe64362cc815faab0fc80030d0c59"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/VentureCraft/revisionable/zipball/24ef304dfe7fe64362cc815faab0fc80030d0c59",
+                "reference": "24ef304dfe7fe64362cc815faab0fc80030d0c59",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~4.0|~5.0|~5.1|^6.0|^7.0|^8.0|^9.0",
+                "laravel/framework": "~5.4|^6.0|^7.0|^8.0|^9.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Venturecraft\\Revisionable\\RevisionableServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Venturecraft\\Revisionable": "src/"
+                },
+                "classmap": [
+                    "src/migrations"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Duell",
+                    "email": "me@chrisduell.com"
+                }
+            ],
+            "description": "Keep a revision history for your models without thinking, created as a package for use with Laravel",
+            "homepage": "http://github.com/venturecraft/revisionable",
+            "keywords": [
+                "Audit",
+                "ardent",
+                "history",
+                "laravel",
+                "model",
+                "revision"
+            ],
+            "support": {
+                "issues": "https://github.com/VentureCraft/revisionable/issues",
+                "source": "https://github.com/VentureCraft/revisionable"
+            },
+            "time": "2022-01-20T05:56:12+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

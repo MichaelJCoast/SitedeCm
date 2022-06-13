@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Link extends Model
 {
     use CrudTrait;
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait, \Venturecraft\Revisionable\RevisionableTrait;
 
     /*
     |--------------------------------------------------------------------------
@@ -28,6 +29,11 @@ class Link extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function identifiableName()
+    {
+        return $this->name;
+    }
+
 
     /*
     |--------------------------------------------------------------------------

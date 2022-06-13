@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Department extends Model
 {
     use CrudTrait;
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait, \Venturecraft\Revisionable\RevisionableTrait;
 
     /*
     |--------------------------------------------------------------------------

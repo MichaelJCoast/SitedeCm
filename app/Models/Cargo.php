@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cargo extends Model
 {
     use CrudTrait;
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait, \Venturecraft\Revisionable\RevisionableTrait;
 
     /*
     |--------------------------------------------------------------------------
@@ -30,18 +31,13 @@ class Cargo extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-/*
-    public function role(){
-        return $this->belongsTo('App\Models\Role');
+
+    public function identifiableName()
+    {
+        return $this->name;
     }
-    */
-    /*
-    public function roles(){
-        return $this->hasMany('App\Models\Role');
-    }
-    
-    /*
-    
+
+    /*   
     |--------------------------------------------------------------------------
     | RELATIONS
     |--------------------------------------------------------------------------
