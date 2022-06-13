@@ -7,29 +7,35 @@
 
 @section('after_styles')
   <style>
+    body {background-color: #232323;}
     .error_number {
+      color:#DC2638;
       font-size: 156px;
       font-weight: 600;
       line-height: 100px;
     }
     .error_number small {
+      color:#DC2638;
       font-size: 56px;
       font-weight: 700;
     }
 
     .error_number hr {
+      color:#DC2638;
       margin-top: 60px;
       margin-bottom: 0;
       width: 50px;
     }
 
     .error_title {
+      color:#DC2638;
       margin-top: 40px;
       font-size: 36px;
       font-weight: 400;
     }
 
     .error_description {
+      color:white;
       font-size: 24px;
       font-weight: 400;
     }
@@ -44,10 +50,10 @@
       {{ $error_number }}
       <hr>
     </div>
-    <div class="error_title text-muted">
+    <div class="error_title ">
       @yield('title')
     </div>
-    <div class="error_description text-muted">
+    <div class="error_description ">
       <small>
         @yield('description')
      </small>
