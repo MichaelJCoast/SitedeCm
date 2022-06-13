@@ -14,8 +14,5 @@
                 <a href="blog" class="font-semibold transition ease-in-out rounded-lg text-lg bg-transparent hover:bg-red-700 px-4 py-2">{{__("index.seeMore")}}</a>
             </div>
         @endif
-        <div class="mt-6">
-            <x-header-title>{{__("index.partnersTitle")}}</x-header-title>
-        </div>
     </div>
 </x-app-layout>
