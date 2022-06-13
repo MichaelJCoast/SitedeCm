@@ -15,10 +15,10 @@ class CreateMerchTable extends Migration
         Schema::create('merch', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('description');
             $table->string('photo');
             $table->float('price');
             $table->string('size');
-            $table->integer('quantity');
             $table->timestamps();
         });
     }
