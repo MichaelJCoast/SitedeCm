@@ -48,10 +48,7 @@
         </ul>
         
         <Menu v-if="isLogged" as="div" class="relative">
-      <MenuButton class="flex items-center text-lg cursor-pointer font-semibold text-white hover:text-red-600 focus:outline-none transition duration-150 ease-in-out">
-        <span>User</span>
-        <ChevronDownIcon class="h-5 w-5 ml-2" />
-        </MenuButton>
+      <MenuButton class="flex items-center text-lg cursor-pointer font-semibold text-white hover:text-red-600 focus:outline-none transition duration-150 ease-in-out"/>
     <MenuItems class="absolute cursor-pointer px-2 py-2 bg-zinc-900 ring-1 ring-black ring-opacity-5 space-y-2 text-gray-100 shadow-md rounded-md flex flex-col focus:outline-none w-44 origin-top-right right-0 z-50">
       <MenuItem v-slot="{ active }">
         <a class="flex items-center rounded-md focus:outline-none transition duration-150 ease-in-out px-2 py-2 leading-5"
@@ -127,24 +124,4 @@ export default {
     }
   },
   },
-
-
-  setup() {
-    const store = useStore();
-    const router = useRouter();
-
-    function logout() {
-      store.dispatch("logout")
-      .then(() => {
-        router.go();
-      });
-    }
-
-    return {
-      user: computed(() => store.state.user.data),
-      navigation,
-      logout,
-    };
-  },
 };
-</script>
