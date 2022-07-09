@@ -33,20 +33,7 @@
           type="button"
           v-on:click="toggleNavbar()"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
+          <MenuIcon class="h-6 w-6 text-white" />
         </button>
         
       </div>
@@ -55,7 +42,7 @@
         v-bind:class="{ hidden: !showMenu, flex: showMenu }"
         class="lg:flex lg:flex-grow items-center"
       >
-        <ul class="flex flex-col lg:flex-row list-none ml-auto space-x-4">
+        <ul class="flex flex-col lg:flex-row list-none ml-auto sm:space-x-4">
           <li class="nav-item">
             <router-link to="/register" class="inline-flex cursor-pointer text-lg items-center px-1 pt-1 font-semibold leading-5 text-white hover:text-red-600 focus:outline-none transition duration-150 ease-in-out">Registo</router-link>
           </li>
@@ -68,6 +55,7 @@
   </nav>
 </template>
 <script>
+import { MenuIcon } from '@heroicons/vue/solid';
 import { useStore } from "vuex";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
@@ -75,6 +63,9 @@ import { useRouter } from "vue-router";
 const navigation = [{ name: "Home", to: { name: "Home" } }];
 
 export default {
+  components: {
+    MenuIcon,
+  },
   name: "navbar",
   data() {
     return {
