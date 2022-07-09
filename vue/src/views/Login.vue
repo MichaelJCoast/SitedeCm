@@ -17,6 +17,7 @@
       </p>
     </div>
     <form class="mt-8 space-y-6" @submit="login">
+<<<<<<< HEAD
     <Alert v-if="errorMsg">
     
       <span>{{ errorMsg }}</span>
@@ -40,6 +41,9 @@
         </svg>
       </span>
     </Alert>
+=======
+    {{errorMsg}}
+>>>>>>> 04a7b2c (Front-end updates to the default layout)
       <input type="hidden" name="remember" value="true" />
       <div class="rounded-md shadow-sm -space-y-px">
         <div>
