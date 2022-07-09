@@ -16,11 +16,11 @@
           :to="{ name: 'Register' }"
           class="font-medium text-red-600 hover:text-red-500"
         >
-          login to your account
+          register
         </router-link>
       </p>
     </div>
-    <form class="mt-8 space-y-6" @submit="register">
+    <form class="mt-8 space-y-6" @submit="login">
       <input type="hidden" name="remember" value="true" />
       <div class="rounded-md shadow-sm -space-y-px">
         <div>
@@ -47,7 +47,17 @@
             v-model="user.password"
             class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-red-500 focus:border-red-500 focus:z-10 sm:text-sm"
             placeholder="Password"
+
           />
+        </div>
+      </div>
+      <div class="flex items-center justify-between">
+        <div class="flex items-center">
+          <input id="remember-me" name="remember-me" type="checkbox" v-model="user.remember"
+          class="h-4 w-4 text-red-600 focus:ring-red-500 border-gray-300 rounded">
+          <label for="remember-me" class="ml-2 block text-sm text-white">
+             Remember me
+            </label>
         </div>
       </div>
       <div>
@@ -61,7 +71,7 @@
               aria-hidden="true"
             />
           </span>
-          Sign up
+          Login
         </button>
       </div>
     </form>
@@ -88,7 +98,7 @@ function login(ev) {
   ev.preventDefault();
   store.dispatch('login', user)
     .then(() => {
-      router.push({name: 'Dashboard'})
+      router.push({name: 'Home'})
     })
     .catch(err => {
       errorMsg.value = err.response.data.error;
