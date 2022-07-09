@@ -1,10 +1,26 @@
-<div class="grid xl:grid-flow-col xl:auto-cols-fr bg-black">
-    <div class="">
-        <img src="https://necm.utad.pt/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-28-at-20.08.07-e1640816963642.jpeg" alt="">
+<div class="flex flex-col mx-auto bg-black xl:flex-row">
+    <div>
+        <img class="object-fill" src="https://necm.utad.pt/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-28-at-20.08.07-e1640816963642.jpeg" alt="foto necm 2022">
     </div>
-    <div class="text-gray-200 p-6 space-y-4 text-base sm:text-lg text-justify">
-        <h2 class="font-semibold text-3xl text-white">{{__("index.aboutTitle")}}</h2>
-        <p>O <span class="font-semibold hover:text-red-600 transition duration-150 ease-in-out">Núcleo de Estudantes de Comunicação e Multimédia</span> tem como principal objetivo cooperar e dar voz a todos os alunos deste curso. A equipa que nos acompanha pretende dar sempre o seu melhor e, como tal, desenvolver um trabalho sério, organizado e responsável, para que toda a família de Comunicação e Multimédia se sinta acolhida e integrada.</p>
-        <p>De forma a garantir uma excelente comunicação e entreajuda com todos, teremos sempre ao dispor o nosso e-mail e, também, todas as redes sociais, das quais dispomos informação.</p>
+    <div class="flex flex-col justify-center p-6 space-y-4 md:flex-row md:space-x-48">
+        <h2 class="font-semibold text-3xl text-white text-center">{{__("index.aboutTitle")}}</h2>
+        <button class="text-white text-xl bg-transparent border border-white uppercase rounded-lg py-3 font-semibold transition ease-in-out hover:text-red-600 hover:border-red-600">Ver mais</button>
+        <div id="carousel-tab-control" class="flex flex-row justify-center space-x-3">
+            <button>
+                <svg class="text-white fill-current hover:text-neutral-400" viewBox="0 0 97 10">
+                    <path d="M0 0h97v10H0z"/>
+                </svg>
+            </button>
+            <button>
+                <svg class="text-neutral-600 fill-current hover:text-neutral-400" viewBox="0 0 97 10">
+                    <path d="M0 0h97v10H0z"/>
+                </svg>
+            </button>
+            <button>
+                <svg class="text-neutral-600 fill-current hover:text-neutral-400" viewBox="0 0 97 10">
+                    <path d="M0 0h97v10H0z"/>
+                </svg>
+            </button>
+        </div>
     </div>
 </div>

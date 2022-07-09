@@ -1,13 +1,13 @@
 
 <nav x-data="{ open: false }" class="bg-black border-b border-zinc-700">
     <!-- Primary Navigation Menu -->
-    <div class="container mx-auto px-8 md:px-14">
+    <div class="container mx-auto px-8 md:px-14 py-2">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="/laravel">
-                        <x-application-logo class="block h-10 w-auto fill-current" />
+                        <x-application-logo />
                     </a>
                 </div>
 
@@ -92,8 +92,8 @@
                     </x-slot>
                 </x-dropdown>
             </div>
-           
-            <!-- Hamburger -->
+        </div>
+        <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden text-white">
                 <button @click="open = ! open"
                     class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition duration-150 ease-in-out">
@@ -106,7 +106,6 @@
                     </svg>
                 </button>
             </div>
-        </div>
     </div>
 
     <!-- Responsive Navigation Menu -->
