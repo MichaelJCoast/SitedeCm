@@ -53,4 +53,29 @@ class RegisteredUserController extends Controller
             'token' => $token
         ]);
     }
+
+    public function login(Request $request) 
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'string', 'email', 'exists:users,email'],
+            'password' => ['required'],
+            'remember' => ['boolean'],
+        ]);
+        $remember = $credentials['remember'] ?? false;
+        unset($credentials['remember']);
+
+        if (!Auth::attempt($credentials, $remember)) {
+            return response([
+                'error' => 'Invalid credentials'
+            ], 401);
+        }
+
+        $user = Auth::user();
+        $token = $user->createToken('main')->plainTextToken;
+
+        return response([
+            'user' => $user,
+            'token' => $token
+        ]);
+    }
 }
