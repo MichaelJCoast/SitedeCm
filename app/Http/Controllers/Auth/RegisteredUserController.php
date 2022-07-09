@@ -31,22 +31,26 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request)
+    public function register(Request $request)
     {
-        $request->validate([
+        $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users','regex:/utad|aautad/'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        /** @var \App\Models\User $user */
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
         ]);
+        $token = $user->createToken('main')->plainTextToken;
 
-        event(new Registered($user));
-
-        return redirect()->route('login');
+        /** Return to this later, users shouldn't login automatically */
+        return response([
+            'user' => $user,
+            'token' => $token
+        ]);
     }
 }
