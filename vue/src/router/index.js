@@ -11,11 +11,11 @@ import store from "../store";
 const routes = [
     {
         path: '/',
-        redirect: '/home',
+        redirect: '/',
         component: DefaultLayout,
         meta: {requiresAuth: false},
         children: [
-            { path: "/home", name: "Home", component: Home },
+            { path: "/", name: "Home", component: Home },
             { path: "/blog", name: "Blog", component: Blog },
           ],
     },
@@ -36,8 +36,8 @@ const routes = [
                 name: 'Register',
                 component: Register
             },
-        ]
-    }
+        ],
+    },
 ];
 
 const router = createRouter({
