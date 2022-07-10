@@ -66,7 +66,7 @@ class RegisteredUserController extends Controller
 
         if (!Auth::attempt($credentials, $remember)) {
             return response([
-                'error' => 'Invalid credentials'
+                'error' => 'Credenciais inválidas. Tenta novamente.'
             ], 401);
         }
 
