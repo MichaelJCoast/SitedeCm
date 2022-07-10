@@ -66,7 +66,7 @@ class RegisteredUserController extends Controller
 
         if (!Auth::attempt($credentials, $remember)) {
             return response([
-                'error' => 'Invalid credentials'
+                'error' => 'Credenciais inválidas. Tenta novamente.'
             ], 401);
         }
 
@@ -76,6 +76,18 @@ class RegisteredUserController extends Controller
         return response([
             'user' => $user,
             'token' => $token
+        ]);
+    }
+
+    public function logout() 
+    {
+        /** @var User $user */
+        $user = Auth::user();
+
+        $user->currentAccessToken()->delete();
+
+        return response([
+            'success' => true
         ]);
     }
 }
