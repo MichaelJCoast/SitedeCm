@@ -7,6 +7,9 @@ const store = createStore({
       data: {},
       token: sessionStorage.getItem("TOKEN"),
     },
+    posts: {
+      data: {},
+    }
   },
   getters: {},
   actions: {

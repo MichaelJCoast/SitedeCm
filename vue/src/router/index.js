@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from '../views/Home.vue';
+import Blog from '../views/Blog.vue';
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import DefaultLayout from "../components/DefaultLayout.vue";
@@ -15,6 +16,7 @@ const routes = [
         meta: {requiresAuth: false},
         children: [
             { path: "/home", name: "Home", component: Home },
+            { path: "/blog", name: "Blog", component: Blog },
           ],
     },
     {
