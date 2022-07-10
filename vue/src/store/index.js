@@ -32,8 +32,15 @@ const store = createStore({
       .then( response => {
         commit('logout')
         return response;
-      })
-    }
+      });
+    },
+    getPosts({ commit }, {url = null} = {}) {
+      url = url || "/post";
+      return axiosClient.get(url).then((res) => {
+        commit("setPosts", res.data);
+        return res;
+      });
+    },
   },
   mutations: {
     logout: (state) => {
@@ -49,6 +56,9 @@ const store = createStore({
     setToken: (state, token) => {
       state.user.token = token;
       sessionStorage.setItem('TOKEN', token);
+    },
+    setPosts: (state, posts) => {
+      state.posts.data = posts.data;
     },
   },
   modules: {},
