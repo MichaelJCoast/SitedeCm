@@ -82,7 +82,7 @@ import { computed } from "vue";
 import { useRouter } from "vue-router";
 import NECMIcon from "./NECMIcon.vue";
 
-const navigation = [{ name: "Home", to: { name: "Home" } }];
+const navigation = [{ name: "Home", to: { name: "Home" } }, { name: "Blog", to: { name: "Blog" } }];
 
 export default {
   components: {
