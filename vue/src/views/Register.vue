@@ -7,7 +7,7 @@
         />
       </svg>
       <h2 class="mt-6 text-center text-3xl font-extrabold text-white">
-        Register for free
+        Efetuar registo
       </h2>
       <p class="mt-2 text-center text-sm text-white">
         Or
@@ -24,7 +24,7 @@
       <input type="hidden" name="remember" value="true" />
       <div class="rounded-md shadow-sm -space-y-px">
         <div>
-          <label for="fullname" class="sr-only">Name</label>
+          <label for="fullname" class="sr-only">Nome</label>
           <input
             id="fullname"
             name="name"
@@ -33,11 +33,11 @@
             required=""
             v-model="user.name"
             class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-red-500 focus:border-red-500 focus:z-10 sm:text-sm"
-            placeholder="Full name"
+            placeholder="Nome completo"
           />
         </div>
         <div>
-          <label for="email-address" class="sr-only">Email address</label>
+          <label for="email-address" class="sr-only">Endereço de e-mail</label>
           <input
             id="email-address"
             name="email"
@@ -46,7 +46,7 @@
             required=""
             v-model="user.email"
             class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-red-500 focus:border-red-500 focus:z-10 sm:text-sm"
-            placeholder="Email address"
+            placeholder="email@utad.eu"
           />
         </div>
         <div>
@@ -64,7 +64,7 @@
         </div>
         <div>
           <label for="password_confirmation" class="sr-only"
-            >Password Confirmation</label
+            >Confirmação de Password</label
           >
           <input
             id="password_confirmation"
@@ -74,7 +74,7 @@
             required=""
             v-model="user.password_confirmation"
             class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-red-500 focus:border-red-500 focus:z-10 sm:text-sm"
-            placeholder="Password Confirmation"
+            placeholder="Confirmação de Password"
           />
         </div>
       </div>
@@ -89,7 +89,7 @@
               aria-hidden="true"
             />
           </span>
-          Sign up
+          Registar
         </button>
       </div>
     </form>

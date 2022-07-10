@@ -47,7 +47,7 @@
           </li>
         </ul>
         
-        <Menu as="div" class="relative">
+        <Menu v-if="isLogged" as="div" class="relative">
       <MenuButton class="flex items-center text-lg cursor-pointer font-semibold text-white hover:text-red-600 focus:outline-none transition duration-150 ease-in-out">
         <span>User</span>
         <ChevronDownIcon class="h-5 w-5 ml-2" />
@@ -136,9 +136,7 @@ export default {
     function logout() {
       store.dispatch("logout")
       .then(() => {
-        router.push({
-          name: "Login",
-        });
+        router.go();
       });
     }
 
