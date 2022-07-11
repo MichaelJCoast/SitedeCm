@@ -1,4 +1,3 @@
-import axios from "axios";
 import { createStore } from "vuex";
 import axiosClient from "../axios";
 
@@ -35,6 +34,13 @@ const store = createStore({
         return response;
       });
     },
+    getUser({commit}) {
+      return axiosClient.get('/user')
+      .then(res => {
+        console.log(res);
+        commit('setUser', res.data)
+      })
+    },
     getPosts({ commit }) {
       return axiosClient.get('/blog')
       .then(res => {
@@ -52,10 +58,8 @@ const store = createStore({
       state.user.token = null;
       sessionStorage.removeItem("TOKEN");
     },
-    setUser: (state, userData) => {
-      state.user.token = userData.token;
-      state.user.data = userData.user;
-      sessionStorage.setItem("TOKEN", userData.token);
+    setUser: (state, user) => {
+      state.user.data = user;
     },
     setToken: (state, token) => {
       state.user.token = token;
