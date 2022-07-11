@@ -21,7 +21,7 @@ class CreateEquipaTable extends Migration
             $table->foreign('dep_id')->references('id')->on('departments');
          
             $table->bigInteger('role_id')->unsigned();
-            $table->foreign('role_id')->references('id')->on('roles');
+            $table->foreign('role_id')->references('id')->on('cargos');
          
             $table->timestamps();
          });

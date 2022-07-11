@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMembersTable extends Migration
+class CreateCargosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,9 @@ class CreateMembersTable extends Migration
      */
     public function up()
     {
-        Schema::create('members', function (Blueprint $table) {
+        Schema::create('cargos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('image')->unique();
-            $table->string('name')->unique();
-            $table->string('department')->unique();
-            $table->string('role')->unique();
+            $table->string('type');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ class CreateMembersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('members');
+        Schema::dropIfExists('cargos');
     }
 }
