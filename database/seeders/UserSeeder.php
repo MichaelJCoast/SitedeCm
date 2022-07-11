@@ -24,8 +24,8 @@ class UserSeeder extends Seeder
         $pass = $this->command->secret("Password de {$name}");
         DB::table('users')->insert([
             'id' => '1',
-            'name' => '$name',
-            'email' => '$mail',
+            'name' => $name,
+            'email' => $mail,
             'email_verified_at' => Carbon::now(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
