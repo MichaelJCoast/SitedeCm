@@ -1,4 +1,5 @@
 <template>
+<div>
   <nav
     class="relative flex flex-wrap items-center justify-between bg-black border-b border-zinc-700 mb-3"
   >
@@ -16,10 +17,10 @@
                 v-for="item in navigation"
                 :key="item.name"
                 :to="item.to"
-                active-class="inline-flex cursor-pointer text-lg items-center px-1 pt-1 border-b-2 border-red-600 font-semibold leading-5 text-white hover:text-red-600 focus:outline-none transition duration-150 ease-in-out"
+                active-class="inline-flex cursor-pointer text-lg items-center px-1 pt-1 font-semibold leading-5 text-white hover:text-red-600 focus:outline-none transition duration-150 ease-in-out"
                 :class="[
                   this.$route.name === item.to.name
-                    ? ''
+                    ? 'border-b-2 border-red-600'
                     : 'inline-flex cursor-pointer text-lg items-center px-1 pt-1 font-semibold leading-5 text-white hover:text-red-600 focus:outline-none transition duration-150 ease-in-out',
                 ]"
                 >{{ item.name }}</router-link
@@ -69,10 +70,11 @@
       </MenuItem>
     </MenuItems>
   </Menu>
-
       </div>
     </div>
   </nav>
+  <router-view :key="$route.path"></router-view>
+  </div>
 </template>
 <script>
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
