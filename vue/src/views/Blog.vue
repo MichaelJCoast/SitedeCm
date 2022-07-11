@@ -1,5 +1,4 @@
 <template>
-<div>
     <div class="container mt-6 mx-auto px-8 md:px-14 mb-10 text-white">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             <PostCard
@@ -9,7 +8,6 @@
             />
         </div>
     </div>
-</div>
 </template>
 
 <script>
