@@ -6,7 +6,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="/laravel">
+                    <a href="/">
                         <x-application-logo />
                     </a>
                 </div>
