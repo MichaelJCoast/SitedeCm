@@ -11,9 +11,8 @@ import store from "../store";
 const routes = [
     {
         path: '/',
-        redirect: '/',
         component: DefaultLayout,
-        meta: {requiresAuth: false},
+        meta: { requiresAuth: false },
         children: [
             { path: "/", name: "Home", component: Home },
             { path: "/blog", name: "Blog", component: Blog },

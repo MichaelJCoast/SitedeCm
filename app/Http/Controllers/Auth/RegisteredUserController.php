@@ -23,6 +23,15 @@ class RegisteredUserController extends Controller
         return view('auth.register');
     }
 
+    public function index(Request $request) 
+    {
+        $userName = $request->user()->name;
+
+        return response([
+            'userName' => $userName,
+        ]);
+    }
+
     /**
      * Handle an incoming registration request.
      *

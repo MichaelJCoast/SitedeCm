@@ -1,3 +1,4 @@
+import axios from "axios";
 import { createStore } from "vuex";
 import axiosClient from "../axios";
 
@@ -22,7 +23,7 @@ const store = createStore({
     },
     login({ commit }, user) {
       return axiosClient.post("/login", user).then(({ data }) => {
-        commit("setUser", data.user);
+        commit('setUser', data.user);
         commit('setToken', data.token)
         return data;
       });
@@ -34,11 +35,14 @@ const store = createStore({
         return response;
       });
     },
-    getPosts({ commit }, {url = null} = {}) {
-      url = url || "/post";
-      return axiosClient.get(url).then((res) => {
-        commit("setPosts", res.data);
+    getPosts({ commit }) {
+      return axiosClient.get('/blog')
+      .then(res => {
+        commit('setPosts', res.data)
         return res;
+      }).catch(err => {
+        console.log(err)
+        return err;
       });
     },
   },

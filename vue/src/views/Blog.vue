@@ -1,7 +1,5 @@
 <template>
-<div>
-    <pre>{{posts}}</pre>
-</div>
+    <h1 >{{ posts.title }}</h1>
 </template>
 
 <script setup>

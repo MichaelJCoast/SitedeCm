@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +21,7 @@ Route::middleware('auth:sanctum')->group(function () {
         return $request->user();
     });
     Route::post('/logout', [RegisteredUserController::class, 'logout']);
-    Route::resource('/blog', \App\Http\Controllers\Admin\PostCrudController::class);
+    Route::get('/blog', [PostController::class, 'index']);
 });
 
 //Route::get('/blog', [PostCrudController::class, 'blogPostIndex'])->name('blog');
