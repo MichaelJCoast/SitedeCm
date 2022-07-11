@@ -19,16 +19,17 @@ class UserSeeder extends Seeder
         Schema::disableForeignKeyConstraints();
         DB::table('users')->truncate();
         Schema::enableForeignKeyConstraints();
+        $name = $this->command->ask('Username');
+        $mail = $this->command->ask("E-mail de {$name} (@utad.eu ou @aautad.pt)");
+        $pass = $this->command->secret("Password de {$name}");
         DB::table('users')->insert([
             'id' => '1',
-            'name' => 'NECM',
-            'email' => 'necm@utad.eu',
+            'name' => '$name',
+            'email' => '$mail',
             'email_verified_at' => Carbon::now(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            'password' => bcrypt('123123123'),
+            'password' => bcrypt($pass),
         ]);
-
-        
     }
 }
