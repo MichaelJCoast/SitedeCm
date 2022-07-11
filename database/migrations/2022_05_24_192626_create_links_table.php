@@ -16,6 +16,7 @@ class CreateLinksTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('link_to');
+            $table->timestamps();
         });
     }
 
