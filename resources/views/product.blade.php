@@ -1,5 +1,5 @@
 <x-app-layout>
-    {{-- <form method="get" action="/laravel/order">
+    {{-- <form method="get" action="/order">
   <input type="hidden" id="userId" name="id" value="{{ $product->id }}">
     <!-- Sizes -->
     <div class="mt-10">
@@ -20,10 +20,10 @@
         @foreach($merch as $product)
 
             <div class="container mx-auto mb-6 lg:mt-6">
-              <form method="get" action="/laravel/order">
+              <form method="get" action="/order">
                 <input type="hidden" id="userId" name="id" value="{{ $product->id }}">
                 <div class="grid grid-flow-row lg:grid-flow-col">
-                  <img class="h-96 mx-auto" src="../../laravel/{{ $product->photo }}" alt="">
+                  <img class="h-96 mx-auto" src="../{{ $product->photo }}" alt="">
                     {{-- Product Information --}}
                     <div class="text-white mt-6 px-8 md:px-14 space-y-4 md:w-3/4">
                         <h2 class="font-semibold text-xl">{{ $product->name }}</h2>
