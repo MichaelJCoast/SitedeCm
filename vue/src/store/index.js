@@ -44,12 +44,9 @@ const store = createStore({
     getPosts({ commit }) {
       return axiosClient.get('/blog')
       .then(res => {
+        console.log(res);
         commit('setPosts', res.data)
-        return res;
-      }).catch(err => {
-        console.log(err)
-        return err;
-      });
+      })
     },
   },
   mutations: {
@@ -66,7 +63,7 @@ const store = createStore({
       sessionStorage.setItem('TOKEN', token);
     },
     setPosts: (state, posts) => {
-      state.posts.data = posts.data;
+      state.posts.data = posts;
     },
   },
   modules: {},
