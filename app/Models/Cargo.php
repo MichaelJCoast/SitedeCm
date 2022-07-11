@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cargo extends Model
 {
     use CrudTrait;
-    use \Backpack\CRUD\app\Models\Traits\CrudTrait, \Venturecraft\Revisionable\RevisionableTrait;
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
 
     /*
     |--------------------------------------------------------------------------
