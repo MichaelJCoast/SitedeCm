@@ -3,9 +3,17 @@
 @php
     $userCount = App\Models\User::count();
     $postCount = App\Models\Post::count();
-    $lastPost = App\Models\Post::orderBy('created_at', 'DESC')->first();
-    $lastPostDaysAgo = \Carbon\Carbon::parse($lastPost->created_at)->diffInDays(\Carbon\Carbon::today());
-    
+	if($postCount>0)
+	{
+		$lastPost = App\Models\Post::orderBy('created_at', 'DESC')->first();
+    	$lastPostDaysAgo = \Carbon\Carbon::parse($lastPost->created_at)->diffInDays(\Carbon\Carbon::today());
+	}
+	else
+	{
+		$lastPostDaysAgo = 0;
+	}
+  
+
     $orderCount = App\Models\Order::where('status', '<', 3)->get();
 
     $widgets['after_content'][] = [
@@ -36,11 +44,13 @@
 			->class('card border-0 text-white bg-success')
 			->value($postCount)
 			->description('Posts efetuados!'),
+		
             Widget::make()
 			->type('progress')
 			->class('card border-0 text-white bg-primary')
 			->value($lastPostDaysAgo . ' dias')
 			->description('desde o último post'),
+		
             Widget::make()
 			->type('progress')
 			->class('card border-0 text-white bg-warning')
