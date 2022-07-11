@@ -126,4 +126,14 @@ class PostCrudController extends CrudController
             'posts' => $post::orderBy('created_at', 'DESC')->paginate(18)
         ]);
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Post $post) 
+    {
+        return PostResource::collection(Post::orderBy('created_at', 'DESC')->paginate(10));
+    }
 }

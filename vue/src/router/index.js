@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from '../views/Home.vue';
+import Blog from '../views/Blog.vue';
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import DefaultLayout from "../components/DefaultLayout.vue";
@@ -10,11 +11,12 @@ import store from "../store";
 const routes = [
     {
         path: '/',
-        redirect: '/home',
+        redirect: '/',
         component: DefaultLayout,
         meta: {requiresAuth: false},
         children: [
-            { path: "/home", name: "Home", component: Home },
+            { path: "/", name: "Home", component: Home },
+            { path: "/blog", name: "Blog", component: Blog },
           ],
     },
     {
@@ -34,8 +36,8 @@ const routes = [
                 name: 'Register',
                 component: Register
             },
-        ]
-    }
+        ],
+    },
 ];
 
 const router = createRouter({

@@ -20,7 +20,10 @@ Route::middleware('auth:sanctum')->group(function () {
         return $request->user();
     });
     Route::post('/logout', [RegisteredUserController::class, 'logout']);
+    Route::resource('/blog', \App\Http\Controllers\Admin\PostCrudController::class);
 });
+
+//Route::get('/blog', [PostCrudController::class, 'blogPostIndex'])->name('blog');
 
 Route::post('/register', [RegisteredUserController::class, 'register']);
 Route::post('/login', [RegisteredUserController::class, 'login']);
