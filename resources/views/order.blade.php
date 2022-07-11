@@ -37,7 +37,7 @@
                                 <div class="flex items-center">
                                     <div class="flex-shrink-0">
                                         <a href="#" class="block relative">
-                                            <img alt="profil" src="../../laravel/{{$datamerch->photo}}" class="mx-auto object-cover rounded-full h-10 w-10 "/>
+                                            <img alt="profil" src="{{$datamerch->photo}}" class="mx-auto object-cover rounded-full h-10 w-10 "/>
                                         </a>
                                     </div>
                                     <div class="ml-3">

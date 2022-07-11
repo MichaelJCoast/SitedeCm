@@ -8,7 +8,7 @@
         @foreach($team as $team_member)
         @if($department->id == $team_member->dep_id)
             <div class="w-full max-w-xs text-center">
-                <img class="object-cover object-center w-full h-auto mx-auto rounded-lg" src="../laravel/{{$team_member->image}}"
+                <img class="object-cover object-center w-full h-auto mx-auto rounded-lg" src="{{$team_member->image}}"
                     alt="avatar" />
                 <div class="mt-2">
                     <h3 class="text-sm sm:text-lg font-semibold">{{$team_member->nome}}</h3>

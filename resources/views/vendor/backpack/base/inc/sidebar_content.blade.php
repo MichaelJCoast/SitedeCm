@@ -43,3 +43,5 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('mail') }}'><i
  class='nav-icon la la-envelope'></i> Mails</a></li>
  @endif
+
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('filemanager') }}"><i class="nav-icon la la-files-o"></i> <span>Gestão de Ficheiros</span></a></li>
