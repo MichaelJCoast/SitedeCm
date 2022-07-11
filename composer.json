@@ -7,8 +7,10 @@
     "require": {
         "php": "^7.3|^8.0",
         "backpack/crud": "^5.0",
+        "backpack/filemanager": "^1.0",
         "backpack/permissionmanager": "^6.0",
         "backpack/revise-operation": "^1.0",
+        "barryvdh/laravel-elfinder": "^0.4.7",
         "codeat3/blade-line-awesome-icons": "^1.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
