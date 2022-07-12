@@ -27,8 +27,8 @@
                     {{-- Product Information --}}
                     <div class="text-white mt-6 px-8 md:px-14 space-y-4 md:w-3/4">
                         <h2 class="font-semibold text-xl">{{ $product->name }}</h2>
-                        <p class="text-gray-400">{{ $product->description }}</p>
-                        <p class="font-semibold text-lg">€{{ $product->price }}</p>
+                        <p class="text-gray-400">{!! $product->description !!}</p>
+                        <p class="font-semibold text-lg">{{number_format((float)$product->price, 2, '.', '')}}€</p>
                         <?php if($product->size==1){ ?>
                         <div class="grid grid-cols-5 gap-0">
                             <x-product-size>XS</x-product-size>

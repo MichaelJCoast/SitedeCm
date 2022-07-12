@@ -22,7 +22,7 @@
                 <h3 class="mb-2 text-sm lg:text-base tracking-tight font-semibold text-white">{{$merch->name}}</h3>
             </div>
             <div>
-                <p class="font-semibold">€{{$merch->price}}</p>
+                <p class="font-semibold">{{number_format((float)$merch->price, 2, '.', '')}}€</p>
             </div>
         </div>
     </div>
