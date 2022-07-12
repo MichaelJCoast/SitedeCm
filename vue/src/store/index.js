@@ -12,6 +12,11 @@ const store = createStore({
     },
     currentPost: {
       data: {},
+    },
+    team: {
+      team_members: {},
+      roles: {},
+      departments: {},
     }
   },
   getters: {},
@@ -40,14 +45,12 @@ const store = createStore({
     getUser({commit}) {
       return axiosClient.get('/user')
       .then(res => {
-        console.log(res);
         commit('setUser', res.data)
       })
     },
     getPosts({ commit }) {
       return axiosClient.get('/blog')
       .then(res => {
-        console.log(res);
         commit('setPosts', res.data)
       });
     },
@@ -61,7 +64,25 @@ const store = createStore({
       .catch((err) => {
         throw err;
       });
-  },
+    },
+    getTeamMembers({ commit }) {
+      return axiosClient.get('/team')
+      .then(res => {
+        commit('setTeamMembers', res.data)
+      });
+    },
+    getDepartments({ commit }) {
+      return axiosClient.get('/department')
+      .then(res => {
+        commit('setDepartments', res.data)
+      });
+    },
+    getRoles({ commit }) {
+      return axiosClient.get('/studentgrouproles')
+      .then(res => {
+        commit('setStudentGroupRoles', res.data)
+      });
+    },
 },
   mutations: {
     logout: (state) => {
@@ -81,7 +102,16 @@ const store = createStore({
     },
     setCurrentPost: (state, currentPost) => {
       state.currentPost = currentPost;
-    }
+    },
+    setTeamMembers: (state, team) => {
+      state.team.team_members = team;
+    },
+    setDepartments: (state, departments) => {
+      state.team.departments = departments;
+    },
+    setStudentGroupRoles: (state, roles) => {
+      state.team.roles = roles;
+    },
   },
   modules: {},
 });
