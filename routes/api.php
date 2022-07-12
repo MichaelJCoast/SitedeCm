@@ -21,10 +21,10 @@ Route::middleware('auth:sanctum')->group(function () {
         return $request->user();
     });
     Route::post('/logout', [RegisteredUserController::class, 'logout']);
-    Route::get('/blog', [PostController::class, 'index']);
 });
 
 //Route::get('/blog', [PostCrudController::class, 'blogPostIndex'])->name('blog');
 
+Route::get('/blog', [PostController::class, 'index']);
 Route::post('/register', [RegisteredUserController::class, 'register']);
 Route::post('/login', [RegisteredUserController::class, 'login']);
