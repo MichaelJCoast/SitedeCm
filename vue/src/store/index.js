@@ -17,6 +17,9 @@ const store = createStore({
       team_members: {},
       roles: {},
       departments: {},
+    },
+    links: {
+      data: {},
     }
   },
   getters: {},
@@ -83,6 +86,12 @@ const store = createStore({
         commit('setStudentGroupRoles', res.data)
       });
     },
+    getLinks({ commit }) {
+      return axiosClient.get('/links')
+      .then(res => {
+        commit('setLinks', res.data)
+      });
+    },
 },
   mutations: {
     logout: (state) => {
@@ -111,6 +120,9 @@ const store = createStore({
     },
     setStudentGroupRoles: (state, roles) => {
       state.team.roles = roles;
+    },
+    setLinks: (state, links) => {
+      state.links.data = links;
     },
   },
   modules: {},
