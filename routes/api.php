@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TeamController;
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\StudentGroupRolesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +26,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [RegisteredUserController::class, 'logout']);
 });
 
-//Route::get('/blog', [PostCrudController::class, 'blogPostIndex'])->name('blog');
+Route::get('/team', [TeamController::class, 'index']);
+Route::get('/department', [DepartmentController::class, 'index']);
+Route::get('/studentgrouproles', [StudentGroupRolesController::class, 'index']);
 
 Route::get('/blog', [PostController::class, 'index']);
 Route::get('blog/{post:slug}', [PostController::class, 'showFullPostBySlug']);
