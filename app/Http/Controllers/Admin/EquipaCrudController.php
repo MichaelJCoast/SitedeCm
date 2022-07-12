@@ -37,6 +37,7 @@ class EquipaCrudController extends CrudController
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/equipa');
         $this->crud->setEntityNameStrings('membro', 'equipa');
         $this->setupAccess();
+        $this->setupViewAccess();
       
     }
 

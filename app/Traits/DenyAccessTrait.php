@@ -13,4 +13,14 @@ trait DenyAccessTrait
         }
         
     }
+
+    protected function setupViewAccess()
+    {
+        if (!backpack_user()->hasRole('admin')) {
+            $this->crud->denyAccess('list');
+            $this->crud->denyAccess('show');
+        }
+        
+    }
+
 }

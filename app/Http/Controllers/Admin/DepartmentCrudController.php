@@ -33,6 +33,7 @@ class DepartmentCrudController extends CrudController
         CRUD::setRoute(config('backpack.base.route_prefix') . '/department');
         CRUD::setEntityNameStrings('department', 'departments');
         $this->setupAccess();
+        $this->setupViewAccess();
     }
 
     /**

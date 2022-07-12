@@ -35,6 +35,7 @@ class CargoCrudController extends CrudController
         CRUD::setEntityNameStrings('cargo', 'cargos');
 
         $this->setupAccess();
+        $this->setupViewAccess();
         
     }
 
