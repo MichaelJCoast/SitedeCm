@@ -6,6 +6,7 @@ use App\Http\Requests\MerchRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use App\Models\Post;
+use App\Traits\DenyAccessTrait; 
 
 /**
  * Class MerchCrudController
@@ -19,6 +20,7 @@ class MerchCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use DenyAccessTrait;
   
 
     /**
@@ -31,11 +33,7 @@ class MerchCrudController extends CrudController
         CRUD::setModel(\App\Models\Merch::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/merch');
         CRUD::setEntityNameStrings('merch', 'merch');
-        if (!backpack_user()->hasRole('admin')) {
-            CRUD::denyAccess('create');
-            CRUD::denyAccess('update');
-            CRUD::denyAccess('delete');
-        }
+        $this->setupAccess();
     }
 
     /**
