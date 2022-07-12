@@ -110,8 +110,6 @@ import { useRouter } from "vue-router";
 import NECMIcon from "./NECMIcon.vue";
 
 const navigation = [
-  { name: "Home", to: { name: "Home" } },
-  { name: "Blog", to: { name: "Blog" } },
   { name: "Equipa", to: { name: "Team" } },
   { name: "Links", to: { name: "Links" } },
 ];
