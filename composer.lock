@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "72068b5530f33d0f813a60015bb1b35d",
+    "content-hash": "2c4a1dd7bf46460fb4790a22f7589bd5",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -292,76 +292,6 @@
                 "source": "https://github.com/Laravel-Backpack/PermissionManager/tree/6.0.15"
             },
             "time": "2022-04-18T13:32:50+00:00"
-        },
-        {
-            "name": "backpack/revise-operation",
-            "version": "1.0.10",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Laravel-Backpack/revise-operation.git",
-                "reference": "eb0401021fc784e35a948d5a56040279b82c4d68"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/revise-operation/zipball/eb0401021fc784e35a948d5a56040279b82c4d68",
-                "reference": "eb0401021fc784e35a948d5a56040279b82c4d68",
-                "shasum": ""
-            },
-            "require": {
-                "backpack/crud": "^4.0|^5.0",
-                "venturecraft/revisionable": "1.*"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.1",
-                "orchestra/testbench": "~3|~4",
-                "phpunit/phpunit": "^8.0",
-                "sempro/phpunit-pretty-print": "^1.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Backpack\\ReviseOperation\\ReviseOperationServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Backpack\\ReviseOperation\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Cristian Tabacitu",
-                    "email": "tabacitu@backpackforlaravel.com",
-                    "homepage": "https://backpackforlaravel.com"
-                }
-            ],
-            "description": "Backpack interface for venturecraft/revisionable",
-            "homepage": "https://github.com/laravel-backpack/revise-operation",
-            "keywords": [
-                "Admin Interface",
-                "Audit Log",
-                "Backpack Add-On",
-                "Backpack Operation",
-                "Backpack for Laravel",
-                "ReviseOperation",
-                "Revision History",
-                "Revisions",
-                "admin panel",
-                "backpack",
-                "laravel",
-                "revisionable"
-            ],
-            "support": {
-                "issues": "https://github.com/Laravel-Backpack/revise-operation/issues",
-                "source": "https://github.com/Laravel-Backpack/revise-operation/tree/1.0.10"
-            },
-            "time": "2022-02-15T10:28:11+00:00"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -769,6 +699,66 @@
                 }
             ],
             "time": "2022-01-17T14:14:24+00:00"
+        },
+        {
+            "name": "coziboy/log-user-activity-for-backpack",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/coziboy/log-user-activity-for-backpack.git",
+                "reference": "32fcc5c5c401c3bcb772995cacf597c32ec1d3f4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/coziboy/log-user-activity-for-backpack/zipball/32fcc5c5c401c3bcb772995cacf597c32ec1d3f4",
+                "reference": "32fcc5c5c401c3bcb772995cacf597c32ec1d3f4",
+                "shasum": ""
+            },
+            "require": {
+                "spatie/laravel-activitylog": "^3.16"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~5|~6",
+                "phpunit/phpunit": "~9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Coziboy\\LogUserActivityForBackpack\\LogUserActivityForBackpackServiceProvider"
+                    ],
+                    "aliases": {
+                        "LogUserActivityForBackpack": "Coziboy\\LogUserActivityForBackpack\\Facades\\LogUserActivityForBackpack"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Coziboy\\LogUserActivityForBackpack\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Asatera",
+                    "email": "tolong@buatin.website",
+                    "homepage": "http://buatin.website"
+                }
+            ],
+            "description": "Log user activity in backpack",
+            "homepage": "https://github.com/coziboy/log-user-activity-for-backpack",
+            "keywords": [
+                "LogUserActivityForBackpack",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/coziboy/log-user-activity-for-backpack/issues",
+                "source": "https://github.com/coziboy/log-user-activity-for-backpack/tree/1.0.4"
+            },
+            "time": "2021-01-30T00:30:56+00:00"
         },
         {
             "name": "creativeorange/gravatar",
@@ -4225,6 +4215,96 @@
             "time": "2021-09-25T23:10:38+00:00"
         },
         {
+            "name": "spatie/laravel-activitylog",
+            "version": "3.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-activitylog.git",
+                "reference": "bdc44862aaca39ecbd824133b80dbd7c8017ed7f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-activitylog/zipball/bdc44862aaca39ecbd824133b80dbd7c8017ed7f",
+                "reference": "bdc44862aaca39ecbd824133b80dbd7c8017ed7f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "^6.0 || ^7.0 || ^8.0",
+                "illuminate/database": "^6.0 || ^7.0 || ^8.0",
+                "illuminate/support": "^6.0 || ^7.0 || ^8.0",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "ext-json": "*",
+                "orchestra/testbench": "^4.0 || ^5.0 || ^6.0",
+                "phpunit/phpunit": "^9.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Activitylog\\ActivitylogServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Spatie\\Activitylog\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Tom Witkowski",
+                    "email": "dev.gummibeer@gmail.com",
+                    "homepage": "https://gummibeer.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A very simple activity logger to monitor the users of your website or application",
+            "homepage": "https://github.com/spatie/activitylog",
+            "keywords": [
+                "activity",
+                "laravel",
+                "log",
+                "spatie",
+                "user"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-activitylog/issues",
+                "source": "https://github.com/spatie/laravel-activitylog/tree/3.17.0"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-03-02T16:49:06+00:00"
+        },
+        {
             "name": "spatie/laravel-permission",
             "version": "5.5.4",
             "source": {
@@ -6702,70 +6782,6 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.4"
             },
             "time": "2021-12-08T09:12:39+00:00"
-        },
-        {
-            "name": "venturecraft/revisionable",
-            "version": "1.39.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/VentureCraft/revisionable.git",
-                "reference": "24ef304dfe7fe64362cc815faab0fc80030d0c59"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/VentureCraft/revisionable/zipball/24ef304dfe7fe64362cc815faab0fc80030d0c59",
-                "reference": "24ef304dfe7fe64362cc815faab0fc80030d0c59",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "~4.0|~5.0|~5.1|^6.0|^7.0|^8.0|^9.0",
-                "laravel/framework": "~5.4|^6.0|^7.0|^8.0|^9.0",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "orchestra/testbench": "~3.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Venturecraft\\Revisionable\\RevisionableServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Venturecraft\\Revisionable": "src/"
-                },
-                "classmap": [
-                    "src/migrations"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Chris Duell",
-                    "email": "me@chrisduell.com"
-                }
-            ],
-            "description": "Keep a revision history for your models without thinking, created as a package for use with Laravel",
-            "homepage": "http://github.com/venturecraft/revisionable",
-            "keywords": [
-                "Audit",
-                "ardent",
-                "history",
-                "laravel",
-                "model",
-                "revision"
-            ],
-            "support": {
-                "issues": "https://github.com/VentureCraft/revisionable/issues",
-                "source": "https://github.com/VentureCraft/revisionable"
-            },
-            "time": "2022-01-20T05:56:12+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
