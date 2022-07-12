@@ -34,6 +34,7 @@ class MerchCrudController extends CrudController
         CRUD::setRoute(config('backpack.base.route_prefix') . '/merch');
         CRUD::setEntityNameStrings('merch', 'merch');
         $this->setupAccess();
+        $this->setupViewAccess();
     }
 
     /**
