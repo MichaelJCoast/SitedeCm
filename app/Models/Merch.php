@@ -5,8 +5,12 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Spatie\Activitylog\LogsActivityInterface;
+use Spatie\Activitylog\Traits\LogsActivity;
+
 class Merch extends Model
 {
+    use LogsActivity;
     use CrudTrait;
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
 
