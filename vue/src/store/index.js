@@ -9,6 +9,9 @@ const store = createStore({
     },
     posts: {
       data: {},
+    },
+    currentPost: {
+      data: {},
     }
   },
   getters: {},
@@ -44,14 +47,22 @@ const store = createStore({
     getPosts({ commit }) {
       return axiosClient.get('/blog')
       .then(res => {
+        console.log(res);
         commit('setPosts', res.data)
-        return res;
-      }).catch(err => {
-        console.log(err)
-        return err;
       });
     },
+    getPostBySlug({ commit }, slug) {
+      return axiosClient
+      .get(`/blog/${slug}`)
+      .then((res) => {
+        commit("setCurrentPost", res.data);
+        return res;
+      })
+      .catch((err) => {
+        throw err;
+      });
   },
+},
   mutations: {
     logout: (state) => {
       state.user.data = {};
@@ -66,8 +77,11 @@ const store = createStore({
       sessionStorage.setItem('TOKEN', token);
     },
     setPosts: (state, posts) => {
-      state.posts.data = posts.data;
+      state.posts.data = posts;
     },
+    setCurrentPost: (state, currentPost) => {
+      state.currentPost = currentPost;
+    }
   },
   modules: {},
 });

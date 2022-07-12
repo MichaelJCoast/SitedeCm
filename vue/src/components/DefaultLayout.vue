@@ -156,7 +156,9 @@ export default {
       });
     }
 
-    store.dispatch("getUser");
+    if(store.state.token) {
+      store.dispatch("getUser");
+    }
 
     return {
       user: computed(() => store.state.user.data),
