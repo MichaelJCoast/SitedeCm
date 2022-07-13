@@ -31,15 +31,6 @@
             {{ $slot }}
         </main>
     </div>
-
-    <footer class="bg-black">
-        <div class="container px-8 md:px-14 mx-auto py-8">
-            <div class="flex justify-center space-x-6 mb-2">
-            </div>
-                <div class="grid grid-rows-1">
-                    <p class="mt-1 text-center text-xs text-white">Departamento de Tecnologia — 2022</p>
-                </div>
-            </div>
-    </footer>
+    @include('layouts.footer')
 </body>
 </html>

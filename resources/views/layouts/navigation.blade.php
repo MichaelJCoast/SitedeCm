@@ -13,7 +13,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                
+
                         <x-nav-link :href="route('equipa')" :active="request()->routeIs('equipa')">
                             {{ __('Equipa') }}
                         </x-nav-link>
@@ -26,10 +26,10 @@
 
                 </div>
             </div>
-           
+
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
-            
+
         </div>
         <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden text-white">
@@ -49,15 +49,27 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 space-y-1">
+            <div class="flex flex-row items-center">
+            <x-heroicon-o-users class="w-6 h-6 text-white"/>
             <x-responsive-nav-link :href="route('equipa')" :active="request()->routeIs('equipa')">
                 {{ __('Equipa') }}
             </x-responsive-nav-link>
+            </div>
+
+            <div class="flex flex-row items-center">
+            <x-heroicon-o-shopping-bag class="w-6 h-6 text-white"/>
             <x-responsive-nav-link :href="route('merch')" :active="request()->routeIs('merch')">
                 {{ __('Merch') }}
             </x-responsive-nav-link>
+            </div>
+
+            <div class="flex flex-row items-center">
+            <x-heroicon-o-link class="w-6 h-6 text-white"/>
             <x-responsive-nav-link :href="route('links')" :active="request()->routeIs('links')">
                 {{ __('Links') }}
             </x-responsive-nav-link>
+            </div>
+
         </div>
     </div>
 </nav>
