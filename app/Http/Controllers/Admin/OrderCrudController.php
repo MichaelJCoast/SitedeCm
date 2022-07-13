@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\OrderRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use App\Traits\DenyAccessTrait; 
 
 
 
@@ -21,7 +22,7 @@ class OrderCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
-
+    use DenyAccessTrait;
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      * 
@@ -34,6 +35,8 @@ class OrderCrudController extends CrudController
         CRUD::setModel(\App\Models\Order::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/order');
         CRUD::setEntityNameStrings('order', 'orders');
+        $this->setupAccess();
+        $this->setupViewAccess();
       
     }
     

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\EquipaRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use App\Traits\DenyAccessTrait; 
 
 /**
  * Class equipaCrudController
@@ -18,7 +19,7 @@ class EquipaCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
-  
+    use DenyAccessTrait;
   
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -35,11 +36,8 @@ class EquipaCrudController extends CrudController
         $this->crud->setModel('App\Models\Equipa');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/equipa');
         $this->crud->setEntityNameStrings('membro', 'equipa');
-        if (!backpack_user()->hasRole('admin')) {
-            CRUD::denyAccess('create');
-            CRUD::denyAccess('update');
-            CRUD::denyAccess('delete');
-        }
+        $this->setupAccess();
+        $this->setupViewAccess();
       
     }
 

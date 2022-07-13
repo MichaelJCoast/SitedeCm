@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateProfileRequest extends FormRequest
+class RoleUpdateCrudRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,8 @@ class UpdateProfileRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        // only allow updates if the user is logged in
+        return backpack_auth()->check();
     }
 
     /**
@@ -23,9 +24,10 @@ class UpdateProfileRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'email' => 'required|email',
-            'password' => 'min:6'
+        $rules = [
+            'name' => 'required|string|max:255',
         ];
+
+        return $rules;
     }
 }

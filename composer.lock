@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "72068b5530f33d0f813a60015bb1b35d",
+    "content-hash": "46a27f60c5c2535849fca0fd2eda224d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -294,76 +294,6 @@
             "time": "2022-04-18T13:32:50+00:00"
         },
         {
-            "name": "backpack/revise-operation",
-            "version": "1.0.10",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Laravel-Backpack/revise-operation.git",
-                "reference": "eb0401021fc784e35a948d5a56040279b82c4d68"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/revise-operation/zipball/eb0401021fc784e35a948d5a56040279b82c4d68",
-                "reference": "eb0401021fc784e35a948d5a56040279b82c4d68",
-                "shasum": ""
-            },
-            "require": {
-                "backpack/crud": "^4.0|^5.0",
-                "venturecraft/revisionable": "1.*"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.1",
-                "orchestra/testbench": "~3|~4",
-                "phpunit/phpunit": "^8.0",
-                "sempro/phpunit-pretty-print": "^1.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Backpack\\ReviseOperation\\ReviseOperationServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Backpack\\ReviseOperation\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Cristian Tabacitu",
-                    "email": "tabacitu@backpackforlaravel.com",
-                    "homepage": "https://backpackforlaravel.com"
-                }
-            ],
-            "description": "Backpack interface for venturecraft/revisionable",
-            "homepage": "https://github.com/laravel-backpack/revise-operation",
-            "keywords": [
-                "Admin Interface",
-                "Audit Log",
-                "Backpack Add-On",
-                "Backpack Operation",
-                "Backpack for Laravel",
-                "ReviseOperation",
-                "Revision History",
-                "Revisions",
-                "admin panel",
-                "backpack",
-                "laravel",
-                "revisionable"
-            ],
-            "support": {
-                "issues": "https://github.com/Laravel-Backpack/revise-operation/issues",
-                "source": "https://github.com/Laravel-Backpack/revise-operation/tree/1.0.10"
-            },
-            "time": "2022-02-15T10:28:11+00:00"
-        },
-        {
             "name": "barryvdh/elfinder-flysystem-driver",
             "version": "v0.3.0",
             "source": {
@@ -485,87 +415,6 @@
             "time": "2020-12-18T16:57:01+00:00"
         },
         {
-            "name": "blade-ui-kit/blade-icons",
-            "version": "1.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/blade-ui-kit/blade-icons.git",
-                "reference": "57a7c41e1e79e38aed029d3e6ae690b04344c99e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/blade-ui-kit/blade-icons/zipball/57a7c41e1e79e38aed029d3e6ae690b04344c99e",
-                "reference": "57a7c41e1e79e38aed029d3e6ae690b04344c99e",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "^8.0|^9.0",
-                "illuminate/filesystem": "^8.0|^9.0",
-                "illuminate/support": "^8.0|^9.0",
-                "illuminate/view": "^8.0|^9.0",
-                "php": "^7.4|^8.0",
-                "symfony/console": "^5.3|^6.0",
-                "symfony/finder": "^5.3|^6.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.3",
-                "orchestra/testbench": "^6.0|^7.0",
-                "phpunit/phpunit": "^9.0"
-            },
-            "bin": [
-                "bin/blade-icons-generate"
-            ],
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "BladeUI\\Icons\\BladeIconsServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/helpers.php"
-                ],
-                "psr-4": {
-                    "BladeUI\\Icons\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Dries Vints",
-                    "homepage": "https://driesvints.com"
-                }
-            ],
-            "description": "A package to easily make use of icons in your Laravel Blade views.",
-            "homepage": "https://github.com/blade-ui-kit/blade-icons",
-            "keywords": [
-                "blade",
-                "icons",
-                "laravel",
-                "svg"
-            ],
-            "support": {
-                "issues": "https://github.com/blade-ui-kit/blade-icons/issues",
-                "source": "https://github.com/blade-ui-kit/blade-icons"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/caneco",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/driesvints",
-                    "type": "github"
-                }
-            ],
-            "time": "2022-05-11T12:38:11+00:00"
-        },
-        {
             "name": "brick/math",
             "version": "0.9.3",
             "source": {
@@ -624,78 +473,6 @@
                 }
             ],
             "time": "2021-08-15T20:50:18+00:00"
-        },
-        {
-            "name": "codeat3/blade-line-awesome-icons",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/codeat3/blade-line-awesome-icons.git",
-                "reference": "59375841990dcbad4c970c87b8fdbdaf04ea12b8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/codeat3/blade-line-awesome-icons/zipball/59375841990dcbad4c970c87b8fdbdaf04ea12b8",
-                "reference": "59375841990dcbad4c970c87b8fdbdaf04ea12b8",
-                "shasum": ""
-            },
-            "require": {
-                "blade-ui-kit/blade-icons": "^1.1",
-                "illuminate/support": "^8.0|^9.0",
-                "php": "^7.4|^8.0"
-            },
-            "require-dev": {
-                "codeat3/blade-icon-generation-helpers": "^0.1",
-                "codeat3/phpcs-styles": "^1.0",
-                "orchestra/testbench": "^6.0|^7.0",
-                "phpunit/phpunit": "^9.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Codeat3\\BladeLineAwesomeIcons\\BladeLineAwesomeIconsServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Codeat3\\BladeLineAwesomeIcons\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Swapnil Sarwe",
-                    "homepage": "https://swapnilsarwe.com"
-                },
-                {
-                    "name": "Dries Vints",
-                    "homepage": "https://driesvints.com"
-                }
-            ],
-            "description": "A package to easily make use of Line Awesome Icons in your Laravel Blade views.",
-            "homepage": "https://github.com/codeat3/blade-line-awesome-icons",
-            "keywords": [
-                "blade",
-                "icons",
-                "laravel",
-                "line-awesome"
-            ],
-            "support": {
-                "issues": "https://github.com/codeat3/blade-line-awesome-icons/issues",
-                "source": "https://github.com/codeat3/blade-line-awesome-icons/tree/1.2.0"
-            },
-            "funding": [
-                {
-                    "url": "https://www.buymeacoffee.com/swapnilsarwe",
-                    "type": "custom"
-                }
-            ],
-            "time": "2022-02-04T17:05:07+00:00"
         },
         {
             "name": "composer/package-versions-deprecated",
@@ -769,6 +546,66 @@
                 }
             ],
             "time": "2022-01-17T14:14:24+00:00"
+        },
+        {
+            "name": "coziboy/log-user-activity-for-backpack",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/coziboy/log-user-activity-for-backpack.git",
+                "reference": "32fcc5c5c401c3bcb772995cacf597c32ec1d3f4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/coziboy/log-user-activity-for-backpack/zipball/32fcc5c5c401c3bcb772995cacf597c32ec1d3f4",
+                "reference": "32fcc5c5c401c3bcb772995cacf597c32ec1d3f4",
+                "shasum": ""
+            },
+            "require": {
+                "spatie/laravel-activitylog": "^3.16"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~5|~6",
+                "phpunit/phpunit": "~9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Coziboy\\LogUserActivityForBackpack\\LogUserActivityForBackpackServiceProvider"
+                    ],
+                    "aliases": {
+                        "LogUserActivityForBackpack": "Coziboy\\LogUserActivityForBackpack\\Facades\\LogUserActivityForBackpack"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Coziboy\\LogUserActivityForBackpack\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Asatera",
+                    "email": "tolong@buatin.website",
+                    "homepage": "http://buatin.website"
+                }
+            ],
+            "description": "Log user activity in backpack",
+            "homepage": "https://github.com/coziboy/log-user-activity-for-backpack",
+            "keywords": [
+                "LogUserActivityForBackpack",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/coziboy/log-user-activity-for-backpack/issues",
+                "source": "https://github.com/coziboy/log-user-activity-for-backpack/tree/1.0.4"
+            },
+            "time": "2021-01-30T00:30:56+00:00"
         },
         {
             "name": "creativeorange/gravatar",
@@ -4225,6 +4062,96 @@
             "time": "2021-09-25T23:10:38+00:00"
         },
         {
+            "name": "spatie/laravel-activitylog",
+            "version": "3.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-activitylog.git",
+                "reference": "bdc44862aaca39ecbd824133b80dbd7c8017ed7f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-activitylog/zipball/bdc44862aaca39ecbd824133b80dbd7c8017ed7f",
+                "reference": "bdc44862aaca39ecbd824133b80dbd7c8017ed7f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "^6.0 || ^7.0 || ^8.0",
+                "illuminate/database": "^6.0 || ^7.0 || ^8.0",
+                "illuminate/support": "^6.0 || ^7.0 || ^8.0",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "ext-json": "*",
+                "orchestra/testbench": "^4.0 || ^5.0 || ^6.0",
+                "phpunit/phpunit": "^9.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Activitylog\\ActivitylogServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Spatie\\Activitylog\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Tom Witkowski",
+                    "email": "dev.gummibeer@gmail.com",
+                    "homepage": "https://gummibeer.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A very simple activity logger to monitor the users of your website or application",
+            "homepage": "https://github.com/spatie/activitylog",
+            "keywords": [
+                "activity",
+                "laravel",
+                "log",
+                "spatie",
+                "user"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-activitylog/issues",
+                "source": "https://github.com/spatie/laravel-activitylog/tree/3.17.0"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-03-02T16:49:06+00:00"
+        },
+        {
             "name": "spatie/laravel-permission",
             "version": "5.5.4",
             "source": {
@@ -6704,70 +6631,6 @@
             "time": "2021-12-08T09:12:39+00:00"
         },
         {
-            "name": "venturecraft/revisionable",
-            "version": "1.39.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/VentureCraft/revisionable.git",
-                "reference": "24ef304dfe7fe64362cc815faab0fc80030d0c59"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/VentureCraft/revisionable/zipball/24ef304dfe7fe64362cc815faab0fc80030d0c59",
-                "reference": "24ef304dfe7fe64362cc815faab0fc80030d0c59",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "~4.0|~5.0|~5.1|^6.0|^7.0|^8.0|^9.0",
-                "laravel/framework": "~5.4|^6.0|^7.0|^8.0|^9.0",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "orchestra/testbench": "~3.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Venturecraft\\Revisionable\\RevisionableServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Venturecraft\\Revisionable": "src/"
-                },
-                "classmap": [
-                    "src/migrations"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Chris Duell",
-                    "email": "me@chrisduell.com"
-                }
-            ],
-            "description": "Keep a revision history for your models without thinking, created as a package for use with Laravel",
-            "homepage": "http://github.com/venturecraft/revisionable",
-            "keywords": [
-                "Audit",
-                "ardent",
-                "history",
-                "laravel",
-                "model",
-                "revision"
-            ],
-            "support": {
-                "issues": "https://github.com/VentureCraft/revisionable/issues",
-                "source": "https://github.com/VentureCraft/revisionable"
-            },
-            "time": "2022-01-20T05:56:12+00:00"
-        },
-        {
             "name": "vlucas/phpdotenv",
             "version": "v5.4.1",
             "source": {
@@ -7646,63 +7509,6 @@
                 "source": "https://github.com/laracasts/Laravel-5-Generators-Extended/tree/2.0.1"
             },
             "time": "2022-02-09T14:12:17+00:00"
-        },
-        {
-            "name": "laravel/breeze",
-            "version": "v1.9.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/breeze.git",
-                "reference": "018c0ae683e19136a2f3177ea33d6b5b09d94b12"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/breeze/zipball/018c0ae683e19136a2f3177ea33d6b5b09d94b12",
-                "reference": "018c0ae683e19136a2f3177ea33d6b5b09d94b12",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/filesystem": "^8.42|^9.0",
-                "illuminate/support": "^8.42|^9.0",
-                "illuminate/validation": "^8.42|^9.0",
-                "php": "^7.3|^8.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.x-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Laravel\\Breeze\\BreezeServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Laravel\\Breeze\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "Minimal Laravel authentication scaffolding with Blade and Tailwind.",
-            "keywords": [
-                "auth",
-                "laravel"
-            ],
-            "support": {
-                "issues": "https://github.com/laravel/breeze/issues",
-                "source": "https://github.com/laravel/breeze"
-            },
-            "time": "2022-06-01T13:44:02+00:00"
         },
         {
             "name": "laravel/sail",

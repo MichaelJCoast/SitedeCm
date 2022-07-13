@@ -3,7 +3,6 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
@@ -23,7 +22,6 @@ class main extends Mailable
         $this->main = $main;
     }
 
-
     /**
      * Build the message.
      *
@@ -32,7 +30,6 @@ class main extends Mailable
     public function build()
     {
         return $this->subject('Núcleo Comunicação e Multimédia')
-
-                    ->view('mail/main');
+            ->view('mail/main');
     }
 }

@@ -35,14 +35,5 @@ class RolesSeeder extends Seeder
             'updated_at' => Carbon::now(),
             
         ]);
-        DB::table('roles')->insert([
-            'id' => '3',
-            'name' => 'user',
-            'guard_name' => 'backpack',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-            
-        ]
-            );
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Requests\MerchRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use App\Models\Post;
+use App\Traits\DenyAccessTrait; 
 
 /**
  * Class MerchCrudController
@@ -19,6 +20,7 @@ class MerchCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use DenyAccessTrait;
   
 
     /**
@@ -30,12 +32,9 @@ class MerchCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\Merch::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/merch');
-        CRUD::setEntityNameStrings('merch', 'merches');
-        if (!backpack_user()->hasRole('admin')) {
-            CRUD::denyAccess('create');
-            CRUD::denyAccess('update');
-            CRUD::denyAccess('delete');
-        }
+        CRUD::setEntityNameStrings('merch', 'merch');
+        $this->setupAccess();
+        $this->setupViewAccess();
     }
 
     /**
@@ -75,9 +74,18 @@ class MerchCrudController extends CrudController
         ]);
 
         CRUD::addField([
-            'name' => 'description',
-            'type' => 'text',
-            'label' => "Descrição"
+            'name'          => 'description',
+            'label'         => 'Descrição',
+            'type'          => 'summernote',
+            'options'       => [
+                'toolbar'   => [
+                ['style', ['bold', 'underline', 'italic']],
+                ['font', ['color', 'clear']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen']],
+                ]
+            ],
         ]);
 
         CRUD::addField([   
@@ -91,14 +99,24 @@ class MerchCrudController extends CrudController
         CRUD::addField([  
             'name'          => 'price',
             'label'         => 'Price',
-            'type'          => 'text',
-            'placeholder'   => '19,99',
+            'type' => 'number',
+             // optionals
+             'attributes' => ["step" => "any"], // allow decimals
+             'suffix' => '€',
         ]);
 
         CRUD::addField([  
             'name'          => 'size',
-            'label'         => 'Size',
-            'type'          => 'text'
+            'label'         => 'Este produto tem tamanho?',
+            'type'        => 'radio',
+            'options'     => [
+                // the key will be stored in the db, the value will be shown as label;
+                1 => "Sim",
+                0 => "Não"
+                
+            ],
+            // optional
+            'inline'      => true, // show the radios all on the same line?
         ]);
 
         

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+
 use App\Http\Requests\CargoRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use App\Traits\DenyAccessTrait; 
 
 /**
  * Class RoleCrudController
@@ -18,6 +20,7 @@ class CargoCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use DenyAccessTrait;
  
 
     /**
@@ -30,11 +33,10 @@ class CargoCrudController extends CrudController
         CRUD::setModel(\App\Models\Cargo::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/cargo');
         CRUD::setEntityNameStrings('cargo', 'cargos');
-        if (!backpack_user()->hasRole('admin')) {
-            CRUD::denyAccess('create');
-            CRUD::denyAccess('update');
-            CRUD::denyAccess('delete');
-        }
+
+        $this->setupAccess();
+        $this->setupViewAccess();
+        
     }
 
     /**

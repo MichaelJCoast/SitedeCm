@@ -5,9 +5,12 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Spatie\Activitylog\LogsActivityInterface;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Post extends Model
 {
+    use LogsActivity;
     use CrudTrait;
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
 
@@ -72,7 +75,7 @@ class Post extends Model
 
     // return $this->attributes[{$attribute_name}]; // uncomment if this is a translatable field
     }
-
+   
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
