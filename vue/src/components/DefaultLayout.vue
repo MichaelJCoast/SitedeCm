@@ -69,13 +69,14 @@
               class="absolute cursor-pointer px-2 py-2 bg-zinc-900 ring-1 ring-black ring-opacity-5 space-y-2 text-gray-100 shadow-md rounded-md flex flex-col focus:outline-none w-44 origin-top-right right-0 z-50"
             >
               <MenuItem v-slot="{ active }">
-                <a
+                <router-link
                   class="flex items-center rounded-md focus:outline-none transition duration-150 ease-in-out px-2 py-2 leading-5"
                   :class="{ 'bg-zinc-700': active }"
+                  to="/perfil"
                 >
                   <span><UserIcon class="h-4 w-4" /></span>
                   <span class="ml-2">Perfil</span>
-                </a>
+                </router-link>
               </MenuItem>
               <MenuItem v-slot="{ active }">
                 <a
@@ -137,18 +138,19 @@ export default {
     toggleNavbar: function () {
       this.showMenu = !this.showMenu;
     },
-    checkIfIsLoggedIn: function () {
-      const store = useStore();
-      if (store.state.user.token) {
-        return true;
-      } else {
-        return false;
-      }
-    },
   },
   setup() {
     const store = useStore();
     const router = useRouter();
+
+     function checkIfIsLoggedIn() {
+      if (store.state.user.token) {
+        store.dispatch("getUser");
+        return true;
+      } else {
+        return false;
+      }
+    }
 
     function logout() {
       store.dispatch("logout").then(() => {
@@ -156,14 +158,12 @@ export default {
       });
     }
 
-    if(store.state.token) {
-      store.dispatch("getUser");
-    }
-
     return {
       user: computed(() => store.state.user.data),
       navigation,
+      checkIfIsLoggedIn,
       logout,
+      store,
     };
   },
 };

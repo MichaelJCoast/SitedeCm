@@ -6,6 +6,7 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\StudentGroupRolesController;
 use App\Http\Controllers\LinksController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+    Route::put('/update-profile', [ProfileController::class, 'update']);
     Route::post('/logout', [RegisteredUserController::class, 'logout']);
 });
 
