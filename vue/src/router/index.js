@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from '../views/Home.vue';
 import Blog from '../views/Blog.vue';
 import Team from '../views/Team.vue';
+import Profile from '../views/Profile.vue';
 import Links from '../views/Links.vue';
 import BlogPost from '../views/BlogPost.vue'
 import Login from "../views/Login.vue";
@@ -18,10 +19,19 @@ const routes = [
         meta: { requiresAuth: false },
         children: [
             { path: "/", name: "Home", component: Home },
+            { path: "/perfil", name: "Profile", component: Profile },
             { path: "/blog", name: "Blog", component: Blog },
             { path: "/blog/:slug", name: "BlogPost", component: BlogPost },
             { path: "/equipa", name: "Team", component: Team },
             { path: "/links", name: "Links", component: Links },
+          ],
+    },
+    {
+        path: '/auth',
+        component: DefaultLayout,
+        meta: { requiresAuth: true },
+        children: [
+            { path: "/perfil", name: "Profile", component: Profile },
           ],
     },
     {

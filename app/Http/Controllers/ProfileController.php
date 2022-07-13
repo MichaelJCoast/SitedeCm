@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    public function update(UpdateProfileRequest $request) 
+    protected function update(UpdateProfileRequest $request)
     {
-        auth()->user()->update($request->only('name', 'email'));
+        auth()->user()->update($request->only('email', 'password'));
 
         if ($request->input('password')) {
             auth()->user()->update([
@@ -17,6 +17,6 @@ class ProfileController extends Controller
             ]);
         }
 
-        return redirect()->route('dashboard')->with('message', 'Conta atualizada com sucesso!');
+        return['message' => 'Dados atualizados com sucesso!'];
     }
 }

@@ -45,6 +45,13 @@ const store = createStore({
         return response;
       });
     },
+    updateProfile({commit }, user) {
+      return axiosClient.put('/update-profile', user)
+      .then( data => {
+        commit('setUser', data.user);
+        return data;
+      });
+    },
     getUser({commit}) {
       return axiosClient.get('/user')
       .then(res => {
