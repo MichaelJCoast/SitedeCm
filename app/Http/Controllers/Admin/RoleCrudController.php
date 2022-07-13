@@ -40,10 +40,14 @@ class RoleCrudController extends CrudController
         }
 
         $this->setupViewAccess();
+        $this->setupDeny();
+        
     }
 
     public function setupListOperation()
     {
+        
+        $this->RemoveActionColumn();
         /**
          * Show a column for the name of the role.
          */

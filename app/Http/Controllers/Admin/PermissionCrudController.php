@@ -38,10 +38,12 @@ class PermissionCrudController extends CrudController
             $this->crud->denyAccess('delete');
         }
         $this->setupViewAccess();
+        $this->setupDeny();
     }
 
     public function setupListOperation()
     {
+        $this->RemoveActionColumn();
         $this->crud->addColumn([
             'name'  => 'name',
             'label' => trans('backpack::permissionmanager.name'),

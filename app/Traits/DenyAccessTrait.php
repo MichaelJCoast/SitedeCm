@@ -23,4 +23,16 @@ trait DenyAccessTrait
         
     }
 
+    protected function setupDeny()
+    {
+            $this->crud->denyAccess('create');
+            $this->crud->denyAccess('update');
+            $this->crud->denyAccess('delete');   
+    }
+
+    protected function RemoveActionColumn()
+    {     
+            $this->crud->removeAllButtonsFromStack('line');
+    }
+
 }
