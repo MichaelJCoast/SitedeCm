@@ -38,58 +38,6 @@
           v-bind:class="{ hidden: !showMenu, flex: showMenu }"
           class="lg:flex sm:flex-none items-center"
         >
-          <ul
-            v-if="!isLogged"
-            class="flex flex-col lg:flex-row list-none ml-auto sm:space-x-4"
-          >
-            <li class="nav-item">
-              <router-link
-                to="/register"
-                class="inline-flex cursor-pointer text-lg items-center px-1 pt-1 font-semibold leading-5 text-white hover:text-red-600 focus:outline-none transition duration-150 ease-in-out"
-                >Registo</router-link
-              >
-            </li>
-            <li class="nav-item">
-              <router-link
-                to="/login"
-                class="inline-flex cursor-pointer text-lg items-center px-1 pt-1 font-semibold leading-5 text-white hover:text-red-600 focus:outline-none transition duration-150 ease-in-out"
-                >Login</router-link
-              >
-            </li>
-          </ul>
-
-          <Menu v-if="isLogged" as="div" class="relative">
-            <MenuButton
-              class="flex items-center text-lg cursor-pointer font-semibold text-white hover:text-red-600 focus:outline-none transition duration-150 ease-in-out"
-            >
-              <span>{{ user.name }}</span>
-              <ChevronDownIcon class="h-5 w-5 ml-2" />
-            </MenuButton>
-            <MenuItems
-              class="absolute cursor-pointer px-2 py-2 bg-zinc-900 ring-1 ring-black ring-opacity-5 space-y-2 text-gray-100 shadow-md rounded-md flex flex-col focus:outline-none w-44 origin-top-right right-0 z-50"
-            >
-              <MenuItem v-slot="{ active }">
-                <router-link
-                  class="flex items-center rounded-md focus:outline-none transition duration-150 ease-in-out px-2 py-2 leading-5"
-                  :class="{ 'bg-zinc-700': active }"
-                  to="/perfil"
-                >
-                  <span><UserIcon class="h-4 w-4" /></span>
-                  <span class="ml-2">Perfil</span>
-                </router-link>
-              </MenuItem>
-              <MenuItem v-slot="{ active }">
-                <a
-                  @click="logout"
-                  class="flex items-center rounded-md focus:outline-none transition duration-150 ease-in-out px-2 py-2 leading-5"
-                  :class="{ 'bg-zinc-700': active }"
-                >
-                  <span><LogoutIcon class="h-4 w-4" /></span>
-                  <span class="ml-2">Log Out</span>
-                </a>
-              </MenuItem>
-            </MenuItems>
-          </Menu>
         </div>
       </div>
     </nav>
@@ -98,16 +46,6 @@
 </template>
 
 <script>
-import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
-import {
-  MenuIcon,
-  ChevronDownIcon,
-  UserIcon,
-  LogoutIcon,
-} from "@heroicons/vue/solid";
-import { useStore } from "vuex";
-import { computed } from "vue";
-import { useRouter } from "vue-router";
 import NECMIcon from "./NECMIcon.vue";
 
 const navigation = [
@@ -117,53 +55,17 @@ const navigation = [
 
 export default {
   components: {
-    MenuIcon,
-    ChevronDownIcon,
     NECMIcon,
-    UserIcon,
-    LogoutIcon,
-    Menu,
-    MenuButton,
-    MenuItems,
-    MenuItem,
   },
   name: "navbar",
-  data() {
-    return {
-      isLogged: this.checkIfIsLoggedIn(),
-      showMenu: false,
-    };
-  },
   methods: {
     toggleNavbar: function () {
       this.showMenu = !this.showMenu;
     },
   },
   setup() {
-    const store = useStore();
-    const router = useRouter();
-
-     function checkIfIsLoggedIn() {
-      if (store.state.user.token) {
-        store.dispatch("getUser");
-        return true;
-      } else {
-        return false;
-      }
-    }
-
-    function logout() {
-      store.dispatch("logout").then(() => {
-        router.go();
-      });
-    }
-
     return {
-      user: computed(() => store.state.user.data),
       navigation,
-      checkIfIsLoggedIn,
-      logout,
-      store,
     };
   },
 };
