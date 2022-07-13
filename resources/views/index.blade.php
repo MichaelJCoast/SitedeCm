@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-carousel />
-    <div class="container mx-auto px-8 md:px-14 mb-10 text-white space-y-6">
+    <div class="container mx-auto px-8 md:px-14 mb-10 text-black space-y-6 dark:text-white">
         @if(!$posts->isEmpty())
         <div class="mt-6">
             <x-header-title :href="route('blog')">{{__("index.newsTitle")}}</x-header-title>
@@ -11,7 +11,7 @@
                     @endforeach
                 </div>
             <div class="text-center">
-                <a href="blog" class="font-semibold transition ease-in-out rounded-lg text-lg bg-neutral-600 hover:bg-neutral-500 px-8 py-2">Mais Notícias</a>
+                <a href="blog" class="font-semibold transition ease-in-out rounded-lg text-lg bg-gray-500 text-white dark:bg-neutral-600 dark:hover:bg-neutral-500 px-8 py-2">Mais Notícias</a>
             </div>
         @endif
     </div>

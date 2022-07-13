@@ -1,5 +1,5 @@
 <x-app-layout>
-<section class="container p-6 mx-auto mb-24 text-white">
+<section class="container p-6 mx-auto mb-24 text-gray-900 dark:text-white">
     @foreach($dep as $department)
     <h2 class="text-xl text-center font-semibold md:text-2xl mt-6">{{$department->name}}</h2>
 
