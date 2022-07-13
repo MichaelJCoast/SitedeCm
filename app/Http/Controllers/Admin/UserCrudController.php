@@ -9,6 +9,7 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Traits\DenyAccessTrait; 
+use App\Traits\DeleteAdminTrait; 
 /**
  * Class UserCrudController
  * @package App\Http\Controllers\Admin
@@ -21,6 +22,7 @@ class UserCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation { update as traitUpdate; }
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use DenyAccessTrait;
+    use DeleteAdminTrait;
 
     public function setup()
     {
@@ -29,6 +31,7 @@ class UserCrudController extends CrudController
         $this->crud->setRoute(backpack_url('user'));
 
         $this->setupViewAccess();
+        $this->setupDelete();
     }
 
     public function setupListOperation()
