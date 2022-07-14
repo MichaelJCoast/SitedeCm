@@ -22055,7 +22055,7 @@ var _hoisted_1 = {
   "class": "flex bg-black border-b border-neutral-700 mb-3"
 };
 var _hoisted_2 = {
-  "class": "container mx-auto px-8 py-2 md:px-14"
+  "class": "container flex mx-auto px-8 py-2 md:px-14"
 };
 var _hoisted_3 = {
   "class": "flex justify-between items-center h-16"
@@ -22064,6 +22064,8 @@ var _hoisted_4 = {
   "class": "hidden space-x-4 sm:-my-px sm:ml-10 sm:flex"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _this = this;
+
   var _component_NECMIcon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("NECMIcon");
 
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
@@ -22076,7 +22078,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     to: "/"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_NECMIcon)];
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_NECMIcon, {
+        "class": "text-white fill-current h-14 w-14"
+      })];
     }),
     _: 1
     /* STABLE */
@@ -22085,7 +22089,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_link, {
       key: item.name,
       to: item.to,
-      "class": "inline-flex cursor-pointer text-lg items-center px-1 pt-1 font-semibold leading-5 text-white hover:text-red-600 focus:outline-none transition duration-150 ease-in-out"
+      "active-class": "inline-flex cursor-pointer text-lg items-center px-1 pt-1 font-semibold leading-5 text-white hover:text-red-600 focus:outline-none transition duration-150 ease-in-out",
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_this.$route.name === item.to.name ? 'border-b-2 border-red-600' : 'inline-flex cursor-pointer text-lg items-center px-1 pt-1 font-semibold leading-5 text-white hover:text-red-600 focus:outline-none transition duration-150 ease-in-out'])
     }, {
       "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
         return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.name), 1
@@ -22097,7 +22102,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
     }, 1032
     /* PROPS, DYNAMIC_SLOTS */
-    , ["to"]);
+    , ["to", "class"]);
   }), 128
   /* KEYED_FRAGMENT */
   ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
@@ -22167,7 +22172,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "text-white fill-current h-14 w-14",
   viewBox: "0 0 54 54"
 };
 
