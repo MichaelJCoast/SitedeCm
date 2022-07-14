@@ -15,7 +15,7 @@
             <!-- Category & Date -->
             <header class="flex sm:flex-row items-center space-x-4 pb-2">
                 <span class="text-sm lg:text-base text-white font-semibold">{{post.category}}</span>
-                <time class="text-sm lg:text-base text-gray-400 font-semibold">{{post.created_at}}</time>
+                <time class="text-sm lg:text-base text-gray-400 font-semibold">{{postDate}}</time>
             </header>
             <!-- Title -->
             <div class="mb-3">
@@ -31,5 +31,10 @@
 <script setup>
     const { post } = defineProps({
         post: Object,
-    })
+    });
+    const postDate = new Date(post.created_at).toLocaleDateString('pt-PT', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+    });
 </script> 
