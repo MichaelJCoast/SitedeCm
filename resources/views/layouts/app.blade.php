@@ -18,26 +18,10 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
-    <!-- Scripts -->
-    <script src="{{asset('js/app.js')}}"></script>
 </head>
 
-<body class="font-sans antialiased flex-col flex" x-data="{ darkMode: false }" x-init="
-    if (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      localStorage.setItem('darkMode', JSON.stringify(true));
-    }
-    darkMode = JSON.parse(localStorage.getItem('darkMode'));
-    $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))" x-cloak>
-    <div x-bind:class="{'dark': darkMode == true}">
-    <div class="min-h-screen bg-gray-200 dark:bg-neutral-900">
-        @include('layouts.navigation')
+<body>
 
-        <!-- Page Content -->
-        <main class="lg:px-0">
-            {{ $slot }}
-        </main>
-    </div>
-    </div>
-    @include('layouts.footer')
+    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

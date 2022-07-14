@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\PostCrudController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,14 +14,16 @@ use Illuminate\Support\Facades\Route;
  */
 
 /* Main Page */
-Route::get('/', function () {
-    $post = DB::table('posts')
-        ->orderBy('created_at', 'desc')
-        ->take(6)
-        ->get();
+/* Route::get('/', function () {
+$post = DB::table('posts')
+->orderBy('created_at', 'desc')
+->take(6)
+->get();
 
-    return view('index', ['posts' => $post]);
-});
+return view('index', ['posts' => $post]);
+}); */
+
+Route::view('/{any}', 'index')->where('any', '.*');
 
 /* Equipa */
 Route::get('/equipa', function () {
@@ -97,9 +98,9 @@ return redirect()->route('merch');
 }); */
 
 /* Post */
-Route::get('blog/{post:slug}', [PostCrudController::class, 'showPosts']);
+/* Route::get('blog/{post:slug}', [PostCrudController::class, 'showPosts']);
 
-Route::get('/blog', [PostCrudController::class, 'blogPostIndex'])->name('blog');
+Route::get('/blog', [PostCrudController::class, 'blogPostIndex'])->name('blog'); */
 
 /* Links */
 Route::get('/links', function () {

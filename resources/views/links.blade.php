@@ -1,10 +1,26 @@
-<x-app-layout>
-    <div class="mx-auto max-w-sm sm:max-w-xl">
-        <h1 class="font-bold text-center text-5xl mt-6 text-white">Links</h1>
-        <div class="mt-4 grid grid-cols-1 gap-6">
-            @foreach($links as $link)
-                <x-link :link="$link"></x-link>
-            @endforeach
-        </div>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
+</head>
+
+<body>
+    <div id="app">
+        <router-view></router-view>
     </div>
-</x-app-layout>
+
+    <script src="{{ mix('js/app.js') }}"></script>
+</body>
+</html>

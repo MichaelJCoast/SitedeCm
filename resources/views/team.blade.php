@@ -1,28 +1,26 @@
-<x-app-layout>
-<section class="container p-6 mx-auto mb-24 text-gray-900 dark:text-white">
-    @foreach($dep as $department)
-    <h2 class="text-xl text-center font-semibold md:text-2xl mt-6">{{$department->name}}</h2>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-    <div class="flex items-center justify-center">
-        <div class="grid gap-8 mt-8 grid-cols-3">
-        @foreach($team as $team_member)
-        @if($department->id == $team_member->dep_id)
-            <div class="w-full max-w-xs text-center">
-                <img class="object-cover object-center w-full h-auto mx-auto rounded-lg" src="{{$team_member->image}}"
-                    alt="avatar" />
-                <div class="mt-2">
-                    <h3 class="text-sm sm:text-lg font-semibold">{{$team_member->nome}}</h3>
-                    @foreach($roles as $role)
-                    @if($role->id == $team_member->role_id)
-                    <span class="mt-1 text-sm sm:text-lg text-red-500">{{$role->type}}</span>
-                    @endif
-                    @endforeach
-                </div>
-            </div>
-            @endif
-        @endforeach
-        </div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+
+</head>
+
+<body>
+    <div id="app">
+        <router-view></router-view>
     </div>
-    @endforeach
-</section>
-</x-app-layout>
+
+    <script src="{{ mix('js/app.js') }}"></script>
+</body>
+</html>
