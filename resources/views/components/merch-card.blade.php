@@ -1,7 +1,7 @@
 @props(['merch'])
 
 <!-- Card -->
-<div class="flex flex-col h-full w-full 2xl:w-auto bg-black rounded-lg shadow-md overflow-hidden">
+<div class="flex flex-col h-full w-full 2xl:w-auto bg-white dark:bg-black rounded-lg shadow-md overflow-hidden">
     <!-- Image -->
     <form method="get" action="merch/product">
     <input type="hidden" id="userId" name="id" value="{{$merch->id}}">
@@ -19,10 +19,10 @@
         <div class="flex-grow">
             <!-- Title -->
             <div class="mb-3">
-                <h3 class="mb-2 text-sm lg:text-base tracking-tight font-semibold text-white">{{$merch->name}}</h3>
+                <h3 class="mb-2 text-sm lg:text-base tracking-tight font-semibold text-gray-900 dark:text-white">{{$merch->name}}</h3>
             </div>
             <div>
-                <p class="font-semibold">{{number_format((float)$merch->price, 2, '.', '')}}€</p>
+                <p class="font-semibold text-gray-900 dark:text-white">{{number_format((float)$merch->price, 2, '.', '')}}€</p>
             </div>
         </div>
     </div>

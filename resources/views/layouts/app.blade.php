@@ -22,8 +22,14 @@
     <script src="{{asset('js/app.js')}}"></script>
 </head>
 
-<body class="font-sans antialiased flex-col flex">
-    <div class="min-h-screen bg-neutral-900">
+<body class="font-sans antialiased flex-col flex" x-data="{ darkMode: false }" x-init="
+    if (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      localStorage.setItem('darkMode', JSON.stringify(true));
+    }
+    darkMode = JSON.parse(localStorage.getItem('darkMode'));
+    $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))" x-cloak>
+    <div x-bind:class="{'dark': darkMode == true}">
+    <div class="min-h-screen bg-gray-200 dark:bg-neutral-900">
         @include('layouts.navigation')
 
         <!-- Page Content -->
@@ -31,18 +37,7 @@
             {{ $slot }}
         </main>
     </div>
-
-    <footer class="bg-black">
-        <div class="container px-8 md:px-14 mx-auto py-8">
-            <div class="flex justify-center space-x-6 mb-2">
-            </div>
-                <div class="grid grid-rows-1">
-                    <p class="mt-1 text-center text-xs text-white">Departamento de Tecnologia — 2022</p>
-                </div>
-            </div>
-    </footer>
-
-    <script src="{{asset('js/app.js')}}"></script> <!-- script para vue -->
-
+    </div>
+    @include('layouts.footer')
 </body>
 </html>
