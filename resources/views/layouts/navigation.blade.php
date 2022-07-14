@@ -1,5 +1,5 @@
 
-<nav x-data="{ open: false }" class="bg-black border-b border-zinc-700">
+<nav x-data="{ open: false }" class="bg-white border-b-0 dark:border-b dark:border-zinc-700 dark:bg-black">
     <!-- Primary Navigation Menu -->
     <div class="container mx-auto px-8 md:px-14 py-2">
         <div class="flex justify-between h-16">
@@ -7,24 +7,13 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="/">
-                        <x-application-logo />
+                        <x-application-logo class="block h-10 w-auto fill-current text-black dark:text-white" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                @php
-                    $profileViews = Route::current()->getName() == 'dashboard' || Route::current()->getName() == 'orders'
-                @endphp
-                
-                @if($profileViews)
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                            {{ __('Perfil') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('orders')" :active="request()->routeIs('orders')">
-                            {{ __('Pedidos') }}
-                        </x-nav-link>
-                    @else
+
                         <x-nav-link :href="route('equipa')" :active="request()->routeIs('equipa')">
                             {{ __('Equipa') }}
                         </x-nav-link>
@@ -34,67 +23,44 @@
                         <x-nav-link :href="route('links')" :active="request()->routeIs('links')">
                             {{ __('Links') }}
                         </x-nav-link>
-                        @endif
 
                 </div>
             </div>
-           
-            <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
-            @if (Route::has('login'))
-                    @auth
-                <x-dropdown align="right" width="48">
-                    <x-slot name="trigger">
-                        <button
-                            class="flex items-center text-white text-lg font-semibold hover:text-red-600 hover:border-gray-300 focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
-                            <div>{{ Auth::user()->name }}</div>
 
-                            <div class="ml-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </div>
+            <!-- Dark Mode Toggle -->
+            <div class="hidden sm:flex sm:items-center">
+                        <button type="button" x-bind:class="darkMode ? 'bg-red-500' : 'bg-gray-200'"
+                            x-on:click="darkMode = !darkMode"
+                            class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                            role="switch" aria-checked="false">
+                            <span class="sr-only">Dark mode toggle</span>
+                            <span x-bind:class="darkMode ? 'translate-x-5 bg-gray-700' : 'translate-x-0 bg-white'"
+                                class="pointer-events-none relative inline-block h-5 w-5 transform rounded-full shadow ring-0 transition duration-200 ease-in-out">
+                                <span
+                                    x-bind:class="darkMode ? 'opacity-0 ease-out duration-100' : 'opacity-100 ease-in duration-200'"
+                                    class="absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
+                                    aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-gray-400"
+                                        viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                                    </svg>
+                                </span>
+                                <span
+                                    x-bind:class="darkMode ?  'opacity-100 ease-in duration-200' : 'opacity-0 ease-out duration-100'"
+                                    class="absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
+                                    aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-white"
+                                        viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                            </span>
                         </button>
-                    </x-slot>
-
-                    <x-slot name="content">
-                        <form method="GET" action="{{ route('dashboard') }}">
-                            @csrf
-                            <x-dropdown-link :href="route('dashboard')" onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Perfil') }}
-                            </x-dropdown-link>
-                        </form>
-                        @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('mod') )
-                            <!-- Authentication -->
-                            <form method="GET" action="{{ backpack_url() }}">
-                                @csrf
-
-                                <x-dropdown-link :href="backpack_url()" onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                    {{ __('Backoffice') }}
-                                </x-dropdown-link>
-
-                            </form>
-                        @endif
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-
-                        </form>
-                    </x-slot>
-                </x-dropdown>
-            </div>
-        </div>
+                    </div>
         <!-- Hamburger -->
-            <div class="-mr-2 flex items-center sm:hidden text-white">
+            <div class="-mr-2 flex items-center sm:hidden text-gray-900 dark:text-white">
                 <button @click="open = ! open"
                     class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition duration-150 ease-in-out">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -111,72 +77,27 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Perfil') }}
-            </x-responsive-nav-link>
+            <div class="flex flex-row items-center">
+            <x-heroicon-o-users class="w-6 h-6 text-gray-900 dark:text-white"/>
             <x-responsive-nav-link :href="route('equipa')" :active="request()->routeIs('equipa')">
                 {{ __('Equipa') }}
             </x-responsive-nav-link>
+            </div>
+
+            <div class="flex flex-row items-center">
+            <x-heroicon-o-shopping-bag class="w-6 h-6 text-gray-900 dark:text-white"/>
             <x-responsive-nav-link :href="route('merch')" :active="request()->routeIs('merch')">
                 {{ __('Merch') }}
             </x-responsive-nav-link>
+            </div>
+
+            <div class="flex flex-row items-center">
+            <x-heroicon-o-link class="w-6 h-6 text-gray-900 dark:text-white"/>
             <x-responsive-nav-link :href="route('links')" :active="request()->routeIs('links')">
                 {{ __('Links') }}
             </x-responsive-nav-link>
-        </div>
-
-
-        <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-zinc-700">
-            <div class="px-4">
-            <div class="font-medium text-base text-white">{{ Auth::user()->name }}</div>
-                <div class="flex flex-wrap space-x-1">
-                </div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
             </div>
 
-            <div class="space-y-1">
-                <!-- Authentication -->
-                @if(Auth::user()->hasRole('admin'))
-                            <!-- Authentication -->
-                            <form method="GET" action="{{ backpack_url() }}">
-                                @csrf
-                        <x-responsive-nav-link :href="backpack_url()" onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Backoffice') }}
-                    </x-responsive-nav-link>
-
-                            </form>
-                @endif
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-
-                    <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </x-responsive-nav-link>
-                </form>
-                
-            </div>
-            @else
-            <form method="GET" action="{{ route('login') }}">
-                @csrf
-                <x-responsive-nav-link :href="route('login')" onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Login') }}
-                    </x-responsive-nav-link>
-                </form>
-                 @if (Route::has('register'))
-                 <form method="GET" action="{{ route('register') }}">
-                    @csrf
-                 <x-responsive-nav-link :href="route('register')" onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Register') }}
-                    </x-responsive-nav-link> 
-                </form>
-                 @endif
-             @endauth
-         @endif
         </div>
     </div>
 </nav>

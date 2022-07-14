@@ -16,34 +16,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 
-<body class="font-sans antialiased flex-col flex">
-    <div class="min-h-screen bg-neutral-900">
-        @include('layouts.navigation')
+<body>
 
-        <!-- Page Content -->
-        <main class="lg:px-0">
-            {{ $slot }}
-        </main>
-    </div>
-
-    <footer class="bg-black">
-        <div class="container px-8 md:px-14 mx-auto py-8">
-            <div class="flex justify-center space-x-6 mb-2">
-                <x-lineawesome-facebook class="w-8 h-8 text-white transition ease-in-out hover:text-red-600"></x-lineawesome-facebook>
-                <x-lineawesome-instagram class="w-8 h-8 text-white transition ease-in-out hover:text-red-600"></x-lineawesome-instagram>
-                <x-lineawesome-twitter class="w-8 h-8 text-white transition ease-in-out hover:text-red-600"></x-lineawesome-twitter>
-                <x-lineawesome-youtube class="w-8 h-8 text-white transition ease-in-out hover:text-red-600"></x-lineawesome-youtube>
-            </div>
-                <div class="grid grid-rows-1">
-                    <p class="mt-1 text-center text-xs text-white">Departamento de Tecnologia — 2022</p>
-                </div>
-            </div>
-    </footer>
+    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

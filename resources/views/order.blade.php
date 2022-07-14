@@ -24,12 +24,12 @@
                         </tr>
                     </thead>
 
-                            <?php $total=0; ?>
+                            <?php $total = 0;?>
                         @foreach($order as $order_data )
-                            <?php   $idmerch=$order_data->product;
-                                    $merch = DB::table('merch')
-                                    ->whereIn('id', [$idmerch] )
-                                    ->get(); ?>
+                            <?php $idmerch = $order_data->product;
+$merch = DB::table('merch')
+    ->whereIn('id', [$idmerch])
+    ->get();?>
                             @foreach($merch as $key => $datamerch )
                         <tbody>
                         <tr>
@@ -60,28 +60,25 @@
                             <td class="px-5 py-5 border-b border-gray-200 text-sm">
                                 <p class=" whitespace-no-wrap">
                                 {{$datamerch->price}}€
-                                <?php $total=$total+$datamerch->price?>
+                                <?php $total = $total + $datamerch->price?>
                                 </p>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 text-sm">
                                 <span class="relative inline-block px-3 py-1 font-semibold  leading-tight">
 
                                     <span class="relative">
-                                        <?php 
-                                        if(($order_data->status)==0){
-                                            
-                                            echo "Reserva Pendente";
-                                        }
-                                        elseif (($order_data->status)==1){
-                                            echo "Pagamento Pendente";
-                                        }
-                                        elseif (($order_data->status)==2){
-                                            echo "Levantamento Pendente";
-                                        }
-                                        else{
-                                            echo "encomenda efetuada";
-                                        }
-                                        ?>
+                                        <?php
+if (($order_data->status) == 0) {
+
+    echo "Reserva Pendente";
+} elseif (($order_data->status) == 1) {
+    echo "Pagamento Pendente";
+} elseif (($order_data->status) == 2) {
+    echo "Levantamento Pendente";
+} else {
+    echo "encomenda efetuada";
+}
+?>
                                     </span>
                                 </span>
                             </td>
@@ -89,9 +86,9 @@
                             <form action="order" method="get">
                             <input type="hidden" id="iddelete" name="iddelete" value="{{$order_data->id}}">
                             <button class="hover:bg-red-800 hover:text-white focus:ring-4 focus:outline-none focus:ring-red-500 font-medium rounded-lg text-sm p-3 text-center" type="submit" data-modal-toggle="popup-modal">
-                                <x-lineawesome-trash-alt class="w-8 h-8"></x-lineawesome-trash-alt>
+
                             </button>
-                            
+
                             </form>
                             </td>
                         </tr>
@@ -100,7 +97,7 @@
                 @endforeach
                 @endforeach
 
-                        <tr> 
+                        <tr>
                             <td class="px-5 py-5text-sm">
                             </td>
                             <td class="px-5 py-5 text-sm">

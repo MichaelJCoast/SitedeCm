@@ -35,13 +35,5 @@ class PermissionSeeder extends Seeder
             'updated_at' => Carbon::now(),
             
         ]);
-        DB::table('permissions')->insert([
-            'id' => '3',
-            'name' => 'edit mail',
-            'guard_name' => 'backpack',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-            
-        ]);
     }
 }
