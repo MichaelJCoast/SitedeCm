@@ -1,7 +1,7 @@
 <template>
   <div>
-    <nav class="flex bg-black border-b border-neutral-700 mb-3">
-      <div class="container flex mx-auto px-8 py-2 md:px-14">
+    <nav class="relative bg-black border-b border-neutral-700 mb-3">
+      <div class="container flex flex-wrap mx-auto px-8 py-2 md:px-14 justify-between">
         <div class="flex justify-between items-center h-16">
           <!-- Logo -->
           <router-link to="/">
@@ -25,15 +25,28 @@
         <button
           class="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
           type="button"
-          v-on:click="toggleNavbar()"
+          @click="toggleNavbar()"
         >
           <MenuIcon class="flex h-6 w-6 text-white sm:hidden" />
         </button>
 
         <div
-          v-bind:class="{ hidden: !showMenu, flex: showMenu }"
-          class="lg:flex sm:flex-none items-center"
-        ></div>
+        :class="{ hidden: !showMenu, flex: showMenu }"
+        class="my-4 w-full flex-col space-y-4"
+      >
+        <router-link
+            v-for="item in navigation"
+            :key="item.name"
+            :to="item.to"
+            active-class="inline-flex cursor-pointer text-lg items-center px-1 pt-1 font-semibold leading-5 text-white hover:text-red-600 focus:outline-none transition duration-150 ease-in-out"
+            :class="[
+              this.$route.name === item.to.name
+                ? 'text-white'
+                : 'inline-flex cursor-pointer text-lg items-center px-1 pt-1 font-semibold leading-5 text-white hover:text-red-600 focus:outline-none transition duration-150 ease-in-out',
+            ]"
+            >{{ item.name }}</router-link>
+      </div>
+        
       </div>
     </nav>
     <router-view :key="$route.path"></router-view>
@@ -61,6 +74,7 @@ export default {
   },
   methods: {
     toggleNavbar: function () {
+      console.log("clicked");
       this.showMenu = !this.showMenu;
     },
   },
