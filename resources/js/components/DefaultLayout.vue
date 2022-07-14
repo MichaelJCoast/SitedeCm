@@ -7,16 +7,16 @@
           <router-link to="/">
             <NECMIcon class="text-white fill-current h-14 w-14" />
           </router-link>
-          <div class="hidden space-x-4 sm:-my-px sm:ml-10 sm:flex">
+          <div class="hidden space-x-4 sm:ml-10 sm:flex">
           <router-link
             v-for="item in navigation"
             :key="item.name"
             :to="item.to"
-            active-class="inline-flex cursor-pointer text-lg items-center px-1 pt-1 font-semibold leading-5 text-white hover:text-red-600 focus:outline-none transition duration-150 ease-in-out"
+            active-class="cursor-pointer text-lg px-1 font-semibold text-white hover:text-red-600 focus:outline-none transition duration-150 ease-in-out"
             :class="[
               this.$route.name === item.to.name
-                ? 'border-b-2 border-red-600'
-                : 'inline-flex cursor-pointer text-lg items-center px-1 pt-1 font-semibold leading-5 text-white hover:text-red-600 focus:outline-none transition duration-150 ease-in-out',
+                ? 'text-white'
+                : 'cursor-pointer text-lg px-1 text-white font-semibold hover:text-red-600 focus:outline-none transition duration-150 ease-in-out',
             ]"
             >{{ item.name }}</router-link
           >
