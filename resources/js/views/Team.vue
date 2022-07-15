@@ -3,13 +3,11 @@
     <h2 v-for="department in departments"
                 :key="department.id"
                 class="text-xl text-center font-semibold md:text-2xl mt-6">{{department.name}}</h2>
-
     <div class="flex items-center justify-center">
-        <div v-for="team_member in team_members"
-                    :key="team_member.id"
-        class="grid gap-8 mt-8 grid-cols-3">
-            <div v-if="departments.id == this.$.vnode.key" class="w-full max-w-xs text-center">
-                <img class="object-cover object-center w-full h-auto mx-auto rounded-lg" :src="team_member.image"
+        <div class="grid gap-8 mt-8 grid-cols-3">
+            <div v-for="team_member in team_members"
+                    :key="team_member.id" class="w-full max-w-xs text-center">
+                <img v-if="departments.id == this.$.vnode.key" class="object-cover object-center w-full h-auto mx-auto rounded-lg" :src="team_member.image"
                     alt="avatar" />
                     <h3 class="text-sm sm:text-lg font-semibold">{{team_member.nome}}</h3>
                 <div v-for="role in roles" 
