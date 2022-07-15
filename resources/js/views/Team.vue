@@ -11,10 +11,10 @@
             <div v-if="departments.id == this.$.vnode.key" class="w-full max-w-xs text-center">
                 <img class="object-cover object-center w-full h-auto mx-auto rounded-lg" :src="team_member.image"
                     alt="avatar" />
+                    <h3 class="text-sm sm:text-lg font-semibold">{{team_member.nome}}</h3>
                 <div v-for="role in roles" 
                     :key="role.id"
                     class="mt-2">
-                    <h3 class="text-sm sm:text-lg font-semibold">{{team_member.nome}}</h3>
                     <span v-if="role.id == team_member.role_id" class="mt-1 text-sm sm:text-lg text-red-500">
                         {{role.type}}
                     </span>
