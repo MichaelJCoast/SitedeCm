@@ -4,7 +4,7 @@
         <div class="flex justify-between items-center h-16">
           <!-- Logo -->
           <router-link to="/">
-            <NECMIcon class="text-white fill-current h-16 w-auto" />
+            <NECMIconMono class="text-white fill-current h-16 w-auto" />
           </router-link>
           <div class="hidden space-x-4 sm:ml-10 sm:flex">
           <router-link
@@ -48,11 +48,13 @@
       </div>
     </nav>
     <router-view :key="$route.path"></router-view>
+    <Footer></Footer>
 </template>
 
 <script>
 import { MenuIcon } from "@heroicons/vue/solid";
-import NECMIcon from "./NECMIcon.vue";
+import NECMIconMono from "./NECMIconMono.vue";
+import Footer from "./Footer.vue";
 
 const navigation = [
   { name: "Equipa", to: { name: "Team" } },
@@ -61,7 +63,8 @@ const navigation = [
 export default {
   components: {
     MenuIcon,
-    NECMIcon,
+    NECMIconMono,
+    Footer,
   },
   name: "navbar",
   data() {
