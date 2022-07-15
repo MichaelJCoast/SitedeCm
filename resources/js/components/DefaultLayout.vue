@@ -74,7 +74,6 @@ export default {
   },
   methods: {
     toggleNavbar: function () {
-      console.log("clicked");
       this.showMenu = !this.showMenu;
     },
   },
