@@ -1,5 +1,4 @@
 <template>
-<div>
 <Carousel/>
     <div v-if="posts.length" class="container mx-auto px-8 md:px-14 mb-10 text-white space-y-6">
         <div class="mt-6">
@@ -12,7 +11,6 @@
                 <router-link to="/blog" class="font-semibold transition ease-in-out rounded-lg text-lg bg-transparent hover:bg-neutral-600 px-4 py-2">Mais Notícias</router-link>
             </div>
     </div>
-</div>
 </template>
 
 <script>
