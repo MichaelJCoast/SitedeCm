@@ -81,7 +81,11 @@ class Post extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function category(){
+        return $this->belongsTo('App\Models\Categoria');
+    }
 
+  
     /*
     |--------------------------------------------------------------------------
     | SCOPES
