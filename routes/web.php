@@ -13,38 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-/* Main Page */
-/* Route::get('/', function () {
-$post = DB::table('posts')
-->orderBy('created_at', 'desc')
-->take(6)
-->get();
-
-return view('index', ['posts' => $post]);
-}); */
-
 Route::view('/{any}', 'index')->where('any', '.*');
-
-/* Equipa */
-Route::get('/equipa', function () {
-    $team = DB::table('equipa')
-        ->orderBy('dep_id', 'ASC')
-        ->get();
-    $dep = DB::table('departments')
-        ->orderBy('id', 'ASC')
-        ->get();
-    $roles = DB::table('cargos')
-        ->orderBy('id', 'ASC')
-        ->get();
-    return view('team', compact(['team', 'dep', 'roles']));
-})->name('equipa');
-
-/* Merch */
-Route::get('/merch', function () {
-    $merch = DB::table('merch')
-        ->get();
-    return view('merch', ['merch' => $merch]);
-})->name('merch');
 
 /* Product */
 
@@ -96,18 +65,5 @@ $layout = DB::table('mail')
 \Mail::to(auth()->user()->email)->send(new \App\Mail\fatura($order, $layout));
 return redirect()->route('merch');
 }); */
-
-/* Post */
-/* Route::get('blog/{post:slug}', [PostCrudController::class, 'showPosts']);
-
-Route::get('/blog', [PostCrudController::class, 'blogPostIndex'])->name('blog'); */
-
-/* Links */
-Route::get('/links', function () {
-    $link = DB::table('links')
-        ->latest()
-        ->get();
-    return view('links', ['links' => $link]);
-})->name('links');
 
 require __DIR__ . '/auth.php';
