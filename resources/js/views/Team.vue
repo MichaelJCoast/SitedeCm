@@ -1,26 +1,22 @@
 <template>
     <section class="container min-h-screen p-6 mx-auto mb-24 text-white">
-    <h2 v-for="department in departments"
-                :key="department.id"
-                class="text-xl text-center font-semibold md:text-2xl mt-6">{{department.name}}</h2>
-    <div class="flex items-center justify-center">
-        <div class="grid gap-8 mt-8 grid-cols-3">
-            <div v-for="team_member in team_members"
-                    :key="team_member.id" class="w-full max-w-xs text-center">
-                <img v-if="departments.id == this.$.vnode.key" class="object-cover object-center w-full h-auto mx-auto rounded-lg" :src="team_member.image"
-                    alt="avatar" />
-                    <h3 class="text-sm sm:text-lg font-semibold">{{team_member.nome}}</h3>
-                <div v-for="role in roles" 
-                    :key="role.id"
-                    class="mt-2">
-                    <span v-if="role.id == team_member.role_id" class="mt-1 text-sm sm:text-lg text-red-500">
-                        {{role.type}}
-                    </span>
+        <div v-for="department in departments" :key="department.id">
+            <h2 class="text-xl text-center font-semibold md:text-2xl mt-6">{{ department.name }}</h2>
+            <div class="grid gap-8 mt-8 grid-cols-3">
+                <div v-for="team_member in team_members" :key="team_member.id"
+                    v-show="department.id === team_member.dep_id" class="w-full max-w-xs text-center">
+                    <img class="object-cover object-center w-full h-auto mx-auto rounded-lg" :src="team_member.image"
+                        :alt="team_member.nome + ' photo'" />
+                    <h3 class="text-sm sm:text-lg font-semibold">{{ team_member.nome }}</h3>
+                    <div v-for="role in roles" :key="role.id" class="mt-2">
+                        <span v-if="role.id == team_member.role_id" class="mt-1 text-sm sm:text-lg text-red-500">
+                            {{ role.type }}
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 </template>
 
 <script>
