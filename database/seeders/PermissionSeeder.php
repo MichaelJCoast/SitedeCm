@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use DB;
 use Carbon\Carbon;
+use DB;
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 
 class PermissionSeeder extends Seeder
@@ -25,7 +25,7 @@ class PermissionSeeder extends Seeder
             'guard_name' => 'backpack',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            
+
         ]);
         DB::table('permissions')->insert([
             'id' => '2',
@@ -33,7 +33,7 @@ class PermissionSeeder extends Seeder
             'guard_name' => 'backpack',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            
+
         ]);
     }
 }

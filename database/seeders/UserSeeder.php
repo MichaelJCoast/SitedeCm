@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use DB;
 use Carbon\Carbon;
+use DB;
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 
 class UserSeeder extends Seeder

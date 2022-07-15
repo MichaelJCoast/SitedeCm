@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use DB;
-use Carbon\Carbon;
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 
 class RolesPermissionSeeder extends Seeder
@@ -25,10 +24,6 @@ class RolesPermissionSeeder extends Seeder
         ]);
         DB::table('role_has_permissions')->insert([
             'permission_id' => '2',
-            'role_id' => '2',
-        ]);
-        DB::table('role_has_permissions')->insert([
-            'permission_id' => '3',
             'role_id' => '2',
         ]);
     }

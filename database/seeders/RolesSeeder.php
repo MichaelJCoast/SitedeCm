@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use DB;
 use Carbon\Carbon;
+use DB;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 
@@ -25,7 +25,7 @@ class RolesSeeder extends Seeder
             'guard_name' => 'backpack',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            
+
         ]);
         DB::table('roles')->insert([
             'id' => '2',
@@ -33,7 +33,7 @@ class RolesSeeder extends Seeder
             'guard_name' => 'backpack',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            
+
         ]);
     }
 }

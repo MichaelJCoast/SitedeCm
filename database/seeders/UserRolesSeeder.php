@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use DB;
-use Carbon\Carbon;
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 
 class UserRolesSeeder extends Seeder
@@ -23,7 +22,7 @@ class UserRolesSeeder extends Seeder
             'role_id' => '1',
             'model_type' => 'App\Models\User',
             'model_id' => '1',
-            
+
         ]);
     }
 }
