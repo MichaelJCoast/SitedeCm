@@ -1,5 +1,5 @@
 <template>
-    <section class="container p-6 mx-auto mb-24 text-white">
+    <section class="container min-h-screen p-6 mx-auto mb-24 text-white">
     <h2 v-for="department in departments"
                 :key="department.id"
                 class="text-xl text-center font-semibold md:text-2xl mt-6">{{department.name}}</h2>
