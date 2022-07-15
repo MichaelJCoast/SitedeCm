@@ -23,6 +23,7 @@
 <li class="nav-item nav-dropdown open">
     <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-dragon"></i> NECM</a>
     <ul class="nav-dropdown-items">
+    <li class="nav-item nav-dropdown">
         <li class='nav-item'><a class='nav-link' href="{{ backpack_url('equipa') }}"><i
                     class='nav-icon la la-users'></i> <span>Equipa</span></a></li>
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('merch') }}'><i
@@ -42,9 +43,17 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('post') }}'><i class='nav-icon la la-blog'></i> Posts</a>
 </li>
 @endif
-@if (backpack_user()->can('edit links')|| backpack_user()->hasRole('admin'))
+@if (backpack_user()->can('edit links') || backpack_user()->hasRole('admin'))
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('link') }}'><i class='nav-icon la la-link'></i> Links</a>
 </li>
 @endif
 
-
+<li class='nav-title'>Páginas</li>
+@if (backpack_user()->can('edit posts') || backpack_user()->hasRole('admin'))
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('about') }}'><i class='nav-icon la la-address-card'></i> Sobre</a></li>
+</li>
+@endif
+@if (backpack_user()->can('edit links') || backpack_user()->hasRole('admin'))
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('faq') }}'><i class='nav-icon la la-question'></i> FAQ</a></li>
+</li>
+@endif
