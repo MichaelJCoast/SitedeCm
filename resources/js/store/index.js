@@ -16,6 +16,12 @@ const store = createStore({
     },
     links: {
       data: {},
+    },
+    about: {
+      data: {},
+    },
+    questions: {
+      data: {},
     }
   },
   getters: {},
@@ -61,6 +67,18 @@ const store = createStore({
         commit('setLinks', res.data)
       });
     },
+    getQuestions({ commit }) {
+      return axiosClient.get('/faq')
+      .then(res => {
+        commit('setQuestions', res.data)
+      });
+    },
+    getAbout({ commit }) {
+      return axiosClient.get('/about')
+      .then(res => {
+        commit('setAbout', res.data)
+      });
+    },
 },
   mutations: {
     setPosts: (state, posts) => {
@@ -80,6 +98,12 @@ const store = createStore({
     },
     setLinks: (state, links) => {
       state.links.data = links;
+    },
+    setQuestions: (state, questions) => {
+      state.questions.data = questions;
+    },
+    setAbout: (state, about) => {
+      state.about.data = about;
     },
   },
   modules: {},

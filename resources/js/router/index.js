@@ -3,6 +3,7 @@ import Home from '../views/Home.vue';
 import Blog from '../views/Blog.vue';
 import Team from '../views/Team.vue';
 import Links from '../views/Links.vue';
+import About from '../views/About.vue';
 import BlogPost from '../views/BlogPost.vue'
 import DefaultLayout from "../components/DefaultLayout.vue";
 
@@ -12,6 +13,7 @@ const routes = [
         component: DefaultLayout,
         children: [
             { path: "/", name: "Home", component: Home },
+            { path: "/sobre", name: "About", component: About },
             { path: "/blog", name: "Blog", component: Blog },
             { path: "/blog/:slug", name: "BlogPost", component: BlogPost },
             { path: "/equipa", name: "Team", component: Team },

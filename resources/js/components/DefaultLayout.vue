@@ -57,6 +57,7 @@ import NECMIconMono from "./NECMIconMono.vue";
 import Footer from "./Footer.vue";
 
 const navigation = [
+  { name: "Sobre", to: { name: "About" } },
   { name: "Equipa", to: { name: "Team" } },
   { name: "Links", to: { name: "Links" } },
 ];
