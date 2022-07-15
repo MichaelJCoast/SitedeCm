@@ -6,6 +6,7 @@ use App\Http\Requests\EquipaRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use App\Traits\DenyAccessTrait; 
+use App\Models\Equipa;
 
 /**
  * Class equipaCrudController
@@ -33,7 +34,7 @@ class EquipaCrudController extends CrudController
         | CrudPanel Basic Information
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Equipa');
+        $this->crud->setModel(\App\Models\Equipa::class);
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/equipa');
         $this->crud->setEntityNameStrings('membro', 'equipa');
         $this->setupAccess();
@@ -75,6 +76,8 @@ class EquipaCrudController extends CrudController
      */
         protected function setupCreateOperation()
         {
+            CRUD::setValidation(EquipaRequest::class);
+            
             CRUD::addField([
             'name' => 'nome',
             'type' => 'text',
@@ -111,8 +114,6 @@ class EquipaCrudController extends CrudController
             'model'     =>  'App\Models\Department',
         ]);
      
-
-
         /*
         |--------------------------------------------------------------------------
         | CrudPanel Configuration

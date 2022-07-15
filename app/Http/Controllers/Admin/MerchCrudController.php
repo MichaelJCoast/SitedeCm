@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\MerchRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-use App\Models\Post;
+use App\Models\Merch;
 use App\Traits\DenyAccessTrait; 
 
 /**
@@ -45,7 +45,7 @@ class MerchCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-
+       
         CRUD::column('name');
         CRUD::column('description');
         CRUD::column('photo');
@@ -67,6 +67,7 @@ class MerchCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
+        CRUD::setValidation(MerchRequest::class);
         CRUD::addField([
             'name' => 'name',
             'type' => 'text',
