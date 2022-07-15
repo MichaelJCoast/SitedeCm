@@ -1,6 +1,6 @@
 <template>
 <div>
-<HomeHeader/>
+<Carousel/>
     <div v-if="posts.length" class="container mx-auto px-8 md:px-14 mb-10 text-white space-y-6">
         <div class="mt-6">
             <h1 class="sm:mt-0 text-2xl 2xl:text-3xl font-semibold py-6">Últimas Notícias</h1>
@@ -19,7 +19,7 @@
 import { useStore } from "vuex";
 import { computed } from "vue";
 import PostCard from "../components/PostCard.vue";
-import HomeHeader from "../components/HomeHeader.vue";
+import Carousel from "../components/Carousel.vue";
 export default {
   setup() {
     const store = useStore();
@@ -28,6 +28,6 @@ export default {
       posts: computed(() => store.state.posts.data),
     };
   },
-  components: { PostCard, HomeHeader },
+  components: { PostCard, Carousel },
 };
 </script>
