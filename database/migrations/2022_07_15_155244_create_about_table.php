@@ -16,7 +16,7 @@ class CreateAboutTable extends Migration
         Schema::create('about', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('subtitle');
+            $table->text('subtitle', 255);
         });
     }
 
