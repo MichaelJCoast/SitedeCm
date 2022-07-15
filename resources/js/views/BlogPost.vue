@@ -1,5 +1,5 @@
 <template>
-<div class="container mx-auto text-white">
+<div class="container min-h-screen mx-auto text-white">
             <img class="lg:w-[95%] xl:w-[75%] 2xl:w-[50%] mx-auto" :src="'blog/' + post.image" alt="post image">
             <div class="px-8 pb-14 lg:px-52 xl:px-80">
                 <p class="mt-6 text-sm uppercase tracking-[.2em] text-red-600">{{ post.category }}</p>
