@@ -30,7 +30,6 @@ class MerchRequest extends FormRequest
             'description' => 'required',
             'price' => 'required',
             'size' => 'required',
-            'quantity' => 'required'
         ];
     }
 
