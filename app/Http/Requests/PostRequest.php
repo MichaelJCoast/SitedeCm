@@ -27,8 +27,8 @@ class PostRequest extends FormRequest
         return [
             'title' => 'required',
             'body' => 'required',
-            'category' => 'required',
-            'image' => 'required'
+            'image' => 'required',
+            'slug' => 'required|unique:'.config('permission.table_names.posts', 'posts').',slug', //slug é unique precisa de ser validada
         ];
     }
 

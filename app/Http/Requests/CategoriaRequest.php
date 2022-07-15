@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MerchRequest extends FormRequest
+class CategoriaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,11 +25,7 @@ class MerchRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'photo' => 'required',
-            'description' => 'required',
-            'price' => 'required',
-            'size' => 'required',
+            'name' => 'required|unique:'.config('permission.table_names.categorias', 'categorias').',name',
         ];
     }
 

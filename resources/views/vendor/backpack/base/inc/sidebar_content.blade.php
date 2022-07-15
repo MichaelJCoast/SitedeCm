@@ -41,6 +41,7 @@
 <li class='nav-title'>Blog</li>
 @if (backpack_user()->can('edit posts') || backpack_user()->hasRole('admin'))
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('post') }}'><i class='nav-icon la la-blog'></i> Posts</a>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('categoria') }}'><i class='nav-icon la la-question'></i> Categorias</a></li>
 </li>
 @endif
 @if (backpack_user()->can('edit links') || backpack_user()->hasRole('admin'))
@@ -57,3 +58,4 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('faq') }}'><i class='nav-icon la la-question'></i> FAQ</a></li>
 </li>
 @endif
+
