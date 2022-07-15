@@ -60,7 +60,7 @@ class AboutCrudController extends CrudController
 
         ]);
         CRUD::addField([
-            'name' => 'description',
+            'name' => 'subtitle',
             'label' => 'Subtítulo',
             'type' => 'summernote',
             'options' => [
