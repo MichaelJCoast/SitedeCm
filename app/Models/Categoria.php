@@ -5,10 +5,9 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Cargo extends Model
+class Categoria extends Model
 {
     use CrudTrait;
-    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
 
     /*
     |--------------------------------------------------------------------------
@@ -16,34 +15,28 @@ class Cargo extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'cargos';
-    protected $primaryKey = 'id';
+    protected $table = 'categorias';
+    // protected $primaryKey = 'id';
     // public $timestamps = false;
-    // protected $guarded = ['id'];
-    protected $fillable = ['type'];
+    protected $guarded = ['id'];
+    // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
-    
-    public function roles() {
-        return $this->belongsToMany('App\Models\Cargo');//(->withPivot('notes', 'some_other_field'); // `notes` and `some_other_field` are aditional fields in the pivot table that you plan to show in the form.
-    }
+
     /*
     |--------------------------------------------------------------------------
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
 
-    public function identifiableName()
-    {
-        return $this->name;
-    }
-
-    /*   
+    /*
     |--------------------------------------------------------------------------
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
+    public function category() {
+        return $this->hasMany('App\Models\Categoria');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

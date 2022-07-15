@@ -86,7 +86,17 @@ class PostCrudController extends CrudController
         Post::creating(function($entry) {
             $entry->slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $entry->title), '-'));
         });
-        CRUD::field('category');
+
+        CRUD::addField([    // SELECT2
+            'name'          => 'category_id',
+            'label'         => 'Categoria',
+            'type'          => 'select',
+            'placeholder'   => 'Select a Category',
+            'entity'        => 'category',
+         
+      
+        ]);
+
         CRUD::addField([
             'name'      => 'image',
             'label'     => 'Image',

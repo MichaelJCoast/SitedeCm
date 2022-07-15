@@ -100,6 +100,7 @@ class EquipaCrudController extends CrudController
             'placeholder'   => 'Select a role',
             'entity'        => 'role',
             'attribute'     => 'type',
+            
            
             
         ]);
