@@ -6,7 +6,7 @@
     {{ firstAboutSectionTitle() }}
     </h1>
     <div class="mx-auto border-t-4 mt-1 mb-2 w-48 border-red-500"></div>
-    <p class="text-white text-justify">{{ firstAboutSectionBody() }}</p>
+    <p v-html="firstAboutSectionBody()" class="text-white text-justify"></p>
     <!-- Quem Somos Content -->
     <div v-for="aboutList in about.slice(1)" :key="aboutList.id" class="mt-4">
     <h1
