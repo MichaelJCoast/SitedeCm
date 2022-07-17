@@ -7,10 +7,11 @@
     clickable: true,
   }" :navigation="false" :modules="modules" class="swiper-slide">
     <swiper-slide>
-      <h1
-        class="absolute text-xl sm:text-5xl text-white bottom-0 pb-6 left-0 right-0 sm:pb-4 sm:bottom-auto sm:right-auto sm:top-1/2 sm:left-28 font-bold max-w-lg bg-black bg-opacity-75 px-6 py-4 truncate">
+      <router-link
+        to="/sobre"
+        class="absolute text-xl sm:text-3xl text-white sm:text-gray-100 bottom-0 pb-6 left-0 right-0 sm:pb-4 sm:bottom-auto sm:right-auto sm:top-1/2 sm:left-28 font-bold max-w-lg sm:rounded-2xl sm:drop-shadow-lg bg-black bg-opacity-75 sm:bg-red-500 sm:hover:bg-red-400 px-6 py-4 truncate">
         Sobre o NECM
-      </h1>
+      </router-link>
       <img class="sm:rounded-b-md" src="https://www.upload.ee/image/14330108/carousel.png" alt="" />
     </swiper-slide>
     <swiper-slide>
@@ -58,6 +59,16 @@ export default {
 </script>
 
 <style type="text/css">
+.swiper {
+  width: 60%;
+}
+
+@media only screen and (max-width: 810px) {
+  .swiper {
+    width: 100%;
+  }
+}
+
 .swiper-slide img {
   display: block;
   width: 100%;
