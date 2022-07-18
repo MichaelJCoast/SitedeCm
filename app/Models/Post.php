@@ -7,12 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Spatie\Activitylog\LogsActivityInterface;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 
 class Post extends Model
 {
     use LogsActivity;
     use CrudTrait;
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
+    use Sluggable, SluggableScopeHelpers;
 
     /*
     |--------------------------------------------------------------------------
@@ -33,6 +36,26 @@ class Post extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'slug_or_title',
+            ],
+        ];
+    }
+
+
+    public function getSlugOrTitleAttribute()
+    {
+        if ($this->slug != '') {
+            return $this->slug;
+        }
+
+        return $this->title;
+    }
+    
     public function setImageAttribute($value)
     {
         $attribute_name = "image";

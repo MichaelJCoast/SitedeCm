@@ -1,6 +1,6 @@
 <template>
 <Carousel/>
-    <div v-if="posts.length" class="container mx-auto px-8 md:px-14 mb-10 text-white space-y-6">
+    <div v-if="posts.length" class="container min-h-screen mx-auto px-8 md:px-14 mb-10 text-white space-y-6">
         <div class="mt-6">
             <h1 class="sm:mt-0 text-2xl 2xl:text-3xl font-semibold py-6">Últimas Notícias</h1>
         </div>  
