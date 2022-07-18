@@ -59,3 +59,5 @@
 </li>
 @endif
 
+
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('mandato') }}'><i class='nav-icon la la-question'></i> Mandatos</a></li>

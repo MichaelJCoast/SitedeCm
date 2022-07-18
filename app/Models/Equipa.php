@@ -21,7 +21,7 @@ class Equipa extends Model
     //protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['nome','image', 'dep_id', 'role_id'];
+    protected $fillable = ['nome','image', 'dep_id', 'role_id', 'mandato_id'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -82,13 +82,23 @@ class Equipa extends Model
         return $this->belongsTo('App\Models\Department');
     }
 
+    
+    public function departments(){
+        return $this->hasOne('App\Models\Department', 'id', 'dep_id');
+    }
+
     public function role(){
         return $this->belongsTo('App\Models\Cargo');
     }
 
-    public function departments(){
-        return $this->hasOne('App\Models\Department', 'id', 'dep_id');
+    public function mandato(){
+        return $this->belongsTo('App\Models\Mandato');
     }
+
+    public function mandatos(){
+        return $this->hasOne('App\Models\Mandato', 'id', 'mandato_id');
+    }
+
 
 
     /*

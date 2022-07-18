@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EquipaRequest extends FormRequest
+class MandatoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,12 +25,7 @@ class EquipaRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'required',
-            'nome'  => 'required',
-            'dep_id'  => 'required',
-            'role_id'  => 'required',
-            'mandato_id'  => 'required'
-            
+            'year' => 'required|numeric|min:2010|max:2099',
         ];
     }
 

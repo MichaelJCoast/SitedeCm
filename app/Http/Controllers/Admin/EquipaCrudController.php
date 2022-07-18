@@ -54,10 +54,15 @@ class EquipaCrudController extends CrudController
         CRUD::column('image');
         CRUD::column('Role');
         $this->crud->addColumns( [
-          
             [
                 'label' => 'Department',
                 'name' => 'departments.name',
+            ],
+        ]);
+        $this->crud->addColumns( [
+            [
+                'label' => 'Ano do Mandato',
+                'name' => 'mandatos.year',
             ],
         ] );
      
@@ -97,22 +102,26 @@ class EquipaCrudController extends CrudController
             'name'          => 'role_id',
             'label'         => 'Role',
             'type'          => 'select',
-            'placeholder'   => 'Select a role',
             'entity'        => 'role',
-            'attribute'     => 'type',
-            
-           
-            
+            'attribute'     => 'type',  
         ]);
         
         CRUD::addField([    // SELECT2
             'name'          => 'dep_id',
             'label'         => 'Department',
             'type'          => 'select',
-            'placeholder'   => 'Select a Dep',
             'entity'        => 'department',
             'attribute'     => 'name',
             'model'     =>  'App\Models\Department',
+        ]);
+
+        CRUD::addField([    // SELECT2
+            'name'          => 'mandato_id',
+            'label'         => 'Ano do Mandato',
+            'type'          => 'select',
+            'entity'        => 'mandato',
+            'attribute'     => 'year',
+            'model'     =>  'App\Models\Mandato',
         ]);
      
         /*
