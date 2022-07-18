@@ -26,7 +26,9 @@ class EquipaRequest extends FormRequest
     {
         return [
             'image' => 'required',
-            'nome'  => 'required'
+            'nome'  => 'required',
+            'dep_id'  => 'required',
+            'role_id'  => 'required'
             
         ];
     }
