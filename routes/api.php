@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\LinksController;
 use App\Http\Controllers\PostController;
@@ -31,3 +32,4 @@ Route::get('/links', [LinksController::class, 'index']);
 
 Route::get('/blog', [PostController::class, 'index']);
 Route::get('blog/{post:slug}', [PostController::class, 'showFullPostBySlug']);
+Route::get('/categories', [CategoryController::class, 'index']);
