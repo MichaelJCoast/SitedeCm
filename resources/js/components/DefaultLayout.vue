@@ -59,6 +59,7 @@ import Footer from "./Footer.vue";
 const navigation = [
   { name: "Sobre", to: { name: "About" } },
   { name: "Equipa", to: { name: "Team" } },
+  { name: "Merch", to: { name: "Merch" } },
   { name: "Links", to: { name: "Links" } },
 ];
 export default {
