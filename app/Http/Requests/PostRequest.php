@@ -28,7 +28,8 @@ class PostRequest extends FormRequest
             'title' => 'required',
             'body' => 'required',
             'image' => 'required',
-            'slug' => 'required|unique:' . config('permission.table_names.posts', 'posts') . ',slug,' . $this->id, //slug é unique precisa de ser validada
+            'category_id' => 'required',
+            'slug' => 'unique:posts,slug,' . \Request::get('id'), //slug é unique precisa de ser validada
         ];
     }
 
