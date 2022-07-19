@@ -7,6 +7,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\StudentGroupRolesController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\MandatoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/team', [TeamController::class, 'index']);
 Route::get('/department', [DepartmentController::class, 'index']);
+Route::get('/mandato', [MandatoController::class, 'index']);
 Route::get('/studentgrouproles', [StudentGroupRolesController::class, 'index']);
 
 Route::get('/faq', [QuestionController::class, 'index']);
