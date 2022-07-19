@@ -22,6 +22,11 @@ trait DenyAccessTrait
         }
         
     }
+    
+    protected function setupDenyDelete()
+    {
+            $this->crud->denyAccess('delete');   
+    }
 
     protected function setupDeny()
     {
