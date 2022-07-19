@@ -33,6 +33,8 @@ class MandatoCrudController extends CrudController
         CRUD::setEntityNameStrings('Ano do Mandato', 'mandatos');
         $this->setupAccess();
         $this->setupViewAccess();
+        $this->crud->orderBy('year', 'DESC');
+
     }
 
     /**

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Mandato;
 
-class MandateController extends Controller
+class MandatoController extends Controller
 {
     public function index() 
     {

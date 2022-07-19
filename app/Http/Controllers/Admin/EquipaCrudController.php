@@ -39,6 +39,7 @@ class EquipaCrudController extends CrudController
         $this->crud->setEntityNameStrings('membro', 'equipa');
         $this->setupAccess();
         $this->setupViewAccess();
+        $this->crud->orderBy('mandato_id', 'DESC');
       
     }
 
