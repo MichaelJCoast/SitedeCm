@@ -25,17 +25,17 @@
     <ul class="nav-dropdown-items">
     <li class="nav-item nav-dropdown">
 
-         <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-dragon"></i> Equipa</a>
+         <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-users"></i> Equipa</a>
          <ul class="nav-dropdown-items">
         <li class="nav-item nav-dropdown">
             <li class='nav-item'><a class='nav-link' href="{{ backpack_url('equipa') }}"><i
-                        class='nav-icon la la-users'></i> <span>Membros</span></a></li>
+                        class='nav-icon las la-user-tie'></i> <span>Membros</span></a></li>
             <li class='nav-item'><a class='nav-link' href='{{ backpack_url('department') }}'><i
                         class='nav-icon la la-home'></i> <span>Departamentos</span></a></li>
             <li class='nav-item'><a class='nav-link' href='{{ backpack_url('cargo') }}'><i
                         class='nav-icon la la-scroll'></i> <span>Funções</span></a></li>
             <li class='nav-item'><a class='nav-link' href='{{ backpack_url('mandato') }}'>
-                        <i class='nav-icon la la-question'></i> Mandatos</a></li>
+                        <i class='nav-icon la la-book'></i> Mandatos</a></li>
             </ul>
         </li>
 
@@ -62,7 +62,7 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('about') }}'><i class='nav-icon la la-address-card'></i> Sobre</a></li>
 </li>
 
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('faq') }}'><i class='nav-icon la la-question'></i> FAQ</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('faq') }}'><i class='nav-icon las la-question-circle'></i> FAQ</a></li>
 </li>
 @endif
 

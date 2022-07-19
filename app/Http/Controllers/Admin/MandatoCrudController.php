@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\MandatoRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use App\Traits\DenyAccessTrait; 
 
 /**
  * Class MandatoCrudController
@@ -18,6 +19,7 @@ class MandatoCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use DenyAccessTrait;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -28,7 +30,9 @@ class MandatoCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\Mandato::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/mandato');
-        CRUD::setEntityNameStrings('mandato', 'mandatos');
+        CRUD::setEntityNameStrings('Ano do Mandato', 'mandatos');
+        $this->setupAccess();
+        $this->setupViewAccess();
     }
 
     /**
