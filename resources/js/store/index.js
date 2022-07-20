@@ -13,6 +13,7 @@ const store = createStore({
       team_members: {},
       roles: {},
       departments: {},
+      mandates: {},
     },
     links: {
       data: {},
@@ -79,6 +80,12 @@ const store = createStore({
         commit('setAbout', res.data)
       });
     },
+    getMandates({ commit }) {
+      return axiosClient.get('/mandato')
+      .then(res => {
+        commit('setMandates', res.data)
+      });
+    },
 },
   mutations: {
     setPosts: (state, posts) => {
@@ -104,6 +111,9 @@ const store = createStore({
     },
     setAbout: (state, about) => {
       state.about.data = about;
+    },
+    setMandates: (state, mandates) => {
+      state.team.mandates = mandates;
     },
   },
   modules: {},
