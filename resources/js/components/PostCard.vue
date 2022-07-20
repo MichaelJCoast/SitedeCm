@@ -14,7 +14,9 @@
         <div class="flex-grow">
             <!-- Category & Date -->
             <header class="flex sm:flex-row items-center space-x-4 pb-2">
-                <span class="text-sm lg:text-base text-white font-semibold">{{post.category}}</span>
+                <template v-for="category in category" :key="category.id" >
+                    <span class="text-sm lg:text-base text-white font-semibold" v-if="category.id == post.category_id">{{category.name}}</span>
+                </template>
                 <time class="text-sm lg:text-base text-gray-400 font-semibold">{{postDate}}</time>
             </header>
             <!-- Title -->
@@ -29,12 +31,18 @@
 </template>
 
 <script setup>
-    const { post } = defineProps({
+    const { post, category } = defineProps({
         post: Object,
+        category: Object,
     });
     const postDate = new Date(post.created_at).toLocaleDateString('pt-PT', {
         day: 'numeric',
         month: 'long',
         year: 'numeric',
     });
+
+    // Array filter category id with post.category_id
+     const category_id = function() {
+        return this.category.filter(category => category.id === this.post.category_id);
+    };
 </script> 

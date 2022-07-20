@@ -5,6 +5,7 @@ const store = createStore({
   state: {
     posts: {
       data: {},
+      categories: {},
     },
     currentPost: {
       data: {},
@@ -86,6 +87,12 @@ const store = createStore({
         commit('setMandates', res.data)
       });
     },
+    getCategories({ commit }) {
+      return axiosClient.get('/categories')
+      .then(res => {
+        commit('setCategories', res.data)
+      });
+    },
 },
   mutations: {
     setPosts: (state, posts) => {
@@ -114,6 +121,9 @@ const store = createStore({
     },
     setMandates: (state, mandates) => {
       state.team.mandates = mandates;
+    },
+    setCategories: (state, categories) => {
+      state.posts.categories = categories;
     },
   },
   modules: {},
