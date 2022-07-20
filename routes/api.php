@@ -35,3 +35,4 @@ Route::get('/links', [LinksController::class, 'index']);
 
 Route::get('/blog', [PostController::class, 'index']);
 Route::get('blog/{post:slug}', [PostController::class, 'showFullPostBySlug']);
+Route::get('/categories', [CategoryController::class, 'index']);

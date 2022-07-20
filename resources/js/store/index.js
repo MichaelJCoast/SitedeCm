@@ -10,6 +10,9 @@ const store = createStore({
     currentPost: {
       data: {},
     },
+    categories: {
+      data: {},
+    },
     team: {
       team_members: {},
       roles: {},
