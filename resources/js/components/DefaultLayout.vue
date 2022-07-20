@@ -1,21 +1,20 @@
 <template>
     <nav class="relative bg-black border-b border-neutral-700">
-      <div class="container flex flex-wrap mx-auto px-8 py-2 md:px-14 justify-between">
+      <div class="container flex flex-wrap mx-auto px-8 py-2 md:px-12 justify-between">
         <div class="flex justify-between items-center h-16">
           <!-- Logo -->
           <router-link to="/">
             <NECMIconMono class="text-white fill-current h-16 w-auto" />
           </router-link>
-          <div class="hidden space-x-4 sm:ml-10 sm:flex">
+          <div class="hidden space-x-4 sm:ml-10 sm:flex sm:flex-wrap -mb-px">
           <router-link
             v-for="item in navigation"
             :key="item.name"
             :to="item.to"
-            active-class="cursor-pointer text-lg px-1 font-semibold text-white hover:text-red-600 focus:outline-none transition duration-150 ease-in-out"
             :class="[
               this.$route.name === item.to.name
-                ? 'text-white'
-                : 'cursor-pointer text-lg px-1 text-white font-semibold hover:text-red-600 focus:outline-none transition duration-150 ease-in-out',
+                ? 'inline-block rounded-t-lg p-6 border-red-600 border-b-2 cursor-pointer text-lg px-1 font-semibold text-white hover:text-red-600 focus:outline-none transition duration-150 ease-in-out'
+                : 'border-b-2 border-transparent p-6 hover:border-neutral-400 inline-block text-lg px-1 text-white font-semibold hover:text-red-600 focus:outline-none transition duration-150 ease-in-out',
             ]"
             >{{ item.name }}</router-link
           >

@@ -15,7 +15,7 @@
     </h1>
     <p v-html="aboutList.subtitle" class="text-white text-justify mt-4"></p>
     </div>
-    <div class="w-full px-4 mt-4">
+    <div class="w-full px-2 mt-4 sm:px-4">
         <h1
       class="text-white text-center capitalize font-semibold text-2xl sm:text-5xl">
         FAQ
@@ -23,7 +23,7 @@
     <div class="mx-auto w-full max-w-screen rounded-2xl mt-4 p-2">
       <Disclosure v-slot="{ open }">
         <DisclosureButton
-          class="flex w-full justify-between border-b border-neutral-700 px-4 py-2 text-left text-lg font-medium text-neutral-200 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-red-500 focus-visible:ring-opacity-75"
+          class="flex w-full justify-between border-b border-neutral-700 px-4 py-2 text-left text-base sm:text-lg font-medium text-neutral-200 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-red-500 focus-visible:ring-opacity-75"
         >
           <span>Quem criou este website?</span>
           <ChevronUpIcon
@@ -31,13 +31,13 @@
             class="h-5 w-5 text-neutral-200 text-lg"
           />
         </DisclosureButton>
-        <DisclosurePanel class="px-4 pt-4 pb-2 text-lg text-neutral-200">
+        <DisclosurePanel class="px-4 pt-4 pb-2 text-base sm:text-lg text-neutral-200">
           Criado por Luís Peixoto, Marco Moreira e Simão Amaral com Laravel e Vue.
         </DisclosurePanel>
       </Disclosure>
       <Disclosure v-for="question in questions" :key="question.id" as="div" class="mt-2" v-slot="{ open }">
         <DisclosureButton
-          class="flex w-full justify-between border-b border-neutral-700 px-4 py-2 text-left text-lg font-medium text-neutral-200 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-red-500 focus-visible:ring-opacity-75"
+          class="flex w-full justify-between border-b border-neutral-700 px-4 py-2 text-left text-base sm:text-lg font-medium text-neutral-200 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-red-500 focus-visible:ring-opacity-75"
         >
           <span>{{question.question}}</span>
           <ChevronUpIcon
@@ -45,7 +45,7 @@
             class="h-5 w-5 text-neutral-200 transition-transform"
           />
         </DisclosureButton>
-        <DisclosurePanel class="px-4 pt-4 pb-2 text-lg text-neutral-200">
+        <DisclosurePanel class="px-4 pt-4 pb-2 text-base sm:text-lg text-neutral-200">
           {{question.answer}}
         </DisclosurePanel>
       </Disclosure>
