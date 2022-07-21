@@ -10,4 +10,9 @@ class MerchController extends Controller
     {
         return Merch::latest()->get();
     }
+
+    protected function getProduct($id)
+    {
+        return Merch::where('id', $id)->first();
+    }
 }

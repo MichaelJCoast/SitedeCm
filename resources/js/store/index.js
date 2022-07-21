@@ -22,6 +22,12 @@ const store = createStore({
     },
     questions: {
       data: {},
+    },
+    merch: {
+      products: {},
+    },
+    currentProduct: {
+      data: {},
     }
   },
   getters: {},
@@ -79,6 +85,23 @@ const store = createStore({
         commit('setAbout', res.data)
       });
     },
+    getMerch({ commit }) {
+      return axiosClient.get('/merch')
+      .then(res => {
+        commit('setMerch', res.data)
+      });
+    },
+    getProductById({ commit }, id) {
+      return axiosClient
+      .get(`/merch/${id}`)
+      .then((res) => {
+        commit("setCurrentProduct", res.data);
+        return res;
+      })
+      .catch((err) => {
+        throw err;
+      });
+    },
 },
   mutations: {
     setPosts: (state, posts) => {
@@ -104,6 +127,12 @@ const store = createStore({
     },
     setAbout: (state, about) => {
       state.about.data = about;
+    },
+    setMerch: (state, merch) => {
+      state.merch.products = merch;
+    },
+    setCurrentProduct: (state, currentProduct) => {
+      state.currentProduct = currentProduct;
     },
   },
   modules: {},

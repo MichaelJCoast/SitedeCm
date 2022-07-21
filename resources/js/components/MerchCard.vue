@@ -1,33 +1,32 @@
 <template>
-
-<!-- falta api e dar for aqui -->
-      <div class="group relative">
-      <div class="w-full min-h-50 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75  transform transition duration-500 group-hover:scale-110  lg:h-80 lg:aspect-none">
-      <a href="https://www.google.com">
-        <img src="http://media.gucci.com/style/DarkGray_Center_0_0_2400x2400/1620743404/454585_X5J57_9541_001_100_0000_Light.jpg" class="w-full h-full object-center object-cover lg:w-full lg:h-full ">
-      </a>
+<!-- Card -->
+<div class="flex flex-col h-full w-full 2xl:w-auto bg-black rounded-lg shadow-md overflow-hidden">
+    <!-- Image -->
+    <a class="block focus:outline-none focus-visible:ring-2" :href="'merch/' + product.id">
+        <figure class="relative h-0 pb-[70%] sm:pb-[100%] overflow-hidden">
+            <img class="absolute inset-0 w-full h-full object-cover"
+                :src="product.photo"
+                width="320" height="180" alt="image">
+        </figure>
+    </a>
+    <!-- Card Content -->
+    <div class="flex-grow flex flex-col p-4">
+        <!-- Card body -->
+        <div class="flex-grow">
+            <!-- Title -->
+            <div class="mb-3">
+                <h3 class="mb-2 text-sm lg:text-base tracking-tight font-semibold text-white">{{ product.name }}</h3>
+            </div>
+            <div>
+                <p class="font-semibold">€{{ product.price }}</p>
+            </div>
         </div>
-        <div class="mt-4 flex justify-between">
-          <div>
-            <h3 class="text-sm text-white">
-                <span aria-hidden="true" class="absolute inset-0 "></span>
-                Sweat
-            </h3>
-            <p class="mt-1 text-sm text-white">White</p>
-          </div>
-          <p class="text-sm font-medium text-white">$750</p>
-        </div>
-        <div style="position:absolute; margin-top:-26px; margin-left:165px">
-        </div>
-
-        </div>
-
-
+    </div>
+</div>
 </template>
 
-<script>
-export default {
-  data() {
-  }
-}
+<script setup>
+const { product } = defineProps({
+        product: Object,
+    });
 </script>
