@@ -17,7 +17,7 @@ class Mandato extends Model
 
     protected $table = 'mandatos';
     // protected $primaryKey = 'id';
-    // public $timestamps = false;
+    public $timestamps = false;
     protected $guarded = ['id'];
     protected $fillable = ['year'];
     // protected $hidden = [];
