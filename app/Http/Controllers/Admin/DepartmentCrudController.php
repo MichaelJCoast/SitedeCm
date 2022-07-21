@@ -34,6 +34,7 @@ class DepartmentCrudController extends CrudController
         CRUD::setEntityNameStrings('department', 'departments');
         $this->setupAccess();
         $this->setupViewAccess();
+        $this->setupDenyDelete();
     }
 
     /**

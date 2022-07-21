@@ -36,6 +36,7 @@ class CargoCrudController extends CrudController
 
         $this->setupAccess();
         $this->setupViewAccess();
+        $this->setupDenyDelete();
         
     }
 
