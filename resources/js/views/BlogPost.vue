@@ -2,7 +2,7 @@
   <div class="container min-h-screen mx-auto text-white">
     <img
       class="lg:w-[95%] xl:w-[75%] 2xl:w-[50%] mx-auto"
-      :src="'../' + post.image"
+      :src="'../' + post.landscaped_image"
       alt="post image"
     />
     <div class="px-8 pb-14 lg:px-52 xl:px-80">
