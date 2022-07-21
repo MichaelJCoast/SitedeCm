@@ -22,7 +22,8 @@ class CreatePostsTable extends Migration
             $table->bigInteger('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categorias');
 
-            $table->string('image');
+            $table->string('portrait_image');
+            $table->string('landscaped_image');
             $table->timestamps();
         });
 
