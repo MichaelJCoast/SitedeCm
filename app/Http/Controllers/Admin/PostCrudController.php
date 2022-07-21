@@ -49,7 +49,7 @@ class PostCrudController extends CrudController
         CRUD::column('slug');
         CRUD::column('category');
         CRUD::column('created_at');
-        CRUD::column('image');
+        CRUD::column('portrait_image');
         CRUD::column('landscaped_image');
 
         /**
@@ -97,7 +97,7 @@ class PostCrudController extends CrudController
         ]);
 
         CRUD::addField([
-            'name'      => 'image',
+            'name'      => 'portrait_image',
             'label'     => 'Portrait Image',
             'type'      => 'upload',
             'upload'    => true,

@@ -27,7 +27,7 @@ class PostRequest extends FormRequest
         return [
             'title' => 'required',
             'body' => 'required',
-            'image' => 'required',
+            'portrait_image' => 'required',
             'landscaped_image' => 'required',
             'category_id' => 'required',
             'slug' => 'unique:posts,slug,' . \Request::get('id'), //slug é unique precisa de ser validada

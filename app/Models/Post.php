@@ -56,9 +56,9 @@ class Post extends Model
         return $this->title;
     }
     
-    public function setImageAttribute($value)
+    public function setPortraitImageAttribute($value)
     {
-        $attribute_name = "image";
+        $attribute_name = "portrait_image";
         $disk = "public";
         $destination_path ="uploads/posts/portrait";
 
