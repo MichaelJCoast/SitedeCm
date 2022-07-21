@@ -19,7 +19,7 @@ class Equipa extends Model
 
     protected $table = 'equipa';
     //protected $primaryKey = 'id';
-    // public $timestamps = false;
+    public $timestamps = false;
     protected $guarded = ['id'];
     protected $fillable = ['nome','image', 'dep_id', 'role_id', 'mandato_id'];
     // protected $hidden = [];
