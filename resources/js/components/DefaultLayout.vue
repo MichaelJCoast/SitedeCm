@@ -21,8 +21,11 @@
           >
           </div>
         </div>
+        <router-link class="flex items-center" :to="'/carrinho'">
+          <ShoppingCartIcon class="h-6 w-6 text-white hover:text-red-600"/>
+        </router-link>
         <button
-          class="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+          class="text-white cursor-pointer text-xl leading-none px-3 py-1 block lg:hidden outline-none focus:outline-none"
           type="button"
           @click="toggleNavbar()"
         >
@@ -52,7 +55,7 @@
 </template>
 
 <script>
-import { MenuIcon } from "@heroicons/vue/solid";
+import { MenuIcon, ShoppingCartIcon } from "@heroicons/vue/solid";
 import NECMIconMono from "./NECMIconMono.vue";
 import Footer from "./Footer.vue";
 
@@ -65,6 +68,7 @@ const navigation = [
 export default {
   components: {
     MenuIcon,
+    ShoppingCartIcon,
     NECMIconMono,
     Footer,
   },

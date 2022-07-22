@@ -5,8 +5,9 @@ import Team from '../views/Team.vue';
 import Merch from '../views/Merch.vue';
 import Links from '../views/Links.vue';
 import About from '../views/About.vue';
-import BlogPost from '../views/BlogPost.vue'
-import Product from '../views/Product.vue'
+import BlogPost from '../views/BlogPost.vue';
+import Product from '../views/Product.vue';
+import Cart from '../views/Cart.vue';
 import DefaultLayout from "../components/DefaultLayout.vue";
 
 const routes = [
@@ -22,6 +23,7 @@ const routes = [
             { path: "/merch", name: "Merch", component: Merch },
             { path: "/equipa", name: "Team", component: Team },
             { path: "/links", name: "Links", component: Links },
+            { path: "/carrinho", name: "Cart", component: Cart },
           ],
     },
 ];
