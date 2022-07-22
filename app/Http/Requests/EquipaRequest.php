@@ -25,12 +25,12 @@ class EquipaRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'required',
-            'nome'  => 'required',
-            'dep_id'  => 'required',
-            'role_id'  => 'required',
-            'mandato_id'  => 'required'
-            
+            'image' => 'sometimes|required',
+            'nome' => 'required',
+            'dep_id' => 'required',
+            'role_id' => 'required',
+            'mandato_id' => 'required',
+
         ];
     }
 

@@ -26,7 +26,7 @@ class MerchRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'photo' => 'required',
+            'photo' => 'sometimes|required',
             'description' => 'required',
             'price' => 'required',
             'size' => 'required',
