@@ -1,6 +1,6 @@
 <template>
   <div class="container min-h-screen mx-auto mb-6 mt-4 lg:mt-6">
-    <div class="flex flex-col lg:flex-row justify-between px-8 sm:px-14 space-y-4 sm:space-y-0">
+    <div v-if="items.length" class="flex flex-col lg:flex-row justify-between px-8 sm:px-14 space-y-4 sm:space-y-0">
       <div class="flex flex-col justify-between w-full space-y-2">
         <div v-for="item in items" :key="item.id" class="flex flex-row items-start text-white w-full">
           <img class="w-40 h-auto rounded-lg" :src="item.photo" />
@@ -28,11 +28,13 @@
         </form>
       </div>
     </div>
+    <div v-else>
+      <p class="text-white">não há produtos no carrinho</p>
+    </div>
   </div>
 </template>
 
 <script>
-import { computed } from "vue";
 import { useStore } from "vuex";
 export default {
   data() {
@@ -41,20 +43,17 @@ export default {
     const orderDetails = {
       name: '',
       email: '',
-      // Get store cart name and quantities as string
       order: store.state.cart.map(item => `${item.name} ${item.quantity}x`).join(', '),
       total: this.$store.getters.cartItems.reduce((a, b) => a + (b.price * b.quantity), 0),
-      status: 0,
+      status_id: 1,
     }
 
     return {
-      product: computed(() => store.state.currentProduct),
       orderDetails,
     };
   },
   computed: {
     items() {
-      console.log(this.$store.getters.cartItems);
       return this.$store.getters.cartItems;
     },
     cart_total() {

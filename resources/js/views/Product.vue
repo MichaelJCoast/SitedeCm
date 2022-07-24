@@ -8,11 +8,13 @@
                         <p v-html="product.description" class="text-gray-400"></p>
                         <p class="font-semibold text-lg">€{{ product.price }}</p>
                         <div v-if="product.size == 1" class="grid grid-cols-5 gap-0">
-                            <x-product-size>XS</x-product-size>
-                            <x-product-size>S</x-product-size>
-                            <x-product-size>M</x-product-size>
-                            <x-product-size>L</x-product-size>
-                            <x-product-size>XL</x-product-size>
+                        <RadioGroup>
+                          <RadioGroupLabel>
+                            <div class="space-x-2">
+                              
+                            </div>
+                          </RadioGroupLabel>
+                        </RadioGroup>
                         </div>
                         <button @click="addToCart()" type="submit" class="p-4 rounded-md uppercase bg-red-700 hover:brightness-125">
                             <p class="font-bold text-gray-100">Adicionar ao carrinho</p>
@@ -26,6 +28,12 @@
 import { computed } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
+import {
+    RadioGroup,
+    RadioGroupLabel,
+    RadioGroupOption,
+  } from '@headlessui/vue';
+
 export default {
   data() {
     const route = useRoute();
@@ -41,6 +49,11 @@ export default {
             console.log("add to cart");
             this.$store.commit('addToCart', this.product);
         },
+  },
+  components: {
+    RadioGroup,
+    RadioGroupLabel,
+    RadioGroupOption,
   },
 };
 </script>

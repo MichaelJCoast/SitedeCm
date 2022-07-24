@@ -14,7 +14,7 @@ class OrderController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'order' => ['required'],
             'total' => ['required', 'numeric'],
-            'status' => ['required'],
+            'status_id' => ['required'],
         ]);
 
         $order = Order::create($credentials);
