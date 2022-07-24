@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\LinksController;
 use App\Http\Controllers\MandatoController;
+use App\Http\Controllers\MerchController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\StudentGroupRolesController;
@@ -35,4 +36,8 @@ Route::get('/links', [LinksController::class, 'index']);
 
 Route::get('/blog', [PostController::class, 'index']);
 Route::get('blog/{post:slug}', [PostController::class, 'showFullPostBySlug']);
+
+Route::get('/merch', [MerchController::class, 'getMerch']);
+
+Route::get('merch/{product:id}', [MerchController::class, 'getProduct']);
 Route::get('/categories', [CategoryController::class, 'index']);
