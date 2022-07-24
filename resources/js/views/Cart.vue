@@ -21,7 +21,7 @@
         <input type="text" id="first_name" class="bg-gray-50" placeholder="E-mail" />
         <div class="flex flex-row items-center justify-between">
           <p class="text-2xl">Total</p>
-          <p class="text-2xl font-black">20€</p>
+          <p class="text-2xl font-black">{{cart_total.toFixed(2) + '€'}}</p>
         </div>
         <button class="bg-red-600 px-4 py-2">Efetuar Encomenda</button>
       </div>
@@ -44,6 +44,9 @@ export default {
     items() {
       return this.$store.getters.cartItems;
     },
+    cart_total() {
+      return this.$store.getters.cartItems.reduce((a, b) => a + (b.price * b.quantity), 0)
+    }
   },
   methods: {
     product_total(product) {
