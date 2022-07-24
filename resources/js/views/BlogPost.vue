@@ -2,13 +2,14 @@
   <div class="container min-h-screen mx-auto text-white">
     <img
       class="lg:w-[95%] xl:w-[75%] 2xl:w-[50%] mx-auto"
-      :src="'../' + post.image"
+      :src="'../' + post.landscaped_image"
       alt="post image"
     />
     <div class="px-8 pb-14 lg:px-52 xl:px-80">
-      <p class="mt-6 text-sm uppercase tracking-[.2em] text-red-600">
-        {{ post.category }}
-      </p>
+       <template v-for="category in category" :key="category.id" >     
+          <p class="mt-6 text-sm uppercase tracking-[.2em] text-red-600" v-if="category.id == post.category_id">{{category.name}}</p>
+      </template>
+
       <h2
         class="text-4xl sm:text-3xl md:text-5xl lg:text-4xl text-white font-bold sm:leading-normal"
       >
@@ -36,9 +37,12 @@ export default {
     const route = useRoute();
     const store = useStore();
     store.dispatch("getPostBySlug", route.params.slug);
+    store.dispatch("getCategories");
 
     return {
       post: computed(() => store.state.currentPost),
+      category: computed(() => store.state.posts.categories),
+      category_id: computed(() => store.state.posts.categories.filter(category => category.id === post.category_id)),
     };
   },
   computed: {

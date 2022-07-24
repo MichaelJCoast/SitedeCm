@@ -2,10 +2,10 @@
 <Carousel/>
     <div v-if="posts.length" class="container min-h-screen mx-auto px-8 md:px-14 mb-10 text-white space-y-6">
         <div class="mt-6">
-            <h1 class="sm:mt-0 text-2xl 2xl:text-3xl font-semibold py-6">Últimas Notícias</h1>
+            <router-link to="/blog" class="sm:mt-0 text-2xl 2xl:text-3xl font-semibold py-6">Últimas Notícias</router-link>
         </div>  
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-4">
-                        <PostCard v-for="post in posts" :key="post.id" :post="post" />
+                        <PostCard v-for="post in posts" :key="post.id" :post="post" :category="categories" />
                 </div>
             <div class="text-center">
                 <router-link to="/blog" class="font-semibold transition ease-in-out rounded-lg text-lg bg-transparent hover:bg-neutral-600 px-4 py-2">Mais Notícias</router-link>
@@ -22,8 +22,11 @@ export default {
   setup() {
     const store = useStore();
     store.dispatch("getPosts");
+    store.dispatch("getCategories");
+    
     return {
       posts: computed(() => store.state.posts.data),
+      categories: computed(() => store.state.posts.categories),
     };
   },
   components: { PostCard, Carousel },

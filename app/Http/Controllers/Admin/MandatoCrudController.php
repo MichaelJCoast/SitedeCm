@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
-
-use App\Http\Requests\CargoRequest;
+use App\Http\Requests\MandatoRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use App\Traits\DenyAccessTrait; 
 
 /**
- * Class RoleCrudController
+ * Class MandatoCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class CargoCrudController extends CrudController
+class MandatoCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -21,7 +20,6 @@ class CargoCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use DenyAccessTrait;
- 
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -30,14 +28,15 @@ class CargoCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Cargo::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/cargo');
-        CRUD::setEntityNameStrings('cargo', 'cargos');
-
+        CRUD::setModel(\App\Models\Mandato::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/mandato');
+        CRUD::setEntityNameStrings('Ano do Mandato', 'mandatos');
         $this->setupAccess();
         $this->setupViewAccess();
         $this->setupDenyDelete();
+        $this->crud->orderBy('year', 'DESC');
         
+
     }
 
     /**
@@ -48,9 +47,9 @@ class CargoCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        
-        CRUD::column('type');
-     
+    
+        CRUD::column('year');
+
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -67,11 +66,10 @@ class CargoCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(CargoRequest::class);
+        CRUD::setValidation(MandatoRequest::class);
 
-        
-        CRUD::field('type');
-       
+        CRUD::field('year');
+
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

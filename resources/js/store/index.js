@@ -9,14 +9,19 @@ const store = createStore({
   state: {
     posts: {
       data: {},
+      categories: {},
     },
     currentPost: {
+      data: {},
+    },
+    categories: {
       data: {},
     },
     team: {
       team_members: {},
       roles: {},
       departments: {},
+      mandates: {},
     },
     links: {
       data: {},
@@ -127,6 +132,18 @@ const store = createStore({
         throw err;
       });
     },
+    getMandates({ commit }) {
+      return axiosClient.get('/mandato')
+      .then(res => {
+        commit('setMandates', res.data)
+      });
+    },
+    getCategories({ commit }) {
+      return axiosClient.get('/categories')
+      .then(res => {
+        commit('setCategories', res.data)
+      });
+    },
 },
   mutations: {
     setPosts: (state, posts) => {
@@ -189,7 +206,13 @@ const store = createStore({
       if (cart) {
         state.cart = JSON.parse(cart)
       }
-    }
+    },
+    setMandates: (state, mandates) => {
+      state.team.mandates = mandates;
+    },
+    setCategories: (state, categories) => {
+      state.posts.categories = categories;
+    },
   },
   modules: {}
 });

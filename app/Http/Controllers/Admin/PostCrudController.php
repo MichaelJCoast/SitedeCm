@@ -49,7 +49,8 @@ class PostCrudController extends CrudController
         CRUD::column('slug');
         CRUD::column('category');
         CRUD::column('created_at');
-        CRUD::column('image');
+        CRUD::column('portrait_image');
+        CRUD::column('landscaped_image');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -96,8 +97,16 @@ class PostCrudController extends CrudController
         ]);
 
         CRUD::addField([
-            'name'      => 'image',
-            'label'     => 'Image',
+            'name'      => 'portrait_image',
+            'label'     => 'Portrait Image',
+            'type'      => 'upload',
+            'upload'    => true,
+            'disk'      => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
+        ]);
+
+        CRUD::addField([
+            'name'      => 'landscaped_image',
+            'label'     => 'Landscaped Image',
             'type'      => 'upload',
             'upload'    => true,
             'disk'      => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;

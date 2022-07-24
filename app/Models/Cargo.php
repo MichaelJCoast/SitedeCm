@@ -18,7 +18,7 @@ class Cargo extends Model
 
     protected $table = 'cargos';
     protected $primaryKey = 'id';
-    // public $timestamps = false;
+    public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = ['type'];
     // protected $hidden = [];
