@@ -2,15 +2,11 @@
 
 namespace App\Models;
 
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\Pivot;
-use Spatie\Activitylog\LogsActivityInterface;
-use Spatie\Activitylog\Traits\LogsActivity;
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 
-class Order extends Pivot
+class Status extends Model
 {
-    use LogsActivity;
     use CrudTrait;
 
     /*
@@ -19,9 +15,9 @@ class Order extends Pivot
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'order';
+    protected $table = 'status';
     // protected $primaryKey = 'id';
-    // public $timestamps = false;
+    public $timestamps = false;
     protected $guarded = ['id'];
     // protected $fillable = [];
     // protected $hidden = [];
@@ -32,19 +28,15 @@ class Order extends Pivot
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-
+    public function status() {
+        return $this->hasMany('App\Models\Status');
+    }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function merch(){
-        return $this->hasOne('App\Models\Merch', 'id', 'product');
-    }
 
-    public function status(){
-        return $this->belongsTo('App\Models\Status');
-    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES
