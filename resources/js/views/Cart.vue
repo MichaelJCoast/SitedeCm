@@ -10,7 +10,7 @@
               <span class="text-2xl font-bold mr-6">{{ item_cost(item) }}€</span>
             </div>
             <p class="text-sm">{{ product_total(item) + 'x' }}</p>
-            <p class="underline">Remover produto</p>
+            <a @click="removeFromCart(item)" class="underline font-semibold text-neutral-200 cursor-pointer">Remover</a>
           </div>
         </div>
       </div>
@@ -54,6 +54,9 @@ export default {
     },
     item_cost(item) {
       return item.price * item.quantity
+    },
+    removeFromCart(item) {
+      this.$store.commit('removeFromCart', item)
     }
   }
 };
