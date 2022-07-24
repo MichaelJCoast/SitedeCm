@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateOrderTable extends Migration
 {
@@ -14,10 +14,10 @@ class CreateOrderTable extends Migration
     {
         Schema::create('order', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user');
-            $table->integer('product');
-            $table->string('size');
-            $table->integer('quantity');
+            $table->string('name');
+            $table->string('email');
+            $table->string('order');
+            $table->float('total');
             $table->integer('status');
             $table->timestamps();
         });

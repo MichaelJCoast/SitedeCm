@@ -2,7 +2,7 @@
   <div class="container min-h-screen mx-auto mb-6 mt-4 lg:mt-6">
     <div class="flex flex-col lg:flex-row justify-between px-8 sm:px-14 space-y-4 sm:space-y-0">
       <div class="flex flex-col justify-between w-full space-y-2">
-        <div v-for="item in items" :key="item.id" :item="item" class="flex flex-row items-start text-white w-full">
+        <div v-for="item in items" :key="item.id" class="flex flex-row items-start text-white w-full">
           <img class="w-40 h-auto rounded-lg" :src="item.photo" />
           <div class="flex flex-col px-4 w-full text-neutral-200">
             <div class="flex flex-col sm:flex-row sm:justify-between">
@@ -17,13 +17,15 @@
       <div class="text-neutral-300 flex flex-col bg-black px-8 py-6 space-y-4">
         <h3 class="text-2xl font-semibold">Sumário</h3>
         <p class="text-neutral-100">Para efetuar a encomenda precisamos dos dados abaixo.</p>
-        <input type="text" id="first_name" class="bg-gray-50" placeholder="Primeiro e Último Nome" />
-        <input type="text" id="first_name" class="bg-gray-50" placeholder="E-mail" />
+        <form @submit="submitOrder">
+        <input type="text" id="name" name="name" required="" class="bg-gray-50" v-model="orderDetails.name" placeholder="Primeiro e Último Nome" />
+        <input type="email" id="email-address" name="email" autocomplete="email" required="" v-model="orderDetails.email" class="bg-gray-50" placeholder="E-mail" />
         <div class="flex flex-row items-center justify-between">
           <p class="text-2xl">Total</p>
           <p class="text-2xl font-black">{{cart_total.toFixed(2) + '€'}}</p>
         </div>
-        <button class="bg-red-600 px-4 py-2 uppercase font-semibold rounded-lg hover:bg-red-500 transition ease-in-out">Efetuar Encomenda</button>
+        <button type="submit" class="bg-red-600 px-4 py-2 uppercase font-semibold rounded-lg hover:bg-red-500 transition ease-in-out">Efetuar Encomenda</button>
+        </form>
       </div>
     </div>
   </div>
@@ -36,27 +38,42 @@ export default {
   data() {
     const store = useStore();
 
+    const orderDetails = {
+      name: '',
+      email: '',
+      // Get store cart name and quantities as string
+      order: store.state.cart.map(item => `${item.name} ${item.quantity}x`).join(', '),
+      total: this.$store.getters.cartItems.reduce((a, b) => a + (b.price * b.quantity), 0),
+      status: 0,
+    }
+
     return {
       product: computed(() => store.state.currentProduct),
+      orderDetails,
     };
   },
   computed: {
     items() {
+      console.log(this.$store.getters.cartItems);
       return this.$store.getters.cartItems;
     },
     cart_total() {
-      return this.$store.getters.cartItems.reduce((a, b) => a + (b.price * b.quantity), 0)
+      return this.$store.getters.cartItems.reduce((a, b) => a + (b.price * b.quantity), 0);
     }
   },
   methods: {
     product_total(product) {
-      return this.$store.getters.productQuantity(product)
+      return this.$store.getters.productQuantity(product);
     },
     item_cost(item) {
-      return item.price * item.quantity
+      return item.price * item.quantity;
     },
     removeFromCart(item) {
-      this.$store.commit('removeFromCart', item)
+      this.$store.commit('removeFromCart', item);
+    },
+    submitOrder(e) {
+      e.preventDefault();
+      this.$store.dispatch('submitOrder', this.orderDetails);
     }
   }
 };

@@ -144,6 +144,16 @@ const store = createStore({
         commit('setCategories', res.data)
       });
     },
+    submitOrder({ commit }, order) {
+      return axiosClient.post('/order', order)
+      .then(res => {
+        commit('setCart', [])
+        return res;
+      })
+      .catch((err) => {
+        throw err;
+      });
+    }
 },
   mutations: {
     setPosts: (state, posts) => {
@@ -175,6 +185,10 @@ const store = createStore({
     },
     setCurrentProduct: (state, currentProduct) => {
       state.currentProduct = currentProduct;
+    },
+    setCart: (state, cart) => { 
+      state.cart = cart;
+      updateLocalStorage(cart);
     },
     addToCart(state, product) {
       let item = state.cart.find(i => i.id === product.id);

@@ -6,6 +6,7 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\LinksController;
 use App\Http\Controllers\MandatoController;
 use App\Http\Controllers\MerchController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\StudentGroupRolesController;
@@ -22,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
  */
+
+Route::post('/order', [OrderController::class, 'submitOrder']);
 
 Route::get('/team', [TeamController::class, 'index']);
 Route::get('/department', [DepartmentController::class, 'index']);
