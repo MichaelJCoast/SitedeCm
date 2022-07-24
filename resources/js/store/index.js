@@ -49,6 +49,11 @@ const store = createStore({
       return state.cart.reduce((total, item) => {
         return total + item.price * item.quantity;
       }, 0);
+    },
+    cartQuantity: (state) => {
+      return state.cart.reduce((total, item) => {
+        return total + item.quantity;
+      }, 0);
     }
   },
   actions: {
