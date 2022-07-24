@@ -25,8 +25,8 @@
 </div>
 </template>
 
-<script setup>
-const { product } = defineProps({
-        product: Object,
-    });
+<script>
+    export default {
+        props: ['product'],
+    };
 </script>

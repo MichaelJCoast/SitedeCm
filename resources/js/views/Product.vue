@@ -14,7 +14,7 @@
                             <x-product-size>L</x-product-size>
                             <x-product-size>XL</x-product-size>
                         </div>
-                        <button type="submit" class="p-4 rounded-md uppercase bg-red-700 hover:brightness-125">
+                        <button @click="addToCart()" type="submit" class="p-4 rounded-md uppercase bg-red-700 hover:brightness-125">
                             <p class="font-bold text-gray-100">Adicionar ao carrinho</p>
                         </button>
                     </div>
@@ -35,6 +35,12 @@ export default {
     return {
       product: computed(() => store.state.currentProduct),
     };
+  },
+  methods: {
+        addToCart() {
+            console.log("add to cart");
+            this.$store.commit('addToCart', this.product);
+        },
   },
 };
 </script>

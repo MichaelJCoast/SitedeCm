@@ -1,12 +1,12 @@
 <template>
   <div class="container min-h-screen mx-auto mb-6 lg:mt-6">
       <div class="flex flex-row justify-between px-14">
-        <div class="flex flex-row items-start text-white w-full">
-          <img class="w-40 h-auto" src="https://images.ctfassets.net/wn7ipiv9ue5v/3mkOLOxZViIMdIxFXxBt6z/01126b0a2949c36574d64a1bff7e54f6/RDR2_Tshirt_TaglineRedWht_Top_01.jpg?w=1920&h=&fm=webp&q=" />
+        <div v-for="item in items" :key="item.id" :item="item" class="flex flex-row items-start text-white w-full">
+          <img class="w-40 h-auto" :src="item.photo" />
           <div class="flex flex-col px-4 w-full text-neutral-200">
             <div class="flex flex-row justify-between">
-              <h1 class="text-2xl font-bold">T-shirt</h1>
-              <span class="text-2xl font-bold mr-6">39,99€</span>
+              <h1 class="text-2xl font-bold">{{item.name}}</h1>
+              <span class="text-2xl font-bold mr-6">{{item.price}}€</span>
             </div>   
             <p class="text-sm">XL</p>
             <p class="underline">Remover produto</p>
@@ -41,5 +41,10 @@ export default {
       product: computed(() => store.state.currentProduct),
     };
   },
+  computed: {
+    items() {
+      return this.$store.getters.cartItems;
+    }
+  }
 };
 </script>

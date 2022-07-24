@@ -1,6 +1,10 @@
 import { createStore } from "vuex";
 import axiosClient from "../axios";
 
+function updateLocalStorage(cart) {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
 const store = createStore({
   state: {
     posts: {
@@ -28,9 +32,22 @@ const store = createStore({
     },
     currentProduct: {
       data: {},
+    },
+    cart: [],
+  },
+  getters: {
+    cartItems: (state) => {
+      return state.cart;
+    },
+    cartItemCount: (state) => {
+      return state.cart.length;
+    },
+    cartTotal: (state) => {
+      return state.cart.reduce((total, item) => {
+        return total + item.price * item.quantity;
+      }, 0);
     }
   },
-  getters: {},
   actions: {
     getPosts({ commit }) {
       return axiosClient.get('/blog')
@@ -134,8 +151,39 @@ const store = createStore({
     setCurrentProduct: (state, currentProduct) => {
       state.currentProduct = currentProduct;
     },
+    addToCart(state, product) {
+      let item = state.cart.find(i => i.id === product.id);
+
+      if (item) {
+        item.quantity++;
+      }
+      else {
+      state.cart.push({...product, quantity: 1});
+      }
+
+      updateLocalStorage(state.cart);
+    },
+    removeFromCart (state, product) {
+      let item = state.cart.find( i => i.id === product.id)
+
+      if (item) {
+        if (item.quantity > 1) {
+          item.quantity--
+        } else {
+          state.cart = state.cart.filter(i => i.id !== product.id)
+        }
+      }
+
+      updateLocalStorage(state.cart)
+    },
+    updateCartFromLocalStorage(state) {
+      const cart = localStorage.getItem('cart')
+      if (cart) {
+        state.cart = JSON.parse(cart)
+      }
+    }
   },
-  modules: {},
+  modules: {}
 });
 
 export default store;
