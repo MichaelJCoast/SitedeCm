@@ -2,16 +2,16 @@
   <div class="container min-h-screen mx-auto mb-6 lg:mt-6">
     <div class="flex flex-row justify-between px-14">
       <div class="flex flex-col justify-between w-full">
-      <div v-for="item in items" :key="item.id" :item="item" class="flex flex-row items-start text-white w-full">
-        <img class="w-40 h-auto" :src="item.photo" />
-        <div class="flex flex-col px-4 w-full text-neutral-200">
-          <div class="flex flex-row justify-between">
-            <h1 class="text-2xl font-bold">{{ item.name }}</h1>
-            <span class="text-2xl font-bold mr-6">{{ item.price }}€</span>
+        <div v-for="item in items" :key="item.id" :item="item" class="flex flex-row items-start text-white w-full">
+          <img class="w-40 h-auto" :src="item.photo" />
+          <div class="flex flex-col px-4 w-full text-neutral-200">
+            <div class="flex flex-row justify-between">
+              <h1 class="text-2xl font-bold">{{ item.name }}</h1>
+              <span class="text-2xl font-bold mr-6">{{ item_cost(item) }}€</span>
+            </div>
+            <p class="text-sm">{{ product_total(item) + 'x' }}</p>
+            <p class="underline">Remover produto</p>
           </div>
-          <p class="text-sm">{{product_total(item) + 'x'}}</p>
-          <p class="underline">Remover produto</p>
-        </div>
         </div>
       </div>
       <div class="text-neutral-200 flex flex-col bg-black px-8 py-6 space-y-4">
@@ -49,6 +49,9 @@ export default {
     product_total(product) {
       return this.$store.getters.productQuantity(product)
     },
+    item_cost(item) {
+      return item.price * item.quantity
+    }
   }
 };
 </script>
