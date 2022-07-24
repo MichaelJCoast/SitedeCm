@@ -39,8 +39,11 @@ const store = createStore({
     cartItems: (state) => {
       return state.cart;
     },
-    cartItemCount: (state) => {
-      return state.cart.length;
+    productQuantity: (state) => (product) => {
+      const item = state.cart.find(i => i.id === product.id)
+
+      if (item) return item.quantity
+      else return null
     },
     cartTotal: (state) => {
       return state.cart.reduce((total, item) => {

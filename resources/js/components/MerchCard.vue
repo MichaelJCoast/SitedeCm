@@ -18,7 +18,7 @@
                 <h3 class="mb-2 text-sm lg:text-base tracking-tight font-semibold text-white">{{ product.name }}</h3>
             </div>
             <div>
-                <p class="font-semibold">€{{ product.price }}</p>
+                <p class="font-semibold">€{{ product.price.toFixed(2) }}</p>
             </div>
         </div>
     </div>
