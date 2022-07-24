@@ -66,6 +66,9 @@ const navigation = [
   { name: "Links", to: { name: "Links" } },
 ];
 export default {
+  mounted() {
+      this.$store.commit('updateCartFromLocalStorage');
+    },
   components: {
     MenuIcon,
     ShoppingCartIcon,
