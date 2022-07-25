@@ -1,6 +1,6 @@
 <template>
-  <div class="container min-h-screen mx-auto mb-6 mt-4 lg:mt-6">
-    <h1 class="text-white text-2xl 2xl:text-3xl font-semibold py-6 px-8 sm:px-14">Carrinho</h1>
+  <div class="container min-h-screen mx-auto px-8 md:px-14 mb-10 text-white">
+    <h2 class="sm:mt-0 text-2xl 2xl:text-3xl font-semibold py-6">Carrinho</h2>
     <div v-if="items.length" class="flex flex-col lg:flex-row justify-between px-8 sm:px-14 space-y-4 sm:space-y-0">
       <div class="flex flex-col justify-between w-full space-y-2">
         <div v-for="item in items" :key="item.id" class="flex flex-row items-start text-white w-full">
