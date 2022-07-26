@@ -55,6 +55,7 @@
 </li>
 
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('link') }}'><i class='nav-icon la la-link'></i> Links</a>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('carousel') }}'><i class='nav-icon la la-question'></i> Carousel</a></li>
 </li>
 
 
@@ -65,5 +66,6 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('faq') }}'><i class='nav-icon las la-question-circle'></i> FAQ</a></li>
 </li>
 @endif
+
 
 

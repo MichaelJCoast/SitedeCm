@@ -13,7 +13,7 @@
 	}
 
 
-    $orderCount = App\Models\Order::where('status', '<', 3)->get();
+    $orderCount = App\Models\Order::where('status_id', '<', 3)->get();
 
     $widgets['after_content'][] = [
 	  'type' => 'div',
