@@ -45,8 +45,10 @@
                                 class='nav-icon la la-shopping-cart'></i> Order</a></li>
                     <li class='nav-item'><a class='nav-link' href='{{ backpack_url('statu') }}'><i 
                                 class='nav-icon la la-question'></i> Status</a></li>
-               
-        </ul>
+                    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('size') }}'><i 
+                                class='nav-icon la la-question'></i> Sizes</a></li>       
+        
+                            </ul>
     </li>
 
 @endif
@@ -67,6 +69,7 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('faq') }}'><i class='nav-icon las la-question-circle'></i> FAQ</a></li>
 </li>
 @endif
+
 
 
 

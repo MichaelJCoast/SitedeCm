@@ -106,19 +106,17 @@ class MerchCrudController extends CrudController
              'suffix' => '€',
         ]);
 
-        CRUD::addField([  
-            'name'          => 'size',
-            'label'         => 'Este produto tem tamanho?',
-            'type'        => 'radio',
-            'options'     => [
-                // the key will be stored in the db, the value will be shown as label;
-                1 => "Sim",
-                0 => "Não"
-                
-            ],
-            // optional
-            'inline'      => true, // show the radios all on the same line?
+        CRUD::addField([
+            'label'     => 'Size',
+            'type'      => 'checklist',
+            'name'      => 'size',
+            'entity'    => 'sizes',
+            'attribute' => 'name',
+            'model'     => 'App\Models\Size',
+            'pivot'     => false,
         ]);
+   
+        
 
         
 

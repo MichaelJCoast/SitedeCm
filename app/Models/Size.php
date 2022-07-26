@@ -2,17 +2,12 @@
 
 namespace App\Models;
 
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
-use Spatie\Activitylog\LogsActivityInterface;
-use Spatie\Activitylog\Traits\LogsActivity;
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 
-class Merch extends Model
+class Size extends Model
 {
-    use LogsActivity;
     use CrudTrait;
-    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
 
     /*
     |--------------------------------------------------------------------------
@@ -20,12 +15,11 @@ class Merch extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'merch';
+    protected $table = 'sizes';
     // protected $primaryKey = 'id';
     public $timestamps = false;
     protected $guarded = ['id'];
-    
-    // protected $fillable = [];
+    protected $fillable = ['name'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -34,28 +28,15 @@ class Merch extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function setPhotoAttribute($value)
-    {
-        $attribute_name = "photo";
-        $disk = "public";
-        $destination_path ="uploads/merch";
-
-        $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
-
-    }
-
+    
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    
-    public function sizes(){
-        return $this->belongsTo(Size::class);
+    public function sizes() {
+        return $this->hasMany('App\Models\Size');
     }
-
-    
-
     /*
     |--------------------------------------------------------------------------
     | SCOPES
@@ -73,4 +54,4 @@ class Merch extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
-    }
+}
