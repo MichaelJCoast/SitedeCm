@@ -51,6 +51,12 @@ class MerchCrudController extends CrudController
         CRUD::column('photo');
         CRUD::column('price');
         CRUD::column('size');
+        // $this->crud->addColumns( [
+        //     [
+        //         'label' => 'Size',
+        //         'name' => 'sizevalue.name',
+        //     ],
+        // ]);
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -116,9 +122,7 @@ class MerchCrudController extends CrudController
             'pivot'     => false,
         ]);
    
-        
 
-        
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

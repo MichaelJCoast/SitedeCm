@@ -54,7 +54,9 @@ class Merch extends Model
         return $this->belongsTo(Size::class);
     }
 
-    
+    public function sizevalue(){
+        return $this->hasOne('App\Models\Size', 'id', 'size');
+    }
 
     /*
     |--------------------------------------------------------------------------

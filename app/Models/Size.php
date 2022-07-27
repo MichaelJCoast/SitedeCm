@@ -34,9 +34,7 @@ class Size extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function sizes() {
-        return $this->hasMany('App\Models\Size');
-    }
+    
     /*
     |--------------------------------------------------------------------------
     | SCOPES
