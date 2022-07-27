@@ -25,7 +25,7 @@ class SizeRequest extends FormRequest
     public function rules()
     {
         return [
-            'size' => 'required|unique:sizes',
+            'name' => 'required|unique:sizes',
         ];
     }
 

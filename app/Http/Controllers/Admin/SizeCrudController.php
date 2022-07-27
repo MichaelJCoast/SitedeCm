@@ -40,7 +40,7 @@ class SizeCrudController extends CrudController
     protected function setupListOperation()
     {
         
-        CRUD::column('size');
+        CRUD::column('name');
       
 
         /**
@@ -61,7 +61,7 @@ class SizeCrudController extends CrudController
         CRUD::setValidation(SizeRequest::class);
 
  
-        CRUD::field('size');
+        CRUD::field('name');
 
 
         /**
