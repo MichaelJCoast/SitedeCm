@@ -18,7 +18,6 @@ class CreateMerchTable extends Migration
             $table->string('description');
             $table->string('photo');
             $table->float('price');
-            $table->string('size');
             $table->timestamps();
         });
     }

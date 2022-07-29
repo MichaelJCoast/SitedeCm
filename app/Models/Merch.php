@@ -24,8 +24,16 @@ class Merch extends Model
     // protected $primaryKey = 'id';
     public $timestamps = false;
     protected $guarded = ['id'];
-    
-    // protected $fillable = [];
+    protected $fillable = [
+        'name',
+        'photo',
+        'size',
+        'description',
+        'price'
+    ];
+    //  protected $casts = [
+    //     'size' => 'array',
+    // ];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -51,6 +59,10 @@ class Merch extends Model
     */
     
     public function sizes(){
+        return $this->belongsToMany('App\Models\Size', 'merch_sizes', 'merch_id', 'size_id');
+    }
+
+    public function allsizes(){
         return $this->belongsTo(Size::class);
     }
 

@@ -28,7 +28,9 @@ class Size extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    
+    public function sizes(){
+        return $this->belongsToMany('App\Models\Size', 'merch_sizes', 'merch_id', 'size_id');
+    }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

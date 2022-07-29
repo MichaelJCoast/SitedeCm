@@ -29,7 +29,6 @@ class MerchRequest extends FormRequest
             'photo' => 'sometimes|required',
             'description' => 'required',
             'price' => 'required',
-            'size' => 'required',
         ];
     }
 
