@@ -28,14 +28,7 @@ class Mandato extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function mandatos() {
-        return $this->belongsToMany('App\Models\Mandato');//(->withPivot('notes', 'some_other_field'); // `notes` and `some_other_field` are aditional fields in the pivot table that you plan to show in the form.
-    }
-
-    public function identifiableName()
-    {
-        return $this->name;
-    }
+    
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

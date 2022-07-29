@@ -91,6 +91,10 @@ class Equipa extends Model
         return $this->belongsTo('App\Models\Cargo');
     }
 
+    public function roles(){
+        return $this->hasOne('App\Models\Cargo', 'id', 'role_id');
+    }
+
     public function mandato(){
         return $this->belongsTo('App\Models\Mandato');
     }

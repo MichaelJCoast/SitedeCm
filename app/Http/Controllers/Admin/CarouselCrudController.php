@@ -28,7 +28,7 @@ class CarouselCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\Carousel::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/carousel');
-        CRUD::setEntityNameStrings('carousel', 'carousel');
+        CRUD::setEntityNameStrings('ao Carousel', 'carousel');
     }
 
     /**
@@ -39,10 +39,28 @@ class CarouselCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('title');
+        CRUD::addColumn([
+            'name' => 'title', 
+            'label' => 'Título',
+            'type'  => 'text',
+        ]);
         CRUD::column('url');
-        CRUD::column('has_button');
-        CRUD::column('landscaped_image');
+        CRUD::addColumn([
+            'name' => 'has_button', 
+            'label' => 'Botão',
+            'type'  => 'boolean',
+            'options' => [
+                0 => 'Tem', 
+                1 => 'Não tem'
+            ]
+        ]);
+        CRUD::addColumn([
+            'name' => 'landscaped_image', 
+            'label' => 'Imagem',
+            'type' => 'image',
+            'height' => '30px',
+            'width'  => '40px',
+        ]);
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -61,8 +79,11 @@ class CarouselCrudController extends CrudController
     {
         CRUD::setValidation(CarouselRequest::class);
 
-        CRUD::field('title');
-
+        CRUD::addField([
+            'name' => 'title', 
+            'label' => 'Título',
+            'type'  => 'text',
+        ]);
         CRUD::addField([
             'name'      => 'landscaped_image',
             'label'     => 'Landscaped Image',
@@ -75,7 +96,7 @@ class CarouselCrudController extends CrudController
 
         CRUD::addField([   // Checkbox
             'name'  => 'has_button',
-            'label' => 'Has Button',
+            'label' => 'Tem botão de hiperligação?',
             'type'  => 'checkbox'
         ],);
 

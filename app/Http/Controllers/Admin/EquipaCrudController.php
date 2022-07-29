@@ -52,11 +52,22 @@ class EquipaCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('nome');
-        CRUD::column('image');
-        CRUD::column('Role');
+        CRUD::addColumn([
+            'name' => 'image', 
+            'label' => 'Imagem',
+            'type' => 'image',
+            'height' => '30px',
+            'width'  => '30px',
+        ]);
         $this->crud->addColumns( [
             [
-                'label' => 'Department',
+                'label' => 'Cargo',
+                'name' => 'roles.type',
+            ],
+        ]);
+        $this->crud->addColumns( [
+            [
+                'label' => 'Departmento',
                 'name' => 'departments.name',
             ],
         ]);
@@ -92,7 +103,7 @@ class EquipaCrudController extends CrudController
 
         CRUD::addField([   
             'name'      => 'image',
-            'label'     => 'Image',
+            'label'     => 'Imagem',
             'type'      => 'upload',
             'upload'    => true,
             'disk'      => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
@@ -101,7 +112,7 @@ class EquipaCrudController extends CrudController
 
         CRUD::addField([    // SELECT2
             'name'          => 'role_id',
-            'label'         => 'Role',
+            'label'         => 'Cargo',
             'type'          => 'select',
             'entity'        => 'role',
             'attribute'     => 'type',  
@@ -109,7 +120,7 @@ class EquipaCrudController extends CrudController
         
         CRUD::addField([    // SELECT2
             'name'          => 'dep_id',
-            'label'         => 'Department',
+            'label'         => 'Departmento',
             'type'          => 'select',
             'entity'        => 'department',
             'attribute'     => 'name',

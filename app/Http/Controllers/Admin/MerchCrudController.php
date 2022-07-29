@@ -48,8 +48,21 @@ class MerchCrudController extends CrudController
        
         CRUD::column('name');
         CRUD::column('description');
-        CRUD::column('photo');
-        CRUD::column('price');
+        CRUD::addColumn([
+            'name' => 'photo', 
+            'label' => 'Imagem',
+            'type' => 'image',
+            'height' => '30px',
+            'width'  => '30px',
+        ]);
+        CRUD::addColumn([
+            'name' => 'price', 
+            'label' => 'Preço',
+            'type' => 'number',
+            'suffix'        => ' EUR',
+            'decimals'      => 2,
+            'dec_point'     => ',',
+        ]);
         CRUD::column('size');
 
         /**
