@@ -34,6 +34,7 @@ const store = createStore({
     },
     merch: {
       products: {},
+      sizes: {},
     },
     currentProduct: {
       data: {},
@@ -138,6 +139,12 @@ const store = createStore({
         commit('setMandates', res.data)
       });
     },
+    getSizes({ commit }) {
+      return axiosClient.get('/sizes')
+      .then(res => {
+        commit('setSizes', res.data)
+      });
+    },
     getCategories({ commit }) {
       return axiosClient.get('/categories')
       .then(res => {
@@ -226,6 +233,9 @@ const store = createStore({
     },
     setCategories: (state, categories) => {
       state.posts.categories = categories;
+    },
+    setSizes: (state, sizes) => {
+      state.merch.sizes = sizes;
     },
   },
   modules: {}
