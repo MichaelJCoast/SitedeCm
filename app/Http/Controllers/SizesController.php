@@ -8,6 +8,6 @@ class SizesController extends Controller
 {
     public function index()
     {
-        return Size::get();
+        return Size::select('id', 'name')->get();
     }
 }
