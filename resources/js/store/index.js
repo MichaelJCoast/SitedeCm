@@ -204,14 +204,13 @@ const store = createStore({
 
       updateLocalStorage(state.cart);
     },
-    removeFromCart (state, product) {
-      let item = state.cart.find(i => i.id === product.id);
-
+    removeFromCart (state, {product, selectedSize}) {
+      const item = state.cart.find(i => i.id === product.id && i.selectedSize === selectedSize);
       if (item) {
         if (item.quantity > 1) {
           item.quantity--
         } else {
-          state.cart = state.cart.filter(i => i.id !== product.id);
+          state.cart = state.cart.filter(i => i.id !== product.id || i.selectedSize !== selectedSize);
         }
       }
       updateLocalStorage(state.cart)

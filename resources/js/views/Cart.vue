@@ -11,7 +11,7 @@
               <span class="text-base sm:text-2xl font-bold mr-6">{{ item_cost(item).toFixed(2) }}€</span>
             </div>
             <p class="text-sm">{{ product_total(item, item.selectedSize) + 'x '}} <span v-if="item.selectedSize.length < 3">{{ item.selectedSize }}</span></p>
-            <a @click="removeFromCart(item)" class="underline font-semibold text-neutral-200 cursor-pointer">Remover</a>
+            <a @click="removeFromCart(item, item.selectedSize)" class="underline font-semibold text-neutral-200 cursor-pointer">Remover</a>
           </div>
         </div>
       </div>
@@ -68,8 +68,8 @@ export default {
     item_cost(item) {
       return item.price * item.quantity;
     },
-    removeFromCart(item) {
-      this.$store.commit('removeFromCart', item);
+    removeFromCart(item, selectedSize) {
+      this.$store.commit('removeFromCart', {product: item, selectedSize: selectedSize});
     },
     submitOrder(e) {
       e.preventDefault();
