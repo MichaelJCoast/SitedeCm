@@ -18,6 +18,7 @@ const store = createStore({
       data: {},
     },
     team: {
+      loading: false,
       team_members: {},
       roles: {},
       departments: {},
@@ -33,6 +34,7 @@ const store = createStore({
       data: {},
     },
     merch: {
+      loading: false,
       products: {},
     },
     currentProduct: {
@@ -82,8 +84,10 @@ const store = createStore({
       });
     },
     getTeamMembers({ commit }) {
+      commit('setTeamLoading', true)
       return axiosClient.get('/team')
       .then(res => {
+        commit('setTeamLoading', false)
         commit('setTeamMembers', res.data)
       });
     },
@@ -118,15 +122,19 @@ const store = createStore({
       });
     },
     getMerch({ commit }) {
+      commit('setMerchLoading', true)
       return axiosClient.get('/merch')
       .then(res => {
+        commit('setMerchLoading', false)
         commit('setMerch', res.data)
       });
     },
     getProductById({ commit }, id) {
+      commit('setMerchLoading', true)
       return axiosClient
       .get(`/merch/${id}`)
       .then((res) => {
+        commit('setMerchLoading', false)
         commit("setCurrentProduct", res.data);
         return res;
       })
@@ -227,6 +235,12 @@ const store = createStore({
     setCategories: (state, categories) => {
       state.posts.categories = categories;
     },
+    setMerchLoading: (state, loading) => {
+      state.merch.loading = loading;
+    },
+    setTeamLoading: (state, loading) => {
+      state.team.loading = loading;
+    }
   },
   modules: {}
 });

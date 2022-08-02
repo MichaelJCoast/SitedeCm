@@ -1,6 +1,7 @@
 <template>
   <div class="container min-h-screen mx-auto mb-6 lg:mt-6">
-    <div class="grid grid-flow-row lg:grid-flow-col">
+<Loading v-if="loading"/>
+    <div v-else class="grid grid-flow-row lg:grid-flow-col">
       <img class="h-96 mx-auto" :src="'../' + product.photo" :alt="product.name + ' image'">
       <div class="text-white mt-6 px-8 md:px-14 space-y-4 md:w-3/4">
         <h2 class="font-semibold text-xl">{{ product.name }}</h2>
@@ -49,6 +50,7 @@
 import { computed } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
+import Loading from "../components/Loading.vue";
 import { ref } from 'vue'
 import {
   RadioGroup,
@@ -64,6 +66,7 @@ export default {
 
     return {
       product: computed(() => store.state.currentProduct),
+      loading: computed(() => store.state.merch.loading),
       size: ref('size.id'),
     };
   },
@@ -76,6 +79,7 @@ export default {
     RadioGroup,
     RadioGroupLabel,
     RadioGroupOption,
+    Loading,
   },
 };
 </script>

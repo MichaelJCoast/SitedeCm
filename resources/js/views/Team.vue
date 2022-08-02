@@ -1,6 +1,8 @@
 <template>
-    <section class="min-h-screen container mx-auto text-white">
-        <div class="w-full max-w-xl px-2 py-16 sm:px-0 mx-auto">
+    <section class="container min-h-screen mx-auto px-8 md:px-14 mb-10 text-white">
+        <h2 class="sm:mt-0 text-2xl 2xl:text-3xl font-semibold py-6">Equipa NECM</h2>
+        <Loading v-if="loading"/>
+        <div v-else-if="!loading && mandates.length" class="w-full max-w-xl px-2 py-16 sm:px-0 mx-auto">
             <TabGroup>
                 <TabList class="flex space-x-1 rounded-xl bg-black p-1">
                     <Tab v-for="mandate in mandates" as="template" :key="mandate" v-slot="{ selected }">
@@ -47,6 +49,7 @@
 
 <script>
 import { TabGroup, TabList, TabPanels, Tab, TabPanel } from '@headlessui/vue';
+import Loading from "../components/Loading.vue";
 import { useStore } from "vuex";
 import { computed } from "vue";
 export default {
@@ -61,6 +64,7 @@ export default {
             departments: computed(() => store.state.team.departments),
             roles: computed(() => store.state.team.roles),
             mandates: computed(() => store.state.team.mandates),
+            loading: computed(() => store.state.team.loading),
         };
     },
     components: {
@@ -69,6 +73,7 @@ export default {
         TabPanels,
         Tab,
         TabPanel,
+        Loading
     },
     methods: {
         // Get array with all team members based on mandate year
