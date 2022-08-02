@@ -40,7 +40,11 @@ class StatusCrudController extends CrudController
     protected function setupListOperation()
     {
 
-        CRUD::column('title');
+        CRUD::addColumn([
+            'name' => 'title', 
+            'label' => 'Estado da Encomenda',
+            'type'  => 'text',
+        ]);
 
 
         /**

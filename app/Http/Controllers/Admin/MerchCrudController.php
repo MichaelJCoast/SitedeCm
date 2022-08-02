@@ -46,8 +46,16 @@ class MerchCrudController extends CrudController
     protected function setupListOperation()
     {
        
-        CRUD::column('name');
-        CRUD::column('description');
+        CRUD::addColumn([
+            'name' => 'name', 
+            'label' => 'Nome do Produto',
+            'type'  => 'text',
+        ]);
+        CRUD::addColumn([
+            'name' => 'description', 
+            'label' => 'Descrição',
+            'type'  => 'text',
+        ]);
         CRUD::addColumn([
             'name' => 'photo', 
             'label' => 'Imagem',
