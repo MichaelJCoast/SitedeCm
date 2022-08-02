@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     addToCart() {
-      this.$store.commit('addToCart', this.product);
+      this.$store.commit('addToCart', {product: this.product, selectedSize: this.size});
     },
   },
   components: {
@@ -79,3 +79,8 @@ export default {
   },
 };
 </script>
+
+
+<!-- <select name="sizes" @change="updateSize">
+          <option v-for="size in product.sizes" :key=size.name :value=size.name>{{ size.name }}</option>
+        </select> -->

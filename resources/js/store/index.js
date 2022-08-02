@@ -44,11 +44,13 @@ const store = createStore({
     cartItems: (state) => {
       return state.cart;
     },
-    productQuantity: (state) => (product) => {
-      const item = state.cart.find(i => i.id === product.id)
+    productQuantity: (state) => (product, selectedSize) => {
+      const item = state.cart.find(i => i.id === product.id && i.selectedSize === selectedSize);
 
-      if (item) return item.quantity
-      else return null
+      if (item) {
+        return item.quantity;
+      }
+      else return null;
     },
     cartTotal: (state) => {
       return state.cart.reduce((total, item) => {
@@ -190,26 +192,26 @@ const store = createStore({
       state.cart = cart;
       updateLocalStorage(cart);
     },
-    addToCart(state, product) {
-      let item = state.cart.find(i => i.id === product.id);
+    addToCart(state, {product, selectedSize}) {
+      const item = state.cart.find(i => i.id === product.id && i.selectedSize === selectedSize);
 
       if (item) {
         item.quantity++;
       }
       else {
-      state.cart.push({...product, quantity: 1});
+        state.cart.push({...product, quantity: 1, selectedSize});
       }
 
       updateLocalStorage(state.cart);
     },
     removeFromCart (state, product) {
-      let item = state.cart.find( i => i.id === product.id)
+      let item = state.cart.find(i => i.id === product.id);
 
       if (item) {
         if (item.quantity > 1) {
           item.quantity--
         } else {
-          state.cart = state.cart.filter(i => i.id !== product.id)
+          state.cart = state.cart.filter(i => i.id !== product.id);
         }
       }
       updateLocalStorage(state.cart)
