@@ -10,12 +10,12 @@
         <RadioGroupLabel class="sr-only">Tamanhos</RadioGroupLabel>
           <RadioGroupOption
             as="button"
-            v-for="size in sizes"
+            v-for="size in product.sizes"
             :key="size.id"
             :value="size.name"
             v-slot="{ checked }"
           >
-            <div v-if="size.id === available_sizes.id"
+            <div
               :class="[
                 checked ? 'border border-white bg-white' : 'border border-white',
               ]"
@@ -61,19 +61,14 @@ export default {
     const route = useRoute();
     const store = useStore();
     store.dispatch("getProductById", route.params.id);
-    store.dispatch("getSizes");
-    store.dispatch("getMerchSizes");
 
     return {
       product: computed(() => store.state.currentProduct),
-      sizes: computed(() => store.state.merch.sizes),
-      available_sizes: computed(() => store.state.merch.sizes_available),
       size: ref('size.id'),
     };
   },
   methods: {
     addToCart() {
-      console.log(this.sizes);
       this.$store.commit('addToCart', this.product);
     },
   },
