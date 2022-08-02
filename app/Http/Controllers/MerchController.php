@@ -14,7 +14,7 @@ class MerchController extends Controller
 
     protected function getProduct($id)
     {
-        return Merch::where('id', $id)->first();
+        return Merch::where('id', $id)->with(['sizes'])->first();
     }
 
     public function getMerchSizeIds()

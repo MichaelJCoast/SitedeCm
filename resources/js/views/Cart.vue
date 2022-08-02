@@ -8,9 +8,9 @@
           <div class="flex flex-col px-4 w-full text-neutral-200">
             <div class="flex flex-col sm:flex-row sm:justify-between">
               <h1 class="text-lg sm:text-2xl font-bold">{{ item.name }}</h1>
-              <span class="text-base sm:text-2xl font-bold mr-6">{{ item_cost(item) }}€</span>
+              <span class="text-base sm:text-2xl font-bold mr-6">{{ item_cost(item).toFixed(2) }}€</span>
             </div>
-            <p class="text-sm">{{ product_total(item) + 'x' }}</p>
+            <p class="text-sm">{{ product_total(item) + 'x' + item.size }}</p>
             <a @click="removeFromCart(item)" class="underline font-semibold text-neutral-200 cursor-pointer">Remover</a>
           </div>
         </div>

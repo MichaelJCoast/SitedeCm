@@ -44,6 +44,7 @@ Route::get('blog/{post:slug}', [PostController::class, 'showFullPostBySlug']);
 Route::get('/merch', [MerchController::class, 'getMerch']);
 
 Route::get('merch/{product:id}', [MerchController::class, 'getProduct']);
-Route::get('/categories', [CategoryController::class, 'index']);
+
+Route::get('/merch-sizes', [MerchController::class, 'getMerchSizeIds']);
 
 Route::get('/sizes', [SizesController::class, 'index']);
