@@ -1,9 +1,10 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class CreateMerchTable extends Migration
+class CreateSizesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +13,9 @@ class CreateMerchTable extends Migration
      */
     public function up()
     {
-        Schema::create('merch', function (Blueprint $table) {
+        Schema::create('sizes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('description');
-            $table->string('photo');
-            $table->float('price');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateMerchTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('merch');
+        Schema::dropIfExists('sizes');
     }
 }
