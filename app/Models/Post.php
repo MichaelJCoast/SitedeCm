@@ -154,6 +154,10 @@ class Post extends Model
         return $this->belongsTo('App\Models\Categoria');
     }
 
+    public function categories(){
+        return $this->hasOne('App\Models\Categoria', 'id', 'category_id');
+    }
+
   
     /*
     |--------------------------------------------------------------------------

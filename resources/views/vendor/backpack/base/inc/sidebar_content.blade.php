@@ -43,7 +43,7 @@
                                 class='nav-icon la la-tshirt'></i> <span>Merch</span></a></li>
                     <li class='nav-item'><a class='nav-link' href='{{ backpack_url('order') }}'><i
                                 class='nav-icon la la-shopping-cart'></i> Order</a></li>
-                    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('statu') }}'><i 
+                    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('status') }}'><i 
                                 class='nav-icon la la-question'></i> Status</a></li>
                     <li class='nav-item'><a class='nav-link' href='{{ backpack_url('size') }}'><i 
                                 class='nav-icon la la-question'></i> Sizes</a></li>       

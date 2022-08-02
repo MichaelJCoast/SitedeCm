@@ -40,7 +40,11 @@ class CategoriaCrudController extends CrudController
     protected function setupListOperation()
     {
       
-        CRUD::column('name');
+        CRUD::addColumn([
+            'name' => 'name', 
+            'label' => 'Nome da Categoria',
+            'type'  => 'text',
+        ]);
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -60,7 +64,11 @@ class CategoriaCrudController extends CrudController
         CRUD::setValidation(CategoriaRequest::class);
 
        
-        CRUD::field('name');
+        CRUD::addField([
+            'name' => 'name', 
+            'label' => 'Nome da Categoria',
+            'type'  => 'text',
+        ]);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

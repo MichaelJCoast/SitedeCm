@@ -49,7 +49,11 @@ class CargoCrudController extends CrudController
     protected function setupListOperation()
     {
         
-        CRUD::column('type');
+        CRUD::addColumn([
+            'name' => 'type', 
+            'label' => 'Nome do Cargo',
+            'type'  => 'text',
+        ]);
      
 
         /**
@@ -70,7 +74,12 @@ class CargoCrudController extends CrudController
         CRUD::setValidation(CargoRequest::class);
 
         
-        CRUD::field('type');
+        CRUD::addField([
+            'name' => 'type', 
+            'label' => 'Nome do Cargo',
+            'type'  => 'text',
+
+        ]);
        
 
         /**
