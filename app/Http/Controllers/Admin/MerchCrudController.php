@@ -50,7 +50,17 @@ class MerchCrudController extends CrudController
         CRUD::column('description');
         CRUD::column('photo');
         CRUD::column('price');
-        CRUD::column('size');
+        $this->crud->addColumns( [
+            [
+                'label' => 'Size',
+                'type' => "select_multiple",
+                'entity' => 'sizes', // the method that defines the relationship in your Model
+                'name' => 'sizes',
+                'attribute' => "name", // foreign key attribute that is shown to user
+                'model' => "App\Models\Size",
+                'pivot'     => true,
+            ],
+        ]);
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -106,22 +116,15 @@ class MerchCrudController extends CrudController
              'suffix' => '€',
         ]);
 
-        CRUD::addField([  
-            'name'          => 'size',
-            'label'         => 'Este produto tem tamanho?',
-            'type'        => 'radio',
-            'options'     => [
-                // the key will be stored in the db, the value will be shown as label;
-                1 => "Sim",
-                0 => "Não"
-                
-            ],
-            // optional
-            'inline'      => true, // show the radios all on the same line?
+        CRUD::addField([
+            'label'     => 'Size',
+            'type'      => 'checklist',
+            'name'      => 'sizes',
+            'entity'    => 'sizes',
+            'attribute' => 'name',
+            'model'     => 'App\Models\Size',
+            'pivot'     => true,
         ]);
-
-        
-
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');

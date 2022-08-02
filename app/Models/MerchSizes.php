@@ -3,27 +3,24 @@
 namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Pivot;
-use Spatie\Activitylog\LogsActivityInterface;
-use Spatie\Activitylog\Traits\LogsActivity;
 
-class Order extends Pivot
+class MerchSizes extends Pivot
 {
-    use LogsActivity;
     use CrudTrait;
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
 
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
-    */
+     */
 
-    protected $table = 'order';
-    // protected $primaryKey = 'id';
-    // public $timestamps = false;
-    protected $guarded = ['id'];
-    // protected $fillable = [];
+    protected $table = 'merch_sizes';
+    //protected $primaryKey = 'id';
+    public $timestamps = false;
+    // protected $guarded = ['id'];
+    //protected $fillable = ['name'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -31,35 +28,28 @@ class Order extends Pivot
     |--------------------------------------------------------------------------
     | FUNCTIONS
     |--------------------------------------------------------------------------
-    */
-
+     */
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
     |--------------------------------------------------------------------------
-    */
-    public function merch(){
-        return $this->hasOne('App\Models\Merch', 'id', 'product');
-    }
+     */
 
-    public function status(){
-        return $this->belongsTo('App\Models\Status');
-    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES
     |--------------------------------------------------------------------------
-    */
+     */
 
     /*
     |--------------------------------------------------------------------------
     | ACCESSORS
     |--------------------------------------------------------------------------
-    */
+     */
 
     /*
-    |--------------------------------------------------------------------------
-    | MUTATORS
-    |--------------------------------------------------------------------------
-    */
+|--------------------------------------------------------------------------
+| MUTATORS
+|--------------------------------------------------------------------------
+ */
 }
