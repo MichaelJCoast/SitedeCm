@@ -9,6 +9,7 @@ use App\Http\Controllers\MerchController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\SizesController;
 use App\Http\Controllers\StudentGroupRolesController;
 use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
@@ -43,4 +44,7 @@ Route::get('blog/{post:slug}', [PostController::class, 'showFullPostBySlug']);
 Route::get('/merch', [MerchController::class, 'getMerch']);
 
 Route::get('merch/{product:id}', [MerchController::class, 'getProduct']);
-Route::get('/categories', [CategoryController::class, 'index']);
+
+Route::get('/merch-sizes', [MerchController::class, 'getMerchSizeIds']);
+
+Route::get('/sizes', [SizesController::class, 'index']);

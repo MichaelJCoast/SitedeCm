@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MerchRequest extends FormRequest
+class CarouselRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,10 +25,8 @@ class MerchRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'photo' => 'sometimes|required',
-            'description' => 'required',
-            'price' => 'required',
+            'title' => 'required',
+            'landscaped_image' => 'sometimes|required',
         ];
     }
 
