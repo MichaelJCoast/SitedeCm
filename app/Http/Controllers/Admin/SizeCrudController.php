@@ -29,6 +29,8 @@ class SizeCrudController extends CrudController
         CRUD::setModel(\App\Models\Size::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/size');
         CRUD::setEntityNameStrings('size', 'sizes');
+        $this->crud->denyAccess('list');
+        $this->crud->denyAccess('show');
     }
 
     /**
