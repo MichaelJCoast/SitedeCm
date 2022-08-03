@@ -40,6 +40,9 @@ const store = createStore({
     currentProduct: {
       data: {},
     },
+    order: {
+      loading: false,
+    },
     cart: [],
   },
   getters: {
@@ -155,6 +158,7 @@ const store = createStore({
       });
     },
     submitOrder({ commit }, order) {
+      commit('setOrderLoading', true)
       return axiosClient.post('/order', order)
       .then(res => {
         commit('setCart', [])
@@ -240,6 +244,9 @@ const store = createStore({
     },
     setTeamLoading: (state, loading) => {
       state.team.loading = loading;
+    },
+    setOrderLoading: (state, loading) => {
+      state.order.loading = loading;
     }
   },
   modules: {}
