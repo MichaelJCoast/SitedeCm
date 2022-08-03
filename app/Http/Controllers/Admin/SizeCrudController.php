@@ -40,7 +40,11 @@ class SizeCrudController extends CrudController
     protected function setupListOperation()
     {
         
-        CRUD::column('name');
+        CRUD::addColumn([
+            'name' => 'name', 
+            'label' => 'Tamanho',
+            'type'  => 'text',
+        ]);
       
 
         /**

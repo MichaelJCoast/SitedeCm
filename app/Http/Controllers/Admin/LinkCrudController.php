@@ -45,8 +45,16 @@ class LinkCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('name');
-        CRUD::column('link_to');
+        CRUD::addColumn([
+            'name' => 'name', 
+            'label' => 'Nome do Link',
+            'type'  => 'text',
+        ]);
+        CRUD::addColumn([
+            'name' => 'link_to', 
+            'label' => 'Link para:',
+            'type'  => 'text',
+        ]);
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -65,8 +73,16 @@ class LinkCrudController extends CrudController
     {
         CRUD::setValidation(LinkRequest::class);
 
-        CRUD::field('name');
-        CRUD::field('link_to');
+        CRUD::addField([
+            'name' => 'name', 
+            'label' => 'Nome do Link',
+            'type'  => 'text',
+        ]);
+        CRUD::addField([
+            'name' => 'link_to', 
+            'label' => 'Link para:',
+            'type'  => 'text',
+        ]);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

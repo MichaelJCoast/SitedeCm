@@ -29,7 +29,7 @@
         </form>
       </div>
     </div>
-    <div class="px-8 sm:px-14" v-else>
+    <div v-else>
       <p class="text-white font-semibold">Não há produtos no carrinho.</p>
     </div>
   </div>

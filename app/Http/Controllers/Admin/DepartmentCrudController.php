@@ -31,7 +31,7 @@ class DepartmentCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\Department::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/department');
-        CRUD::setEntityNameStrings('department', 'departments');
+        CRUD::setEntityNameStrings('departmento', 'departmentos');
         $this->setupAccess();
         $this->setupViewAccess();
         $this->setupDenyDelete();
@@ -46,7 +46,11 @@ class DepartmentCrudController extends CrudController
     protected function setupListOperation()
     {
         
-        CRUD::column('name');
+        CRUD::addColumn([
+            'name' => 'name', 
+            'label' => 'Nome do Departamento',
+            'type'  => 'text',
+        ]);
       
 
         /**
@@ -67,7 +71,11 @@ class DepartmentCrudController extends CrudController
         CRUD::setValidation(DepartmentRequest::class);
 
         
-        CRUD::field('name');
+        CRUD::addField([
+            'name' => 'name', 
+            'label' => 'Nome do Departamento',
+            'type'  => 'text',
+        ]);
     
 
         /**

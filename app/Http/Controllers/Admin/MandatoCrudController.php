@@ -48,7 +48,11 @@ class MandatoCrudController extends CrudController
     protected function setupListOperation()
     {
     
-        CRUD::column('year');
+        CRUD::addColumn([
+            'name' => 'year', 
+            'label' => 'Ano do Mandato',
+            'type'  => 'text',
+        ]);
 
 
         /**
@@ -68,7 +72,11 @@ class MandatoCrudController extends CrudController
     {
         CRUD::setValidation(MandatoRequest::class);
 
-        CRUD::field('year');
+        CRUD::addField([
+            'name' => 'year', 
+            'label' => 'Ano do Mandato',
+            'type'  => 'text',
+        ]);
 
 
         /**

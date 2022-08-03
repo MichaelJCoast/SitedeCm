@@ -39,8 +39,16 @@ class FaqCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('question');
-        CRUD::column('answer');
+        CRUD::addColumn([
+            'name' => 'question', 
+            'label' => 'Pergunta',
+            'type'  => 'text',
+        ]);
+        CRUD::addColumn([
+            'name' => 'answer', 
+            'label' => 'Resposta',
+            'type'  => 'text',
+        ]);
     }
 
     /**
@@ -53,8 +61,16 @@ class FaqCrudController extends CrudController
     {
         CRUD::setValidation(FaqRequest::class);
 
-        CRUD::field('question');
-        CRUD::field('answer');
+        CRUD::addField([
+            'name' => 'question', 
+            'label' => 'Pergunta',
+            'type'  => 'text',
+        ]);
+        CRUD::addField([
+            'name' => 'answer', 
+            'label' => 'Resposta',
+            'type'  => 'text',
+        ]);
     }
 
     /**
