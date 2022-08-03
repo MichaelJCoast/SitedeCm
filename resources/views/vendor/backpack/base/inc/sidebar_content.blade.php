@@ -42,18 +42,13 @@
                     <li class='nav-item'><a class='nav-link' href='{{ backpack_url('merch') }}'><i
                                 class='nav-icon la la-tshirt'></i> <span>Merch</span></a></li>
                     <li class='nav-item'><a class='nav-link' href='{{ backpack_url('order') }}'><i
-                                class='nav-icon la la-shopping-cart'></i> Order</a></li>
-                    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('status') }}'><i 
-                                class='nav-icon la la-question'></i> Status</a></li>
-                    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('size') }}'><i 
-                                class='nav-icon la la-question'></i> Sizes</a></li>       
-        
+                                class='nav-icon la la-shopping-cart'></i> Encomendas</a></li>     
                             </ul>
     </li>
 
 @endif
-<li class='nav-title'>Blog</li>
 @if (backpack_user()->hasRole('mod') || backpack_user()->hasRole('admin'))
+<li class='nav-title'>Blog</li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('post') }}'><i class='nav-icon la la-blog'></i> Posts</a>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('categoria') }}'><i class='nav-icon la la-question'></i> Categorias</a></li>
 </li>
