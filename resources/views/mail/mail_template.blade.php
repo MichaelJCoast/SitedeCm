@@ -7,7 +7,8 @@
 </head>
 <body data-rsssl=1>
     <table width="100%">
-            <strong>Nome:</strong> {{ $order->name }}
-            <strong>Encomenda:</strong> {{ $order->order }}
-            <strong>Total:</strong> {{ $order->total }}
+            <strong>Nome:</strong> {{ $order->name }}<br>
+            <strong>Encomenda:</strong> {{ $order->order }}<br>
+            <strong>Total:</strong> {{ $order->total }}<br>
+            <strong>Verificar:</strong> {{ $order->verification_url }}<br>
     </table>
