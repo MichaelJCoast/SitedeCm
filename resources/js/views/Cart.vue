@@ -37,20 +37,13 @@
 
 <script>
 import { useStore } from "vuex";
+import { computed } from "vue";
 export default {
   data() {
     const store = useStore();
-
-    const orderDetails = {
-      name: '',
-      email: '',
-      order: store.state.cart.map(item => `${item.name} ${item.selectedSize} ${item.quantity}x`).join(', '),
-      total: this.$store.getters.cartItems.reduce((a, b) => a + (b.price * b.quantity), 0),
-      status_id: 1,
-    }
-
+    
     return {
-      orderDetails,
+      orderProcessing: computed(() => store.state.order.loading),
     };
   },
   computed: {
@@ -59,6 +52,16 @@ export default {
     },
     cart_total() {
       return this.$store.getters.cartItems.reduce((a, b) => a + (b.price * b.quantity), 0);
+    },
+    orderDetails() {
+      const orderDetails = {
+      name: '',
+      email: '',
+      order: this.$store.state.cart.map(item => `${item.name} ${item.selectedSize} ${item.quantity}x`).join(', '),
+      total: this.$store.getters.cartItems.reduce((a, b) => a + (b.price * b.quantity), 0),
+      status_id: 1,
+    }
+      return orderDetails;
     }
   },
   methods: {
