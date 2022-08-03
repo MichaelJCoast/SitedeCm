@@ -29,6 +29,8 @@ class StatusCrudController extends CrudController
         CRUD::setModel(\App\Models\Status::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/status');
         CRUD::setEntityNameStrings('status', 'status');
+        $this->crud->denyAccess('list');
+        $this->crud->denyAccess('show');
     }
 
     /**
