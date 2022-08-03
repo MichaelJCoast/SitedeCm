@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -19,8 +20,10 @@ class OrderController extends Controller
 
         $order = Order::create($credentials);
 
+        Mail::to($credentials['email'])->send(new \App\Mail\sendOrderConfirmation($order));
+
         return response([
-            'message' => 'Order submitted successfully',
+            'msg' => 'Order submitted successfully',
             'order' => $order,
         ]);
     }

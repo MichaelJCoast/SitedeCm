@@ -2,24 +2,25 @@
 
 namespace App\Mail;
 
+use App\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class main extends Mailable
+class sendOrderConfirmation extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $main;
+    public $order;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($main)
+    public function __construct(Order $order)
     {
-        $this->main = $main;
+        $this->order = $order;
     }
 
     /**
@@ -29,7 +30,7 @@ class main extends Mailable
      */
     public function build()
     {
-        return $this->subject('Núcleo Comunicação e Multimédia')
-            ->view('mail/main');
+        return $this->view('mail.mail_template')
+            ->subject('Confirmação da Encomenda');
     }
 }
