@@ -14,6 +14,9 @@ const store = createStore({
     currentPost: {
       data: {},
     },
+    verified_order: {
+      data: {},
+    },
     categories: {
       data: {},
     },
@@ -80,6 +83,16 @@ const store = createStore({
       .get(`/blog/${slug}`)
       .then((res) => {
         commit("setCurrentPost", res.data);
+        return res;
+      })
+      .catch((err) => {
+        throw err;
+      });
+    },
+    verifyOrder({ commit }, verify_token) {
+      return axiosClient.get(`/verify-order/?verify=${verify_token}`)
+      .then((res) => {
+        commit("verifyOrder", res.data);
         return res;
       })
       .catch((err) => {

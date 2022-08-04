@@ -33,6 +33,8 @@ Route::get('/mandato', [MandatoController::class, 'index']);
 Route::get('/studentgrouproles', [StudentGroupRolesController::class, 'index']);
 Route::get('/categories', [CategoryController::class, 'index']);
 
+Route::get('/verify-order?verify={:token}', [OrderController::class, 'verifyToken']);
+
 Route::get('/faq', [QuestionController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
 

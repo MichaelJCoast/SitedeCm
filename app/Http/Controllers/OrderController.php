@@ -23,7 +23,7 @@ class OrderController extends Controller
         $dataToken = ['email' => $email, 'id' => $order_id, 'token' => $this->create_uuid()];
         $crypted = Crypt::encrypt($dataToken);
         // Remove :8000 later
-        $url = env('APP_URL') . ':8000/' . '/verify-order/' . '?verify=' . $crypted;
+        $url = env('APP_URL') . ':8000' . '/verify-order' . '?verify=' . $crypted;
         return $url;
     }
 
