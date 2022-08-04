@@ -24,19 +24,12 @@ class Cargo extends Model
     // protected $hidden = [];
     // protected $dates = [];
     
-    public function roles() {
-        return $this->belongsToMany('App\Models\Cargo');//(->withPivot('notes', 'some_other_field'); // `notes` and `some_other_field` are aditional fields in the pivot table that you plan to show in the form.
-    }
     /*
     |--------------------------------------------------------------------------
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
 
-    public function identifiableName()
-    {
-        return $this->name;
-    }
 
     /*   
     |--------------------------------------------------------------------------

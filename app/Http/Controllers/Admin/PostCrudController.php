@@ -44,14 +44,41 @@ class PostCrudController extends CrudController
     protected function setupListOperation()
     {
         
-        CRUD::column('title');
-        CRUD::column('body');
+        CRUD::addColumn([
+            'name' => 'title', 
+            'label' => 'Título',
+            'type'  => 'text',
+        ]);
+        CRUD::addColumn([
+            'name' => 'body', 
+            'label' => 'Body',
+            'type'  => 'text',
+        ]);
         CRUD::column('slug');
-        CRUD::column('category');
-        CRUD::column('created_at');
-        CRUD::column('portrait_image');
-        CRUD::column('landscaped_image');
-
+        CRUD::addColumn([
+            'name' => 'categories.name', 
+            'label' => 'Categoria',
+            'type'  => 'text',
+        ]);
+        CRUD::addColumn([
+            'name' => 'created_at', 
+            'label' => 'Criado a',
+            'type' => 'date',
+        ]);
+        CRUD::addColumn([
+            'name' => 'portrait_image', 
+            'label' => 'Portrait',
+            'type' => 'image',
+            'height' => '30px',
+            'width'  => '30px',
+        ]);
+        CRUD::addColumn([
+            'name' => 'landscaped_image', 
+            'label' => 'Landscaped',
+            'type' => 'image',
+            'height' => '30px',
+            'width'  => '40px',
+        ]);
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
@@ -69,7 +96,11 @@ class PostCrudController extends CrudController
     {
         CRUD::setValidation(PostRequest::class);
 
-        CRUD::field('title');
+        CRUD::addField([
+            'name' => 'title', 
+            'label' => 'Título',
+            'type'  => 'text',
+        ]);
         CRUD::addField([
             'name'          => 'body',
             'label'         => 'Text',

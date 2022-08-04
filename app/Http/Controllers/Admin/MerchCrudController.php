@@ -46,13 +46,34 @@ class MerchCrudController extends CrudController
     protected function setupListOperation()
     {
        
-        CRUD::column('name');
-        CRUD::column('description');
-        CRUD::column('photo');
-        CRUD::column('price');
+        CRUD::addColumn([
+            'name' => 'name', 
+            'label' => 'Nome do Produto',
+            'type'  => 'text',
+        ]);
+        CRUD::addColumn([
+            'name' => 'description', 
+            'label' => 'Descrição',
+            'type'  => 'text',
+        ]);
+        CRUD::addColumn([
+            'name' => 'photo', 
+            'label' => 'Imagem',
+            'type' => 'image',
+            'height' => '30px',
+            'width'  => '30px',
+        ]);
+        CRUD::addColumn([
+            'name' => 'price', 
+            'label' => 'Preço',
+            'type' => 'number',
+            'suffix'        => ' EUR',
+            'decimals'      => 2,
+            'dec_point'     => ',',
+        ]);
         $this->crud->addColumns( [
             [
-                'label' => 'Size',
+                'label' => 'Tamanhos',
                 'type' => "select_multiple",
                 'entity' => 'sizes', // the method that defines the relationship in your Model
                 'name' => 'sizes',
@@ -101,7 +122,7 @@ class MerchCrudController extends CrudController
 
         CRUD::addField([   
             'name'      => 'photo',
-            'label'     => 'Image',
+            'label'     => 'Imagem',
             'type'      => 'upload',
             'upload'    => true,
             'disk'      => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
@@ -109,7 +130,7 @@ class MerchCrudController extends CrudController
         
         CRUD::addField([  
             'name'          => 'price',
-            'label'         => 'Price',
+            'label'         => 'Preço',
             'type' => 'number',
              // optionals
              'attributes' => ["step" => "any"], // allow decimals
@@ -117,7 +138,7 @@ class MerchCrudController extends CrudController
         ]);
 
         CRUD::addField([
-            'label'     => 'Size',
+            'label'     => 'Tamanhos',
             'type'      => 'checklist',
             'name'      => 'sizes',
             'entity'    => 'sizes',

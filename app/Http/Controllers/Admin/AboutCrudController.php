@@ -39,8 +39,16 @@ class AboutCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('title');
-        CRUD::column('subtitle');
+        CRUD::addColumn([
+            'name' => 'title', 
+            'label' => 'Título',
+            'type'  => 'text',
+        ]);
+        CRUD::addColumn([
+            'name' => 'subtitle', 
+            'label' => 'Subtítulo',
+            'type'  => 'text',
+        ]);
     }
 
     /**

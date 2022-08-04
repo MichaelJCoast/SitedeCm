@@ -21,7 +21,8 @@
                     <TabPanel v-for="mandate in mandates" as="TabPanel" :key="mandate">
                     <div v-if="getTeamMembersByMandate(mandate)">
                         <div v-for="department in departments" :key="department.id">
-                            <h2 v-if="getTeamMembersByDepartment(department, mandate).length" class="text-xl text-center font-semibold md:text-2xl mt-6">{{ department.name }}</h2>
+                        <div v-if="getTeamMembersByDepartment(department, mandate).length" >
+                            <h2 class="text-xl text-center font-semibold md:text-2xl mt-6">{{ department.name }}</h2>
                             <div class="grid gap-y-4 mt-8 grid-cols-1 sm:grid-cols-3 place-items-center">
                                 <div v-for="team_member in team_members" :key="team_member.id"
                                     class="w-full max-w-xs space-y-4 text-center">
@@ -38,6 +39,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         </div>
                     </div>
                     </TabPanel>
@@ -83,7 +85,7 @@ export default {
         // Get array with all team members based on department id
         getTeamMembersByDepartment(department, mandate) {
             return this.team_members.filter(team_member => team_member.dep_id == department.id && team_member.mandato_id == mandate.id);
-        },
+        },      
     }
 };
 </script> 

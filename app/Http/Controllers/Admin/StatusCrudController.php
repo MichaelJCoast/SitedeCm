@@ -27,8 +27,10 @@ class StatusCrudController extends CrudController
     public function setup()
     {
         CRUD::setModel(\App\Models\Status::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/statu');
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/status');
         CRUD::setEntityNameStrings('status', 'status');
+        $this->crud->denyAccess('list');
+        $this->crud->denyAccess('show');
     }
 
     /**
@@ -40,7 +42,11 @@ class StatusCrudController extends CrudController
     protected function setupListOperation()
     {
 
-        CRUD::column('title');
+        CRUD::addColumn([
+            'name' => 'title', 
+            'label' => 'Estado da Encomenda',
+            'type'  => 'text',
+        ]);
 
 
         /**
