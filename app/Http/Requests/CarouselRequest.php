@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
-
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CarouselRequest extends FormRequest
@@ -26,7 +26,8 @@ class CarouselRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'image' => 'sometimes|required',
+            'image' => 'sometimes|required|dimensions:ratio=16/9',
+    
         ];
     }
 
