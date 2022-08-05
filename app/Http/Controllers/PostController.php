@@ -8,7 +8,12 @@ class PostController extends Controller
 {
     public function index()
     {
-        return Post::latest()->select('id', 'title', 'slug', 'category_id', 'portrait_image')->get();
+        return Post::latest()->select('id', 'title', 'slug', 'category_id', 'portrait_image', 'created_at')->get();
+    }
+
+    public function getLatestPosts()
+    {
+        return Post::latest()->select('id', 'title', 'slug', 'category_id', 'portrait_image', 'created_at')->limit(6)->get();
     }
 
     protected function showFullPostBySlug($slug)
