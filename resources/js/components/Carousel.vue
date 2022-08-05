@@ -50,22 +50,6 @@ export default {
 </script>
 
 <style type="text/css">
-.swiper {
-  width: 60%;
-}
-
-@media only screen and (max-width: 810px) {
-  .swiper {
-    width: 100%;
-  }
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  object-fit: cover;
-}
-
 .swiper-pagination-bullet {
   background: #525252;
   border-radius: 0;
