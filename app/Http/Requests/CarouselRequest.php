@@ -26,7 +26,7 @@ class CarouselRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'landscaped_image' => 'sometimes|required',
+            'image' => 'sometimes|required',
         ];
     }
 

@@ -44,18 +44,18 @@ class CarouselCrudController extends CrudController
             'label' => 'Título',
             'type'  => 'text',
         ]);
-        CRUD::column('url');
+        CRUD::column('router_link');
         CRUD::addColumn([
             'name' => 'has_button', 
             'label' => 'Botão',
             'type'  => 'boolean',
             'options' => [
-                0 => 'Tem', 
-                1 => 'Não tem'
+                0 => 'Não tem botão', 
+                1 => 'Tem botão',
             ]
         ]);
         CRUD::addColumn([
-            'name' => 'landscaped_image', 
+            'name' => 'image', 
             'label' => 'Imagem',
             'type' => 'image',
             'height' => '30px',
@@ -85,14 +85,14 @@ class CarouselCrudController extends CrudController
             'type'  => 'text',
         ]);
         CRUD::addField([
-            'name'      => 'landscaped_image',
-            'label'     => 'Landscaped Image',
+            'name'      => 'image',
+            'label'     => 'Imagem',
             'type'      => 'upload',
             'upload'    => true,
             'disk'      => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
         ]);
 
-        CRUD::field('url');
+        CRUD::field('router_link');
 
         CRUD::addField([   // Checkbox
             'name'  => 'has_button',

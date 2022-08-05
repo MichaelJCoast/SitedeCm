@@ -8,6 +8,6 @@ class CarouselController extends Controller
 {
     public function index()
     {
-        return Carousel::select('id', 'title', 'landscaped_image', 'url', 'has_button')->get();
+        return Carousel::select('id', 'title', 'image', 'router_link', 'has_button')->get();
     }
 }
