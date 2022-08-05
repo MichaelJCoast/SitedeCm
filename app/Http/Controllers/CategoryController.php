@@ -8,6 +8,6 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        return Categoria::get();
+        return Categoria::select('id', 'name')->get();
     }
 }

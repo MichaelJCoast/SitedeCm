@@ -42,6 +42,7 @@ Route::get('/about', [AboutController::class, 'index']);
 Route::get('/links', [LinksController::class, 'index']);
 
 Route::get('/blog', [PostController::class, 'index']);
+Route::get('/blog-latest', [PostController::class, 'getLatestPosts']);
 Route::get('blog/{post:slug}', [PostController::class, 'showFullPostBySlug']);
 
 Route::get('/merch', [MerchController::class, 'getMerch']);
