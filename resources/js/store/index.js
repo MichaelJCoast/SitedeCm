@@ -69,6 +69,12 @@ const store = createStore({
     }
   },
   actions: {
+    getLatestPosts({ commit }) {
+      return axiosClient.get('/blog-latest')
+      .then(res => {
+        commit('setPosts', res.data)
+      });
+    },
     getPosts({ commit }) {
       return axiosClient.get('/blog')
       .then(res => {

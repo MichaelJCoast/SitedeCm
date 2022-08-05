@@ -7,7 +7,7 @@
                 <div v-if="posts.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-4">
                         <PostCard v-for="post in posts" :key="post.id" :post="post" :category="categories" />
                 </div>
-            <div class="text-center">
+            <div v-if="posts.length > 6" class="text-center">
                 <router-link to="/blog" class="font-semibold transition ease-in-out rounded-lg text-lg bg-transparent hover:bg-neutral-600 px-4 py-2">Mais Notícias</router-link>
             </div>
     </div>
@@ -21,7 +21,7 @@ import Carousel from "../components/Carousel.vue";
 export default {
   setup() {
     const store = useStore();
-    store.dispatch("getPosts");
+    store.dispatch("getLatestPosts");
     store.dispatch("getCategories");
     store.dispatch("getCarousel");
     
