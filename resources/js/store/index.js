@@ -20,6 +20,9 @@ const store = createStore({
     categories: {
       data: {},
     },
+    carousel: {
+      data: {},
+    },
     team: {
       loading: false,
       team_members: {},
@@ -72,10 +75,24 @@ const store = createStore({
     }
   },
   actions: {
+    getLatestPosts({ commit }) {
+      return axiosClient.get('/blog-latest')
+      .then(res => {
+        commit('setPosts', res.data)
+      });
+    },
     getPosts({ commit }) {
       return axiosClient.get('/blog')
       .then(res => {
         commit('setPosts', res.data)
+      });
+    },
+    getCarousel({ commit }) {
+      return axiosClient.get('/carousel')
+      .then(res => {
+        commit('setCarousel', res.data)
+      }).catch(err => {
+        console.log(err);
       });
     },
     getPostBySlug({ commit }, slug) {
@@ -184,6 +201,9 @@ const store = createStore({
   mutations: {
     setPosts: (state, posts) => {
       state.posts.data = posts;
+    },
+    setCarousel: (state, carousel) => {
+      state.carousel.data = carousel;
     },
     setCurrentPost: (state, currentPost) => {
       state.currentPost = currentPost;

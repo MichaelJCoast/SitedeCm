@@ -16,8 +16,8 @@ class CreateCarouselTable extends Migration
         Schema::create('carousel', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('landscaped_image');
-            $table->string('url')->nullable()->default('#');
+            $table->string('image');
+            $table->string('router_link')->nullable()->default('#');
             $table->boolean('has_button')->nullable()->default(0);
             $table->timestamps();
         });
