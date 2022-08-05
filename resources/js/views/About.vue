@@ -1,11 +1,11 @@
 <template>
-  <div v-if="about[0]" class="container min-h-screen my-6 mx-auto px-8 md:px-14">
+  <div v-if="about[0]" class="container min-h-screen my-6 mx-auto px-8 md:px-12">
     <h1
       class="text-white text-center uppercase font-black drop-shadow-lg text-3xl sm:text-6xl"
     >
     {{ firstAboutSectionTitle() }}
     </h1>
-    <div class="mx-auto border-t-4 mt-1 mb-2 w-48 border-red-500"></div>
+    <div class="mx-auto border-t-4 mt-1 mb-2 w-56 border-red-500"></div>
     <p v-html="firstAboutSectionBody()" class="text-white text-justify"></p>
     <!-- Quem Somos Content -->
     <div v-for="aboutList in about.slice(1)" :key="aboutList.id" class="mt-4">
@@ -15,12 +15,12 @@
     </h1>
     <p v-html="aboutList.subtitle" class="text-white text-justify mt-4"></p>
     </div>
-    <div class="w-full px-2 mt-4 sm:px-4">
+    <div class="w-full px-2 sm:px-0 mt-4">
         <h1
       class="text-white text-center capitalize font-semibold text-2xl sm:text-5xl">
         FAQ
     </h1>
-    <div class="mx-auto w-full max-w-screen rounded-2xl mt-4 p-2">
+    <div class="mx-auto w-full max-w-screen rounded-2xl mt-4">
       <Disclosure v-slot="{ open }">
         <DisclosureButton
           class="flex w-full justify-between border-b border-neutral-700 px-4 py-2 text-left text-base sm:text-lg font-medium text-neutral-200 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-red-500 focus-visible:ring-opacity-75"
