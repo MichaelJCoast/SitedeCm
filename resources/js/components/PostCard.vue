@@ -2,7 +2,7 @@
 <div class="flex flex-col h-full w-full xl:w-96 2xl:w-auto bg-black border border-zinc-700 rounded-lg overflow-hidden">
     <!-- Image -->
     <a class="block focus:outline-none focus-visible:ring-2" :href="'blog/' + post.slug">
-        <figure class="relative h-0 pb-[70%] sm:pb-[100%] overflow-hidden">
+        <figure class="relative h-0 pb-[100%] overflow-hidden">
             <img class="absolute inset-0 w-full h-full object-cover"
                 :src="'../' + post.portrait_image"
                 width="320" height="180" alt="image">

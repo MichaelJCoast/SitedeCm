@@ -1,10 +1,10 @@
 <template>
-    <section class="container min-h-screen mx-auto px-8 md:px-14 mb-10 text-white">
+    <section class="container min-h-screen mx-auto px-8 md:px-12 mb-10 text-white">
         <h2 class="sm:mt-0 text-2xl 2xl:text-3xl font-semibold py-6">Equipa NECM</h2>
         <Loading v-if="loading"/>
-        <div v-else-if="!loading && mandates.length" class="w-full max-w-xl px-2 py-16 sm:px-0 mx-auto">
+        <div v-else-if="!loading && mandates.length" class="w-full max-w-xl sm:px-0 mx-auto">
             <TabGroup>
-                <TabList class="flex space-x-1 rounded-xl bg-black p-1">
+                <TabList class="flex space-x-1 rounded-xl bg-black p-1 mx-auto">
                     <Tab v-for="mandate in mandates" as="template" :key="mandate" v-slot="{ selected }">
                         <button :class="[
                             'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-white',

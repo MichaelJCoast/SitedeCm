@@ -1,5 +1,5 @@
 <template>
-  <div class="container min-h-screen mx-auto px-8 md:px-14 mb-10 text-white">
+  <div class="container min-h-screen mx-auto px-8 md:px-12 mb-10 text-white">
     <h2 class="sm:mt-0 text-2xl 2xl:text-3xl font-semibold py-6">Merch</h2>
     <Loading v-if="loading"/>
     <div v-else class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
