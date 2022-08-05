@@ -44,7 +44,9 @@ export default {
     const orderDetails = {
       name: '',
       email: '',
-      order: store.state.cart.map(item => `${item.name} ${item.selectedSize} ${item.quantity}x`).join(', '),
+      order: store.state.cart.map(item => { if(item.selectedSize.length < 3) { return `${item.name} ${item.selectedSize} ${item.quantity}x` }
+      else { return `${item.name} ${item.quantity}x` }
+      }).join(', '),
       total: this.$store.getters.cartItems.reduce((a, b) => a + (b.price * b.quantity), 0),
       status_id: 1,
     }
