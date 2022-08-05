@@ -20,7 +20,7 @@
           >
           </div>
         </div>
-      <router-link class="flex relative items-center" :to="'/carrinho'">
+      <router-link class="flex relative items-center" to="/carrinho">
         <ShoppingCartIcon class="h-6 w-6 text-white hover:text-red-600" />
         <span v-if="cart_quantity" class="absolute inset-0 mt-1 ml-4">
           <div
