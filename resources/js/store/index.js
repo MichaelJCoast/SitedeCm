@@ -14,6 +14,9 @@ const store = createStore({
     currentPost: {
       data: {},
     },
+    verified_order: {
+      data: {},
+    },
     categories: {
       data: {},
     },
@@ -42,6 +45,9 @@ const store = createStore({
     },
     currentProduct: {
       data: {},
+    },
+    order: {
+      loading: false,
     },
     cart: [],
   },
@@ -94,6 +100,15 @@ const store = createStore({
       .get(`/blog/${slug}`)
       .then((res) => {
         commit("setCurrentPost", res.data);
+        return res;
+      })
+      .catch((err) => {
+        throw err;
+      });
+    },
+    verifyOrder({ commit }, verify_token) {
+      return axiosClient.get(`/verify-order/${verify_token}`)
+      .then((res) => {
         return res;
       })
       .catch((err) => {
@@ -172,6 +187,7 @@ const store = createStore({
       });
     },
     submitOrder({ commit }, order) {
+      commit('setOrderLoading', true)
       return axiosClient.post('/order', order)
       .then(res => {
         commit('setCart', [])
@@ -260,6 +276,9 @@ const store = createStore({
     },
     setTeamLoading: (state, loading) => {
       state.team.loading = loading;
+    },
+    setOrderLoading: (state, loading) => {
+      state.order.loading = loading;
     }
   },
   modules: {}

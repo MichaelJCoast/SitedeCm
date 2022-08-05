@@ -32,6 +32,7 @@ class OrderCrudController extends CrudController
         CRUD::setEntityNameStrings('order', 'orders');
         $this->setupAccess();
         $this->setupViewAccess();
+        $this->crud->orderBy('status_id', 'DESC');
 
     }
 
