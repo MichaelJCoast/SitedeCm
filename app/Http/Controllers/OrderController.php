@@ -11,6 +11,7 @@ use Ramsey\Uuid\Uuid;
 
 class OrderController extends Controller
 {
+
     public function create_uuid()
     {
         $nodeProvider = new RandomNodeProvider();
@@ -18,9 +19,9 @@ class OrderController extends Controller
         return Uuid::uuid1($nodeProvider->getNode(), $clockSequence);
     }
 
-    public function createVerificationUrl($email, $order_id)
+    public function createVerificationUrl($email, $order_id, $token)
     {
-        $dataToken = ['email' => $email, 'id' => $order_id, 'token' => $this->create_uuid()];
+        $dataToken = ['token' => $token];
         $crypted = Crypt::encrypt($dataToken);
         // Remove :8000 later
         $url = env('APP_URL') . ':8000' . '/verify-order/' . $crypted;
@@ -32,7 +33,7 @@ class OrderController extends Controller
         $decrypt = Crypt::decrypt($verifyToken);
         $verify = Order::where($decrypt);
         if ($verify->exists()) {
-            $verify->update(['status_id' => '2']);
+            $verify->update(['status_id' => 2]);
         }
     }
 
@@ -46,11 +47,11 @@ class OrderController extends Controller
             'status_id' => ['required'],
         ]);
 
-        $credentials['token'] = $dataToken['token'];
+        $credentials['token'] = $this->create_uuid();
 
         $order = Order::create($credentials);
 
-        $order['verification_url'] = $this->createVerificationUrl($credentials['email'], $order->id);
+        $order['verification_url'] = $this->createVerificationUrl($credentials['email'], $order->id, $credentials['token']);
 
         Mail::to($credentials['email'])->send(new \App\Mail\sendOrderConfirmation($order));
 
