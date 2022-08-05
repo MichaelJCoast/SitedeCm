@@ -26,7 +26,7 @@ class CarouselRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'image' => 'sometimes|required|dimensions:ratio=16/9',
+            'image' => 'sometimes|required|dimensions:max_width=1920,max_height=1080,min_width=1920, min_height=1080,',
     
         ];
     }
