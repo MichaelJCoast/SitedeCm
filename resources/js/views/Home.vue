@@ -1,5 +1,5 @@
 <template>
-<Carousel/>
+<Carousel :carousel="carousel_items"/>
     <div v-if="posts.length" class="container min-h-screen mx-auto px-8 md:px-14 mb-10 text-white space-y-6">
         <div class="mt-6">
             <router-link to="/blog" class="sm:mt-0 text-2xl 2xl:text-3xl font-semibold py-6">Últimas Notícias</router-link>
@@ -23,10 +23,12 @@ export default {
     const store = useStore();
     store.dispatch("getPosts");
     store.dispatch("getCategories");
+    store.dispatch("getCarousel");
     
     return {
       posts: computed(() => store.state.posts.data),
       categories: computed(() => store.state.posts.categories),
+      carousel_items: computed(() => store.state.carousel.data),
     };
   },
   components: { PostCard, Carousel },
