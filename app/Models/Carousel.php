@@ -31,9 +31,9 @@ class Carousel extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function setLandscapedImageAttribute($value)
+    public function setImageAttribute($value)
     {
-        $attribute_name = "landscaped_image";
+        $attribute_name = "image";
         $disk = "public";
         $destination_path ="uploads/carousel";
 

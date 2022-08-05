@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\LinksController;
@@ -32,6 +33,8 @@ Route::get('/department', [DepartmentController::class, 'index']);
 Route::get('/mandato', [MandatoController::class, 'index']);
 Route::get('/studentgrouproles', [StudentGroupRolesController::class, 'index']);
 Route::get('/categories', [CategoryController::class, 'index']);
+
+Route::get('/carousel', [CarouselController::class, 'index']);
 
 Route::get('/faq', [QuestionController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
