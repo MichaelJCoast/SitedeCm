@@ -9,12 +9,12 @@ class MerchController extends Controller
 {
     public function getMerch()
     {
-        return Merch::latest()->get();
+        return Merch::latest()->select('id', 'name', 'description', 'photo', 'price')->get();
     }
 
     protected function getProduct($id)
     {
-        return Merch::where('id', $id)->with(['sizes'])->first();
+        return Merch::where('id', $id)->with(['sizes'])->select('id', 'name', 'description', 'photo', 'price')->first();
     }
 
     public function getMerchSizeIds()
