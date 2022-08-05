@@ -23,7 +23,7 @@ class OrderController extends Controller
         $dataToken = ['email' => $email, 'id' => $order_id, 'token' => $this->create_uuid()];
         $crypted = Crypt::encrypt($dataToken);
         // Remove :8000 later
-        $url = env('APP_URL') . ':8000' . '/verify-order' . '?verify=' . $crypted;
+        $url = env('APP_URL') . ':8000' . '/verify-order/' . $crypted;
         return $url;
     }
 
@@ -32,7 +32,7 @@ class OrderController extends Controller
         $decrypt = Crypt::decrypt($verifyToken);
         $verify = Order::where($decrypt);
         if ($verify->exists()) {
-            $verify->update(['status_id' => 2]);
+            $verify->update(['status_id' => '2']);
         }
     }
 
@@ -45,6 +45,8 @@ class OrderController extends Controller
             'total' => ['required', 'numeric'],
             'status_id' => ['required'],
         ]);
+
+        $credentials['token'] = $dataToken['token'];
 
         $order = Order::create($credentials);
 

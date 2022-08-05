@@ -11,7 +11,12 @@ export default {
   created() {
     const route = useRoute();
     const store = useStore();
-    store.dispatch("verifyOrder", route.params.verify_token);
+    
+    const queryString = window.location.href;
+    const queryStringArray = queryString.split("/");
+    const queryStringLastPart = queryStringArray[queryStringArray.length - 1];
+
+    store.dispatch("verifyOrder", queryStringLastPart);
   }
 }
 </script>

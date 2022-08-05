@@ -25,7 +25,7 @@ const routes = [
             { path: "/equipa", name: "Team", component: Team },
             { path: "/links", name: "Links", component: Links },
             { path: "/carrinho", name: "Cart", component: Cart },
-            { path: "/verify-order", name: "VerifyOrder", component: VerifyOrder},
+            { path: "/verify-order/:token", name: "VerifyOrder", component: VerifyOrder},
           ],
     },
 ];
