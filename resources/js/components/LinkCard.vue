@@ -3,7 +3,8 @@
     <div class="flex items-center justify-center cursor-pointer">
       <a
         :href="link.link_to"
-        class="text-xl font-semibold text-center text-gray-100 truncate"
+        class="text-xl font-semibold text-center text-gray-100 truncate capitalize"
+        target="_blank"
       >
         {{ link.name }}
       </a>

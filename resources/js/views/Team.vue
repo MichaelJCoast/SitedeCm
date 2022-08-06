@@ -12,38 +12,30 @@
                             selected
                                 ? 'bg-neutral-900 shadow'
                                 : 'text-red-100 hover:bg-white/[0.12] hover:text-white',
-                        ]">
-                            {{ mandate.year }}
-                        </button>
+                        ]"> 
+                        {{ mandate.year }} </button>
                     </Tab>
                 </TabList>
-                <TabPanels>
-                    <TabPanel v-for="mandate in mandates" as="TabPanel" :key="mandate">
+
+                <TabPanel v-for="mandate in mandates" as="TabPanel" :key="mandate">
                     <div v-if="getTeamMembersByMandate(mandate)">
-                        <div v-for="department in departments" :key="department.id">
+                        <div v-for="(department,i) in departments" :key="i">
                         <div v-if="getTeamMembersByDepartment(department, mandate).length" >
-                            <h2 class="text-xl text-center font-semibold md:text-2xl mt-6">{{ department.name }}</h2>
-                            <div class="grid gap-y-4 mt-8 grid-cols-1 sm:grid-cols-3 place-items-center">
-                                <div v-for="team_member in team_members" :key="team_member.id"
-                                    class="w-full max-w-xs space-y-4 text-center">
-                                    <div v-if="department.id === team_member.dep_id && mandate.id === team_member.mandato_id">
-                                    <img class="object-cover object-center w-[80%] h-auto mx-auto rounded-lg"
-                                        :src="team_member.image" :alt="team_member.nome + ' photo'" />
-                                    <h3 class="text-sm sm:text-lg font-semibold">{{ team_member.nome }}</h3>
-                                    <div v-for="role in roles" :key="role.id">
-                                        <span v-if="role.id == team_member.role_id"
-                                            class="text-sm sm:text-lg text-red-500">
-                                            {{ role.type }}
-                                        </span>
-                                    </div>
-                                    </div>
+                            <h2 class="text-xl text-center font-semibold md:text-2xl mt-14">{{ department.name }}</h2>
+                            <div class="w-full flex flex-wrap place-content-center "> <!-- CAIXA  -->
+                                <div v-for="team_member in team_members" :key="team_member.id">
+                                    <div v-if="department.id === team_member.dep_id && mandate.id === team_member.mandato_id" class="text-center w-40 m-4 ">
+                                        <img class="object-cover object-center w-[100%] h-auto rounded-lg" :src="team_member.image" :alt="team_member.nome + ' photo'" />
+                                        <h3 class="text-sm sm:text-lg font-semibold">{{ team_member.nome }}</h3>
+                                        <div v-for="role in roles" :key="role.id">
+                                        <span v-if="role.id == team_member.role_id" class="text-sm sm:text-lg text-red-500"> {{ role.type }} </span> </div>
+                                     </div>
                                 </div>
                             </div>
                         </div>
                         </div>
                     </div>
-                    </TabPanel>
-                </TabPanels>
+                </TabPanel>
             </TabGroup>
         </div>
     </section>

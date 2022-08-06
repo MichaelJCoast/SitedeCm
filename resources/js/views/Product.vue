@@ -24,13 +24,14 @@
       <button @click="addToCart()" type="submit" class="p-4 rounded-md uppercase bg-red-700 hover:brightness-125">
         <p class="font-bold text-gray-100">Adicionar ao carrinho</p>
       </button>
-        <span v-if="clicked" class="text-green-400 text-5xl align-middle pl-5">&#10003; </span>
+        <span v-if="clicked" class="text-green-400 text-5xl align-middle pl-5 absolute">&#10003; </span>
       </div>    
     </div>
   </div>
 </template>
 
 <script>
+import swal from 'sweetalert2'
 import { computed } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
@@ -45,6 +46,7 @@ export default {
     store.dispatch("getProductById", route.params.id);
 
     return {
+      size: null,
       clicked:false,
       product: computed(() => store.state.currentProduct),
       loading: computed(() => store.state.merch.loading),
@@ -53,6 +55,15 @@ export default {
   },
   methods: {
     addToCart() {
+      if(this.size==='size.id'){
+          swal.fire({
+            position: 'top-end',
+            title: "Seleciona um tamanho para continuar",
+            icon: 'error',
+            timer: 1500,
+        });
+      }
+      else{
       this.clicked=true,
         setTimeout(() => {
         this.clicked=false;
@@ -61,6 +72,7 @@ export default {
         product: this.product,
         selectedSize: this.size,
       });
+      }
     },
   },
   components: {
@@ -71,8 +83,3 @@ export default {
   },
 };
 </script>
-
-
-<!-- <select name="sizes" @change="updateSize">
-          <option v-for="size in product.sizes" :key=size.name :value=size.name>{{ size.name }}</option>
-        </select> -->
