@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\LinksController;
@@ -33,12 +34,16 @@ Route::get('/mandato', [MandatoController::class, 'index']);
 Route::get('/studentgrouproles', [StudentGroupRolesController::class, 'index']);
 Route::get('/categories', [CategoryController::class, 'index']);
 
+Route::get('/verify-order/{token}', [OrderController::class, 'verifyToken']);
+Route::get('/carousel', [CarouselController::class, 'index']);
+
 Route::get('/faq', [QuestionController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
 
 Route::get('/links', [LinksController::class, 'index']);
 
 Route::get('/blog', [PostController::class, 'index']);
+Route::get('/blog-latest', [PostController::class, 'getLatestPosts']);
 Route::get('blog/{post:slug}', [PostController::class, 'showFullPostBySlug']);
 
 Route::get('/merch', [MerchController::class, 'getMerch']);

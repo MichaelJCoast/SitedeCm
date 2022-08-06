@@ -8,6 +8,7 @@ import About from '../views/About.vue';
 import BlogPost from '../views/BlogPost.vue';
 import Product from '../views/Product.vue';
 import Cart from '../views/Cart.vue';
+import VerifyOrder from "../views/VerifyOrder.vue";
 import DefaultLayout from "../components/DefaultLayout.vue";
 
 const routes = [
@@ -24,6 +25,7 @@ const routes = [
             { path: "/equipa", name: "Team", component: Team },
             { path: "/links", name: "Links", component: Links },
             { path: "/carrinho", name: "Cart", component: Cart },
+            { path: "/verify-order/:token", name: "VerifyOrder", component: VerifyOrder},
           ],
     },
 ];

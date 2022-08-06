@@ -1,11 +1,11 @@
 <template>
   <div class="container min-h-screen mx-auto text-white">
     <img
-      class="lg:w-[95%] xl:w-[75%] 2xl:w-[50%] mx-auto"
+      class="xl:w-[75%] 2xl:w-[100%] mx-auto lg:px-12"
       :src="'../' + post.landscaped_image"
-      alt="post image"
+      :alt="post.title + 'cover'"
     />
-    <div class="px-8 pb-14 lg:px-52 xl:px-80">
+    <div class="px-8 py-2 md:px-12">
        <template v-for="category in category" :key="category.id" >     
           <p class="mt-6 text-sm uppercase tracking-[.2em] text-red-600" v-if="category.id == post.category_id">{{category.name}}</p>
       </template>

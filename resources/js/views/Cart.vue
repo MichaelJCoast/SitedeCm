@@ -66,6 +66,7 @@
 import swal from 'sweetalert2'
 
 import { useStore } from "vuex";
+import { computed } from "vue";
 export default {
   data() {
     const store = useStore();
@@ -81,6 +82,7 @@ export default {
     return {
       disabled: 0,
       orderDetails,
+      orderProcessing: computed(() => store.state.order.loading),
     };
   },
   computed: {
@@ -89,6 +91,18 @@ export default {
     },
     cart_total() {
       return this.$store.getters.cartItems.reduce((a, b) => a + (b.price * b.quantity), 0);
+    },
+    orderDetails() {
+      const orderDetails = {
+      name: '',
+      email: '',
+      order: this.$store.state.cart.map(item => { if(item.selectedSize.length < 3) { return `${item.name} ${item.selectedSize} ${item.quantity}x` }
+      else { return `${item.name} ${item.quantity}x` }
+      }).join(', '),
+      total: this.$store.getters.cartItems.reduce((a, b) => a + (b.price * b.quantity), 0),
+      status_id: 1,
+    }
+      return orderDetails;
     }
   },
   methods: {
