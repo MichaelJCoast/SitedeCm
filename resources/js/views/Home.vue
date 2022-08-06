@@ -1,6 +1,7 @@
 <template>
+<Carousel :carousel="carousel_items"/>
     <div v-if="posts.length" class="container min-h-screen mx-auto px-8 md:px-12 mb-10 text-white space-y-6">
-    <Carousel :carousel="carousel_items"/>
+    
         <div class="mt-6">
             <router-link to="/blog" class="sm:mt-0 text-2xl 2xl:text-3xl font-semibold py-6">Últimas Notícias</router-link>
         </div>  

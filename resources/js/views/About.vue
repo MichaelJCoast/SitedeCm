@@ -1,5 +1,6 @@
 <template>
-  <div v-if="about[0]" class="container min-h-screen my-6 mx-auto px-8 md:px-12">
+  <div v-if="about[0]" class="container min-h-screen mx-auto px-8 md:px-12">
+  <img class="mx-auto" src="https://www.upload.ee/image/14393841/ez.jpg"/>
     <h1
       class="text-white text-center uppercase font-black drop-shadow-lg text-3xl sm:text-6xl"
     >
