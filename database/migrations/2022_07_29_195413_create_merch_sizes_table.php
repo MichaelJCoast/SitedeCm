@@ -15,9 +15,9 @@ class CreateMerchSizesTable extends Migration
     {
         Schema::create('merch_sizes', function (Blueprint $table) {
             $table->bigInteger('merch_id')->unsigned();
-            $table->foreign('merch_id')->references('id')->on('merch');
+            $table->foreign('merch_id')->references('id')->on('merch')->onDelete('cascade');;
             $table->bigInteger('size_id')->unsigned();
-            $table->foreign('size_id')->references('id')->on('sizes');
+            $table->foreign('size_id')->references('id')->on('sizes')->onDelete('cascade');;
 
             $table->primary(['merch_id', 'size_id'], 'merch_sizes_merch_id_size_id_primary');
         });
