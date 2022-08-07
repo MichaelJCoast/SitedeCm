@@ -65,3 +65,5 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('faq') }}'><i class='nav-icon las la-question-circle'></i> FAQ</a></li>
 </li>
 @endif
+
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('about-image') }}'><i class='nav-icon la la-question'></i> About images</a></li>
