@@ -49,21 +49,16 @@
 @endif
 @if (backpack_user()->hasRole('mod') || backpack_user()->hasRole('admin'))
 <li class='nav-title'>Blog</li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('post') }}'><i class='nav-icon la la-blog'></i> Posts</a>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('post') }}'><i class='nav-icon la la-blog'></i> Posts</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('categoria') }}'><i class='nav-icon la la-question'></i> Categorias</a></li>
-</li>
 
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('link') }}'><i class='nav-icon la la-link'></i> Links</a>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('link') }}'><i class='nav-icon la la-link'></i> Links</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('carousel') }}'><i class='nav-icon la la-question'></i> Carousel</a></li>
-</li>
-
 
 <li class='nav-title'>Páginas</li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('about') }}'><i class='nav-icon la la-address-card'></i> Sobre</a></li>
-</li>
-
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('about-image') }}'><i class='nav-icon la la-question'></i> Sobre Header</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('faq') }}'><i class='nav-icon las la-question-circle'></i> FAQ</a></li>
-</li>
+
 @endif
 
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('about-image') }}'><i class='nav-icon la la-question'></i> About images</a></li>

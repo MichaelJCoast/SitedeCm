@@ -16,6 +16,7 @@ class CreateAboutImageTable extends Migration
         Schema::create('about_image', function (Blueprint $table) {
             $table->id();
             $table->string('image');
+            $table->boolean('mode');
             $table->timestamps();
         });
     }

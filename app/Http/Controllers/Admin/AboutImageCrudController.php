@@ -29,9 +29,9 @@ class AboutImageCrudController extends CrudController
         CRUD::setModel(\App\Models\AboutImage::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/about-image');
         CRUD::setEntityNameStrings('Imagem para a página sobre', 'Imagem da página sobre');
-  
-        if (\App\Models\AboutImage::count() > 0) {
-            $this->crud->denyAccess(['create','delete']);
+        $this->crud->denyAccess('delete');
+        if (\App\Models\AboutImage::count() > 1) {
+            $this->crud->denyAccess('create');
         }
     }
 
@@ -52,6 +52,15 @@ class AboutImageCrudController extends CrudController
             'width'  => '40px',
         ]);
         
+        CRUD::addColumn([
+            'name' => 'mode', 
+            'label' => 'Modo',
+            'type'  => 'boolean',
+            'options' => [
+                0 => 'Modo Noturno', 
+                1 => 'Modo Diurno',
+            ]
+        ]);
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -78,6 +87,17 @@ class AboutImageCrudController extends CrudController
             'disk'      => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
         ]);
 
+        CRUD::addField([   // select_from_array
+            'name'        => 'mode',
+            'label'       => "Modo",
+            'type'        => 'select_from_array',
+            'options'     => [
+                0 => 'Modo Noturno', 
+                1 => 'Modo Diurno'],
+            'allows_null' => false,
+            'default'     => 0,
+        ]);
+
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
@@ -93,6 +113,15 @@ class AboutImageCrudController extends CrudController
      */
     protected function setupUpdateOperation()
     {
-        $this->setupCreateOperation();
+        CRUD::setValidation(AboutImageRequest::class);
+
+        CRUD::addField([
+            'name'      => 'image',
+            'label'     => 'Imagem',
+            'type'      => 'upload',
+            'upload'    => true,
+            'disk'      => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
+        ]);
+
     }
 }
