@@ -11,18 +11,18 @@
       </template>
 
       <h2
-        class="text-4xl sm:text-3xl md:text-5xl lg:text-4xl text-white font-bold sm:leading-normal"
+        class="text-4xl sm:text-3xl md:text-5xl lg:text-4xl text-white dark:text-black font-bold sm:leading-normal"
       >
         {{ post.title }}
       </h2>
       <p
-        class="mt-6 mb-6 text-xs md:text-sm font-normal text-gray-400 sm:font-semibold"
+        class="mt-6 mb-6 text-xs md:text-sm font-normal text-gray-400  sm:font-semibold"
       >
         {{ formattedDate }}
       </p>
       <div
         v-html="post.body"
-        class="text-justify md:text-lg 2xl:text-xl leading-relaxed text-gray-200"
+        class="text-justify md:text-lg 2xl:text-xl leading-relaxed text-gray-200 dark:text-gray-600"
       ></div>
     </div>
   </div>
