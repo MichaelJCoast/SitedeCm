@@ -9,7 +9,7 @@
     <swiper-slide v-for="carousel_item in carousel" :key="carousel_item">
       <router-link v-if="carousel_item.has_button"
         :to=carousel_item.router_link
-        class="absolute text-xl sm:text-3xl text-white sm:text-gray-100 bottom-0 pb-6 left-0 right-0 sm:pb-4 sm:bottom-auto sm:right-auto sm:top-1/2 sm:left-28 font-bold max-w-lg sm:rounded-2xl sm:drop-shadow-lg bg-black bg-opacity-75 sm:bg-red-500 sm:hover:bg-red-400 px-6 py-4 truncate">
+        class="absolute text-xl sm:text-3xl text-white sm:text-gray-100 bottom-0 pb-6 left-0 right-0 sm:pb-4 sm:bottom-auto sm:right-auto sm:top-1/2 sm:left-28 font-bold max-w-lg sm:rounded-full sm:drop-shadow-lg bg-black bg-opacity-75 sm:bg-red-800 sm:hover:brightness-125 px-6 py-4 truncate">
         {{ carousel_item.title }}
       </router-link>
       <p v-else
