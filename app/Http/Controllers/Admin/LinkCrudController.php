@@ -86,6 +86,7 @@ class LinkCrudController extends CrudController
         CRUD::addField([
             'name' => 'link_icon',
             'label' => 'Ícone do link (opcional)',
+            'hint' => "Pesquisar icons disponíveis em: https://fontawesome.com/icons . Colocar o nome do ícon com o prefixo 'fa-'. (ex:'fa-shield-alt'). Caso seja uma rede social colocar também o prefixo 'fab' (ex:'fab fa-facebook').",
             'type' => 'text',
         ]);
 
