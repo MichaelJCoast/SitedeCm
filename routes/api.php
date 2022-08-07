@@ -39,6 +39,7 @@ Route::get('/carousel', [CarouselController::class, 'index']);
 
 Route::get('/faq', [QuestionController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
+Route::get('/aboutimage', [AboutController::class, 'image']);
 
 Route::get('/links', [LinksController::class, 'index']);
 

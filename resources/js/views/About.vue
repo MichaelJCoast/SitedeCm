@@ -63,10 +63,12 @@ export default {
     const store = useStore();
     store.dispatch("getQuestions");
     store.dispatch("getAbout");
+    store.dispatch("getAboutImage");
 
     return {
       about: computed(() => store.state.about.data),
       questions: computed(() => store.state.questions.data),
+      aboutimage: computed(() => store.state.aboutImage.data),
     };
   },
   methods: {
