@@ -30,11 +30,6 @@ class LinkCrudController extends CrudController
         CRUD::setModel(\App\Models\Link::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/link');
         CRUD::setEntityNameStrings('link', 'links');
-        if (!backpack_user()->can('edit links') && !backpack_user()->hasRole('admin') ) {
-            CRUD::denyAccess('create');
-            CRUD::denyAccess('update');
-            CRUD::denyAccess('delete');
-        }
     }
 
     /**

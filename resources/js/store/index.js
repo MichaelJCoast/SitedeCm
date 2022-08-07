@@ -14,7 +14,13 @@ const store = createStore({
     currentPost: {
       data: {},
     },
+    verified_order: {
+      data: {},
+    },
     categories: {
+      data: {},
+    },
+    carousel: {
       data: {},
     },
     team: {
@@ -39,6 +45,9 @@ const store = createStore({
     },
     currentProduct: {
       data: {},
+    },
+    order: {
+      loading: false,
     },
     cart: [],
   },
@@ -66,10 +75,24 @@ const store = createStore({
     }
   },
   actions: {
+    getLatestPosts({ commit }) {
+      return axiosClient.get('/blog-latest')
+      .then(res => {
+        commit('setPosts', res.data)
+      });
+    },
     getPosts({ commit }) {
       return axiosClient.get('/blog')
       .then(res => {
         commit('setPosts', res.data)
+      });
+    },
+    getCarousel({ commit }) {
+      return axiosClient.get('/carousel')
+      .then(res => {
+        commit('setCarousel', res.data)
+      }).catch(err => {
+        console.log(err);
       });
     },
     getPostBySlug({ commit }, slug) {
@@ -77,6 +100,15 @@ const store = createStore({
       .get(`/blog/${slug}`)
       .then((res) => {
         commit("setCurrentPost", res.data);
+        return res;
+      })
+      .catch((err) => {
+        throw err;
+      });
+    },
+    verifyOrder({ commit }, verify_token) {
+      return axiosClient.get(`/verify-order/${verify_token}`)
+      .then((res) => {
         return res;
       })
       .catch((err) => {
@@ -155,6 +187,7 @@ const store = createStore({
       });
     },
     submitOrder({ commit }, order) {
+      commit('setOrderLoading', true)
       return axiosClient.post('/order', order)
       .then(res => {
         commit('setCart', [])
@@ -168,6 +201,9 @@ const store = createStore({
   mutations: {
     setPosts: (state, posts) => {
       state.posts.data = posts;
+    },
+    setCarousel: (state, carousel) => {
+      state.carousel.data = carousel;
     },
     setCurrentPost: (state, currentPost) => {
       state.currentPost = currentPost;
@@ -240,6 +276,9 @@ const store = createStore({
     },
     setTeamLoading: (state, loading) => {
       state.team.loading = loading;
+    },
+    setOrderLoading: (state, loading) => {
+      state.order.loading = loading;
     }
   },
   modules: {}

@@ -8,6 +8,6 @@ class LinksController extends Controller
 {
     public function index()
     {
-        return Link::latest()->get();
+        return Link::latest()->select('id', 'name', 'link_to')->get();
     }
 }
