@@ -32,4 +32,5 @@ Route::group([
     Route::crud('size', 'SizeCrudController');
     Route::crud('carousel', 'CarouselCrudController');
     Route::crud('log-activity', 'UserActivityCrudController');
+    Route::crud('about-image', 'AboutImageCrudController');
 }); // this should be the absolute last line of this file

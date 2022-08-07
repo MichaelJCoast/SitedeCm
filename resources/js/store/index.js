@@ -36,6 +36,9 @@ const store = createStore({
     about: {
       data: {},
     },
+    aboutImage: {
+      data: {},
+    },
     questions: {
       data: {},
     },
@@ -153,6 +156,12 @@ const store = createStore({
         commit('setAbout', res.data)
       });
     },
+    getAboutImage({ commit }) {
+      return axiosClient.get('/aboutimage')
+      .then(res => {
+        commit('setAboutImage', res.data)
+      });
+    },
     getMerch({ commit }) {
       commit('setMerchLoading', true)
       return axiosClient.get('/merch')
@@ -225,6 +234,9 @@ const store = createStore({
     },
     setAbout: (state, about) => {
       state.about.data = about;
+    },
+    setAboutImage: (state, aboutimage) => {
+      state.aboutimage.data = aboutimage;
     },
     setMerch: (state, merch) => {
       state.merch.products = merch;
