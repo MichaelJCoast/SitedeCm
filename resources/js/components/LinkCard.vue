@@ -1,5 +1,5 @@
 <template>
-  <a :href="link.link_to" class="text-xl font-semibold text-center text-gray-100 dark:text-gray-900 truncate capitalize"
+  <a :href="link.link_to" class="text-xl font-semibold text-center text-neutral-200 dark:text-neutral-900 truncate capitalize"
     target="_blank">
     <div
       class="p-6 border border-neutral-700 dark:border-neutral-400 rounded-full bg-black dark:bg-neutral-200 hover:bg-opacity-40">
