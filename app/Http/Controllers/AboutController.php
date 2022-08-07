@@ -14,6 +14,6 @@ class AboutController extends Controller
 
     public function image()
     {
-        return AboutImage::get()->pluck('image');
+        return AboutImage::select('image','mode')->get();
     }
 }
