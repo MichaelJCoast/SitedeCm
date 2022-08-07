@@ -15,7 +15,7 @@
     <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-book"></i> Gestão</a>
     <ul class="nav-dropdown-items">
          <li class="nav-item"><a class="nav-link" href="{{ backpack_url('filemanager') }}"><i class="nav-icon la la-files-o"></i> Gestão de Ficheiros</a></li>
-         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('log-user') }}'><i class='nav-icon la la-history'></i> Log User</a></li>
+         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('log-activity') }}'><i class='nav-icon la la-history'></i> Log User</a></li>
     </ul>
 </li>
 </li>

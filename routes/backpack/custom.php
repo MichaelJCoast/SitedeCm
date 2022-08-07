@@ -31,4 +31,5 @@ Route::group([
     Route::crud('status', 'StatusCrudController');
     Route::crud('size', 'SizeCrudController');
     Route::crud('carousel', 'CarouselCrudController');
+    Route::crud('log-activity', 'UserActivityCrudController');
 }); // this should be the absolute last line of this file
