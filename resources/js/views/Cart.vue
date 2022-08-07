@@ -71,17 +71,8 @@ export default {
   data() {
     const store = useStore();
 
-    const orderDetails = {
-      name: null,
-      email: null,
-      order: store.state.cart.map(item => `${item.name} ${item.selectedSize} ${item.quantity}x`).join(', '),
-      total: this.$store.getters.cartItems.reduce((a, b) => a + (b.price * b.quantity), 0),
-      status_id: 1,
-    }
-
     return {
       disabled: 0,
-      orderDetails,
       orderProcessing: computed(() => store.state.order.loading),
     };
   },
