@@ -16,11 +16,15 @@
 
 </head>
 
-<body class="bg-neutral-900">
+<body class="bg-neutral-900 dark:bg-white">
     <div id="app">
+        <DayNight></DayNight>
         <router-view></router-view>
     </div>
 
     <script src="{{ mix('js/app.js') }}"></script>
 </body>
+<script>
+
+</script>
 </html>
