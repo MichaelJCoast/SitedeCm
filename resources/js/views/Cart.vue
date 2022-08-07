@@ -25,7 +25,6 @@
 
         <form @submit="submitOrder">
 
-        <label for="name">Name</label>
         <input 
             type="text" 
             id="name" 
@@ -36,7 +35,6 @@
             placeholder="Primeiro e Último Nome" 
             >
 
-        <label for="name">Email</label>
         <input 
             type="email" 
             id="email-address" 
