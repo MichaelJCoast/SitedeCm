@@ -2,22 +2,22 @@
 <scrollUp />
   <img class="mx-auto" src="https://www.upload.ee/image/14393841/ez.jpg"/>
   <div v-if="about[0]" class="container min-h-screen my-6 mx-auto px-8 md:px-12">
-    <h1 class="mt-10 text-white dark:text-black text-center uppercase font-black drop-shadow-lg text-3xl sm:text-6xl">
+    <h1 class="mt-10 text-white dark:text-neutral-900 text-center uppercase font-black drop-shadow-lg text-3xl sm:text-6xl">
     {{ firstAboutSectionTitle() }}
     </h1>
     <div class="mx-auto border-t-4 mt-1 mb-2 w-48 border-red-500"></div>
-    <p v-html="firstAboutSectionBody()" class="text-white dark:text-black text-justify mt-5"></p>
+    <p v-html="firstAboutSectionBody()" class="text-white dark:text-neutral-900 text-justify mt-5"></p>
     <!-- Quem Somos Content -->
     <div v-for="aboutList in about.slice(1)" :key="aboutList.id" class="mt-4">
     <h1
-      class="text-white dark:text-black text-center capitalize font-semibold text-2xl sm:text-5xl mt-5">
+      class="text-white dark:text-neutral-900 text-center capitalize font-semibold text-2xl sm:text-5xl mt-5">
         {{aboutList.title}}
     </h1>
-    <p v-html="aboutList.subtitle" class="text-white dark:text-black text-justify mt-4"></p>
+    <p v-html="aboutList.subtitle" class="text-white dark:text-neutral-900 text-justify mt-4"></p>
     </div>
     <div class="w-full px-2 sm:px-0 mt-4">
         <h1
-      class="text-white dark:text-black text-center capitalize font-semibold text-2xl sm:text-5xl mt-20">
+      class="text-white dark:text-neutral-900 text-center capitalize font-semibold text-2xl sm:text-5xl mt-20">
         FAQ
     </h1>
     <div class="mx-auto w-full max-w-screen rounded-2xl mt-4">

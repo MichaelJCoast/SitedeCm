@@ -1,14 +1,14 @@
 <template>
   <div class="container min-h-screen mx-auto px-8 md:px-14 text-white">
     
-    <h2 class="text-2xl 2xl:text-3xl font-semibold py-6 text-white dark:text-black">Carrinho</h2>
+    <h2 class="text-2xl 2xl:text-3xl font-semibold py-6 text-white dark:text-neutral-900">Carrinho</h2>
 
     <div v-if="items.length" class="flex flex-col lg:flex-row justify-between px-8 sm:px-10 space-y-10 lg:space-y-0 mb-10">
       <div class="flex flex-col w-full space-y-4">
 
         <div v-for="(item, i) in items" :key="i" class="flex flex-row items-start w-full">
           <img class="w-40 h-auto rounded-lg" :src="item.photo" />
-          <div class="flex flex-col px-4 w-full text-white dark:text-black">
+          <div class="flex flex-col px-4 w-full text-white dark:text-neutral-900">
             <div class="flex flex-col sm:flex-row sm:justify-between ">
               <h1 class="text-lg sm:text-2xl font-bold">{{ item.name }}</h1>
               <span class="text-base sm:text-2xl font-bold mr-6">{{ item_cost(item).toFixed(2) }}€</span>
@@ -19,9 +19,9 @@
         </div>
       </div>
 
-      <div class="text-neutral-300 dark:text-neutral-800 flex flex-col bg-black dark:bg-neutral-200 px-8 py-8 space-y-4 h-full rounded-3xl">
+      <div class="text-neutral-300 dark:text-neutral-800 flex flex-col bg-black dark:bg-white px-8 py-8 space-y-4 h-full rounded-3xl">
         <h3 class="text-2xl font-semibold">Sumário</h3>
-        <p class="text-white dark:text-black">Para efetuar a encomenda precisamos dos dados abaixo.</p>
+        <p class="text-white dark:text-neutral-900">Para efetuar a encomenda precisamos dos dados abaixo.</p>
 
         <form @submit="submitOrder">
 
@@ -30,7 +30,7 @@
             id="name" 
             name="name" 
             required
-            class="mb-5 bg-gray-200 dark:bg-neutral-300  appearance-none border-2 border-gray-200 placeholder-neutral-400 dark:placeholder-neutral-500 rounded-lg w-full py-2 px-4 text-black leading-tight focus:outline-none focus:bg-white focus:border-red-700 focus:ring-1 focus:ring-red-700" 
+            class="mb-5 bg-gray-200 dark:bg-neutral-300  appearance-none border-2 border-gray-200 placeholder-neutral-400 dark:placeholder-neutral-500 rounded-lg w-full py-2 px-4 text-neutral-900 leading-tight focus:outline-none focus:bg-white focus:border-red-700 focus:ring-1 focus:ring-red-700" 
             v-model="orderDetails.name" 
             placeholder="Primeiro e Último Nome" 
             >
@@ -42,7 +42,7 @@
             autocomplete="email" 
             required="" 
             v-model="orderDetails.email" 
-           class="mb-5 bg-gray-200 dark:bg-neutral-300 appearance-none border-2 border-gray-200 placeholder-neutral-400 dark:placeholder-neutral-500 rounded-lg w-full py-2 px-4 text-black leading-tight focus:outline-none focus:bg-white focus:border-red-700 focus:ring-1 focus:ring-red-700" 
+           class="mb-5 bg-gray-200 dark:bg-neutral-300 appearance-none border-2 border-gray-200 placeholder-neutral-400 dark:placeholder-neutral-500 rounded-lg w-full py-2 px-4 text-neutral-900 leading-tight focus:outline-none focus:bg-white focus:border-red-700 focus:ring-1 focus:ring-red-700" 
             placeholder="E-mail" />
 
 
@@ -55,7 +55,7 @@
       </div>
     </div>
     <div v-else>
-      <p class="text-white dark:text-black font-semibold">Não há produtos no carrinho.</p>
+      <p class="text-white dark:text-neutral-900 font-semibold">Não há produtos no carrinho.</p>
     </div>
   </div>
 </template>
