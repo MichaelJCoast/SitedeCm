@@ -11,7 +11,7 @@
       </template>
 
       <h2
-        class="text-4xl sm:text-3xl md:text-5xl lg:text-4xl text-white dark:text-black font-bold sm:leading-normal"
+        class="text-4xl sm:text-3xl md:text-5xl lg:text-4xl text-white dark:text-neutral-900 font-bold sm:leading-normal"
       >
         {{ post.title }}
       </h2>
@@ -19,11 +19,15 @@
         class="mt-6 mb-6 text-xs md:text-sm font-normal text-gray-400  sm:font-semibold"
       >
         {{ formattedDate }}
+
+        <a class="ml-4 border rounded-lg dark:border-neutral-400 px-2" :href="'https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20220806%2F20220807&details='+ post.body +'&location=Utad&text='+post.title" target="blank" title="Save Event in my Calendar">Add to Calendar</a>
+
       </p>
       <div
         v-html="post.body"
         class="text-justify md:text-lg 2xl:text-xl leading-relaxed text-gray-200 dark:text-gray-600"
       ></div>
+
     </div>
   </div>
 </template>

@@ -3,7 +3,7 @@
 <Loading v-if="loading"/>
     <div v-else class="grid grid-flow-row lg:grid-flow-col">
       <img class="h-96 mx-auto" :src="'../' + product.photo" :alt="product.name + ' image'">
-      <div class="text-white dark:text-black mt-6 space-y-4 margin-0 lg:text-left text-center">
+      <div class="text-white dark:text-neutral-900 mt-6 space-y-4 margin-0 lg:text-left text-center">
         <p class="font-semibold text-xl capitalize">{{ product.name }}</p>
         <p v-html="product.description" class="text-gray-400 dark:text-neutral-600 capitalize"></p>
         <p class="font-semibold text-lg">€{{ product.price }}</p>
@@ -15,8 +15,8 @@
             :value="size.name"
             v-slot="{ checked }" >
           <button
-              class="border border-white dark:border-black px-6 py-4 w-full shadow-md font-semibold p.0"
-              :class="checked ? 'text-black dark:text-white bg-white dark:bg-black' : 'text-white dark:text-black'">
+              class="border border-white dark:border-black px-6 py-4 w-full font-semibold p.0"
+              :class="checked ? 'text-neutral-900 dark:text-white bg-white dark:bg-black' : 'text-white dark:text-neutral-900'">
               {{ size.name }}
           </button>
           </RadioGroupOption>

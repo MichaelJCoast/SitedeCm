@@ -1,17 +1,17 @@
 <template>
     <section class="container min-h-screen mx-auto px-8 md:px-12 mb-10 text-white">
-        <h2 class="sm:mt-0 text-2xl 2xl:text-3xl font-semibold py-6 text-white dark:text-black">Equipa NECM</h2>
+        <h2 class="sm:mt-0 text-2xl 2xl:text-3xl font-semibold py-6 text-white dark:text-neutral-900">Equipa NECM</h2>
         <Loading v-if="loading"/>
         <div v-else-if="!loading && mandates.length" class="w-full max-w-xl sm:px-0 mx-auto">
             <TabGroup>
-                <TabList class="flex space-x-1 rounded-xl bg-black dark:bg-neutral-200 p-1 mx-auto">
+                <TabList class="flex space-x-1 rounded-xl bg-black dark:bg-neutral-300 p-1 mx-auto">
                     <Tab v-for="mandate in mandates" as="template" :key="mandate" v-slot="{ selected }">
                         <button :class="[
-                            'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-white dark:text-black',
+                            'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-white dark:text-neutral-900',
                             'ring-white ring-opacity-60 ring-offset-2 ring-offset-red-400 focus:outline-none focus:ring-2',
                             selected
                                 ? 'bg-neutral-900 shadow dark:bg-white'
-                                : 'text-white dark:text-black hover:bg-white/[0.12] hover:text-white',
+                                : 'text-white dark:text-neutral-900 hover:bg-white/[0.12] hover:text-white',
                         ]"> 
                         {{ mandate.year }} </button>
                     </Tab>
@@ -21,14 +21,14 @@
                     <div v-if="getTeamMembersByMandate(mandate)">
                         <div v-for="(department,i) in departments" :key="i">
                         <div v-if="getTeamMembersByDepartment(department, mandate).length" >
-                            <h2 class="text-white dark:text-black text-xl text-center font-semibold md:text-2xl mt-14">{{ department.name }}</h2>
+                            <h2 class="text-white dark:text-neutral-900 text-xl text-center font-semibold md:text-2xl mt-14">{{ department.name }}</h2>
                             <div class="w-full flex flex-wrap place-content-center "> <!-- CAIXA  -->
                                 <div v-for="team_member in team_members" :key="team_member.id">
-                                    <div v-if="department.id === team_member.dep_id && mandate.id === team_member.mandato_id" class="text-center w-40 m-4 ">
+                                    <div v-if="department.id === team_member.dep_id && mandate.id === team_member.mandato_id" class="text-center w-40 m-4">
                                         <img class="object-cover object-center w-[100%] h-auto rounded-lg" :src="team_member.image" :alt="team_member.nome + ' photo'" />
-                                        <h3 class="text-white dark:text-black text-sm sm:text-lg font-semibold">{{ team_member.nome }}</h3>
+                                        <h3 class="text-white dark:text-neutral-900 text-sm sm:text-lg font-semibold mt-2">{{ team_member.nome }}</h3>
                                         <div v-for="role in roles" :key="role.id">
-                                        <span v-if="role.id == team_member.role_id" class="text-sm sm:text-lg text-red-500"> {{ role.type }} </span> </div>
+                                        <span v-if="role.id == team_member.role_id" class="text-sm sm:text-lg text-red-700"> {{ role.type }} </span> </div>
                                      </div>
                                 </div>
                             </div>

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EquipaRequest extends FormRequest
+class AboutImageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,12 +25,7 @@ class EquipaRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'sometimes|required|max:1024',
-            'nome' => 'required',
-            'dep_id' => 'required',
-            'role_id' => 'required',
-            'mandato_id' => 'required',
-
+            'image' => 'sometimes|required|dimensions:min_width=1920, min_height=1080,',
         ];
     }
 
