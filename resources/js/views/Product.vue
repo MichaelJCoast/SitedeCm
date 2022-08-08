@@ -1,11 +1,11 @@
 <template>
-  <div class="container min-h-screen mx-auto mb-6 lg:mt-6">
+  <div class="container min-h-screen mx-auto mb-6 lg:mt-6 text-neutral-900 dark:text-neutral-200">
 <Loading v-if="loading"/>
     <div v-else class="grid grid-flow-row lg:grid-flow-col">
       <img class="h-96 mx-auto" :src="'../' + product.photo" :alt="product.name + ' image'">
-      <div class="text-white dark:text-neutral-900 mt-6 space-y-4 margin-0 lg:text-left text-center">
+      <div class="mt-6 space-y-4 margin-0 lg:text-left text-center">
         <p class="font-semibold text-xl capitalize">{{ product.name }}</p>
-        <p v-html="product.description" class="text-gray-400 dark:text-neutral-600 capitalize"></p>
+        <p v-html="product.description" class="text-neutral-600 dark:text-neutral-400 capitalize"></p>
         <p class="font-semibold text-lg">€{{ product.price }}</p>
         <RadioGroup v-model="size">
           <RadioGroupOption
@@ -15,14 +15,14 @@
             :value="size.name"
             v-slot="{ checked }" >
           <button
-              class="border border-white dark:border-black px-6 py-4 w-full font-semibold p.0"
-              :class="checked ? 'text-neutral-900 dark:text-white bg-white dark:bg-black' : 'text-white dark:text-neutral-900'">
+              class="border border-black dark:border-neutral-200 px-6 py-4 w-full font-semibold p.0"
+              :class="checked ? 'text-neutral-200 bg-red-700 dark:text-neutral-200 dark:bg-black' : 'bg-transparent text-neutral-900 dark:text-neutral-200 dark:bg-transparent'">
               {{ size.name }}
           </button>
           </RadioGroupOption>
       </RadioGroup>
       <button @click="addToCart()" type="submit" class="p-4 rounded-md uppercase bg-red-700 hover:brightness-125">
-        <p class="font-bold text-gray-100">Adicionar ao carrinho</p>
+        <p class="font-bold text-neutral-200">Adicionar ao carrinho</p>
       </button>
       </div>    
     </div>

@@ -1,5 +1,5 @@
 <template>
-<div class="flex flex-col h-full w-full xl:w-96 2xl:w-auto bg-black dark:bg-white border border-neutral-700 dark:border-neutral-400 rounded-lg overflow-hidden">
+<div class="flex flex-col h-full w-full xl:w-96 2xl:w-auto bg-white dark:bg-black border border-neutral-400 dark:border-neutral-700 rounded-lg overflow-hidden">
     <!-- Image -->
     <a class="block focus:outline-none focus-visible:ring-2" :href="'blog/' + post.slug">
         <figure class="relative h-0 pb-[100%] overflow-hidden">
@@ -15,14 +15,14 @@
             <!-- Category & Date -->
             <header class="flex sm:flex-row items-center space-x-4 pb-2">
                 <template v-for="category in category" :key="category.id" >
-                    <span class="text-sm lg:text-base text-white dark:text-neutral-900 font-semibold" v-if="category.id == post.category_id">{{category.name}}</span>
+                    <span class="text-sm lg:text-base text-neutral-900 dark:text-neutral-200 font-semibold" v-if="category.id == post.category_id">{{category.name}}</span>
                 </template>
-                <time class="text-sm lg:text-base text-gray-400 font-semibold">{{postDate}}</time>
+                <time class="text-sm xl:text-base text-neutral-700 dark:text-neutral-400 font-semibold">{{postDate}}</time>
             </header>
             <!-- Title -->
             <div class="mb-3">
                 <a class="block focus:outline-none focus-visible:ring-2" :href="'blog/' + post.slug">
-                    <h3 class="mb-2 text-xl md:text-2xl font-bold tracking-tight dark:text-neutral-900 text-white">{{post.title}}</h3>
+                    <h3 class="mb-2 text-xl md:text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-200">{{post.title}}</h3>
                 </a>
             </div>
         </div>

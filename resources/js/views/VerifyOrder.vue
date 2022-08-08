@@ -1,5 +1,5 @@
 <template>
-  <div class="container min-h-screen mx-auto mb-6 lg:mt-6 text-white">
+  <div class="container min-h-screen mx-auto lg:mt-6 px-8 md:px-14 text-neutral-900 dark:text-white">
     A tua encomenda foi confirmada com sucesso!
   </div>
 </template>
