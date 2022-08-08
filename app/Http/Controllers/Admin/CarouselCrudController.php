@@ -52,9 +52,6 @@ class CarouselCrudController extends CrudController
                 // 'element' => 'a', // the element will default to "a" so you can skip it here
                 'href' => function ($crud, $column, $entry, $related_key) {
                     return url($entry->router_link);
-                    if($entry->router_link == '-'){
-                        return 'a';
-                    }
                 },
                  'target' => '_blank',
             ],
