@@ -44,7 +44,18 @@ class CarouselCrudController extends CrudController
             'label' => 'Título',
             'type'  => 'text',
         ]);
-        CRUD::column('router_link');
+        CRUD::addColumn([
+            'name' => 'router_link',
+            'label' => 'Route para:',
+            'type' => 'text',
+            'wrapper'   => [
+                // 'element' => 'a', // the element will default to "a" so you can skip it here
+                'href' => function ($crud, $column, $entry, $related_key) {
+                    return url($entry->router_link);
+                },
+                 'target' => '_blank',
+            ],
+          ]);
         CRUD::addColumn([
             'name' => 'has_button', 
             'label' => 'Botão',
