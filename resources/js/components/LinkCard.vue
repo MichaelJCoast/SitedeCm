@@ -1,11 +1,10 @@
 <template>
   <a :href="link.link_to" class="text-xl font-semibold text-center text-neutral-200 dark:text-neutral-900 truncate capitalize"
     target="_blank">
-    <div
-      class="p-6 border border-neutral-700 dark:border-neutral-400 rounded-full bg-black dark:bg-neutral-200 hover:bg-opacity-40">
+    <div class="p-6 border border-neutral-700 dark:border-neutral-400 rounded-full bg-black dark:bg-neutral-200 hover:bg-opacity-40">
       <div class="flex items-center cursor-pointer">
-          <font-awesome-icon class="h-10 w-10 mr-auto" :icon="link.link_icon" />
-        <p class="flex-1">{{ link.name }}</p>
+          <font-awesome-icon class="h-10 w-10 absolute" :icon="link.link_icon" />
+        <p class="sm:flex-1 ml-14 sm:-m-14 truncate sm:py-14">{{ link.name }}</p>
       </div>
     </div>
   </a>
