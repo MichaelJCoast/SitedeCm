@@ -1,22 +1,22 @@
 <template>
   <div class="container min-h-screen mx-auto text-white">
     <img
-      class="xl:w-[75%] 2xl:w-[100%] mx-auto lg:px-12"
+      class="xl:w-[75%] 2xl:w-[100%] mx-auto lg:px-14"
       :src="'../' + post.landscaped_image"
       :alt="post.title + 'cover'"
     />
-    <div class="px-8 py-2 md:px-12">
+    <div class="px-8 py-2 md:px-14">
        <template v-for="category in category" :key="category.id" >     
           <p class="mt-6 text-sm uppercase tracking-[.2em] text-red-600" v-if="category.id == post.category_id">{{category.name}}</p>
       </template>
 
       <h2
-        class="text-4xl sm:text-3xl md:text-5xl lg:text-4xl text-white dark:text-neutral-900 font-bold sm:leading-normal"
+        class="text-4xl sm:text-3xl md:text-5xl lg:text-4xl text-neutral-900 dark:text-neutral-200 font-bold sm:leading-normal"
       >
         {{ post.title }}
       </h2>
       <p
-        class="mt-6 mb-6 text-xs md:text-sm font-normal text-gray-400  sm:font-semibold"
+        class="mt-6 mb-6 text-xs md:text-sm font-normal text-neutral-700 dark:text-neutral-400 sm:font-semibold"
       >
         {{ formattedDate }}
 
@@ -25,7 +25,7 @@
       </p>
       <div
         v-html="post.body"
-        class="text-justify md:text-lg 2xl:text-xl leading-relaxed text-gray-200 dark:text-gray-600"
+        class="text-justify md:text-lg 2xl:text-xl leading-relaxed text-neutral-600 dark:text-neutral-200"
       ></div>
 
     </div>

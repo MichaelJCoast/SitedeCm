@@ -16,7 +16,7 @@
 
 </head>
 
-<body class="bg-neutral-900 dark:bg-neutral-200">
+<body class="bg-neutral-200 dark:bg-neutral-900">
     <div id="app">
         <router-view></router-view>
     </div>
