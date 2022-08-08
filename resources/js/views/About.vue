@@ -2,7 +2,7 @@
 <scrollUp />
   <img class="mx-auto" src="https://www.upload.ee/image/14393841/ez.jpg"/>
   <div v-if="about[0]" class="container min-h-screen my-6 mx-auto px-8 md:px-12">
-    <h1 class="mt-10 text-white dark:text-neutral-900 text-center uppercase font-black drop-shadow-lg text-3xl sm:text-6xl">
+    <h1 class="mt-10 text-white dark:text-neutral-900 text-center uppercase font-black text-3xl sm:text-6xl">
     {{ firstAboutSectionTitle() }}
     </h1>
     <div class="mx-auto border-t-4 mt-1 mb-2 w-48 border-red-500"></div>
@@ -29,7 +29,7 @@
           />
         </DisclosureButton>
         <DisclosurePanel class="px-8 pt-4 pb-2 text-base sm:text-lg text-neutral-200 dark:text-neutral-800">
-          Criado por <strong>Luís Peixoto</strong>,<strong> Marco Moreira</strong> e <strong>Simão Amaral</strong> com <strong>Laravel</strong> e <strong>Vue</strong>.
+          Criado por <strong>Luís Peixoto</strong>,<strong> Marco Moreira</strong> e <strong>Simão Amaral</strong> com <strong>Laravel</strong> e <strong>Vue</strong> no ano de 2022.
         </DisclosurePanel>
       </Disclosure>
       <Disclosure v-for="question in questions" :key="question.id" as="div" class="mt-2" v-slot="{ open }">

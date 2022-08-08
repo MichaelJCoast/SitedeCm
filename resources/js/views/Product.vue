@@ -15,7 +15,7 @@
             :value="size.name"
             v-slot="{ checked }" >
           <button
-              class="border border-white dark:border-black px-6 py-4 w-full shadow-md font-semibold p.0"
+              class="border border-white dark:border-black px-6 py-4 w-full font-semibold p.0"
               :class="checked ? 'text-neutral-900 dark:text-white bg-white dark:bg-black' : 'text-white dark:text-neutral-900'">
               {{ size.name }}
           </button>

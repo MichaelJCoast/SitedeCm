@@ -1,5 +1,5 @@
 <template>
-<div class="flex flex-col h-full w-full xl:w-96 2xl:w-auto bg-black dark:bg-white border border-zinc-700 rounded-lg overflow-hidden">
+<div class="flex flex-col h-full w-full xl:w-96 2xl:w-auto bg-black dark:bg-white border border-neutral-700 dark:border-neutral-400 rounded-lg overflow-hidden">
     <!-- Image -->
     <a class="block focus:outline-none focus-visible:ring-2" :href="'blog/' + post.slug">
         <figure class="relative h-0 pb-[100%] overflow-hidden">
