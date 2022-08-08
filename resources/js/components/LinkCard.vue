@@ -1,9 +1,9 @@
 <template>
   <a :href="link.link_to" class="text-xl font-semibold text-center text-neutral-200 dark:text-neutral-900 truncate capitalize"
     target="_blank">
-    <div class="p-6 border border-neutral-700 dark:border-neutral-400 rounded-full bg-black dark:bg-neutral-200 hover:bg-opacity-40">
+    <div class="p-6 border border-neutral-700 dark:border-neutral-400 rounded-full bg-black dark:bg-white hover:bg-opacity-40 dark:hover:bg-opacity-40">
       <div class="flex items-center cursor-pointer">
-          <font-awesome-icon class="h-10 w-10 absolute" :icon="link.link_icon" />
+          <font-awesome-icon class="h-10 w-10 absolute" v-if="link.link_icon !== null" :icon="link.link_icon" />
         <p class="sm:flex-1 ml-14 sm:-m-14 truncate sm:py-14">{{ link.name }}</p>
       </div>
     </div>
@@ -11,16 +11,24 @@
 
 </template>
 
-<script setup>
+<script>
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 
-library.add(fab, fas, far)
+library.add(fab, fas, far);
 
-const { link } = defineProps({
-  link: Object,
-});
+export default {
+  props: {
+    link: {
+      type: Object,
+    }
+  },
+  components: {
+    FontAwesomeIcon
+  },
+}
+
 </script>
