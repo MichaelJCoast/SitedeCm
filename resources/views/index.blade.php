@@ -16,15 +16,18 @@
 
 </head>
 
-<body class="bg-neutral-900 dark:bg-white">
+<body class="bg-neutral-900 dark:bg-neutral-200">
     <div id="app">
-        <DayNight></DayNight>
         <router-view></router-view>
     </div>
 
     <script src="{{ mix('js/app.js') }}"></script>
 </body>
 <script>
-
+    if(localStorage.theme==='dark'){
+        document.documentElement.classList.add('dark')
+    }
+    else if(localStorage.theme==='light'){
+    }
 </script>
 </html>

@@ -1,35 +1,20 @@
 <template>
-<div >
-<input class="checkbox" id="checkbox" type="checkbox" checked v-model="nightMode">
-<label class="toggle" for="checkbox" >
-  <i class="star"></i>
-  <i class="star"></i>
-  <i class="star"></i>
-  <i class="star"></i>
-  <i class="star"></i>
-  <i class="star"></i>
-  <i class="star"></i>
-  <span class="disc">
-    <i></i><i></i><i></i>
-  </span>
-  <span class="cloud">
-    <i class="cloud__sub1"></i>
-    <i class="cloud__sub2"></i>
-  </span>
+<div class="mt-[19px] px-5" >
+
+<label class="dayNight">
+  <input id="checkbox" :checked="nightMode" type="checkbox" v-model="nightMode">
+  <div></div>
 </label>
 </div>
 </template>
 
 <script>
-import { HeartIcon } from "@heroicons/vue/solid";
 export default {
   components: {
-    HeartIcon
   },
   	watch: {
 		nightMode: function() {
 			localStorage.setItem("nightMode", JSON.stringify(this.nightMode));
-
             if(this.nightMode===false){
                 localStorage.theme = 'light'
             }
@@ -59,201 +44,58 @@ export default {
 
 <style lang="scss" scoped>
 
-.checkbox {
-  display: none;
-}
+$nightBtn: #fff;
+$dayBtn: #F3C60F;
 
-/* NIGHT */
-.toggle {
-  position: relative;
-  display: inline-block;
-  width: 110px;
-  height: 62px;
-  background: #484848;
-  border: 3px solid #222;
-  border-radius: 50px;
-  padding: 4px 4px;
-  text-align: left;
-  cursor: pointer;
-  transition: 0.25s;
-}
-
-.disc {
-  display: inline-block;
-  position: relative;
-  background: #FFFDF2;
-  border: 4px solid #E0E3C4;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  left: 0;
-  transform: rotate(0);
-  transition: 0.3s;
-  i {
-    position: absolute;
-    background: #EFEEDB;
-    border: 3px solid #E0E3C4;
-    border-radius: 50%;
-    transition: 0.3s;
-    &:first-of-type {
-      width: 7px;
-      height: 7px;
-      left: 2px;
-      top: 5px;
-    }
-    &:nth-of-type(2) {
-      width: 13px;
-      height: 13px;
-      right: 3px;
-      top: 0;
-    }
-    &:last-of-type {
-      width: 9px;
-      height: 9px;
-      right: 8px;
-      bottom: 2px;
-    }
-  }
-}
-
-.cloud {
-  display: inline-block;
-  position: absolute;
-  top: 28px;
-  left: 32px;
-  background: #fff;
-  border: 4px solid #D3D3D3;
-  border-radius: 10px;
-  width: 36px;
-  height: 20px;
-  transform: scale(0);
-  opacity: 0;
-  transition: transform .5s cubic-bezier(0.67, -0.01, 0.27, 1.45);
-  &__sub1,
-  &__sub2 {
-    content: '';
-    display: block;
-    position: relative;
-    border: 4px solid #D3D3D3;
-    border-radius: 100%;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    &:after {
-      content: '';
-      position: absolute;
-      background: #fff;
-      border-radius: 10px;
-    }
-  }
-  &__sub1 {
-    top: -9px;
-    right: -1px;
-    width: 18px;
-    height: 18px;
-    transform: rotateZ(47deg);
-    &:after {
-      width: 11px;
-      height: 10px;
-      top: 0px;
-      left: 0px;
-    }
-  }
-  &__sub2 {
-    top: -24px;
-    right: -15px;
-    width: 10px;
-    height: 10px;
-    transform: rotateZ(51deg);
-    &:after {
-      top: -1px;
-      right: -6px;
-      width: 10px;
-      height: 9px;
+.dayNight {
+    cursor: pointer;
+    input {
+        display: none;
+        & + div {
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            position: relative;
+            box-shadow: inset 6px -5px 0 0 $nightBtn;
+            transform: scale(1) rotate(-2deg);
+            transition: box-shadow .5s ease 0s, transform .4s ease .1s;
+            &:before {
+                content: '';
+                width: inherit;
+                height: inherit;
+                border-radius: inherit;
+                position: absolute;
+                left: 0;
+                top: 0;
+                transition: background .3s ease;
+            }
+            &:after {
+                content: '';
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                margin: -4px 0 0 -4px;
+                position: absolute;
+                top: 55%;
+                left: 55%;
+                box-shadow: 0 -18px 5px $dayBtn, 0 18px 4px $dayBtn, 18px 0 4px $dayBtn, -18px 0 4px $dayBtn, 10px 10px 4px $dayBtn, -10px 10px 4px $dayBtn, 10px -10px 4px $dayBtn, -10px -10px 4px $dayBtn;
+                transform: scale(0);
+                transition: all .3s ease;
+            }
+        }
+        &:checked + div {
+            box-shadow: inset 22px -32px 0 0 $nightBtn;
+            transform: scale(.5) rotate(0deg);
+            transition: transform .3s ease .1s, box-shadow .2s ease 0s;
+            &:before {
+                background: $dayBtn;
+                transition: background .3s ease .1s;
+            }
+            &:after {
+                transform: scale(1.5);
+                transition: transform .5s ease .15s;
+            }
+        }
     }
 }
-}
-
-.star {
-  position: absolute;
-  background: #fff;
-  border-radius: 50%;
-  transform: scale(1);
-  transition: transform 0.5s cubic-bezier(0.67, -0.01, 0.27, 1.8);
-  &:first-of-type {
-    width: 4px;
-    height: 4px;
-    right: 45px;
-    top: 8px;
-    transition-delay: 0.1s;
-  }
-  &:nth-of-type(2) {
-    width: 5px;
-    height: 5px;
-    right: 42px;
-    bottom: 8px;
-    transition-delay: 0.1s;
-  }
-  &:nth-of-type(3) {
-    width: 3px;
-    height: 3px;
-    right: 33px;
-    top: 20px;
-    transition-delay: 0.1s;
-  }
-  &:nth-of-type(4) {
-    width: 3px;
-    height: 3px;
-    right: 25px;
-    top: 33px;
-    transition-delay: 0.1s;
-  }
-  &:nth-of-type(5) {
-    width: 4px;
-    height: 4px;
-    right: 16px;
-    top: 5px;
-    transition-delay: 0.05s;
-  }
-  &:nth-of-type(6) {
-    width: 5px;
-    height: 5px;
-    right: 7px;
-    top: 24px;
-    transition-delay: 0.15s;
-  }
-  &:nth-of-type(7) {
-    width: 3px;
-    height: 3px;
-    right: 12px;
-    bottom: 9px;
-    transition-delay: 0.25s;
-  }
-}
-
-/* DAY */
-.checkbox:checked + .toggle {
-  background: #C0E6F6;
-  border-color: #83C2D7;
-  .disc {
-    background: #F5EB42;
-    border-color: #E3C64C;
-    left: 48px;
-    transform: rotate(110deg);
-    i:first-of-type,
-    i:nth-of-type(2),
-    i:last-of-type {
-      opacity: 0;
-    }
-  }
-  .cloud {
-    opacity: 1;
-    transform: scale(1);
-  }
-  .star {
-    opacity: 0;
-    transform: scale(0);
-  }
-}
-
-
 </style>

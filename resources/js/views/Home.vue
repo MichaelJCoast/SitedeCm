@@ -1,8 +1,8 @@
 <template>
 <Carousel :carousel="carousel_items"/>
-    <div v-if="posts.length" class="container min-h-screen mx-auto px-8 md:px-12 mb-10 text-white space-y-6">
+    <div v-if="posts.length" class="container min-h-screen mx-auto px-8 md:px-12 mb-10 text-white dark:text-neutral-900 space-y-6">
         <div class="mt-6">
-            <router-link to="/blog" class="sm:mt-0 text-2xl 2xl:text-3xl font-semibold py-6">Últimas Notícias</router-link>
+            <router-link to="/blog" class="sm:mt-0 text-2xl 2xl:text-3xl font-semibold py-6 ">Últimas Notícias</router-link>
         </div>  
                 <div v-if="posts.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-4">
                         <PostCard v-for="post in posts" :key="post.id" :post="post" :category="categories" />
