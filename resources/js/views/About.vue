@@ -1,10 +1,5 @@
 <template>
 <scrollUp />
-<<<<<<< Updated upstream
-  <img class="mx-auto" src="https://www.upload.ee/image/14393841/ez.jpg"/>
-  <div v-if="about[0]" class="container min-h-screen my-6 mx-auto px-8 md:px-12">
-    <h1 class="mt-10 text-white dark:text-neutral-900 text-center uppercase font-black drop-shadow-lg text-3xl sm:text-6xl">
-=======
 
 
 <!-- <div class="w-full h-[400px]">
@@ -25,7 +20,6 @@
   <!-- <img v-if="mode" class="mx-auto" :src="aboutimage[1].image"/> -->
   <div v-if="about[0]" class="container min-h-screen my-6 mx-auto px-8 md:px-14">
     <h1 class="mt-10 text-neutral-900 dark:text-white text-center uppercase font-black text-3xl sm:text-6xl">
->>>>>>> Stashed changes
     {{ firstAboutSectionTitle() }}
     </h1>
     <div class="mx-auto border-t-4 mt-1 mb-2 w-48 border-red-500"></div>
