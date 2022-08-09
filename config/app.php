@@ -13,7 +13,7 @@ return [
     |
      */
 
-    'name' => env('APP_NAME', 'Núcleo de Estudantes de Comunicação e Multimédia'),
+    'name' => 'Núcleo de Estudantes de Comunicação e Multimédia',
 
     /*
     |--------------------------------------------------------------------------
