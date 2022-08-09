@@ -22,10 +22,10 @@
           </div>
         </div>
         <div class="hidden lg:flex" >
-          <button type="button" class="flex relative items-center">
+          <button type="button" class="flex relative items-center" aria-label="Modo Noturno Toggle">
             <DayNight class="text-yellow-500 h-6 w-6 mr-2 dark:text-neutral-200" />
           </button>
-        <router-link class="flex relative items-center" :to="'/carrinho'">
+        <router-link class="flex relative items-center" :to="'/carrinho'" aria-label="Carrinho">
           <ShoppingCartIcon class="h-6 w-6 text-neutral-900 dark:text-white hover:text-red-600 dark:hover:text-red-600" />
           <span v-if="cart_quantity" class="absolute inset-0 mt-1 ml-4">
             <div class="animate-pulse inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-semibold leading-4 bg-red-500 text-white">
@@ -36,7 +36,7 @@
       </div>
       <button
         class="cursor-pointer text-xl leading-none px-3 py-1 block lg:hidden outline-none focus:outline-none"
-        type="button" @click="toggleNavbar()">
+        type="button" aria-label="Menu Mobile" @click="toggleNavbar()">
         <MenuIcon class="flex h-6 w-6 text-neutral-900 dark:text-neutral-200 lg:hidden" />
       </button>
 
