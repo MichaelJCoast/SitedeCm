@@ -109,7 +109,7 @@ const store = createStore({
         throw err;
       });
     },
-    verifyOrder({ commit }, verify_token) {
+    verifyOrder(verify_token) {
       return axiosClient.get(`/verify-order/${verify_token}`)
       .then((res) => {
         return res;
@@ -235,8 +235,8 @@ const store = createStore({
     setAbout: (state, about) => {
       state.about.data = about;
     },
-    setAboutImage: (state, aboutimage) => {
-      state.aboutimage.data = aboutimage;
+    setAboutImage: (state, aboutImage) => {
+      state.aboutImage.data = aboutImage;
     },
     setMerch: (state, merch) => {
       state.merch.products = merch;
