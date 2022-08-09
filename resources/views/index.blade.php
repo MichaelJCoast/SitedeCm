@@ -8,6 +8,7 @@
     <meta name="author" content="Núcleo de Estudantes de Comunicação e Multimédia">
     <meta name="title" content="Núcleo de Estudantes de Comunicação e Multimédia">
     <meta name="description" content="Sítio web oficial do Núcleo de Estudantes de Comunicação e Multimédia da UTAD">
+    <meta name="keywords" content="NECM, Núcleo de Estudantes de Comunicação e Multimédia, UTAD, Universidade de Trás-os-Montes e Alto Douro">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
