@@ -1,8 +1,31 @@
 <template>
 <scrollUp />
+<<<<<<< Updated upstream
   <img class="mx-auto" src="https://www.upload.ee/image/14393841/ez.jpg"/>
   <div v-if="about[0]" class="container min-h-screen my-6 mx-auto px-8 md:px-12">
     <h1 class="mt-10 text-white dark:text-neutral-900 text-center uppercase font-black drop-shadow-lg text-3xl sm:text-6xl">
+=======
+
+
+<!-- <div class="w-full h-[400px]">
+<div v-for="(image,i) in aboutimage" :key="i" class=" w-full">
+    <img v-show="image.mode === 0 && getTheme() === 'dark' " class="w-full h-[400px] invisible dark:visible" :src="image.image">
+    <img v-show="image.mode === 1 && getTheme() === 'light' " class="w-full h-[400px] visible dark:invisible" :src="image.image">
+</div>
+</div> -->
+
+<div v-for="(image,i) in aboutimage" :key="i" >
+  <img v-if="image.mode === 0 && getTheme() === 'dark'" :src="image.image">
+  <img v-else :src="image.image">
+</div>
+
+
+
+
+  <!-- <img v-if="mode" class="mx-auto" :src="aboutimage[1].image"/> -->
+  <div v-if="about[0]" class="container min-h-screen my-6 mx-auto px-8 md:px-14">
+    <h1 class="mt-10 text-neutral-900 dark:text-white text-center uppercase font-black text-3xl sm:text-6xl">
+>>>>>>> Stashed changes
     {{ firstAboutSectionTitle() }}
     </h1>
     <div class="mx-auto border-t-4 mt-1 mb-2 w-48 border-red-500"></div>
@@ -60,6 +83,7 @@ import { computed } from "vue";
 
 export default {
   data() {
+    console.log(this.getTheme);
     const store = useStore();
     store.dispatch("getQuestions");
     store.dispatch("getAbout");
@@ -69,12 +93,32 @@ export default {
       questions: computed(() => store.state.questions.data),
     };
   },
+
+   watch: {
+
+        theme: function(value) {
+          this.getTheme()
+
+
+
+
+/*           deep: true,
+          immediate: true,
+          handler() {
+            return localStorage.getItem("user-theme");
+          }, */
+        },
+   },
+
   methods: {
     firstAboutSectionTitle() {
       return this.about[0].title;
     },
     firstAboutSectionBody() {
       return this.about[0].subtitle;
+    },
+    getTheme() {
+      return localStorage.getItem("user-theme");
     },
   },
   components: { Disclosure, DisclosureButton, DisclosurePanel, ChevronUpIcon, scrollUp },
