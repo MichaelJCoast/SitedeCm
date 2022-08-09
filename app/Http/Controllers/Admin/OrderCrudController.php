@@ -65,7 +65,7 @@ class OrderCrudController extends CrudController
             ],
             [
                 'label' => 'Estado',
-                'name' => 'status_id',
+                'name' => 'status.title',
             ],
         ]);
 
