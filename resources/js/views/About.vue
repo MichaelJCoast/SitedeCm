@@ -1,6 +1,23 @@
 <template>
 <scrollUp />
-  <img class="mx-auto" src="https://www.upload.ee/image/14393841/ez.jpg"/>
+
+
+<!-- <div class="w-full h-[400px]">
+<div v-for="(image,i) in aboutimage" :key="i" class=" w-full">
+    <img v-show="image.mode === 0 && getTheme() === 'dark' " class="w-full h-[400px] invisible dark:visible" :src="image.image">
+    <img v-show="image.mode === 1 && getTheme() === 'light' " class="w-full h-[400px] visible dark:invisible" :src="image.image">
+</div>
+</div> -->
+
+<div v-for="(image,i) in aboutimage" :key="i" >
+  <img v-if="image.mode === 0 && getTheme() === 'dark'" :src="image.image">
+  <img v-else :src="image.image">
+</div>
+
+
+
+
+  <!-- <img v-if="mode" class="mx-auto" :src="aboutimage[1].image"/> -->
   <div v-if="about[0]" class="container min-h-screen my-6 mx-auto px-8 md:px-14">
     <h1 class="mt-10 text-neutral-900 dark:text-white text-center uppercase font-black text-3xl sm:text-6xl">
     {{ firstAboutSectionTitle() }}
@@ -60,6 +77,7 @@ import { computed } from "vue";
 
 export default {
   data() {
+    console.log(this.getTheme);
     const store = useStore();
     store.dispatch("getQuestions");
     store.dispatch("getAbout");
@@ -71,12 +89,16 @@ export default {
       aboutimage: computed(() => store.state.aboutImage.data),
     };
   },
+
   methods: {
     firstAboutSectionTitle() {
       return this.about[0].title;
     },
     firstAboutSectionBody() {
       return this.about[0].subtitle;
+    },
+    getTheme() {
+      return localStorage.getItem("user-theme");
     },
   },
   components: { Disclosure, DisclosureButton, DisclosurePanel, ChevronUpIcon, scrollUp },
