@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/Backoffice-1aa3bd?logo=Laravel&logoColor=white&style=for-the-badge">
  </a>
  <a href='https://necm.utad.pt'>
-  <img src="https://img.shields.io/badge/Website-d40055?logo=Nuxt.js&logoColor=white&style=for-the-badge">
+  <img src="https://img.shields.io/badge/Website-d40055?logo=Vue.js&logoColor=white&style=for-the-badge">
  </a>
 </p>
 
