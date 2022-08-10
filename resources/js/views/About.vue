@@ -12,6 +12,7 @@
     </h1>
     <div class="mx-auto border-t-4 mt-1 mb-2 w-48 border-red-500"></div>
     <p v-html="firstAboutSectionBody()" class="text-neutral-900 dark:text-white text-justify mt-5"></p>
+    
     <!-- Quem Somos Content -->
     <div v-for="aboutList in about.slice(1)" :key="aboutList.id" class="mt-4">
       <h1 class="text-neutral-900 dark:text-white text-center capitalize font-semibold text-2xl sm:text-5xl mt-5">
@@ -45,8 +46,7 @@
             <ChevronUpIcon :class="open ? 'rotate-180 transform' : ''"
               class="h-5 w-5 text-neutral-800 dark:text-neutral-200 transition-transform" />
           </DisclosureButton>
-          <DisclosurePanel class="px-8 pt-4 pb-2 text-base sm:text-lg text-neutral-800 dark:text-neutral-200">
-            {{ question.answer }}
+          <DisclosurePanel v-html="question.answer" class="px-8 pt-4 pb-2 text-base sm:text-lg text-neutral-800 dark:text-neutral-200">
           </DisclosurePanel>
         </Disclosure>
       </div>
