@@ -2,8 +2,8 @@
   <scrollUp />
 
   <template v-for="(image, i) in aboutImage" :key="i">
-      <img v-show="theme === 'dark' && !image.mode" :src="image.image" class="mx-auto">
-      <img v-show="theme === 'light' && image.mode" :src="image.image" class="mx-auto">
+      <img v-show="theme === 'dark' && !image.mode" :src="image.image" class="mx-auto w-[80%]">
+      <img v-show="theme === 'light' && image.mode" :src="image.image" class="mx-auto w-[80%]">
   </template>
 
   <div v-if="about[0]" class="container min-h-screen my-6 mx-auto px-8 md:px-14">
@@ -62,8 +62,9 @@ import { useStore } from "vuex";
 import { computed } from "vue";
 import DayNight from "../components/DayNight.vue";
 
+
 export default {
-  data() {
+  data:function () {
     const store = useStore();
     store.dispatch("getQuestions");
     store.dispatch("getAbout");
@@ -76,20 +77,33 @@ export default {
       aboutImage: computed(() => store.state.aboutImage.data),
     };
   },
-  computed: {
-    headerImages() {
-      return this.aboutImage.filter((image) => image.mode === false);
-    },
+
+
+mounted() {
+    this.emitter.on("changeTheme", (theme) => {
+      this.forceUpdate()
+    });
   },
+
   methods: {
+    forceUpdate() {
+    if(localStorage.getItem("user-theme")==='dark'){
+      this.theme='dark'
+    };
+    if(localStorage.getItem("user-theme")==='light'){
+      this.theme='light'
+    };
+      this.$forceUpdate();
+    },
     firstAboutSectionTitle() {
-      return this.about[0].title;
+      return this.about[0].title
     },
     firstAboutSectionBody() {
       return this.about[0].subtitle;
     },
   },
   components: { Disclosure, DisclosureButton, DisclosurePanel, ChevronUpIcon, scrollUp, DayNight },
+
 };
 </script>
 <style>

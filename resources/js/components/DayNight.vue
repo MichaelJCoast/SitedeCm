@@ -22,31 +22,24 @@ export default {
     methods: {
         toggleTheme() {
             const activeTheme = localStorage.getItem("user-theme");
-
             if (activeTheme === "light") {
-                this.setTheme("dark");
-            } else {
-                this.setTheme("light");
-            }
+            this.setTheme("dark");
+            } 
+            else { this.setTheme("light"); }
+            this.emitter.emit("changeTheme", this.userTheme);
         },
-
         getTheme() {
             return localStorage.getItem("user-theme");
         },
-
         setTheme(theme) {
             localStorage.setItem("user-theme", theme);
             this.userTheme = theme;
             document.documentElement.className = theme;
-
             if (theme === 'dark') {
-                this.themeIcon = MoonIcon;
+            this.themeIcon = MoonIcon;
             }
-            else {
-                this.themeIcon = SunIcon;
-            }
+            else { this.themeIcon = SunIcon; }
         },
-
         getModePreference() {
             const hasDarkPreference = window.matchMedia('(prefers-color-scheme: dark)').matches;
             if (hasDarkPreference) {
