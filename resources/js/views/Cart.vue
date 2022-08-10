@@ -50,7 +50,8 @@
           <p class="text-2xl">Total</p>
           <p class="text-2xl font-black">{{cart_total.toFixed(2) + '€'}}</p>
         </div>
-        <button type="submit" class="bg-red-600 px-4 py-2 w-full uppercase font-semibold rounded-lg hover:bg-red-500 transition ease-in-out text-white">Efetuar Encomenda</button>
+        
+          <button :disabled="orderProcessing" type="submit" class="bg-red-600 px-4 py-2 w-full uppercase font-semibold rounded-lg hover:bg-red-500 transition ease-in-out text-white">Efetuar Encomenda</button>
         </form>
       </div>
     </div>
@@ -70,7 +71,6 @@ export default {
     const store = useStore();
 
     return {
-      disabled: 0,
       orderProcessing: computed(() => store.state.order.loading),
     };
   },
