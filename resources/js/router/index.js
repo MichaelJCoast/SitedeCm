@@ -26,13 +26,17 @@ const routes = [
             { path: "/equipa", name: "Team", component: Team },
             { path: "/links", name: "Links", component: Links },
             { path: "/carrinho", name: "Cart", component: Cart },
-            { path: "/verify-order/:token", name: "VerifyOrder", component: VerifyOrder},
           ],
     },
     {
         path: '/:catchAll(.*)',
         name: 'NotFound',
         component: NotFound,
+    },
+    {
+        path: "/verify-order/:token",
+        name: "VerifyOrder",
+        component: VerifyOrder
     }
 ];
 

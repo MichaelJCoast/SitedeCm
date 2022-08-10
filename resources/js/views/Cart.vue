@@ -13,7 +13,7 @@
               <h1 class="text-lg sm:text-2xl font-bold">{{ item.name }}</h1>
               <span class="text-base sm:text-2xl font-bold mr-6">{{ item_cost(item).toFixed(2) }}€</span>
             </div>
-            <p class="text-sm">{{ product_total(item, item.selectedSize) + 'x '}} <span v-if="item.selectedSize.length < 3">{{ item.selectedSize }}</span></p>
+            <p class="text-sm">{{ product_total(item, item.selectedSize) + 'x '}} <span>{{ item.selectedSize }}</span></p>
             <a @click="removeFromCart(item, item.selectedSize)" class="underline font-semibold cursor-pointer">Remover</a>
           </div>
         </div>
@@ -50,7 +50,8 @@
           <p class="text-2xl">Total</p>
           <p class="text-2xl font-black">{{cart_total.toFixed(2) + '€'}}</p>
         </div>
-        <button type="submit" class="bg-red-600 px-4 py-2 w-full uppercase font-semibold rounded-lg hover:bg-red-500 transition ease-in-out text-white">Efetuar Encomenda</button>
+        
+          <button :disabled="orderProcessing" type="submit" class="bg-red-600 px-4 py-2 w-full uppercase font-semibold rounded-lg hover:bg-red-500 transition ease-in-out text-white">Efetuar Encomenda</button>
         </form>
       </div>
     </div>
@@ -70,7 +71,6 @@ export default {
     const store = useStore();
 
     return {
-      disabled: 0,
       orderProcessing: computed(() => store.state.order.loading),
     };
   },
@@ -85,9 +85,8 @@ export default {
       const orderDetails = {
       name: '',
       email: '',
-      order: this.$store.state.cart.map(item => { if(item.selectedSize.length < 3) { return `${item.name} ${item.selectedSize} ${item.quantity}x` }
-      else { return `${item.name} ${item.quantity}x` }
-      }).join(', '),
+      order: this.$store.state.cart.map(item => { return `${item.name} ${item.selectedSize} ${item.quantity}x` }).join(', '),
+
       total: this.$store.getters.cartItems.reduce((a, b) => a + (b.price * b.quantity), 0),
       status_id: 1,
     }
@@ -97,8 +96,8 @@ export default {
   methods: {
     flash(message){
        swal.fire({
-            title: 'Verifique a Encomenda no E-mail',
-            text: "Foi enviado um e-mail de verificação",
+            title: 'Confirma a Encomenda no E-mail',
+            text: "Foi enviado um e-mail de confirmação",
             icon: 'success',
         });
     },
