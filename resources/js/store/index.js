@@ -14,9 +14,6 @@ const store = createStore({
     currentPost: {
       data: {},
     },
-    verified_order: {
-      data: {},
-    },
     categories: {
       data: {},
     },
