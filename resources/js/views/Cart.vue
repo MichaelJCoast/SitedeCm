@@ -96,8 +96,8 @@ export default {
   methods: {
     flash(message){
        swal.fire({
-            title: 'Verifique a Encomenda no E-mail',
-            text: "Foi enviado um e-mail de verificação",
+            title: 'Confirma a Encomenda no E-mail',
+            text: "Foi enviado um e-mail de confirmação",
             icon: 'success',
         });
     },
