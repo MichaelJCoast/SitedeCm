@@ -109,7 +109,7 @@ const store = createStore({
         throw err;
       });
     },
-    verifyOrder(verify_token) {
+    verifyOrder({ commit }, verify_token) {
       return axiosClient.get(`/verify-order/${verify_token}`)
       .then((res) => {
         return res;
