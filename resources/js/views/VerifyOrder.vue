@@ -1,5 +1,5 @@
 <template>
-  <div class="container min-h-screen mx-auto lg:mt-6 px-8 md:px-14 text-neutral-900 dark:text-white">
+    <div class="container min-h-screen mx-auto lg:mt-6 px-8 md:px-14 text-neutral-900 dark:text-white">
     A tua encomenda foi confirmada com sucesso!
   </div>
 </template>
@@ -16,7 +16,9 @@ export default {
     const queryStringArray = queryString.split("/");
     const queryStringLastPart = queryStringArray[queryStringArray.length - 1];
 
-    store.dispatch("verifyOrder", queryStringLastPart);
+    store.dispatch("verifyOrder", queryStringLastPart).catch(() => {
+       this.$router.push({name: "Home"});
+    });
   }
 }
 </script>

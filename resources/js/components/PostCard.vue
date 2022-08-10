@@ -22,7 +22,7 @@
             <!-- Title -->
             <div class="mb-3">
                 <a class="block focus:outline-none focus-visible:ring-2" :href="'blog/' + post.slug">
-                    <h3 class="mb-2 text-xl md:text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-200">{{post.title}}</h3>
+                    <h3 class="mb-2 text-xl capitalize md:text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-200">{{post.title}}</h3>
                 </a>
             </div>
         </div>
