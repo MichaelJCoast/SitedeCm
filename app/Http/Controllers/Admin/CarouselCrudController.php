@@ -21,7 +21,7 @@ class CarouselCrudController extends CrudController
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
-     * 
+     *
      * @return void
      */
     public function setup()
@@ -33,56 +33,56 @@ class CarouselCrudController extends CrudController
 
     /**
      * Define what happens when the List operation is loaded.
-     * 
+     *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
     protected function setupListOperation()
     {
         CRUD::addColumn([
-            'name' => 'title', 
+            'name' => 'title',
             'label' => 'Título',
-            'type'  => 'text',
+            'type' => 'text',
         ]);
         CRUD::addColumn([
             'name' => 'router_link',
-            'label' => 'Route para:',
+            'label' => 'Route para',
             'type' => 'text',
-            'wrapper'   => [
+            'wrapper' => [
                 // 'element' => 'a', // the element will default to "a" so you can skip it here
                 'href' => function ($crud, $column, $entry, $related_key) {
                     return url($entry->router_link);
                 },
-                 'target' => '_blank',
+                'target' => '_blank',
             ],
-          ]);
-        CRUD::addColumn([
-            'name' => 'has_button', 
-            'label' => 'Botão',
-            'type'  => 'boolean',
-            'options' => [
-                0 => 'Não tem botão', 
-                1 => 'Tem botão',
-            ]
         ]);
         CRUD::addColumn([
-            'name' => 'image', 
+            'name' => 'has_button',
+            'label' => 'Botão',
+            'type' => 'boolean',
+            'options' => [
+                0 => 'Não tem botão',
+                1 => 'Tem botão',
+            ],
+        ]);
+        CRUD::addColumn([
+            'name' => 'image',
             'label' => 'Imagem',
             'type' => 'image',
             'height' => '30px',
-            'width'  => '40px',
+            'width' => '40px',
         ]);
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
+         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
          */
     }
 
     /**
      * Define what happens when the Create operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
@@ -91,36 +91,36 @@ class CarouselCrudController extends CrudController
         CRUD::setValidation(CarouselRequest::class);
 
         CRUD::addField([
-            'name' => 'title', 
+            'name' => 'title',
             'label' => 'Título',
-            'type'  => 'text',
+            'type' => 'text',
         ]);
         CRUD::addField([
-            'name'      => 'image',
-            'label'     => 'Imagem',
-            'type'      => 'upload',
-            'upload'    => true,
-            'disk'      => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
+            'name' => 'image',
+            'label' => 'Imagem',
+            'type' => 'upload',
+            'upload' => true,
+            'disk' => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
         ]);
 
         CRUD::field('router_link');
 
-        CRUD::addField([   // Checkbox
-            'name'  => 'has_button',
+        CRUD::addField([ // Checkbox
+            'name' => 'has_button',
             'label' => 'Tem botão de hiperligação?',
-            'type'  => 'checkbox'
-        ],);
+            'type' => 'checkbox',
+        ], );
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
+         * - CRUD::addField(['name' => 'price', 'type' => 'number']));
          */
     }
 
     /**
      * Define what happens when the Update operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
      * @return void
      */
