@@ -4,13 +4,13 @@
         <Loading v-if="loading"/>
         <div v-else-if="!loading && mandates.length" class="w-full max-w-xl sm:px-0 mx-auto">
             <TabGroup>
-                <TabList class="flex space-x-1 rounded-xl bg-neutral-200 dark:bg-black p-1 mx-auto">
+                <TabList class="flex space-x-1 rounded-xl bg-white dark:bg-black p-1 mx-auto">
                     <Tab v-for="mandate in mandates" as="template" :key="mandate" v-slot="{ selected }">
                         <button :class="[
                             'w-full rounded-lg py-2.5 text-sm font-medium leading-5',
                             'ring-white ring-opacity-60 ring-offset-2 ring-offset-red-400 focus:outline-none focus:ring-2',
                             selected
-                                ? 'bg-white shadow dark:bg-neutral-900'
+                                ? 'bg-neutral-200 shadow dark:bg-neutral-900'
                                 : 'hover:bg-neutral-300 dark:hover:bg-white/[0.12] dark:hover:text-white',
                         ]"> 
                         {{ mandate.year }} </button>
@@ -22,13 +22,13 @@
                         <div v-for="(department,i) in departments" :key="i">
                         <div v-if="getTeamMembersByDepartment(department, mandate).length" >
                             <h2 class="text-xl text-center font-semibold md:text-2xl mt-14">{{ department.name }}</h2>
-                            <div class="w-full flex flex-wrap place-content-center "> <!-- CAIXA  -->
+                            <div class="w-full flex flex-wrap place-content-center">
                                 <div v-for="team_member in team_members" :key="team_member.id">
                                     <div v-if="department.id === team_member.dep_id && mandate.id === team_member.mandato_id" class="text-center w-40 m-4">
-                                        <img class="object-cover object-center w-[100%] h-auto rounded-lg" :src="team_member.image" :alt="team_member.nome + ' photo'" />
+                                        <img class="object-cover object-center w-[100%] h-auto" :src="team_member.image" :alt="team_member.nome + ' photo'" />
                                         <h3 class="text-sm sm:text-lg font-semibold mt-2">{{ team_member.nome }}</h3>
                                         <div v-for="role in roles" :key="role.id">
-                                        <span v-if="role.id == team_member.role_id" class="text-sm sm:text-lg text-red-700"> {{ role.type }} </span> </div>
+                                        <span v-if="role.id == team_member.role_id" class="text-sm sm:text-lg text-red-600"> {{ role.type }} </span> </div>
                                      </div>
                                 </div>
                             </div>
