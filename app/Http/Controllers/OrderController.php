@@ -23,8 +23,7 @@ class OrderController extends Controller
     {
         $dataToken = ['token' => $token];
         $crypted = Crypt::encrypt($dataToken);
-        // Remove :8000 later
-        $url = env('APP_URL') . ':8000' . '/verify-order/' . $crypted;
+        $url = env('APP_URL') . '/verify-order/' . $crypted;
         return $url;
     }
 
