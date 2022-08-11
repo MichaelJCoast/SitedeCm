@@ -25,7 +25,7 @@ class AboutImageRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'sometimes|required|dimensions:min_width=1920, min_height=1080,',
+            'image' => 'sometimes|required|dimensions:min_width=1920, min_height=1080|max:1024',
         ];
     }
 
