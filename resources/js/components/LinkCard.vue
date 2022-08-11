@@ -3,8 +3,8 @@
     target="_blank">
     <div class="p-6 border border-neutral-400 dark:border-neutral-700 rounded-full bg-white dark:bg-black dark:hover:bg-opacity-40 hover:bg-opacity-40">
       <div class="flex items-center cursor-pointer">
-          <font-awesome-icon class="h-10 w-10 absolute" v-if="link.link_icon !== null" :icon="link.link_icon" />
-        <p class="sm:flex-1 capitalize ml-14 sm:-m-14 truncate sm:py-14">{{ link.name }}</p>
+          <font-awesome-icon class="h-8 w-8 sm:h-10 sm:w-10 absolute" v-if="link.link_icon !== null" :icon="link.link_icon" />
+        <p class="sm:flex-1 capitalize ml-14 sm:-m-14 truncate sm:py-14 text-base sm:text-lg">{{ link.name }}</p>
       </div>
     </div>
   </a>
