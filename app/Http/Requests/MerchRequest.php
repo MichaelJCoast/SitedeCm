@@ -52,7 +52,9 @@ class MerchRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'name.required' => 'O nome do produto é obrigatório!',
+            'description.required' => 'A descrição do produto é obrigatória!',
+            'price.required' => 'O preço do produto é obrigatório!',
         ];
     }
 }

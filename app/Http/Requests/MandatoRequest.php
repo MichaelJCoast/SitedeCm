@@ -49,7 +49,9 @@ class MandatoRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'year.required' => 'É necessário adicionar o ano do mandato!',
+            'year.min' => 'O ano do mandato deve ser maior ou igual a 2010!',
+            'year.max' => 'O ano do mandato não pode ser maior do que 2099!',
         ];
     }
 }

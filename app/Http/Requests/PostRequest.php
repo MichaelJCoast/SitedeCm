@@ -54,7 +54,8 @@ class PostRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'Simp.',
+            'title.required' => 'O post requer um título.',
+            'body.required' => 'O post requer um corpo de texto.',
         ];
     }
 }
