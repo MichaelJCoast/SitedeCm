@@ -55,7 +55,7 @@ class OrderController extends Controller
         ]);
 
         $credentials['token'] = $this->create_uuid();
-        $credentials['expiration'] = date('Y-m-d H:i:s', strtotime('+1 day'));
+        $credentials['expiration'] = date('Y-m-d H:i:s', strtotime('+2 day'));
 
         $order = Order::create($credentials);
 
