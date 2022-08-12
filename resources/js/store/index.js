@@ -196,6 +196,7 @@ const store = createStore({
       commit('setOrderLoading', true)
       return axiosClient.post('/order', order)
       .then(res => {
+        commit('setOrderLoading', false)
         commit('setCart', [])
         return res;
       })

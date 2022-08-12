@@ -50,7 +50,6 @@
           <p class="text-lg sm:text-2xl">Total</p>
           <p class="text-lg sm:text-2xl font-black">{{cart_total.toFixed(2) + '€'}}</p>
         </div>
-        
           <button :disabled="orderProcessing" type="submit" class="bg-red-600 px-4 py-2 w-full uppercase font-semibold rounded-lg hover:bg-red-500 transition ease-in-out text-white text-sm sm:text-base">Efetuar Encomenda</button>
         </form>
       </div>
@@ -69,7 +68,6 @@ import { computed } from "vue";
 export default {
   data() {
     const store = useStore();
-
     return {
       orderProcessing: computed(() => store.state.order.loading),
     };
@@ -86,7 +84,6 @@ export default {
       name: '',
       email: '',
       order: this.$store.state.cart.map(item => { return `${item.name} ${item.selectedSize} ${item.quantity}x` }).join(', '),
-
       total: this.$store.getters.cartItems.reduce((a, b) => a + (b.price * b.quantity), 0),
       status_id: 1,
     }
@@ -110,7 +107,7 @@ export default {
     removeFromCart(item, selectedSize) {
 
       swal.fire({
-        title: 'Remover Artigo?',
+        title: 'Remover Produto?',
         text: "Tens a certeza que queres remover este produto?",
         icon: 'warning',
         showCancelButton: true,
@@ -140,7 +137,9 @@ export default {
     submitOrder(e) {
       e.preventDefault();
       this.$store.dispatch('submitOrder', this.orderDetails);
-      this.flash();
+      if (this.orderProcessing) {
+        this.flash();
+      }
     }
   }
 };
