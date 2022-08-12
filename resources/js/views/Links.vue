@@ -1,6 +1,5 @@
 <template>
   <div class="min-h-screen mx-auto w-[80%] sm:sm:w-[80%] md:w-[80%] lg:w-[60%] xl:w-[50%]">
-     <NECMIconMono class="text-neutral-900 dark:text-white fill-current h-16 lg:h-20 xl:h-24 place-content-center w-full mt-10 mb-10"/>
     <div class="mt-8 grid grid-cols-1 gap-6">
       <LinkCard v-for="link in links" :key="link.id" :link="link" />
     </div>
