@@ -41,7 +41,7 @@
       </button>
 
       <div :class="{ hidden: !showMenu, flex: showMenu }" class="my-4 w-full flex-col space-y-4 text-neutral-900 dark:text-neutral-200">
-        <router-link v-for="item in mobileNavigation" :key="item.name" :to="item.to" :icon="item.icon"
+        <router-link @click="toggleNavbar()" v-for="item in mobileNavigation" :key="item.name" :to="item.to" :icon="item.icon"
           class="inline-flex cursor-pointer text-lg items-center px-1 pt-1 font-semibold leading-5 hover:text-red-600 focus:outline-none transition duration-150 ease-in-out">
           <component class="h-6 w-6 mr-4" :is="item.icon"></component>{{ item.name }}</router-link>
           <div class="mx-auto border-t mt-1 mb-2 w-full border-neutral-500"></div>

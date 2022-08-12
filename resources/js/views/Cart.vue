@@ -3,7 +3,7 @@
     
     <h2 class="text-2xl 2xl:text-3xl font-semibold py-6">Carrinho</h2>
 
-    <div v-if="items.length" class="flex flex-col lg:flex-row justify-between px-8 sm:px-10 space-y-10 lg:space-y-0 mb-10">
+    <div v-if="items.length" class="flex flex-col lg:flex-row justify-between sm:px-10 space-y-10 lg:space-y-0 mb-10">
       <div class="flex flex-col w-full space-y-4">
 
         <div v-for="(item, i) in items" :key="i" class="flex flex-row items-start w-full">
@@ -21,7 +21,7 @@
 
       <div class="flex flex-col bg-white dark:bg-black px-8 py-8 space-y-4 h-full rounded-3xl">
         <h3 class="text-2xl font-semibold">Sumário</h3>
-        <p class="text-neutral-900 dark:text-neutral-200">Para efetuar a encomenda precisamos dos dados abaixo.</p>
+        <p class="text-sm sm:text-base text-neutral-900 dark:text-neutral-200">Para efetuar a encomenda precisamos dos dados abaixo.</p>
 
         <form @submit="submitOrder">
 
@@ -47,11 +47,11 @@
 
 
         <div class="flex flex-row items-center justify-between mb-5">
-          <p class="text-2xl">Total</p>
-          <p class="text-2xl font-black">{{cart_total.toFixed(2) + '€'}}</p>
+          <p class="text-lg sm:text-2xl">Total</p>
+          <p class="text-lg sm:text-2xl font-black">{{cart_total.toFixed(2) + '€'}}</p>
         </div>
         
-          <button :disabled="orderProcessing" type="submit" class="bg-red-600 px-4 py-2 w-full uppercase font-semibold rounded-lg hover:bg-red-500 transition ease-in-out text-white">Efetuar Encomenda</button>
+          <button :disabled="orderProcessing" type="submit" class="bg-red-600 px-4 py-2 w-full uppercase font-semibold rounded-lg hover:bg-red-500 transition ease-in-out text-white text-sm sm:text-base">Efetuar Encomenda</button>
         </form>
       </div>
     </div>
