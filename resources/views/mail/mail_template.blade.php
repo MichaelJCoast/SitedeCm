@@ -130,7 +130,22 @@ a, a:hover, a:focus, a:active {
                   <div class="billing">
                     <div class="divider" style="margin-top:30px;padding-top:10px;border-top:1px solid #CCC"> <strong style="color:black;display:inline-block;font-size:18px;margin-bottom:5px;margin-top:5px">Encomenda</strong>
 
-                      <p style="color:#434343;line-height:150%;text-align:left;padding:0;font-weight:400;font-size:18px;margin-bottom:5px;margin-top:5px">{{ $order->order }}</p>
+                      <p style="color:#434343;line-height:150%;text-align:left;padding:0;font-weight:400;font-size:18px;margin-bottom:5px;margin-top:5px">
+                    <?php
+                  
+                    $items = explode( ',', $order->order);
+                    $count = count($items);
+                    $i = 0;
+                    foreach ($items as $item) {
+                      $i++;
+                      echo $item;
+                      if ($i < $count) {
+                        echo '<br>';
+                      }
+                    }
+                    
+                    ?>
+                      </p>
                     </div>
                     <div class="divider" style="margin-top:30px;padding-top:10px;border-top:1px solid #CCC">
                       <div class="grand-total">
