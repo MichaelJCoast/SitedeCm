@@ -4,7 +4,7 @@
       <div class="flex justify-between items-center h-16">
         <!-- Logo -->
         <router-link to="/">
-          <NECMIconMono class="text-neutral-900 dark:text-white fill-current h-16 w-auto" />
+          <NECMIconMono class="text-neutral-900 dark:text-white fill-current h-14 w-auto sm:h-16" />
         </router-link>
         <div class="hidden space-x-4 sm:ml-10 lg:flex lg:flex-wrap -mb-px">
           <scrollUp />
