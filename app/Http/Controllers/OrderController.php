@@ -26,7 +26,7 @@ class OrderController extends Controller
         $expire = Carbon::parse($expire);
         $dataToken = ['token' => $token];
         $crypted = Crypt::encrypt($dataToken);
-        $url = env('APP_URL') .':8000' . '/verify-order/' . $crypted . '?expired=' . $expire;
+        $url = env('APP_URL') . '/verify-order/' . $crypted . '?expired=' . $expire;
         return $url;
     }
 
@@ -36,11 +36,11 @@ class OrderController extends Controller
         $verify = Order::where($decrypt);
         if ($verify->exists()) {
             {
-            $expire =$verify->value('expiration');
-            $now = date('Y-m-d H:i:s');
-            if( $expire > $now) {
-                    $verify->update(['status_id' => 2]); 
-                }              
+                $expire = $verify->value('expiration');
+                $now = date('Y-m-d H:i:s');
+                if ($expire > $now) {
+                    $verify->update(['status_id' => 2]);
+                }
             }
         }
     }
