@@ -46,16 +46,16 @@ class LinkCrudController extends CrudController
         ]);
         CRUD::addColumn([
             'name' => 'link_to',
-            'label' => 'Link para:',
+            'label' => 'Link para',
             'type' => 'text',
-            'wrapper'   => [
+            'wrapper' => [
                 // 'element' => 'a', // the element will default to "a" so you can skip it here
                 'href' => function ($crud, $column, $entry, $related_key) {
                     return url($entry->link_to);
                 },
-                 'target' => '_blank',
+                'target' => '_blank',
             ],
-          ]);
+        ]);
         CRUD::addColumn([
             'name' => 'link_icon',
             'label' => 'Icone do Link',

@@ -26,7 +26,7 @@ class FaqRequest extends FormRequest
     {
         return [
             'question' => 'required',
-            'answer' => 'required'
+            'answer' => 'required',
         ];
     }
 
@@ -50,7 +50,8 @@ class FaqRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'question.required' => 'A pergunta é obrigatória',
+            'answer.required' => 'A resposta é obrigatória',
         ];
     }
 }

@@ -54,7 +54,7 @@ class EquipaRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'nome.required' => 'O membro do núcleo precisa de nome!',
         ];
     }
 }

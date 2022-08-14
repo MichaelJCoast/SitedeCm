@@ -26,7 +26,7 @@ class LinkRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'link_to' => 'required'
+            'link_to' => 'required',
         ];
     }
 
@@ -50,7 +50,8 @@ class LinkRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'name.required' => 'O link precisa de um nome!',
+            'link_to.required' => 'O link precisa de um link! 🙄',
         ];
     }
 }

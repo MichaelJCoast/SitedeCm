@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Requests;
-use Illuminate\Validation\Rule;
+
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CarouselRequest extends FormRequest
 {
@@ -26,8 +27,8 @@ class CarouselRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'image' => 'sometimes|required|dimensions:max_width=1920,max_height=1080,min_width=1920, min_height=1080,',
-    
+            'image' => 'sometimes|required|dimensions:max_width=1920,max_height=1080,min_width=1920, min_height=1080|max:1024',
+
         ];
     }
 
@@ -51,7 +52,7 @@ class CarouselRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'title.required' => 'O título é obrigatório.',
         ];
     }
 }

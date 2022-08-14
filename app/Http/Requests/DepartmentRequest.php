@@ -25,7 +25,7 @@ class DepartmentRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required'
+            'name' => 'required',
         ];
     }
 
@@ -49,7 +49,7 @@ class DepartmentRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'name.required' => 'O nome do departamento é obrigatório!',
         ];
     }
 }

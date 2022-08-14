@@ -27,8 +27,8 @@ class PostRequest extends FormRequest
         return [
             'title' => 'required',
             'body' => 'required',
-            'portrait_image' => 'sometimes|required|dimensions:ratio=1/1',
-            'landscaped_image' => 'sometimes|required|dimensions:ratio=16/9',
+            'portrait_image' => 'sometimes|required|dimensions:ratio=1/1|max:1024',
+            'landscaped_image' => 'sometimes|required|dimensions:ratio=16/9|max:1024',
             'category_id' => 'required',
             'slug' => 'unique:posts,slug,' . \Request::get('id'), //slug é unique precisa de ser validada
         ];
@@ -54,7 +54,8 @@ class PostRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'Simp.',
+            'title.required' => 'O post requer um título.',
+            'body.required' => 'O post requer um corpo de texto.',
         ];
     }
 }

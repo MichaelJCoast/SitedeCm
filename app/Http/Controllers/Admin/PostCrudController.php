@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\PostRequest;
+use App\Models\Post;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-use App\Models\Post;
 
 /**
  * Class PostCrudController
@@ -20,75 +20,74 @@ class PostCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
-
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
-     * 
+     *
      * @return void
      */
     public function setup()
     {
-        
+
         CRUD::setModel(\App\Models\Post::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/post');
         CRUD::setEntityNameStrings('post', 'posts');
-       
+
     }
 
     /**
      * Define what happens when the List operation is loaded.
-     * 
+     *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
     protected function setupListOperation()
     {
-        
+
         CRUD::addColumn([
-            'name' => 'title', 
+            'name' => 'title',
             'label' => 'Título',
-            'type'  => 'text',
+            'type' => 'text',
         ]);
         CRUD::addColumn([
-            'name' => 'body', 
+            'name' => 'body',
             'label' => 'Body',
-            'type'  => 'text',
+            'type' => 'text',
         ]);
         CRUD::column('slug');
         CRUD::addColumn([
-            'name' => 'categories.name', 
+            'name' => 'categories.name',
             'label' => 'Categoria',
-            'type'  => 'text',
+            'type' => 'text',
         ]);
         CRUD::addColumn([
-            'name' => 'created_at', 
+            'name' => 'created_at',
             'label' => 'Criado a',
             'type' => 'date',
         ]);
         CRUD::addColumn([
-            'name' => 'portrait_image', 
+            'name' => 'portrait_image',
             'label' => 'Portrait',
             'type' => 'image',
             'height' => '30px',
-            'width'  => '30px',
+            'width' => '30px',
         ]);
         CRUD::addColumn([
-            'name' => 'landscaped_image', 
+            'name' => 'landscaped_image',
             'label' => 'Landscaped',
             'type' => 'image',
             'height' => '30px',
-            'width'  => '40px',
+            'width' => '40px',
         ]);
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
+         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
          */
     }
 
     /**
      * Define what happens when the Create operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
@@ -97,62 +96,60 @@ class PostCrudController extends CrudController
         CRUD::setValidation(PostRequest::class);
 
         CRUD::addField([
-            'name' => 'title', 
+            'name' => 'title',
             'label' => 'Título',
-            'type'  => 'text',
+            'type' => 'text',
         ]);
         CRUD::addField([
-            'name'          => 'body',
-            'label'         => 'Text',
-            'type'          => 'summernote',
-            'options'       => [
-                'toolbar'   => [
-                ['style', ['bold', 'underline', 'italic']],
-                ['font', ['color', 'clear']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['insert', ['link', 'picture', 'video']],
-                ['view', ['fullscreen']],
-                ]
+            'name' => 'body',
+            'label' => 'Text',
+            'type' => 'summernote',
+            'options' => [
+                'toolbar' => [
+                    ['style', ['bold', 'underline', 'italic']],
+                    ['font', ['color', 'clear']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen']],
+                ],
             ],
         ]);
-        
 
-        CRUD::addField([    // SELECT2
-            'name'          => 'category_id',
-            'label'         => 'Categoria',
-            'type'          => 'select',
-            'placeholder'   => 'Select a Category',
-            'entity'        => 'category',
-         
-      
+        CRUD::addField([ // SELECT2
+            'name' => 'category_id',
+            'label' => 'Categoria',
+            'type' => 'select',
+            'placeholder' => 'Select a Category',
+            'entity' => 'category',
+
         ]);
 
         CRUD::addField([
-            'name'      => 'portrait_image',
-            'label'     => 'Portrait Image',
-            'type'      => 'upload',
-            'upload'    => true,
-            'disk'      => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
+            'name' => 'portrait_image',
+            'label' => 'Portrait Image',
+            'type' => 'upload',
+            'upload' => true,
+            'disk' => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
         ]);
 
         CRUD::addField([
-            'name'      => 'landscaped_image',
-            'label'     => 'Landscaped Image',
-            'type'      => 'upload',
-            'upload'    => true,
-            'disk'      => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
+            'name' => 'landscaped_image',
+            'label' => 'Landscape Image',
+            'type' => 'upload',
+            'upload' => true,
+            'disk' => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
         ]);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
+         * - CRUD::addField(['name' => 'price', 'type' => 'number']));
          */
     }
 
     /**
      * Define what happens when the Update operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
      * @return void
      */
@@ -164,14 +161,14 @@ class PostCrudController extends CrudController
     protected function showPosts(Post $post)
     {
         return view('blog-post', [
-            'post' => $post
+            'post' => $post,
         ]);
     }
 
-    protected function blogPostIndex(Post $post) 
+    protected function blogPostIndex(Post $post)
     {
         return view('blog', [
-            'posts' => $post::orderBy('created_at', 'DESC')->paginate(18)
+            'posts' => $post::orderBy('created_at', 'DESC')->paginate(18),
         ]);
     }
 }

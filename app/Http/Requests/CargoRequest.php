@@ -25,7 +25,7 @@ class CargoRequest extends FormRequest
     public function rules()
     {
         return [
-             'type' => 'required'
+            'type' => 'required',
         ];
     }
 
@@ -49,7 +49,7 @@ class CargoRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'type.required' => 'O nome do cargo é obrigatório!',
         ];
     }
 }

@@ -20,7 +20,7 @@
       </h1>
       <p v-html="aboutList.subtitle" class="text-neutral-900 dark:text-white text-justify mt-4"></p>
     </div>
-    <div class="w-full px-2 sm:px-0 mt-4">
+    <div class="w-full  sm:px-0 mt-4">
       <h1 class="text-neutral-900 dark:text-white text-center capitalize font-semibold text-2xl sm:text-5xl mt-20">
         FAQ
       </h1>
@@ -33,9 +33,9 @@
             <ChevronUpIcon :class="open ? 'rotate-180 transform' : ''"
               class="h-5 w-5 text-neutral-900 dark:text-neutral-200 text-lg" />
           </DisclosureButton>
-          <DisclosurePanel class="px-8 pt-4 pb-2 text-base sm:text-lg text-neutral-900 dark:text-neutral-200">
+          <DisclosurePanel class="px-4 pt-4 pb-2 text-sm sm:text-lg text-neutral-900 dark:text-neutral-200">
             Criado por <strong>Luís Peixoto</strong>,<strong> Marco Moreira</strong> e <strong>Simão Amaral</strong> com
-            <strong>Laravel</strong> e <strong>Vue</strong> no ano de 2022.
+            <strong style="color:#F05340">Laravel</strong> e <strong style="color:#42b883">Vue</strong> no ano de 2022.
           </DisclosurePanel>
         </Disclosure>
         <Disclosure v-for="question in questions" :key="question.id" as="div" class="mt-2" v-slot="{ open }">
@@ -46,7 +46,7 @@
             <ChevronUpIcon :class="open ? 'rotate-180 transform' : ''"
               class="h-5 w-5 text-neutral-800 dark:text-neutral-200 transition-transform" />
           </DisclosureButton>
-          <DisclosurePanel v-html="question.answer" class="px-8 pt-4 pb-2 text-base sm:text-lg text-neutral-800 dark:text-neutral-200">
+          <DisclosurePanel v-html="question.answer" class="px-4 pt-4 pb-2 text-sm sm:text-lg text-neutral-800 dark:text-neutral-200">
           </DisclosurePanel>
         </Disclosure>
       </div>

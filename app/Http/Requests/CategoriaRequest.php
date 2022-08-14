@@ -25,7 +25,7 @@ class CategoriaRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:'.config('permission.table_names.categorias', 'categorias').',name',
+            'name' => 'required|unique:' . config('permission.table_names.categorias', 'categorias') . ',name',
         ];
     }
 
@@ -49,7 +49,7 @@ class CategoriaRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'name.required' => 'O nome da categoria é obrigatório!',
         ];
     }
 }
