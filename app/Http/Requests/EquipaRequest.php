@@ -25,7 +25,7 @@ class EquipaRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'sometimes|required|max:1024',
+            'image' => 'required|max:1024',
             'nome' => 'required',
             'dep_id' => 'required',
             'role_id' => 'required',
@@ -55,6 +55,8 @@ class EquipaRequest extends FormRequest
     {
         return [
             'nome.required' => 'O membro do núcleo precisa de nome!',
+            'image.required' => 'O membro do núcleo precisa de imagem!',
+            'image.max' => 'A imagem do membro do núcleo tem que ter no máximo 1MB!',
         ];
     }
 }

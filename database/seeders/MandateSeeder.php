@@ -21,27 +21,20 @@ class MandateSeeder extends Seeder
         Schema::enableForeignKeyConstraints();
         DB::table('mandatos')->insert([
             'id' => '1',
-            'year' => '2019',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-
-        ]);
-        DB::table('mandatos')->insert([
-            'id' => '2',
             'year' => '2020',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
 
         ]);
         DB::table('mandatos')->insert([
-            'id' => '3',
+            'id' => '2',
             'year' => '2021',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
 
         ]);
         DB::table('mandatos')->insert([
-            'id' => '4',
+            'id' => '3',
             'year' => '2022',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),

@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class CarouselRequest extends FormRequest
+class MerchRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,9 +25,10 @@ class CarouselRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'image' => 'required|dimensions:max_width=1920,max_height=1080,min_width=1920, min_height=1080|max:1024',
-
+            'name' => 'required',
+            'photo' => 'sometimes|required|max:1024',
+            'description' => 'required',
+            'price' => 'required',
         ];
     }
 
@@ -52,10 +52,9 @@ class CarouselRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'O título é obrigatório.',
-            'image.required' => 'A imagem é obrigatória.',
-            'image.dimensions' => 'A imagem tem que ter as dimensões máximas de 1920x1080 e mínimas de 1920x1080.',
-            'image.max' => 'A imagem tem que ter no máximo 1MB.',
+            'name.required' => 'O nome do produto é obrigatório!',
+            'description.required' => 'A descrição do produto é obrigatória!',
+            'price.required' => 'O preço do produto é obrigatório!',
         ];
     }
 }

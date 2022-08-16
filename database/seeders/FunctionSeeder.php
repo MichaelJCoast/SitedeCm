@@ -56,34 +56,41 @@ class FunctionSeeder extends Seeder
         ]);
         DB::table('cargos')->insert([
             'id' => '6',
-            'type' => '1º Secretária',
+            'type' => '1º Secretário',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
 
         ]);
         DB::table('cargos')->insert([
             'id' => '7',
-            'type' => '2º Secretária',
+            'type' => '1º Secretária',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
 
         ]);
         DB::table('cargos')->insert([
             'id' => '8',
-            'type' => 'Dirigente',
+            'type' => '2º Secretária',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
 
         ]);
         DB::table('cargos')->insert([
             'id' => '9',
-            'type' => 'Colaborador',
+            'type' => 'Dirigente',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
 
         ]);
         DB::table('cargos')->insert([
             'id' => '10',
+            'type' => 'Colaborador',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+
+        ]);
+        DB::table('cargos')->insert([
+            'id' => '11',
             'type' => 'Colaboradora',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),

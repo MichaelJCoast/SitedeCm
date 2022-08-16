@@ -157,6 +157,7 @@ class EquipaCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+        CRUD::setValidation(EditEquipaRequest::class);
     }
 
 }
