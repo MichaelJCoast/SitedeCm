@@ -162,6 +162,7 @@ class MerchCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+        CRUD::setValidation(EditMerchRequest::class);
     }
 
 

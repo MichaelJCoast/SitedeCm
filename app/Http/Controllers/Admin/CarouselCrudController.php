@@ -127,5 +127,6 @@ class CarouselCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+        CRUD::setValidation(EditCarouselRequest::class);
     }
 }

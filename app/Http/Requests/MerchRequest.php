@@ -26,7 +26,7 @@ class MerchRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'photo' => 'sometimes|required|max:1024',
+            'photo' => 'required|max:1024',
             'description' => 'required',
             'price' => 'required',
         ];
@@ -55,6 +55,8 @@ class MerchRequest extends FormRequest
             'name.required' => 'O nome do produto é obrigatório!',
             'description.required' => 'A descrição do produto é obrigatória!',
             'price.required' => 'O preço do produto é obrigatório!',
+            'photo.required' => 'A foto do produto é obrigatória!',
+            'photo.max' => 'A foto do produto tem que ter no máximo 1MB!',
         ];
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostRequest extends FormRequest
+class EditPostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,6 @@ class PostRequest extends FormRequest
      */
     public function authorize()
     {
-        // only allow updates if the user is logged in
         return backpack_auth()->check();
     }
 
@@ -27,30 +26,13 @@ class PostRequest extends FormRequest
         return [
             'title' => 'required',
             'body' => 'required',
-            'portrait_image' => 'required|dimensions:ratio=1/1|max:1024',
-            'landscaped_image' => 'required|dimensions:ratio=16/9|max:1024',
+            'portrait_image' => 'sometimes|required|dimensions:ratio=1/1|max:1024',
+            'landscaped_image' => 'sometimes|required|dimensions:ratio=16/9|max:1024',
             'category_id' => 'required',
             'slug' => 'unique:posts,slug,' . \Request::get('id'), //slug é unique precisa de ser validada
         ];
     }
 
-    /**
-     * Get the validation attributes that apply to the request.
-     *
-     * @return array
-     */
-    public function attributes()
-    {
-        return [
-            //
-        ];
-    }
-
-    /**
-     * Get the validation messages that apply to the request.
-     *
-     * @return array
-     */
     public function messages()
     {
         return [

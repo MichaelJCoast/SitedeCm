@@ -42,7 +42,7 @@ class DepartmentSeeder extends Seeder
         ]);
         DB::table('departments')->insert([
             'id' => '4',
-            'name' => 'Departamento de Web',
+            'name' => 'Departamento Web',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
 
@@ -78,6 +78,13 @@ class DepartmentSeeder extends Seeder
         DB::table('departments')->insert([
             'id' => '9',
             'name' => 'Departamento Pedagógico',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+
+        ]);
+        DB::table('departments')->insert([
+            'id' => '10',
+            'name' => 'Departamento Desportivo',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
 

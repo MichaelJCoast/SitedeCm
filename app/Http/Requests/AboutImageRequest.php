@@ -49,7 +49,9 @@ class AboutImageRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'image.required' => 'A imagem é obrigatória.',
+            'image.dimensions' => 'A imagem tem que ter as dimensões máximas de 1920x1080 e mínimas de 1920x1080.',
+            'image.max' => 'A imagem tem que ter no máximo 1MB.',
         ];
     }
 }
