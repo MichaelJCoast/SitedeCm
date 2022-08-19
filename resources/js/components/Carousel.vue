@@ -59,7 +59,11 @@ export default {
   transition: all .2s;
 }
 
-.swiper-slide-prev:hover,
+.swiper-slide-prev:hover {
+  opacity: 100%;
+  transform: translateX(10px);
+}
+
 .swiper-slide-next:hover {
   opacity: 100%;
   transform: translateX(-10px);

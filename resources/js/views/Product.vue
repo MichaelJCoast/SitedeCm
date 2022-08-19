@@ -11,7 +11,7 @@
           <RadioGroupOption as="button" v-for="(size, i) in product.sizes" :key="i" :value="size.name"
             v-slot="{ checked }">
             <button class="border border-black dark:border-neutral-200 px-6 py-4 w-full font-semibold p.0"
-              :class="checked ? 'text-neutral-200 bg-red-700 dark:text-neutral-200 dark:bg-black' : 'bg-transparent text-neutral-900 dark:text-neutral-200 dark:bg-transparent'">
+              :class="checked ? 'text-neutral-200 bg-red-700 dark:text-neutral-900 dark:bg-neutral-200' : 'bg-transparent text-neutral-900 dark:text-neutral-200 dark:bg-transparent'">
               {{ size.name }}
             </button>
           </RadioGroupOption>
